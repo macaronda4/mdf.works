@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>使い方ガイド — Kuroko | mdf.works</title>
+<meta name="description" content="Kuroko の使い方を最初から解説します。自動検出の仕組みと感度の選びかた、手動マスクの操作、キーボードショートカット、保存できないときの対処まで。">
+<link rel="canonical" href="https://mdf.works/kuroko/guide.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使い方ガイド — 自動検出のコツと手動マスクの操作 | Kuroko">
+<meta property="og:description" content="自動検出の仕組みと感度の選びかた、手動マスクの操作、保存できないときの対処までひと通り解説します。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <span class="mark">mdf<b>.works</b></span>
+      <span class="sub">個人開発のウェブツール</span>
+    </a>
+    <nav class="site-nav" aria-label="メインナビゲーション">
+      <a href="index.html">Kuroko 概要</a>
+      <a href="guide.html">使い方</a>
+      <a href="checklist.html">安全ガイド</a>
+      <a class="cta" href="tool.html">ツールを開く</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap prose">
+
+    <p class="crumb"><a href="../index.html">mdf.works</a><span aria-hidden="true">›</span><a href="index.html">Kuroko</a><span aria-hidden="true">›</span>使い方ガイド</p>
+      <div class="page-head">
+      <p class="eyebrow">Guide</p>
+      <h1>Kuroko の使い方</h1>
+      <p class="lead">読み込みから保存まで、実際の画面に沿って説明します。うまく検出されないときの調整方法も後半にまとめました。</p>
+      <p class="updated">最終更新：2026年8月13日</p>
+    </div>
+
+    <h2>1. 画像を読み込む</h2>
+    <p>読み込みかたは3通りあります。どれを使っても結果は同じです。</p>
+    <ul>
+      <li><strong>貼り付け</strong>：スクリーンショットを撮った直後に <code>Ctrl</code>＋<code>V</code>（Mac は <code>⌘</code>＋<code>V</code>）。クリップボードから直接取り込めるので、いちばん手数が少ない方法です。</li>
+      <li><strong>ドラッグ＆ドロップ</strong>：画面上にファイルを放り込みます。複数ファイルをまとめて落とせます。</li>
+      <li><strong>ファイルを選ぶ</strong>：右上の「画像を開く」ボタンから選択します。スマートフォンではカメラロールが開きます。</li>
+    </ul>
+    <p>複数枚を読み込むと、画面下にサムネイルの一覧が並びます。クリックで切り替えられ、それぞれのマスクは別々に保持されます。</p>
+
+    <h2>2. 自動検出を実行する</h2>
+    <p>
+      「自動検出」パネルの<strong>「この画像を自動検出」</strong>を押すと、アイコンと名前の行にマスクが並びます。
+      解析には画像の大きさに応じて数秒かかります。
+    </p>
+
+    <h3>アイコンと名前の処理を選ぶ</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">設定</th><th scope="col">初期値</th><th scope="col">説明</th></tr></thead>
+        <tbody>
+          <tr><td>アイコンの処理</td><td>モザイク</td><td>ぼかし・塗りつぶしにも変更できます。アイコンは絵柄なのでモザイクで十分なことが多いです。</td></tr>
+          <tr><td>名前・ID行の処理</td><td>ダミー名に置き換え</td><td>周囲の色で塗ったうえに <code>User 01</code> と描き直します。誰の発言かの区別を残したいときに便利です。</td></tr>
+          <tr><td>名前が隣にないアイコンは無視する</td><td>オン</td><td>発言者のアイコンには必ず名前が並びます。オフにすると、サーバー一覧のアイコンやボタンなど丸いもの全てが対象になります。</td></tr>
+          <tr><td>既存のマスクを残す</td><td>オン</td><td>オフにすると、実行前に手動で作ったマスクも消えます。</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>「検出の積極性」の使い分け</h3>
+    <p>
+      5段階のスライダーです。標準（3）で足りないときだけ動かしてください。
+    </p>
+    <ul>
+      <li><strong>取りこぼすとき</strong>は上げます。背景と同系色で輪郭が見えにくいアイコンや、装飾フレーム付きのアイコンは、4〜5でようやく拾えることがあります。</li>
+      <li><strong>関係ないものまで拾うとき</strong>は下げます。絵文字やボタンが対象になってしまう場合に効きます。</li>
+    </ul>
+    <div class="note">
+      <strong>コツ：</strong>
+      まず標準で実行し、結果を見てから調整するのが確実です。「既存のマスクを残す」をオフにしてから再実行すると、前回の結果が消えて比較しやすくなります。
+    </div>
+
+    <h3>同じ人に同じ仮名が付く仕組み</h3>
+    <p>
+      検出したアイコンの色の並びを小さな指紋のような値に変換し、近いもの同士を同じ人物として束ねています。
+      そのため、同じ人が何度発言していても仮名は変わりません。返信プレビューに出てくる小さなアイコンも、
+      本人と同じ番号になります。
+    </p>
+
+    <h2>3. 手作業で直す</h2>
+    <p>自動検出は下書きです。仕上げは手で調整します。</p>
+
+    <h3>マスクを足す</h3>
+    <p>
+      左のツールから<strong>モザイク・ぼかし・塗りつぶし・ダミー名</strong>のいずれかを選び、画像の上をドラッグします。
+      離した時点でマスクが確定し、一覧に追加されます。
+    </p>
+
+    <h3>マスクを動かす・大きさを変える</h3>
+    <p>
+      <strong>選択ツール</strong>（キーボードの <code>V</code>）に切り替えると、マスクをドラッグで移動できます。
+      選択中のマスクには8つのハンドルが出るので、角や辺をつまんで大きさを変えられます。
+      ハンドルは選択ツール以外でも操作できます。
+    </p>
+
+    <h3>マスクを消す</h3>
+    <p>
+      マスク一覧の各行にある <code>×</code> を押すか、選択した状態で <code>Delete</code> キーを押します。
+      「すべて削除」で一括消去もできます。操作は <code>Ctrl</code>＋<code>Z</code> で戻せます。
+    </p>
+
+    <h3>数値で正確に合わせる</h3>
+    <p>
+      マスクを選ぶと X・Y・W・H の入力欄が出ます。1ピクセル単位で位置と大きさを指定できるので、
+      端がわずかに足りないときはここで詰めるのが早いです。ダミー名を選んだ場合は表示する文字も変更できます。
+    </p>
+
+    <h2>4. 書き出して保存する</h2>
+    <p>
+      「PNGで書き出す」を押すと、仕上がった画像が表示されます。保存の方法は環境によって使えるものが変わるため、
+      複数の手段を用意しています。
+    </p>
+    <ul>
+      <li><strong>画像を長押し（パソコンでは右クリック）→ 画像を保存</strong>。ブラウザ自身の機能なので、どんな環境でも使えます。確実なのはこれです。</li>
+      <li><strong>共有・写真に保存</strong>：スマートフォンで表示されます。OS の共有シートから写真アプリへ保存できます。</li>
+      <li><strong>名前を付けて保存</strong>：パソコンの Chrome / Edge で表示されます。通常の保存ダイアログが開きます。</li>
+      <li><strong>ダウンロード</strong> / <strong>新しいタブで開く</strong> / <strong>コピー</strong>：環境が許可していれば動作します。</li>
+    </ul>
+    <div class="note warn">
+      <strong>ボタンを押しても何も起きないとき：</strong>
+      ページが他のサイトに埋め込まれて表示されている場合、ブラウザ側の制限でダウンロードが禁止されていることがあります。
+      その場合は画像の長押し（右クリック）で保存してください。
+    </div>
+    <p>
+      書き出しは PNG への再エンコードです。元画像に含まれていた Exif（撮影日時・位置情報など）は結果には引き継がれません。
+    </p>
+
+    <h2>キーボードショートカット</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">キー</th><th scope="col">動作</th></tr></thead>
+        <tbody>
+          <tr><td><code>V</code> / <code>M</code> / <code>B</code> / <code>F</code> / <code>T</code></td><td>選択 / モザイク / ぼかし / 塗りつぶし / ダミー名</td></tr>
+          <tr><td><code>Ctrl</code>＋<code>V</code></td><td>スクリーンショットを貼り付け</td></tr>
+          <tr><td><code>Ctrl</code>＋<code>Z</code></td><td>元に戻す</td></tr>
+          <tr><td><code>Ctrl</code>＋<code>Shift</code>＋<code>Z</code></td><td>やり直す</td></tr>
+          <tr><td><code>Delete</code></td><td>選択中のマスクを削除</td></tr>
+          <tr><td><code>Esc</code></td><td>選択を解除</td></tr>
+          <tr><td><code>Ctrl</code>＋ホイール</td><td>拡大・縮小</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>スマートフォンでは、1本指のドラッグで範囲指定、2本指のピンチで拡大・移動ができます。</p>
+
+    <h2>自動検出は何を見ているのか</h2>
+    <p>
+      仕組みを知っておくと、うまくいかないときの見当が付けやすくなります。Kuroko は次の順で判断しています。
+    </p>
+    <ol>
+      <li><strong>輪郭の向きから円を探す</strong>。画像の明暗の変化（勾配）を求め、各点が「自分の正面方向にある中心」に投票します。票が集まった位置が円の中心の候補です。</li>
+      <li><strong>候補を二つの尺度で検証する</strong>。円周のうちどれだけが実際の輪郭で覆われているか、そして「平らな面の上に置かれた円盤」に見えるかどうか。この二つを同時に満たすものだけを採用します。文字や四角形はここで落ちます。</li>
+      <li><strong>同じ位置に並ぶアイコンを列とみなす</strong>。2つ以上が同じ横位置・同じ大きさで見つかれば、そこはアイコンの列です。列の残りは輪郭ではなく「そこに何かあるか」で判定するため、装飾フレームで輪郭が崩れたアイコンや、背景と同系色のアイコンも拾えます。</li>
+      <li><strong>名前の行を切り出す</strong>。アイコンの右側の帯から、その場所の背景色を測り、文字のある行を抜き出します。本文との間の空白行で区切るので、メッセージ本文は覆いません。</li>
+    </ol>
+    <p>
+      つまり、<strong>円形でないアイコン</strong>（Slack や LINE の角丸四角など）は苦手です。
+      また、アイコンが1つしかない画像では「列」を作れないため、輪郭がはっきりしない場合は検出できません。
+      いずれの場合も手動ツールをお使いください。
+    </p>
+
+    <h2>うまくいかないときの対処</h2>
+    <div class="prose">
+      <details>
+        <summary>アイコンが1つも検出されない</summary>
+        <div class="body"><p>「検出の積極性」を4〜5に上げてください。それでも駄目な場合は、「名前が隣にないアイコンは無視する」をオフにしてみてください。名前の行が読み取れないレイアウトだと、この条件で全て除外されることがあります。</p></div>
+      </details>
+      <details>
+        <summary>関係ない場所にマスクが付く</summary>
+        <div class="body"><p>積極性を下げるか、マスク一覧から不要な行を <code>×</code> で消してください。マスク一覧の行をクリックすると、その場所が画像上で強調されるので、どれが余分かを確認できます。</p></div>
+      </details>
+      <details>
+        <summary>マスクがアイコンより小さくて端がはみ出す</summary>
+        <div class="body"><p>そのマスクを選んで、ハンドルを引くか W・H の数値を大きくしてください。装飾付きアイコンでは実体の測定に失敗することがあります。</p></div>
+      </details>
+      <details>
+        <summary>名前のマスクが本文まで覆ってしまう</summary>
+        <div class="body"><p>マスクを選んで H を小さくしてください。行間が極端に詰まったスクリーンショットでは、名前の行と本文の行が分離できないことがあります。</p></div>
+      </details>
+      <details>
+        <summary>ダミー名の文字が切れて表示される</summary>
+        <div class="body"><p>枠が狭いと文字を縮めて収める仕様ですが、それでも読みにくい場合は W を広げるか、「置き換える文字列」を短くしてください。</p></div>
+      </details>
+      <details>
+        <summary>解析が遅い、途中で固まる</summary>
+        <div class="body"><p>解析対象は長辺1280ピクセルに縮小してから処理していますが、それでも古い端末では数秒かかります。極端に大きい画像（数千ピクセル四方）は、あらかじめ縮小してから読み込むと快適です。</p></div>
+      </details>
+    </div>
+
+    <div class="btnrow">
+      <a class="btn primary" href="tool.html">ツールを開く</a>
+      <a class="btn" href="checklist.html">公開前のチェックリストを読む</a>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>mdf.works</h4>
+        <p class="about">ブラウザの中だけで完結する、無料のウェブツールを公開しています。インストールも登録も不要です。</p>
+      </div>
+      <div>
+        <h4>ツール</h4>
+        <ul>
+          <li><a href="index.html">Kuroko — 概要</a></li>
+          <li><a href="tool.html">匿名化ツールを開く</a></li>
+          <li><a href="guide.html">使い方ガイド</a></li>
+          <li><a href="checklist.html">公開前チェックリスト</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>サイト情報</h4>
+        <ul>
+          <li><a href="../about.html">このサイトについて</a></li>
+          <li><a href="../privacy.html">プライバシーポリシー</a></li>
+          <li><a href="../terms.html">利用規約・免責事項</a></li>
+          <li><a href="../contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© 2026 mdf.works</p>
+  </div>
+</footer>
+</body>
+</html>

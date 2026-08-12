@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>mdf.works — ブラウザの中だけで完結するウェブツール</title>
+<meta name="description" content="ファイルをサーバーに送らずに使える、無料のウェブツールを作って公開しています。インストールも登録も不要。現在はスクリーンショット匿名化ツール「Kuroko」を公開中です。">
+<link rel="canonical" href="https://mdf.works/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="mdf.works">
+<meta property="og:title" content="mdf.works — ブラウザの中だけで完結するウェブツール">
+<meta property="og:description" content="ファイルをサーバーに送らずに使える、無料のウェブツールを作って公開しています。">
+<meta property="og:url" content="https://mdf.works/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="mark">mdf<b>.works</b></span>
+      <span class="sub">個人開発のウェブツール</span>
+    </a>
+    <nav class="site-nav" aria-label="メインナビゲーション">
+      <a href="index.html" aria-current="page">ホーム</a>
+      <a href="about.html">このサイトについて</a>
+      <a href="contact.html">お問い合わせ</a>
+      <a class="cta" href="kuroko/index.html">Kuroko</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+
+    <section class="hero prose">
+      <p class="kicker">mdf.works — personal web tools</p>
+      <h1>送らなくても、できる。</h1>
+      <p class="tagline">
+        ファイルをサーバーに預けずに使える、無料のウェブツールを作って公開しています。
+        インストールも登録もいりません。ブラウザで開いて、使って、閉じるだけです。
+      </p>
+      <div class="btnrow">
+        <a class="btn primary" href="kuroko/index.html">
+          公開中のツールを見る
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 12h16M13 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn" href="about.html">このサイトについて</a>
+      </div>
+    </section>
+
+    <h2 id="tools">公開しているツール</h2>
+    <div class="projects">
+      <a class="proj" href="kuroko/index.html">
+        <div class="top">
+          <span class="glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="9.5" r="4"/><rect x="3" y="16" width="18" height="4" rx="2" fill="currentColor" stroke="none"/></svg>
+          </span>
+          <div>
+            <h3>Kuroko</h3>
+            <p class="role">スクリーンショット匿名化</p>
+          </div>
+        </div>
+        <p>
+          Discord などのチャット画面から、アイコン・表示名・ユーザーIDを見つけて隠します。
+          同じ人物には同じ仮名が振られるので、会話の流れを保ったまま匿名化できます。
+          画像は端末から一歩も出ません。
+        </p>
+        <div class="tags">
+          <span class="tag">画像処理</span>
+          <span class="tag">送信なし</span>
+          <span class="tag">無料</span>
+          <span class="tag">登録不要</span>
+        </div>
+        <span class="go">
+          詳しく見る
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
+
+      <a class="proj" href="kuroko/checklist.html">
+        <div class="top">
+          <span class="glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 6.5h14M5 12h14M5 17.5h9"/><path d="M17.5 16.5l1.6 1.6 3-3.2"/></svg>
+          </span>
+          <div>
+            <h3>Checklist</h3>
+            <p class="role">読みもの</p>
+          </div>
+        </div>
+        <p>
+          スクリーンショットを公開する前に確認したい12項目をまとめた記事です。
+          通知バナー、Exif、ファイル名、モザイクの強度不足、PDF の墨消しの落とし穴など、
+          アイコンと名前を隠しただけでは残ってしまうものを扱っています。
+        </p>
+        <div class="tags">
+          <span class="tag">解説記事</span>
+          <span class="tag">プライバシー</span>
+        </div>
+        <span class="go">
+          読む
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
+    </div>
+
+    <h2>作るときに決めていること</h2>
+    <div class="principles">
+      <div>
+        <p class="n">01</p>
+        <h3>ファイルを預からない</h3>
+        <p>処理はすべてブラウザの中で行います。サーバーが受け取らないなら、漏れることも、目的外に使われることもありません。</p>
+      </div>
+      <div>
+        <p class="n">02</p>
+        <h3>開いたらすぐ使える</h3>
+        <p>アカウント登録、メール認証、インストール。使い捨ての道具にそれらは不要です。開いて、使って、閉じる。</p>
+      </div>
+      <div>
+        <p class="n">03</p>
+        <h3>できないことを隠さない</h3>
+        <p>自動処理には限界があります。何ができて何ができないかを書き、最後の確認は使う人に委ねます。</p>
+      </div>
+    </div>
+
+    <h2>このサイトについて</h2>
+    <div class="prose">
+      <p>
+        個人が趣味で運営している、小さなウェブツール置き場です。
+        「アップロードしないと使えないツール」に不便さと不安を感じることが多く、
+        ブラウザだけで完結するなら、そのほうがいいだろうと思って作り始めました。
+      </p>
+      <p>
+        サーバー側の処理を持たないので、運営者は利用者が何を処理したかを知ることができません。
+        これは設計上そうなっているというだけで、信用してくださいという話ではありません。
+        通信が発生していないことは、ブラウザの開発者ツールで誰でも確認できます。
+      </p>
+      <div class="btnrow">
+        <a class="btn" href="about.html">くわしく読む</a>
+        <a class="btn" href="privacy.html">プライバシーポリシー</a>
+      </div>
+    </div>
+
+    <h2>更新履歴</h2>
+    <ul class="log">
+      <li><time datetime="2026-08-13">2026-08-13</time><span>サイトを公開しました。</span></li>
+      <li><time datetime="2026-08-13">2026-08-13</time><span>Kuroko：返信プレビューのアイコンと名前に対応しました。</span></li>
+      <li><time datetime="2026-08-10">2026-08-10</time><span>Kuroko：装飾フレーム付きアイコン、低コントラストなアイコンの検出精度を改善しました。</span></li>
+      <li><time datetime="2026-08-09">2026-08-09</time><span>Kuroko：スマートフォン向けの操作画面と、ピンチ操作に対応しました。</span></li>
+    </ul>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>mdf.works</h4>
+        <p class="about">ブラウザの中だけで完結する、無料のウェブツールを公開しています。インストールも登録も不要です。</p>
+      </div>
+      <div>
+        <h4>ツール</h4>
+        <ul>
+          <li><a href="kuroko/index.html">Kuroko — 概要</a></li>
+          <li><a href="kuroko/tool.html">匿名化ツールを開く</a></li>
+          <li><a href="kuroko/guide.html">使い方ガイド</a></li>
+          <li><a href="kuroko/checklist.html">公開前チェックリスト</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>サイト情報</h4>
+        <ul>
+          <li><a href="about.html">このサイトについて</a></li>
+          <li><a href="privacy.html">プライバシーポリシー</a></li>
+          <li><a href="terms.html">利用規約・免責事項</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© 2026 mdf.works</p>
+  </div>
+</footer>
+</body>
+</html>

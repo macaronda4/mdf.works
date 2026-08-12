@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kuroko — スクリーンショットのアイコンと名前を隠すツール | mdf.works</title>
+<meta name="description" content="Discordなどのスクリーンショットから、アイコン・表示名・ユーザーIDをブラウザの中だけで検出してマスクする無料ツール。画像はどこにも送信されません。">
+<link rel="canonical" href="https://mdf.works/kuroko/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kuroko — スクリーンショットのアイコンと名前を隠すツール">
+<meta property="og:description" content="画像を端末の外に出さずに、アイコン・表示名・ユーザーIDをマスクできる無料ツールです。">
+<meta property="og:url" content="https://mdf.works/kuroko/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <span class="mark">mdf<b>.works</b></span>
+      <span class="sub">個人開発のウェブツール</span>
+    </a>
+    <nav class="site-nav" aria-label="メインナビゲーション">
+      <a href="index.html">Kuroko 概要</a>
+      <a href="guide.html">使い方</a>
+      <a href="checklist.html">安全ガイド</a>
+      <a class="cta" href="tool.html">ツールを開く</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+
+    <section class="prose" style="padding:20px 0 8px">
+      <p class="crumb"><a href="../index.html">mdf.works</a><span aria-hidden="true">›</span>Kuroko</p>
+      
+      <p class="eyebrow">Kuroko — mdf.works のツール</p>
+      <h1>スクリーンショットのアイコンと名前を、<br>ブラウザの中だけで隠す。</h1>
+      <p class="lead" style="margin-top:18px">
+        チャットの画面を人に見せたいけれど、アイコンや表示名まで見せたいわけではない。
+        Kuroko はその一手間を引き受ける道具です。画像はあなたの端末から一歩も出ません。
+      </p>
+      <div class="btnrow">
+        <a class="btn primary" href="tool.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 12h16M13 5l7 7-7 7"/></svg>
+          ツールを開く
+        </a>
+        <a class="btn" href="guide.html">使い方を読む</a>
+      </div>
+      <p class="muted" style="margin-top:16px">
+        インストール不要・登録不要・無料。読み込みから書き出しまで、すべてブラウザ内で完結します。
+        <a href="../index.html">mdf.works</a> が公開しているツールのひとつです。
+      </p>
+    </section>
+
+    <h2>Kuroko がすること</h2>
+    <div class="grid cols-3">
+      <div class="card">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7.5 3v5.4c0 4.4-3 8.3-7.5 9.6-4.5-1.3-7.5-5.2-7.5-9.6V6z"/><path d="M8.8 12.2l2.3 2.3 4.1-4.5"/></svg>
+        <h3>画像を送信しない</h3>
+        <p>読み込み・加工・書き出しのすべてがブラウザ内の処理です。サーバーへのアップロードは一切なく、通信も発生しません。</p>
+      </div>
+      <div class="card">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.4 15.4L21 21"/></svg>
+        <h3>アイコンと名前を自動で探す</h3>
+        <p>輪郭の勾配から円形のアイコンを検出し、その右側にある表示名・タグ・時刻の行までまとめて範囲に含めます。</p>
+      </div>
+      <div class="card">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7V5h16v2M12 5v14M9 19h6"/></svg>
+        <h3>同じ人には同じ仮名</h3>
+        <p>同一人物のアイコンをまとめ、<code>User 01</code> のような通し番号に置き換えます。会話の流れを保ったまま匿名化できます。</p>
+      </div>
+    </div>
+
+    <h2>どうして「送信しない」ことにこだわるのか</h2>
+    <div class="prose">
+      <p>
+        画像から個人情報を消す作業は、性質上いちばん見られたくない状態の画像を扱います。
+        オンラインの加工サービスに預けるということは、消す前の画像を第三者のサーバーに一度渡すということです。
+        処理後に削除される運用だとしても、通信経路・保存先・ログという増えなくてよいリスクが増えます。
+      </p>
+      <p>
+        Kuroko は <code>&lt;canvas&gt;</code> による画像処理だけで組み立てられており、
+        読み込んだ画像を外部に送る経路を持ちません。ページを開いたあとは通信を切っても最後まで動作します。
+        書き出しは PNG への再エンコードになるため、元画像に含まれていた Exif（撮影日時・位置情報など）も結果には残りません。
+      </p>
+      <div class="note good">
+        <strong>確かめる方法：</strong>
+        ページを読み込んだあとで機内モードにするか、ブラウザの開発者ツールのネットワークタブを開いたまま操作してみてください。
+        画像を読み込んでもマスクしても、新しい通信が発生しないことを確認できます。
+      </div>
+    </div>
+
+    <h2>3ステップで終わります</h2>
+    <ol class="steps">
+      <li>
+        <b>スクリーンショットを読み込む</b>
+        <span>ドラッグ＆ドロップ、<code>Ctrl</code>＋<code>V</code> で貼り付け、ファイル選択のいずれでも。複数枚まとめて扱えます。</span>
+      </li>
+      <li>
+        <b>「この画像を自動検出」を押す</b>
+        <span>アイコンと名前の行にマスクが並びます。足りない場所はドラッグで追加、余分なものは一覧から削除できます。</span>
+      </li>
+      <li>
+        <b>書き出して保存する</b>
+        <span>仕上がった画像が表示されます。共有・ダウンロード・コピー、または画像を長押し（右クリック）で保存してください。</span>
+      </li>
+    </ol>
+
+    <h2>隠しかたを選べます</h2>
+    <div class="tablewrap">
+      <table>
+        <caption class="muted" style="text-align:left;padding:10px 14px">用途に応じて、マスクごとに種類を変えられます。</caption>
+        <thead>
+          <tr><th scope="col">種類</th><th scope="col">見えかた</th><th scope="col">向いている場面</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>モザイク</td><td>指定した粗さでピクセル化</td><td>アイコン。粗さを上げるほど復元しにくくなります</td></tr>
+          <tr><td>ぼかし</td><td>ガウスぼかし</td><td>背景に馴染ませたいとき。強度は大きめを推奨します</td></tr>
+          <tr><td>塗りつぶし</td><td>単色で覆う</td><td>確実に消したいとき。周囲の色を自動で拾って馴染ませることもできます</td></tr>
+          <tr><td>ダミー名</td><td>周囲の色で塗り、仮名を描き直す</td><td>表示名。誰と誰の会話かを保ったまま名前だけを差し替えます</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>対応している画面</h2>
+    <div class="prose">
+      <p>
+        自動検出は<strong>円形のアイコン</strong>を手がかりにしています。Discord のデスクトップ版・スマートフォン版、
+        メッセージ一覧・メンバー一覧・返信プレビューのいずれでも動作します。装飾フレーム付きのアイコンや、
+        背景と同系色で輪郭が見えにくいアイコンにも対応しています。
+      </p>
+      <p>
+        Slack や LINE のように<strong>角丸四角のアイコン</strong>を使うサービスは自動検出の対象外ですが、
+        手動のマスクツールは画像の種類を問わず使えます。範囲をドラッグするだけなので、数か所であれば手作業の方が早い場合もあります。
+      </p>
+      <div class="btnrow">
+        <a class="btn" href="guide.html">検出がうまくいかないときの調整方法</a>
+      </div>
+    </div>
+
+    <h2>よくある質問</h2>
+    <div class="prose">
+      <details>
+        <summary>本当に画像はアップロードされませんか？</summary>
+        <div class="body"><p>されません。画像は <code>FileReader</code> と <code>&lt;canvas&gt;</code> だけで扱っており、送信するコードが存在しません。ページ読み込み後にオフラインにしても最後まで動作することで確認できます。なお、当サイトは広告・アクセス解析のために外部と通信することがありますが、これらに画像が含まれることはありません。</p></div>
+      </details>
+      <details>
+        <summary>モザイクをかければ完全に安全ですか？</summary>
+        <div class="body"><p>いいえ。モザイクは粗さが足りないと、文字の形状から内容を推測されることがあります。特に文字に対しては、モザイクよりも塗りつぶしのほうが確実です。重要な情報は塗りつぶしを選び、書き出した画像を拡大して確認してください。</p></div>
+      </details>
+      <details>
+        <summary>自動検出が何も見つけてくれません。</summary>
+        <div class="body"><p>「検出の積極性」を上げてから再実行してください。それでも見つからない場合は、アイコンが円形でない可能性があります。手動ツールで範囲をドラッグしてください。詳しくは<a href="guide.html">使い方ガイド</a>で説明しています。</p></div>
+      </details>
+      <details>
+        <summary>保存ボタンを押しても何も起きません。</summary>
+        <div class="body"><p>埋め込み表示や一部のブラウザでは、ページから始まるダウンロードが禁止されていることがあります。書き出し画面に表示された画像を長押し（パソコンでは右クリック）して保存するか、「共有・写真に保存」「名前を付けて保存」「新しいタブで開く」のいずれかをお試しください。</p></div>
+      </details>
+      <details>
+        <summary>料金はかかりますか。登録は必要ですか。</summary>
+        <div class="body"><p>どちらも不要です。無料でご利用いただけます。運営費用は広告によってまかなっています。</p></div>
+      </details>
+      <details>
+        <summary>加工した画像の扱いに責任は持ってもらえますか。</summary>
+        <div class="body"><p>いいえ。自動検出は万能ではなく、隠し漏れが起こりえます。公開前にご自身で必ず確認してください。詳しくは<a href="../terms.html">利用規約</a>の免責事項をご確認ください。</p></div>
+      </details>
+    </div>
+
+    <h2>読みもの</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3><a href="checklist.html" style="text-decoration:none">スクリーンショットを公開する前のチェックリスト</a></h3>
+        <p>アイコンと名前を隠しただけでは足りません。通知バナー、Exif、ファイル名、背景の映り込みなど、見落としやすい12項目をまとめました。</p>
+      </div>
+      <div class="card">
+        <h3><a href="guide.html" style="text-decoration:none">Kuroko の使い方と調整のコツ</a></h3>
+        <p>自動検出の仕組み、感度の選びかた、手動マスクの操作、キーボードショートカット、保存できないときの対処までひと通り解説します。</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>mdf.works</h4>
+        <p class="about">ブラウザの中だけで完結する、無料のウェブツールを公開しています。インストールも登録も不要です。</p>
+      </div>
+      <div>
+        <h4>ツール</h4>
+        <ul>
+          <li><a href="index.html">Kuroko — 概要</a></li>
+          <li><a href="tool.html">匿名化ツールを開く</a></li>
+          <li><a href="guide.html">使い方ガイド</a></li>
+          <li><a href="checklist.html">公開前チェックリスト</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>サイト情報</h4>
+        <ul>
+          <li><a href="../about.html">このサイトについて</a></li>
+          <li><a href="../privacy.html">プライバシーポリシー</a></li>
+          <li><a href="../terms.html">利用規約・免責事項</a></li>
+          <li><a href="../contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© 2026 mdf.works</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>このサイトについて・運営者情報 | mdf.works</title>
+<meta name="description" content="mdf.works の方針、公開しているツール、技術的な仕組み、運営者情報について記載しています。">
+<link rel="canonical" href="https://mdf.works/about.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="mdf.works">
+<meta property="og:title" content="このサイトについて・運営者情報 | mdf.works">
+<meta property="og:url" content="https://mdf.works/about.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="mark">mdf<b>.works</b></span>
+      <span class="sub">個人開発のウェブツール</span>
+    </a>
+    <nav class="site-nav" aria-label="メインナビゲーション">
+      <a href="index.html">ホーム</a>
+      <a href="about.html" aria-current="page">このサイトについて</a>
+      <a href="contact.html">お問い合わせ</a>
+      <a class="cta" href="kuroko/index.html">Kuroko</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap prose">
+
+    <p class="crumb"><a href="index.html">mdf.works</a><span aria-hidden="true">›</span>このサイトについて</p>
+
+    <div class="page-head">
+      <p class="eyebrow">About</p>
+      <h1>このサイトについて</h1>
+      <p class="lead">
+        mdf.works は、ブラウザの中だけで完結するウェブツールを公開している、個人の小さなサイトです。
+      </p>
+      <p class="updated">最終更新：2026年8月13日</p>
+    </div>
+
+    <h2>なぜ作っているのか</h2>
+    <p>
+      画像を切り抜きたい、PDF をまとめたい、個人情報を消したい。
+      そういう「一度きりの、ちょっとした作業」のために、ファイルをどこかのサーバーへアップロードするのは、
+      よく考えると不思議なことです。処理そのものは手元の端末で十分できるのに、
+      わざわざ他人の管理下へ渡している。
+    </p>
+    <p>
+      ブラウザは十分に高機能になりました。画像の解析も、ファイルの読み書きも、
+      サーバーを介さずにその場で実行できます。それならそうしたほうがいい、というのがこのサイトの出発点です。
+    </p>
+    <p>
+      とくに<strong>個人情報を消すための道具</strong>は、その性質上、いちばん見られたくない状態のファイルを扱います。
+      それを預けなくて済むなら、預けないほうがいいはずです。
+    </p>
+
+    <h2>3つの方針</h2>
+    <div class="principles" style="margin-bottom:22px">
+      <div>
+        <p class="n">01</p>
+        <h3>ファイルを預からない</h3>
+        <p>処理はすべてブラウザの中で行います。サーバーが受け取らないなら、漏れることも、目的外に使われることもありません。</p>
+      </div>
+      <div>
+        <p class="n">02</p>
+        <h3>開いたらすぐ使える</h3>
+        <p>アカウント登録もインストールも求めません。開いて、使って、閉じる。それで完結します。</p>
+      </div>
+      <div>
+        <p class="n">03</p>
+        <h3>できないことを隠さない</h3>
+        <p>自動処理には限界があります。何ができて何ができないかを明記し、最後の確認は使う人に委ねます。</p>
+      </div>
+    </div>
+    <p>
+      3つめは特に大事にしています。「自動でやっておきました」と言い切るほうが気持ちよく使えますが、
+      それで隠し漏れが起きたら意味がありません。結果を一覧で見せて、
+      利用者が目で確かめられる形にしておくことを優先しています。
+    </p>
+
+    <h2>公開しているツール</h2>
+
+    <h3>Kuroko — スクリーンショット匿名化</h3>
+    <p>
+      Discord などのチャット画面から、アイコン・表示名・ユーザーIDを検出して隠すツールです。
+      同一人物のアイコンをまとめて同じ仮名を割り当てるため、誰と誰の会話かという構造を保ったまま匿名化できます。
+    </p>
+    <p>
+      検出には機械学習モデルを使わず、古典的な画像処理を組み合わせています。
+      輪郭の勾配から円を探し、円周がどれだけ実際の輪郭で覆われているか、
+      平らな面の上に置かれた円盤に見えるかどうかの二つで検証します。
+      さらに、同じ位置に並ぶアイコンを「列」として扱うことで、
+      装飾フレームで輪郭が崩れたアイコンや、背景と同系色で見分けにくいアイコンにも対応しています。
+    </p>
+    <div class="btnrow" style="margin-bottom:8px">
+      <a class="btn primary" href="kuroko/tool.html">ツールを開く</a>
+      <a class="btn" href="kuroko/index.html">Kuroko について</a>
+    </div>
+
+    <h2>技術的なこと</h2>
+    <ul>
+      <li><strong>サーバー側の処理はありません。</strong>静的な HTML・CSS・JavaScript のみで構成されています。</li>
+      <li><strong>外部ライブラリを使っていません。</strong>ツール本体は1ファイルで完結しており、CDN への依存もありません。</li>
+      <li><strong>画像処理は <code>&lt;canvas&gt;</code> のみ</strong>で行っています。読み込んだ画像を外部に送る経路がコード上に存在しません。</li>
+      <li>ページを読み込んだあとは、<strong>通信を切っても最後まで動作します</strong>。ブラウザの開発者ツールのネットワークタブでも確認できます。</li>
+    </ul>
+    <div class="note">
+      なお、当サイトは広告およびアクセス解析のために外部と通信することがあります。
+      これらに利用者が処理したファイルの内容が含まれることはありません。
+      詳細は<a href="privacy.html">プライバシーポリシー</a>をご確認ください。
+    </div>
+
+    <h2>運営者情報</h2>
+    <div class="tablewrap">
+      <table>
+        <tbody>
+          <tr><th scope="row">サイト名</th><td>mdf.works</td></tr>
+          <tr><th scope="row">URL</th><td>https://mdf.works/</td></tr>
+          <tr><th scope="row">運営者</th><td>マカロン大福</td></tr>
+          <tr><th scope="row">連絡先</th><td>Discord: <code>m_df</code> ／ X: <a href="https://x.com/sugerslp" target="_blank" rel="noopener noreferrer">@sugerslp</a> ／ Mail: <a href="mailto:macaronda4@gmail.com">macaronda4@gmail.com</a><br><a href="contact.html">お問い合わせページ</a>もご利用いただけます。</td></tr>
+          <tr><th scope="row">開設</th><td>2026年</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted">
+      個人が趣味で運営しています。お問い合わせへの返信にはお時間をいただく場合があります。
+    </p>
+
+    <h2>運営費用について</h2>
+    <p>
+      公開しているツールはすべて無料です。ドメインとホスティングの費用は、
+      サイトに掲載している広告によってまかなっています。
+      広告配信に伴う情報の取り扱いについては、<a href="privacy.html">プライバシーポリシー</a>に記載しています。
+    </p>
+
+    <div class="btnrow">
+      <a class="btn primary" href="kuroko/index.html">Kuroko を見る</a>
+      <a class="btn" href="contact.html">お問い合わせ</a>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>mdf.works</h4>
+        <p class="about">ブラウザの中だけで完結する、無料のウェブツールを公開しています。インストールも登録も不要です。</p>
+      </div>
+      <div>
+        <h4>ツール</h4>
+        <ul>
+          <li><a href="kuroko/index.html">Kuroko — 概要</a></li>
+          <li><a href="kuroko/tool.html">匿名化ツールを開く</a></li>
+          <li><a href="kuroko/guide.html">使い方ガイド</a></li>
+          <li><a href="kuroko/checklist.html">公開前チェックリスト</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>サイト情報</h4>
+        <ul>
+          <li><a href="about.html">このサイトについて</a></li>
+          <li><a href="privacy.html">プライバシーポリシー</a></li>
+          <li><a href="terms.html">利用規約・免責事項</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© 2026 mdf.works</p>
+  </div>
+</footer>
+</body>
+</html>

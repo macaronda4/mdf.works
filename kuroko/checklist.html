@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>スクリーンショット公開前のチェックリスト12項目 — Kuroko | mdf.works</title>
+<meta name="description" content="アイコンと名前を隠しただけでは足りません。通知バナー、Exif、ファイル名、背景の映り込み、モザイクの強度不足など、スクリーンショット公開前に確認したい12項目をまとめました。">
+<link rel="canonical" href="https://mdf.works/kuroko/checklist.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="スクリーンショットを公開する前のチェックリスト12項目">
+<meta property="og:description" content="通知バナー、Exif、ファイル名、背景の映り込みなど、見落としやすい項目を整理しました。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <span class="mark">mdf<b>.works</b></span>
+      <span class="sub">個人開発のウェブツール</span>
+    </a>
+    <nav class="site-nav" aria-label="メインナビゲーション">
+      <a href="index.html">Kuroko 概要</a>
+      <a href="guide.html">使い方</a>
+      <a href="checklist.html">安全ガイド</a>
+      <a class="cta" href="tool.html">ツールを開く</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap prose">
+
+    <p class="crumb"><a href="../index.html">mdf.works</a><span aria-hidden="true">›</span><a href="index.html">Kuroko</a><span aria-hidden="true">›</span>公開前チェックリスト</p>
+      <div class="page-head">
+      <p class="eyebrow">Safety</p>
+      <h1>スクリーンショットを公開する前の<br>チェックリスト12項目</h1>
+      <p class="lead">
+        アイコンと表示名を隠せば安心、とはいきません。うっかり残りやすいものを、実際に問題になりやすい順に並べました。
+      </p>
+      <p class="updated">最終更新：2026年8月13日</p>
+    </div>
+
+    <p>
+      スクリーンショットの共有で困ったことになる原因は、たいてい「隠し忘れ」ではなく「隠す対象だと思っていなかったもの」です。
+      画面のいちばん目立つ部分に気を取られている間に、端のほうに情報が残ります。以下は公開前に一度だけ目を通せば済むリストです。
+    </p>
+
+    <h2>1. 画面の端に残るもの</h2>
+
+    <h3>通知バナー・トースト</h3>
+    <p>
+      撮影の瞬間に別のアプリの通知が重なることがあります。差出人名とメッセージの冒頭が写り込むため、
+      関係のない第三者の情報まで公開してしまいます。<strong>撮影前におやすみモード（集中モード）を有効にする</strong>のが根本的な対策です。
+    </p>
+
+    <h3>ステータスバー</h3>
+    <p>
+      時刻、位置情報アイコン、キャリア名、Wi-Fi の接続先名（機種によっては表示されます）、アラームの設定時刻。
+      単体では大した情報でなくても、他の投稿と突き合わせると生活パターンの推測材料になります。
+    </p>
+
+    <h3>タスクバー・Dock・タブ</h3>
+    <p>
+      パソコンの全画面スクリーンショットでは、開いている他のタブのタイトルが読み取れることがよくあります。
+      勤務先の社内システム名や、閲覧していたページの内容が分かってしまいます。
+      <strong>ウィンドウ単位で撮る</strong>（Windows は <code>Alt</code>＋<code>PrintScreen</code>、Mac は <code>⌘</code>＋<code>Shift</code>＋<code>4</code> のあと <code>Space</code>）だけで大半は防げます。
+    </p>
+
+    <h2>2. チャット画面に特有のもの</h2>
+
+    <h3>返信プレビュー・引用</h3>
+    <p>
+      返信は元発言者の小さなアイコンと名前を伴います。本文のアイコンだけ隠して、引用部分の名前が残るのはよくある見落としです。
+    </p>
+
+    <h3>メンション</h3>
+    <p>
+      本文中の <code>@ユーザー名</code> は文章の一部なので、アイコンや名前欄を隠しても残ります。
+      文脈上残す必要がないなら塗りつぶしてください。
+    </p>
+
+    <h3>入力欄のプレースホルダ</h3>
+    <p>
+      「@〇〇 へメッセージを送信」のように、相手の名前が入力欄に表示されるアプリがあります。画面のいちばん下なので見落としがちです。
+    </p>
+
+    <h3>メンバー一覧・チャンネル一覧</h3>
+    <p>
+      デスクトップ版では画面の左右に一覧が並びます。会話に関係なくても、サーバー名やチャンネル名から
+      コミュニティが特定されることがあります。
+    </p>
+
+    <h3>読み上げ中・通話中の表示</h3>
+    <p>
+      通話のワイプ（小窓）に人の顔が映っていることがあります。OS 側のオーバーレイなので、
+      チャットアプリの構造を解析する自動検出では対象になりません。手作業で確認してください。
+    </p>
+
+    <h2>3. 画像そのものに埋まっているもの</h2>
+
+    <h3>Exif（撮影日時・位置情報）</h3>
+    <p>
+      スマートフォンのカメラで撮った写真には、撮影日時や GPS 座標が埋め込まれます。
+      画面のスクリーンショットには通常 GPS は入りませんが、撮影日時や端末情報が残ることはあります。
+      <strong>画像編集ツールで保存し直す</strong>と、多くの場合これらは失われます。
+      Kuroko も PNG へ再エンコードするため、元の Exif は結果に残りません。
+    </p>
+
+    <h3>ファイル名</h3>
+    <p>
+      <code>Screenshot_2026-04-26_23-29_田中.png</code> のようなファイル名をそのままアップロードすると、
+      サービスによってはファイル名が公開されます。共有前にリネームしてください。
+    </p>
+
+    <h2>4. 隠しかたの落とし穴</h2>
+
+    <h3>モザイクが粗くない</h3>
+    <p>
+      これがいちばん危険です。モザイクは元画像の平均色を残す処理なので、<strong>文字に対しては弱い</strong>です。
+      粗さが足りないと、文字の並びの特徴から内容を推測される余地が残ります。
+      アカウント名やメールアドレスのように「候補が限られる文字列」ほど推測されやすくなります。
+    </p>
+    <div class="note warn">
+      <strong>目安：</strong>
+      文字を隠すならモザイクやぼかしではなく<strong>塗りつぶし</strong>を選んでください。
+      どうしてもモザイクを使うなら、元の文字の高さと同じかそれ以上のブロックサイズにします。
+      書き出した画像を拡大して、輪郭が推測できないことを目で確かめてください。
+    </div>
+
+    <h3>ぼかしの強度が足りない</h3>
+    <p>
+      ぼかしも同様です。弱いぼかしは、文字の輪郭がぼんやり残ります。半径は文字高の半分以上を目安にしてください。
+    </p>
+
+    <h3>塗りつぶしたつもりで下に文字が残っている</h3>
+    <p>
+      画像であれば塗りつぶしは確実です。一方、PDF や Word 文書で黒い四角形を重ねただけの場合、
+      <strong>下のテキストはデータとして残ります</strong>。コピー＆ペーストで読めてしまうため、
+      文書を共有する際は「墨消し（redaction）」機能を使うか、画像化してから塗りつぶしてください。
+    </p>
+
+    <h3>元画像を一緒に渡してしまう</h3>
+    <p>
+      加工前と加工後を同じフォルダに置いていて、間違えて元のほうを送るという事故は珍しくありません。
+      加工後のファイル名には <code>_masked</code> のような目印を付けておくと防げます。
+    </p>
+
+    <h2>公開前の最終確認</h2>
+    <ol>
+      <li>画像を<strong>実寸以上に拡大</strong>して、マスクの端から文字がはみ出していないか見る</li>
+      <li>画面の<strong>四隅と最下部</strong>を順に確認する（見落としはほぼここで起きます）</li>
+      <li>隠した領域を<strong>数える</strong>。発言者が3人なら名前のマスクも3種類あるはずです</li>
+      <li>可能なら<strong>別の端末やダークモードで表示</strong>してみる。コントラストが変わると見え方が変わります</li>
+    </ol>
+
+    <div class="note good">
+      <strong>ひとこと：</strong>
+      完璧を目指すより、<strong>そもそも撮る範囲を狭くする</strong>ほうが確実です。
+      必要な会話の部分だけを切り取ってから隠す作業に入れば、確認すべき箇所が減り、見落としも減ります。
+    </div>
+
+    <h2>関連ページ</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3><a href="tool.html" style="text-decoration:none">匿名化ツールを開く</a></h3>
+        <p>アイコンと名前の検出から、モザイク・塗りつぶし・ダミー名への置き換えまで。画像は端末から出ません。</p>
+      </div>
+      <div class="card">
+        <h3><a href="guide.html" style="text-decoration:none">使い方ガイド</a></h3>
+        <p>自動検出の仕組みと感度の選びかた、手動マスクの操作、保存できないときの対処。</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>mdf.works</h4>
+        <p class="about">ブラウザの中だけで完結する、無料のウェブツールを公開しています。インストールも登録も不要です。</p>
+      </div>
+      <div>
+        <h4>ツール</h4>
+        <ul>
+          <li><a href="index.html">Kuroko — 概要</a></li>
+          <li><a href="tool.html">匿名化ツールを開く</a></li>
+          <li><a href="guide.html">使い方ガイド</a></li>
+          <li><a href="checklist.html">公開前チェックリスト</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>サイト情報</h4>
+        <ul>
+          <li><a href="../about.html">このサイトについて</a></li>
+          <li><a href="../privacy.html">プライバシーポリシー</a></li>
+          <li><a href="../terms.html">利用規約・免責事項</a></li>
+          <li><a href="../contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© 2026 mdf.works</p>
+  </div>
+</footer>
+</body>
+</html>

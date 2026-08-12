@@ -1,0 +1,13 @@
+# 検証に使ったスクリーンショット（実際の会話が写っているため公開しない）
+_local/
+*.png
+!assets/**/*.png
+
+# プレビュー用の生成物（公開不要）
+dist/
+
+# OS / エディタ
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
