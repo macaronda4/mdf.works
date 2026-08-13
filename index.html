@@ -3,16 +3,102 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>mdf.works — ブラウザの中だけで完結するウェブツール</title>
-<meta name="description" content="ファイルをサーバーに送らずに使える、無料のウェブツールを作って公開しています。インストールも登録も不要。現在はスクリーンショット匿名化ツール「Kuroko」を公開中です。">
+<title>mdf.works｜アップロード不要のブラウザ完結ウェブツール</title>
+<meta name="description" content="ファイルをサーバーに送らずに使える無料のウェブツールを公開しています。インストールも登録も不要。スクリーンショットの名前とアイコンを隠す「Kuroko」を公開中です。">
 <link rel="canonical" href="https://mdf.works/">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="theme-color" content="#131720">
+<meta name="author" content="マカロン大福">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="mdf.works">
-<meta property="og:title" content="mdf.works — ブラウザの中だけで完結するウェブツール">
-<meta property="og:description" content="ファイルをサーバーに送らずに使える、無料のウェブツールを作って公開しています。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="mdf.works｜アップロード不要のブラウザ完結ウェブツール">
+<meta property="og:description" content="ファイルをサーバーに送らずに使える無料のウェブツールを公開しています。インストールも登録も不要。スクリーンショットの名前とアイコンを隠す「Kuroko」を公開中です。">
 <meta property="og:url" content="https://mdf.works/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://mdf.works/assets/og/home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="mdf.works｜アップロード不要のブラウザ完結ウェブツール">
+<meta name="twitter:description" content="ファイルをサーバーに送らずに使える無料のウェブツールを公開しています。インストールも登録も不要。スクリーンショットの名前とアイコンを隠す「Kuroko」を公開中です。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/home.png">
+<meta name="twitter:creator" content="@sugerslp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://mdf.works/#website",
+      "url": "https://mdf.works/",
+      "name": "mdf.works",
+      "description": "ファイルをサーバーに送らずに使える無料のウェブツールを公開している個人サイト。",
+      "inLanguage": "ja",
+      "publisher": {
+        "@id": "https://mdf.works/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mdf.works/#person",
+      "name": "マカロン大福",
+      "url": "https://mdf.works/about.html",
+      "sameAs": [
+        "https://x.com/sugerslp"
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://mdf.works/#webpage",
+      "url": "https://mdf.works/",
+      "name": "mdf.works",
+      "isPartOf": {
+        "@id": "https://mdf.works/#website"
+      },
+      "inLanguage": "ja",
+      "about": {
+        "@id": "https://mdf.works/kuroko/#app"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://mdf.works/kuroko/#app",
+      "name": "Kuroko",
+      "alternateName": "スクリーンショット匿名化ツール",
+      "url": "https://mdf.works/kuroko/",
+      "applicationCategory": "MultimediaApplication",
+      "applicationSubCategory": "画像編集",
+      "operatingSystem": "Web ブラウザ（Windows / macOS / iOS / Android）",
+      "browserRequirements": "JavaScript と HTML5 Canvas に対応したブラウザ",
+      "inLanguage": "ja",
+      "description": "Discord などのスクリーンショットから、アイコン・表示名・ユーザーIDを自動で検出してマスクする無料ツール。画像はサーバーに送信されず、ブラウザの中だけで処理されます。",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "JPY"
+      },
+      "featureList": [
+        "円形アイコンの自動検出",
+        "表示名・タグ・時刻の行の自動検出",
+        "同一人物のアイコンをまとめて同じ仮名に置き換え",
+        "返信プレビューのアイコンと名前に対応",
+        "モザイク・ぼかし・塗りつぶし・ダミー名",
+        "手動マスクの追加と数値指定",
+        "画像を送信しないブラウザ内処理",
+        "書き出し時に Exif が残らない"
+      ],
+      "author": {
+        "@id": "https://mdf.works/#person"
+      },
+      "publisher": {
+        "@id": "https://mdf.works/#person"
+      },
+      "isAccessibleForFree": true
+    }
+  ]
+}
+</script>
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
@@ -146,6 +232,7 @@
 
     <h2>更新履歴</h2>
     <ul class="log">
+      <li><time datetime="2026-08-14">2026-08-14</time><span>解説記事「モザイクやぼかしは復元できるのか」を公開しました。</span></li>
       <li><time datetime="2026-08-13">2026-08-13</time><span>サイトを公開しました。</span></li>
       <li><time datetime="2026-08-13">2026-08-13</time><span>Kuroko：返信プレビューのアイコンと名前に対応しました。</span></li>
       <li><time datetime="2026-08-10">2026-08-10</time><span>Kuroko：装飾フレーム付きアイコン、低コントラストなアイコンの検出精度を改善しました。</span></li>
@@ -169,6 +256,7 @@
           <li><a href="kuroko/tool.html">匿名化ツールを開く</a></li>
           <li><a href="kuroko/guide.html">使い方ガイド</a></li>
           <li><a href="kuroko/checklist.html">公開前チェックリスト</a></li>
+          <li><a href="kuroko/mosaic.html">モザイクは復元できるのか</a></li>
         </ul>
       </div>
       <div>

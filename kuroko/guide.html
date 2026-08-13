@@ -3,13 +3,104 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>使い方ガイド — Kuroko | mdf.works</title>
-<meta name="description" content="Kuroko の使い方を最初から解説します。自動検出の仕組みと感度の選びかた、手動マスクの操作、キーボードショートカット、保存できないときの対処まで。">
+<title>Kurokoの使い方｜スクショの名前とアイコンを隠す手順</title>
+<meta name="description" content="画像の読み込みから保存まで画面に沿って解説します。自動検出がうまくいかないときの感度調整、手動マスクの操作、ショートカット、保存できないときの対処まで。">
 <link rel="canonical" href="https://mdf.works/kuroko/guide.html">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="theme-color" content="#131720">
+<meta name="author" content="マカロン大福">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使い方ガイド — 自動検出のコツと手動マスクの操作 | Kuroko">
-<meta property="og:description" content="自動検出の仕組みと感度の選びかた、手動マスクの操作、保存できないときの対処までひと通り解説します。">
+<meta property="og:site_name" content="mdf.works">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="Kurokoの使い方｜スクショの名前とアイコンを隠す手順">
+<meta property="og:description" content="画像の読み込みから保存まで画面に沿って解説します。自動検出がうまくいかないときの感度調整、手動マスクの操作、ショートカット、保存できないときの対処まで。">
+<meta property="og:url" content="https://mdf.works/kuroko/guide.html">
+<meta property="og:image" content="https://mdf.works/assets/og/guide.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kurokoの使い方｜スクショの名前とアイコンを隠す手順">
+<meta name="twitter:description" content="画像の読み込みから保存まで画面に沿って解説します。自動検出がうまくいかないときの感度調整、手動マスクの操作、ショートカット、保存できないときの対処まで。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/guide.png">
+<meta name="twitter:creator" content="@sugerslp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HowTo",
+      "name": "スクリーンショットの名前とアイコンを隠す手順",
+      "description": "Kuroko で画像を読み込み、自動検出でアイコンと名前にマスクをかけ、書き出して保存するまでの手順。",
+      "totalTime": "PT2M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "ウェブブラウザ"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "スクリーンショットを読み込む",
+          "text": "ドラッグ＆ドロップ、Ctrl+V での貼り付け、ファイル選択のいずれかで画像を読み込みます。複数枚まとめて扱えます。",
+          "url": "https://mdf.works/kuroko/guide.html#load"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "自動検出を実行する",
+          "text": "「この画像を自動検出」を押すと、アイコンと名前の行にマスクが並びます。取りこぼすときは検出の積極性を上げます。",
+          "url": "https://mdf.works/kuroko/guide.html#detect"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "手作業で直す",
+          "text": "足りない場所はドラッグでマスクを追加し、余分なマスクは一覧から削除します。位置と大きさは数値でも指定できます。",
+          "url": "https://mdf.works/kuroko/guide.html#manual"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "書き出して保存する",
+          "text": "PNG で書き出すと仕上がった画像が表示されます。共有・ダウンロード・コピー、または画像を長押し（右クリック）で保存します。",
+          "url": "https://mdf.works/kuroko/guide.html#save"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mdf.works/#person",
+      "name": "マカロン大福",
+      "url": "https://mdf.works/about.html",
+      "sameAs": [
+        "https://x.com/sugerslp"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://mdf.works/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Kuroko",
+          "item": "https://mdf.works/kuroko/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "使い方ガイド",
+          "item": "https://mdf.works/kuroko/guide.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
@@ -41,7 +132,7 @@
       <p class="updated">最終更新：2026年8月13日</p>
     </div>
 
-    <h2>1. 画像を読み込む</h2>
+    <h2 id="load">1. 画像を読み込む</h2>
     <p>読み込みかたは3通りあります。どれを使っても結果は同じです。</p>
     <ul>
       <li><strong>貼り付け</strong>：スクリーンショットを撮った直後に <code>Ctrl</code>＋<code>V</code>（Mac は <code>⌘</code>＋<code>V</code>）。クリップボードから直接取り込めるので、いちばん手数が少ない方法です。</li>
@@ -50,7 +141,7 @@
     </ul>
     <p>複数枚を読み込むと、画面下にサムネイルの一覧が並びます。クリックで切り替えられ、それぞれのマスクは別々に保持されます。</p>
 
-    <h2>2. 自動検出を実行する</h2>
+    <h2 id="detect">2. 自動検出を実行する</h2>
     <p>
       「自動検出」パネルの<strong>「この画像を自動検出」</strong>を押すと、アイコンと名前の行にマスクが並びます。
       解析には画像の大きさに応じて数秒かかります。
@@ -89,7 +180,7 @@
       本人と同じ番号になります。
     </p>
 
-    <h2>3. 手作業で直す</h2>
+    <h2 id="manual">3. 手作業で直す</h2>
     <p>自動検出は下書きです。仕上げは手で調整します。</p>
 
     <h3>マスクを足す</h3>
@@ -117,7 +208,7 @@
       端がわずかに足りないときはここで詰めるのが早いです。ダミー名を選んだ場合は表示する文字も変更できます。
     </p>
 
-    <h2>4. 書き出して保存する</h2>
+    <h2 id="save">4. 書き出して保存する</h2>
     <p>
       「PNGで書き出す」を押すと、仕上がった画像が表示されます。保存の方法は環境によって使えるものが変わるため、
       複数の手段を用意しています。
@@ -201,6 +292,7 @@
     <div class="btnrow">
       <a class="btn primary" href="tool.html">ツールを開く</a>
       <a class="btn" href="checklist.html">公開前のチェックリストを読む</a>
+      <a class="btn" href="mosaic.html">モザイクは復元できるのか</a>
     </div>
 
   </div>
@@ -220,6 +312,7 @@
           <li><a href="tool.html">匿名化ツールを開く</a></li>
           <li><a href="guide.html">使い方ガイド</a></li>
           <li><a href="checklist.html">公開前チェックリスト</a></li>
+          <li><a href="mosaic.html">モザイクは復元できるのか</a></li>
         </ul>
       </div>
       <div>

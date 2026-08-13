@@ -2,12 +2,93 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>匿名化ツール — Kuroko | mdf.works</title>
-<meta name="description" content="スクリーンショットのアイコン・表示名・ユーザーIDを、ブラウザ内だけでマスクするツールです。画像はどこにも送信されません。">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>スクショ匿名化ツール（無料・登録不要）｜Kuroko</title>
+<meta name="description" content="画像を読み込んでボタンを押すだけ。アイコンと名前を自動検出し、モザイク・塗りつぶし・仮名への置き換えができます。画像はどこにも送信されません。">
 <link rel="canonical" href="https://mdf.works/kuroko/tool.html">
-<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="theme-color" content="#131720">
+<meta name="author" content="マカロン大福">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="mdf.works">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="スクショ匿名化ツール（無料・登録不要）｜Kuroko">
+<meta property="og:description" content="画像を読み込んでボタンを押すだけ。アイコンと名前を自動検出し、モザイク・塗りつぶし・仮名への置き換えができます。画像はどこにも送信されません。">
+<meta property="og:url" content="https://mdf.works/kuroko/tool.html">
+<meta property="og:image" content="https://mdf.works/assets/og/kuroko.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="スクショ匿名化ツール（無料・登録不要）｜Kuroko">
+<meta name="twitter:description" content="画像を読み込んでボタンを押すだけ。アイコンと名前を自動検出し、モザイク・塗りつぶし・仮名への置き換えができます。画像はどこにも送信されません。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/kuroko.png">
+<meta name="twitter:creator" content="@sugerslp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://mdf.works/kuroko/#app",
+      "name": "Kuroko",
+      "alternateName": "スクリーンショット匿名化ツール",
+      "url": "https://mdf.works/kuroko/",
+      "applicationCategory": "MultimediaApplication",
+      "applicationSubCategory": "画像編集",
+      "operatingSystem": "Web ブラウザ（Windows / macOS / iOS / Android）",
+      "browserRequirements": "JavaScript と HTML5 Canvas に対応したブラウザ",
+      "inLanguage": "ja",
+      "description": "Discord などのスクリーンショットから、アイコン・表示名・ユーザーIDを自動で検出してマスクする無料ツール。画像はサーバーに送信されず、ブラウザの中だけで処理されます。",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "JPY"
+      },
+      "featureList": [
+        "円形アイコンの自動検出",
+        "表示名・タグ・時刻の行の自動検出",
+        "同一人物のアイコンをまとめて同じ仮名に置き換え",
+        "返信プレビューのアイコンと名前に対応",
+        "モザイク・ぼかし・塗りつぶし・ダミー名",
+        "手動マスクの追加と数値指定",
+        "画像を送信しないブラウザ内処理",
+        "書き出し時に Exif が残らない"
+      ],
+      "author": {
+        "@id": "https://mdf.works/#person"
+      },
+      "publisher": {
+        "@id": "https://mdf.works/#person"
+      },
+      "isAccessibleForFree": true
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://mdf.works/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Kuroko",
+          "item": "https://mdf.works/kuroko/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "匿名化ツール",
+          "item": "https://mdf.works/kuroko/tool.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 <style>
 /* ============================================================
    tokens — light is the bare :root set; dark redefines tokens only
@@ -699,6 +780,7 @@ select{cursor:pointer}
         <a href="index.html">Kuroko 概要</a>
         <a href="guide.html">使い方</a>
         <a href="checklist.html">安全ガイド</a>
+        <a href="mosaic.html">モザイクは復元できるのか</a>
         <a href="../about.html">このサイトについて</a>
         <a href="../privacy.html">プライバシーポリシー</a>
         <a href="../terms.html">利用規約</a>
@@ -717,8 +799,8 @@ select{cursor:pointer}
               <circle cx="8.4" cy="10.2" r="2.2"/>
               <path d="M3.2 17.4l4.6-4.2 3.3 2.8 3.6-3.6 5.6 5"/>
             </svg>
-            <h1>スクリーンショットをここへ</h1>
-            <p>ドラッグ＆ドロップ、<span class="kbd">Ctrl</span>＋<span class="kbd">V</span> で貼り付け、またはファイルを選択。Discord に限らず、Slack・LINE・X などの画面写真にも使えます。</p>
+            <h1>スクリーンショットのアイコンと名前を隠す</h1>
+            <p>ここにドラッグ＆ドロップ、<span class="kbd">Ctrl</span>＋<span class="kbd">V</span> で貼り付け、またはファイルを選択してください。Discord に限らず、Slack・LINE・X などの画面写真にも使えます。</p>
             <button class="btn primary" id="btnOpen2">画像を選択</button>
           </div>
         </div>

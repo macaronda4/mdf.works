@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>モザイクやぼかしは復元できる？文字を隠すときの注意点</title>
+<meta name="description" content="モザイクが文字に弱い理由を仕組みから説明します。どのくらい粗くすれば安全か、ぼかしとの違い、塗りつぶしを使うべき場面、PDFの墨消しの落とし穴まで。">
+<link rel="canonical" href="https://mdf.works/kuroko/mosaic.html">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="theme-color" content="#131720">
+<meta name="author" content="マカロン大福">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="mdf.works">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="モザイクやぼかしは復元できる？文字を隠すときの注意点">
+<meta property="og:description" content="モザイクが文字に弱い理由を仕組みから説明します。どのくらい粗くすれば安全か、ぼかしとの違い、塗りつぶしを使うべき場面、PDFの墨消しの落とし穴まで。">
+<meta property="og:url" content="https://mdf.works/kuroko/mosaic.html">
+<meta property="og:image" content="https://mdf.works/assets/og/mosaic.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="モザイクやぼかしは復元できる？文字を隠すときの注意点">
+<meta name="twitter:description" content="モザイクが文字に弱い理由を仕組みから説明します。どのくらい粗くすれば安全か、ぼかしとの違い、塗りつぶしを使うべき場面、PDFの墨消しの落とし穴まで。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/mosaic.png">
+<meta name="twitter:creator" content="@sugerslp">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "モザイクやぼかしは復元できるのか",
+      "description": "モザイクが文字に対して弱い理由と、安全に隠すための具体的な基準。",
+      "image": "https://mdf.works/assets/og/mosaic.png",
+      "datePublished": "2026-08-14",
+      "dateModified": "2026-08-14",
+      "inLanguage": "ja",
+      "author": {
+        "@id": "https://mdf.works/#person"
+      },
+      "publisher": {
+        "@id": "https://mdf.works/#person"
+      },
+      "mainEntityOfPage": "https://mdf.works/kuroko/mosaic.html"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mdf.works/#person",
+      "name": "マカロン大福",
+      "url": "https://mdf.works/about.html",
+      "sameAs": [
+        "https://x.com/sugerslp"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://mdf.works/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Kuroko",
+          "item": "https://mdf.works/kuroko/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "モザイクは復元できるのか",
+          "item": "https://mdf.works/kuroko/mosaic.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <span class="mark">mdf<b>.works</b></span>
+      <span class="sub">個人開発のウェブツール</span>
+    </a>
+    <nav class="site-nav" aria-label="メインナビゲーション">
+      <a href="index.html">Kuroko 概要</a>
+      <a href="guide.html">使い方</a>
+      <a href="checklist.html">安全ガイド</a>
+      <a class="cta" href="tool.html">ツールを開く</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap prose">
+
+    <p class="crumb"><a href="../index.html">mdf.works</a><span aria-hidden="true">›</span><a href="index.html">Kuroko</a><span aria-hidden="true">›</span>モザイクは復元できるのか</p>
+
+    <div class="page-head">
+      <p class="eyebrow">Column</p>
+      <h1>モザイクやぼかしは復元できるのか</h1>
+      <p class="lead">
+        結論から書くと、<strong>写真に対しては実用上ほぼ戻せません。文字に対しては戻せることがあります。</strong>
+        この差がどこから来るのかを、仕組みから説明します。
+      </p>
+      <p class="updated">公開：2026年8月14日</p>
+    </div>
+
+    <h2>モザイクは何をしているのか</h2>
+    <p>
+      モザイク（ピクセル化）は、画像を格子状のブロックに区切り、
+      <strong>各ブロックの中の色を平均して1色で塗り直す</strong>処理です。
+      10×10 ピクセルのブロックなら、100個の画素が1個の平均値に置き換わります。
+      情報としては 100 分の 1 に減っています。
+    </p>
+    <p>
+      減った情報は戻りません。ここは重要です。
+      「復元できる」といっても、消えた情報を計算で取り戻しているわけではありません。
+      やっているのは<strong>照合</strong>です。
+    </p>
+
+    <h2>なぜ文字だけ戻せてしまうのか</h2>
+    <p>
+      文字を隠したモザイクが破られるのは、<strong>元の見た目の候補が少ない</strong>からです。
+    </p>
+    <p>
+      画面に表示された文字は、フォント・文字サイズ・文字色・背景色が決まっていれば、
+      同じ環境で誰でも同じピクセル並びを再現できます。つまり攻撃者は、
+      「ありうる文字列」を片っ端から同じ条件でレンダリングし、
+      それに同じモザイク処理をかけて、公開されている画像と一致するものを探せます。
+      一致すれば、それが元の文字列です。
+    </p>
+    <p>
+      これは理論上の話ではなく、モザイク化された文字を総当たりで照合して復元する
+      ツールが実際に公開されています。
+      とくに<strong>候補が限られる文字列ほど危険</strong>です。
+    </p>
+    <ul>
+      <li>ユーザー名・アカウント名（実在するものの一覧と照合できる）</li>
+      <li>メールアドレス（形式が決まっており、ドメイン部分は候補が少ない）</li>
+      <li>数字だけの列（電話番号、金額、ID）</li>
+      <li>日付・時刻（形式が完全に決まっている）</li>
+    </ul>
+    <p>
+      一方、<strong>写真は候補が無限にあります。</strong>
+      同じ平均色になる元画像は事実上いくらでも存在するため、照合という手が使えません。
+      顔写真にかけたモザイクが実用上戻せないのはこのためです。
+    </p>
+
+    <div class="note warn">
+      <strong>つまり：</strong>
+      「モザイクが弱い」のではなく、<strong>「隠した中身が推測しやすいものだと弱い」</strong>のです。
+      同じ強さのモザイクでも、風景写真なら安全で、アカウント名なら危ういということが起こります。
+    </div>
+
+    <h2>ぼかしの場合</h2>
+    <p>
+      ぼかし（ガウシアンブラー）は、周囲の画素を重み付きで平均する処理です。
+      モザイクと違ってブロックの境目が残らないぶん見た目は自然ですが、
+      <strong>情報が減っているという点は同じ</strong>で、文字に対して弱いことも同じです。
+    </p>
+    <p>
+      さらにぼかしには、モザイクにはない弱点があります。
+      ぼかしは数学的には「決まった形のフィルタを畳み込む」操作なので、
+      その逆演算（デコンボリューション）をある程度計算できてしまいます。
+      半径が小さいほど、元の輪郭が復元されやすくなります。
+    </p>
+    <p>
+      見た目には「読めないくらいぼけている」ように思えても、
+      コントラストを強調するだけで文字の形が浮かび上がることがあります。
+      <strong>弱いぼかしは、思っているより隠せていません。</strong>
+    </p>
+
+    <h2>どのくらいなら安全なのか</h2>
+    <p>
+      絶対的な基準はありませんが、実務的な目安は次のとおりです。
+    </p>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th scope="col">隠すもの</th><th scope="col">推奨</th><th scope="col">理由</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>アカウント名・メールアドレス・ID・電話番号</td>
+            <td><strong>塗りつぶし</strong></td>
+            <td>候補が限られるため、照合で戻される余地を残さないのが確実です。</td>
+          </tr>
+          <tr>
+            <td>本文中の文章</td>
+            <td>塗りつぶし、またはブロックが文字高以上のモザイク</td>
+            <td>1文字が1ブロックに収まる粗さがないと、字形の特徴が残ります。</td>
+          </tr>
+          <tr>
+            <td>アイコン・顔写真</td>
+            <td>モザイクで可（ブロックは幅の1/5以上を目安に）</td>
+            <td>候補が無限にあるため照合が成立しません。ただし細かすぎると人物の判別は残ります。</td>
+          </tr>
+          <tr>
+            <td>背景に写り込んだもの</td>
+            <td>切り取り（トリミング）</td>
+            <td>そもそも画像に含めないのがいちばん確実です。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      ぼかしを使う場合は、<strong>半径を文字の高さの半分以上</strong>にしてください。
+      それ以下は装飾であって秘匿ではありません。
+    </p>
+
+    <h2>塗りつぶしが確実な理由</h2>
+    <p>
+      塗りつぶしは平均でも近似でもなく、その領域の画素を<strong>まったく別の値で置き換える</strong>処理です。
+      元の値との対応関係が残らないため、照合の手がかりがありません。
+      見た目に情報量が失われることと、実際に情報が失われていることが一致する、数少ない方法です。
+    </p>
+    <p>
+      「黒塗りは味気ない」という理由でモザイクを選びたくなりますが、
+      隠す対象が文字なら、素直に塗りつぶすほうが安全です。
+      <a href="tool.html">Kuroko</a> では、表示名を塗りつぶしたうえで
+      <code>User 01</code> のような仮名を描き直せます。
+      黒塗りの読みにくさを避けながら、元の文字は完全に失われます。
+    </p>
+
+    <h2>画像以外の落とし穴</h2>
+
+    <h3>PDF・Word の「黒い四角」</h3>
+    <p>
+      文書ファイルの上に黒い長方形を重ねただけの場合、
+      <strong>下のテキストはデータとして残っています</strong>。
+      コピー＆ペーストすれば読めますし、テキスト抽出ツールを通せば一括で取り出せます。
+      見た目上隠れていることと、データとして消えていることはまったく別です。
+    </p>
+    <p>
+      文書を共有するときは、アプリケーションの「墨消し（Redaction）」機能を使ってください。
+      それがない場合は、いったん画像化してから塗りつぶすのが確実です。
+    </p>
+
+    <h3>サムネイルとプレビュー</h3>
+    <p>
+      画像を編集しても、OS やアプリが以前に作ったサムネイルが残っていることがあります。
+      加工前のファイルは、加工後とは別の場所へ移すか削除しておくと安全です。
+    </p>
+
+    <h3>元ファイルの取り違え</h3>
+    <p>
+      技術的な話ではありませんが、実際にいちばん多い事故はこれです。
+      加工前と加工後が同じフォルダにあると、送るときに間違えます。
+      ファイル名に <code>_masked</code> のような目印を付けておくだけで防げます。
+    </p>
+
+    <h2>まとめ</h2>
+    <ul>
+      <li>モザイクもぼかしも、情報を減らす処理であって、暗号化ではありません。</li>
+      <li>破られるのは「中身の候補が少ないとき」です。文字がまさにそれにあたります。</li>
+      <li><strong>文字は塗りつぶす。</strong>写真や顔はモザイクで構いません。</li>
+      <li>ぼかしを使うなら半径は文字高の半分以上。弱いぼかしは隠せていません。</li>
+      <li>文書ファイルの黒塗りは、下のテキストが残ります。墨消し機能を使ってください。</li>
+      <li>書き出したあと、拡大して自分の目で確認してください。</li>
+    </ul>
+
+    <div class="note good">
+      <strong>実際の作業では：</strong>
+      アイコンはモザイク、表示名は塗りつぶしか仮名への置き換え、という組み合わせが扱いやすいです。
+      <a href="tool.html">Kuroko</a> の自動検出は、この組み合わせを初期値にしています。
+    </div>
+
+    <h2>関連ページ</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3><a href="checklist.html" style="text-decoration:none">公開前のチェックリスト12項目</a></h3>
+        <p>通知バナー、Exif、ファイル名、背景の映り込みなど、隠す対象だと思っていなかったものを整理しました。</p>
+      </div>
+      <div class="card">
+        <h3><a href="tool.html" style="text-decoration:none">匿名化ツールを開く</a></h3>
+        <p>アイコンと名前を自動で検出してマスクします。画像はブラウザから出ません。無料・登録不要です。</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>mdf.works</h4>
+        <p class="about">ブラウザの中だけで完結する、無料のウェブツールを公開しています。インストールも登録も不要です。</p>
+      </div>
+      <div>
+        <h4>ツール</h4>
+        <ul>
+          <li><a href="index.html">Kuroko — 概要</a></li>
+          <li><a href="tool.html">匿名化ツールを開く</a></li>
+          <li><a href="guide.html">使い方ガイド</a></li>
+          <li><a href="checklist.html">公開前チェックリスト</a></li>
+          <li><a href="mosaic.html">モザイクは復元できるのか</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>サイト情報</h4>
+        <ul>
+          <li><a href="../about.html">このサイトについて</a></li>
+          <li><a href="../privacy.html">プライバシーポリシー</a></li>
+          <li><a href="../terms.html">利用規約・免責事項</a></li>
+          <li><a href="../contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© 2026 mdf.works</p>
+  </div>
+</footer>
+</body>
+</html>

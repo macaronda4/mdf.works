@@ -3,13 +3,82 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>スクリーンショット公開前のチェックリスト12項目 — Kuroko | mdf.works</title>
-<meta name="description" content="アイコンと名前を隠しただけでは足りません。通知バナー、Exif、ファイル名、背景の映り込み、モザイクの強度不足など、スクリーンショット公開前に確認したい12項目をまとめました。">
+<title>スクショ公開前のチェックリスト12項目｜消し忘れを防ぐ</title>
+<meta name="description" content="通知バナー、Exif、ファイル名、モザイクの強度不足、PDFの墨消しの落とし穴など、アイコンと名前を隠しただけでは残ってしまうものを12項目に整理しました。">
 <link rel="canonical" href="https://mdf.works/kuroko/checklist.html">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="theme-color" content="#131720">
+<meta name="author" content="マカロン大福">
 <meta property="og:type" content="article">
-<meta property="og:title" content="スクリーンショットを公開する前のチェックリスト12項目">
-<meta property="og:description" content="通知バナー、Exif、ファイル名、背景の映り込みなど、見落としやすい項目を整理しました。">
+<meta property="og:site_name" content="mdf.works">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="スクショ公開前のチェックリスト12項目｜消し忘れを防ぐ">
+<meta property="og:description" content="通知バナー、Exif、ファイル名、モザイクの強度不足、PDFの墨消しの落とし穴など、アイコンと名前を隠しただけでは残ってしまうものを12項目に整理しました。">
+<meta property="og:url" content="https://mdf.works/kuroko/checklist.html">
+<meta property="og:image" content="https://mdf.works/assets/og/checklist.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="スクショ公開前のチェックリスト12項目｜消し忘れを防ぐ">
+<meta name="twitter:description" content="通知バナー、Exif、ファイル名、モザイクの強度不足、PDFの墨消しの落とし穴など、アイコンと名前を隠しただけでは残ってしまうものを12項目に整理しました。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/checklist.png">
+<meta name="twitter:creator" content="@sugerslp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "スクリーンショットを公開する前のチェックリスト12項目",
+      "description": "アイコンと名前を隠しただけでは足りません。見落としやすい12項目を整理しました。",
+      "image": "https://mdf.works/assets/og/checklist.png",
+      "datePublished": "2026-08-13",
+      "dateModified": "2026-08-14",
+      "inLanguage": "ja",
+      "author": {
+        "@id": "https://mdf.works/#person"
+      },
+      "publisher": {
+        "@id": "https://mdf.works/#person"
+      },
+      "mainEntityOfPage": "https://mdf.works/kuroko/checklist.html"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mdf.works/#person",
+      "name": "マカロン大福",
+      "url": "https://mdf.works/about.html",
+      "sameAs": [
+        "https://x.com/sugerslp"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://mdf.works/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Kuroko",
+          "item": "https://mdf.works/kuroko/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "公開前チェックリスト",
+          "item": "https://mdf.works/kuroko/checklist.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
@@ -122,6 +191,7 @@
       これがいちばん危険です。モザイクは元画像の平均色を残す処理なので、<strong>文字に対しては弱い</strong>です。
       粗さが足りないと、文字の並びの特徴から内容を推測される余地が残ります。
       アカウント名やメールアドレスのように「候補が限られる文字列」ほど推測されやすくなります。
+      仕組みは<a href="mosaic.html">モザイクやぼかしは復元できるのか</a>で詳しく説明しています。
     </p>
     <div class="note warn">
       <strong>目安：</strong>
@@ -191,6 +261,7 @@
           <li><a href="tool.html">匿名化ツールを開く</a></li>
           <li><a href="guide.html">使い方ガイド</a></li>
           <li><a href="checklist.html">公開前チェックリスト</a></li>
+          <li><a href="mosaic.html">モザイクは復元できるのか</a></li>
         </ul>
       </div>
       <div>
