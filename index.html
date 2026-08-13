@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQLWG8708R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZQLWG8708R');
+</script>
 <title>mdf.works｜アップロード不要のブラウザ完結ウェブツール</title>
 <meta name="description" content="ファイルをサーバーに送らずに使える無料のウェブツールを公開しています。インストールも登録も不要。スクリーンショットの名前とアイコンを隠す「Kuroko」を公開中です。">
 <link rel="canonical" href="https://mdf.works/">
@@ -222,7 +230,8 @@
       <p>
         サーバー側の処理を持たないので、運営者は利用者が何を処理したかを知ることができません。
         これは設計上そうなっているというだけで、信用してくださいという話ではありません。
-        通信が発生していないことは、ブラウザの開発者ツールで誰でも確認できます。
+        ページを読み込んだあとに通信を切っても最後まで動作することで、誰でも確かめられます。
+        （広告とアクセス解析のための通信は発生しますが、そこに扱ったファイルは含まれません。）
       </p>
       <div class="btnrow">
         <a class="btn" href="about.html">くわしく読む</a>

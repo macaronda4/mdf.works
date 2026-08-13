@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQLWG8708R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZQLWG8708R');
+</script>
 <title>このサイトについて・運営者情報｜mdf.works</title>
 <meta name="description" content="mdf.works の方針、公開しているツール、検出アルゴリズムなど技術的な仕組み、運営者情報を記載しています。運営者はマカロン大福です。ファイルを預からない設計にしている理由も説明しています。">
 <link rel="canonical" href="https://mdf.works/about.html">
@@ -164,10 +172,10 @@
       <li><strong>サーバー側の処理はありません。</strong>静的な HTML・CSS・JavaScript のみで構成されています。</li>
       <li><strong>外部ライブラリを使っていません。</strong>ツール本体は1ファイルで完結しており、CDN への依存もありません。</li>
       <li><strong>画像処理は <code>&lt;canvas&gt;</code> のみ</strong>で行っています。読み込んだ画像を外部に送る経路がコード上に存在しません。</li>
-      <li>ページを読み込んだあとは、<strong>通信を切っても最後まで動作します</strong>。ブラウザの開発者ツールのネットワークタブでも確認できます。</li>
+      <li>ページを読み込んだあとは、<strong>通信を切っても最後まで動作します</strong>。ネットワークタブには広告とアクセス解析の通信が出ますが、そこに画像は含まれません。</li>
     </ul>
     <div class="note">
-      なお、当サイトは広告およびアクセス解析のために外部と通信することがあります。
+      なお、当サイトは広告（Google AdSense）とアクセス解析（Google Analytics）のために外部と通信します。
       これらに利用者が処理したファイルの内容が含まれることはありません。
       詳細は<a href="privacy.html">プライバシーポリシー</a>をご確認ください。
     </div>
