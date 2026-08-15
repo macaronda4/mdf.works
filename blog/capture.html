@@ -116,8 +116,17 @@
         隠す作業を減らすいちばん確実な方法は、そもそも写さないことです。
         範囲を絞って撮るだけで、あとの手間も消し忘れも大きく減ります。
       </p>
-      <p class="updated">公開：2026年8月16日</p>
+      <div class="postmeta">
+        <span class="cat">基本</span>
+        <time datetime="2026-08-16">2026年8月16日</time>
+        <span class="read">約4分で読めます</span>
+      </div>
     </div>
+
+    <nav class="toc" id="toc" hidden aria-label="目次">
+      <p class="toctitle">目次</p>
+      <ol></ol>
+    </nav>
 
     <p>
       画面全体を撮ってから要らない部分を塗る、という順番だと、
@@ -235,23 +244,68 @@
       </li>
     </ol>
 
-    <h2>関連ページ</h2>
-    <div class="grid cols-3">
+    <!-- postnav:start -->
+    <div class="postnav">
+      <div class="share">
+        <span class="label">この記事を共有</span>
+        <a href="https://x.com/intent/post?text=スクリーンショットは必要な範囲だけを撮る&amp;url=https://mdf.works/blog/capture.html" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.2-5.8 6.2H1.5l7.5-8.6L1 3h6.7l4.6 5.8L17.5 3zm-1.1 16.2h1.8L7.7 4.7H5.8l10.6 14.5z"/></svg>
+          X で共有
+        </a>
+        <button type="button" id="copylink">リンクをコピー</button>
+      </div>
+
+      <nav class="pager" aria-label="記事の移動">
+        <a class="prev" href="mosaic.html"><span class="dir">← 前の記事</span><span class="t">モザイク・ぼかし・塗りつぶし — 文字を隠すならどれを選ぶか</span></a><a class="next" href="browser.html"><span class="dir">次の記事 →</span><span class="t">ブラウザの選び方 — 結局どれを使えばいいのか</span></a>
+      </nav>
+
+      <h2>ほかの記事</h2>
+      <div class="grid cols-2">
       <div class="card">
-        <h3><a href="checklist.html" style="text-decoration:none">公開前のチェックリスト12項目</a></h3>
-        <p>通知バナー、Exif、ファイル名、背景の映り込みなど、隠す対象だと思っていなかったものを整理しました。</p>
+        <h3><a href="browser.html" style="text-decoration:none">ブラウザの選び方 — 結局どれを使えばいいのか</a></h3>
+        <p>「どれが速いか」で選ぼうとすると決まりません。実際に差が出るのは拡張機能の扱い、プライバシーの初期設定、同期の紐づけ先の3つです。用途別の選び方と、分けて使…</p>
       </div>
       <div class="card">
-        <h3><a href="mosaic.html" style="text-decoration:none">隠しかたの選びかた</a></h3>
-        <p>モザイク・ぼかし・塗りつぶしのどれを選ぶか。隠す対象ごとの推奨をまとめています。</p>
+        <h3><a href="mosaic.html" style="text-decoration:none">モザイク・ぼかし・塗りつぶし — 文字を隠すならどれを選ぶか</a></h3>
+        <p>同じ設定でも、写真なら十分で、アカウント名なら心もとない。その差がどこから来るのかと、隠す対象ごとに何を選べばよいかの基準を整理しました。ぼかしの半径の目安…</p>
       </div>
-      <div class="card">
-        <h3><a href="../kuroko/tool.html" style="text-decoration:none">匿名化ツールを開く</a></h3>
-        <p>アイコンと名前を自動で検出して伏せます。無料・登録不要、画像は端末から出ません。</p>
+      </div>
+      <div class="btnrow">
+        <a class="btn" href="index.html">記事一覧に戻る</a>
       </div>
     </div>
-
+    <!-- postnav:end -->
   </div>
+<script>
+(function () {
+  var prose = document.querySelector('main .prose');
+  var toc = document.getElementById('toc');
+  if (prose && toc) {
+    var ol = toc.querySelector('ol'), n = 0;
+    prose.querySelectorAll('h2, h3').forEach(function (h) {
+      if (h.closest('.postnav')) return;
+      if (!h.id) h.id = 'sec' + (++n);
+      var li = document.createElement('li');
+      li.className = h.tagName === 'H3' ? 'lv3' : 'lv2';
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent.trim();
+      li.appendChild(a);
+      ol.appendChild(li);
+    });
+    if (ol.children.length >= 3) toc.hidden = false;
+  }
+  var copy = document.getElementById('copylink');
+  if (copy) copy.addEventListener('click', function () {
+    var done = function (ok) {
+      copy.textContent = ok ? 'コピーしました' : 'コピーできませんでした';
+      setTimeout(function () { copy.textContent = 'リンクをコピー'; }, 1800);
+    };
+    if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { done(true); }, function () { done(false); });
+    else done(false);
+  });
+})();
+</script>
 </main>
 
 <footer class="site-foot">
