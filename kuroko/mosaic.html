@@ -14,8 +14,8 @@
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8613999974980382"
      crossorigin="anonymous"></script>
-<title>モザイクやぼかしは復元できる？文字を隠すときの注意点</title>
-<meta name="description" content="モザイクが文字に弱い理由を仕組みから説明します。どのくらい粗くすれば安全か、ぼかしとの違い、塗りつぶしを使うべき場面、PDFの墨消しの落とし穴まで。">
+<title>モザイクとぼかしと塗りつぶし｜文字を隠すならどれを選ぶか</title>
+<meta name="description" content="写真と文字でモザイクの効き方が変わる理由を説明します。隠す対象ごとの推奨、ぼかしの半径の目安、塗りつぶしを選ぶべき場面、PDFの墨消しまで。">
 <link rel="canonical" href="https://mdf.works/kuroko/mosaic.html">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="theme-color" content="#131720">
@@ -23,15 +23,15 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="mdf.works">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="モザイクやぼかしは復元できる？文字を隠すときの注意点">
-<meta property="og:description" content="モザイクが文字に弱い理由を仕組みから説明します。どのくらい粗くすれば安全か、ぼかしとの違い、塗りつぶしを使うべき場面、PDFの墨消しの落とし穴まで。">
+<meta property="og:title" content="モザイクとぼかしと塗りつぶし｜文字を隠すならどれを選ぶか">
+<meta property="og:description" content="写真と文字でモザイクの効き方が変わる理由を説明します。隠す対象ごとの推奨、ぼかしの半径の目安、塗りつぶしを選ぶべき場面、PDFの墨消しまで。">
 <meta property="og:url" content="https://mdf.works/kuroko/mosaic.html">
 <meta property="og:image" content="https://mdf.works/assets/og/mosaic.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="モザイクやぼかしは復元できる？文字を隠すときの注意点">
-<meta name="twitter:description" content="モザイクが文字に弱い理由を仕組みから説明します。どのくらい粗くすれば安全か、ぼかしとの違い、塗りつぶしを使うべき場面、PDFの墨消しの落とし穴まで。">
+<meta name="twitter:title" content="モザイクとぼかしと塗りつぶし｜文字を隠すならどれを選ぶか">
+<meta name="twitter:description" content="写真と文字でモザイクの効き方が変わる理由を説明します。隠す対象ごとの推奨、ぼかしの半径の目安、塗りつぶしを選ぶべき場面、PDFの墨消しまで。">
 <meta name="twitter:image" content="https://mdf.works/assets/og/mosaic.png">
 <meta name="twitter:creator" content="@sugerslp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
@@ -41,8 +41,8 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "モザイクやぼかしは復元できるのか",
-      "description": "モザイクが文字に対して弱い理由と、安全に隠すための具体的な基準。",
+      "headline": "モザイク・ぼかし・塗りつぶし — 文字を隠すならどれを選ぶか",
+      "description": "写真と文字でモザイクの効き方が変わる理由と、隠す対象ごとに何を選べばよいかの基準。",
       "image": "https://mdf.works/assets/og/mosaic.png",
       "datePublished": "2026-08-14",
       "dateModified": "2026-08-14",
@@ -82,7 +82,7 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "モザイクは復元できるのか",
+          "name": "隠しかたの選びかた",
           "item": "https://mdf.works/kuroko/mosaic.html"
         }
       ]
@@ -113,16 +113,21 @@
 <main id="main">
   <div class="wrap prose">
 
-    <p class="crumb"><a href="../index.html">mdf.works</a><span aria-hidden="true">›</span><a href="index.html">Kuroko</a><span aria-hidden="true">›</span>モザイクは復元できるのか</p>
+    <p class="crumb"><a href="../index.html">mdf.works</a><span aria-hidden="true">›</span><a href="index.html">Kuroko</a><span aria-hidden="true">›</span>隠しかたの選びかた</p>
 
     <div class="page-head">
       <p class="eyebrow">Column</p>
-      <h1>モザイクやぼかしは復元できるのか</h1>
+      <h1>モザイク・ぼかし・塗りつぶし<br>文字を隠すならどれを選ぶか</h1>
       <p class="lead">
-        結論から書くと、<strong>写真に対しては実用上ほぼ戻せません。文字に対しては戻せることがあります。</strong>
-        この差がどこから来るのかを、仕組みから説明します。
+        結論から書くと、<strong>写真に対しては実用上ほぼ問題ありません。文字に対しては心もとない</strong>、
+        というのが答えです。この差がどこから来るのかと、では何を選べばよいのかを整理します。
       </p>
       <p class="updated">公開：2026年8月14日</p>
+    </div>
+
+    <div class="note">
+      この記事は、スクリーンショットを共有するときに<strong>自分の情報を確実に隠すため</strong>の
+      実務的な指針をまとめたものです。他人が隠した情報を暴くための手順は扱いません。
     </div>
 
     <h2>モザイクは何をしているのか</h2>
@@ -138,38 +143,36 @@
       やっているのは<strong>照合</strong>です。
     </p>
 
-    <h2>なぜ文字だけ戻せてしまうのか</h2>
+    <h2>写真と文字で結果が変わる理由</h2>
     <p>
-      文字を隠したモザイクが破られるのは、<strong>元の見た目の候補が少ない</strong>からです。
+      同じ強さのモザイクでも、隠したものによって安全性が変わります。
+      分かれ目は<strong>元の見た目にどれだけ幅があるか</strong>です。
     </p>
     <p>
-      画面に表示された文字は、フォント・文字サイズ・文字色・背景色が決まっていれば、
-      同じ環境で誰でも同じピクセル並びを再現できます。つまり攻撃者は、
-      「ありうる文字列」を片っ端から同じ条件でレンダリングし、
-      それに同じモザイク処理をかけて、公開されている画像と一致するものを探せます。
-      一致すれば、それが元の文字列です。
+      写真は、同じ平均色になりうる元画像が事実上いくらでもあります。
+      色の情報だけから元の一枚を絞り込むことはできません。
+      顔写真にかけたモザイクが実用上戻せないのはこのためです。
     </p>
     <p>
-      これは理論上の話ではなく、モザイク化された文字を総当たりで照合して復元する
-      ツールが実際に公開されています。
-      とくに<strong>候補が限られる文字列ほど危険</strong>です。
+      いっぽう画面上の文字は、フォント・文字サイズ・文字色・背景色が決まっており、
+      <strong>ありうる見た目の種類が限られています</strong>。
+      さらに文字列そのものにも規則性があります。
     </p>
     <ul>
-      <li>ユーザー名・アカウント名（実在するものの一覧と照合できる）</li>
-      <li>メールアドレス（形式が決まっており、ドメイン部分は候補が少ない）</li>
+      <li>ユーザー名・アカウント名（実在するものの一覧と照らし合わせられる）</li>
+      <li>メールアドレス（形式が決まっており、ドメイン部分の候補は多くない）</li>
       <li>数字だけの列（電話番号、金額、ID）</li>
       <li>日付・時刻（形式が完全に決まっている）</li>
     </ul>
     <p>
-      一方、<strong>写真は候補が無限にあります。</strong>
-      同じ平均色になる元画像は事実上いくらでも存在するため、照合という手が使えません。
-      顔写真にかけたモザイクが実用上戻せないのはこのためです。
+      候補が限られているほど、残ったわずかな情報から絞り込まれる余地が生まれます。
+      文字を隠すときにモザイクが心もとないのは、この一点に尽きます。
     </p>
 
     <div class="note warn">
       <strong>つまり：</strong>
-      「モザイクが弱い」のではなく、<strong>「隠した中身が推測しやすいものだと弱い」</strong>のです。
-      同じ強さのモザイクでも、風景写真なら安全で、アカウント名なら危ういということが起こります。
+      「モザイクが弱い」のではなく、<strong>「隠した中身の候補が少ないと弱い」</strong>のです。
+      同じ設定でも、風景写真なら十分で、アカウント名なら心もとない、ということが起こります。
     </div>
 
     <h2>ぼかしの場合</h2>
@@ -179,15 +182,11 @@
       <strong>情報が減っているという点は同じ</strong>で、文字に対して弱いことも同じです。
     </p>
     <p>
-      さらにぼかしには、モザイクにはない弱点があります。
-      ぼかしは数学的には「決まった形のフィルタを畳み込む」操作なので、
-      その逆演算（デコンボリューション）をある程度計算できてしまいます。
-      半径が小さいほど、元の輪郭が復元されやすくなります。
-    </p>
-    <p>
-      見た目には「読めないくらいぼけている」ように思えても、
-      コントラストを強調するだけで文字の形が浮かび上がることがあります。
+      加えて、ぼかしは見た目の印象より情報が残りやすい方法です。
+      「読めないくらいぼけている」と感じても、明るさやコントラストの調整だけで
+      文字の輪郭が浮かび上がることがあります。
       <strong>弱いぼかしは、思っているより隠せていません。</strong>
+      半径を十分に大きく取るか、文字であれば塗りつぶしを選んでください。
     </p>
 
     <h2>どのくらいなら安全なのか</h2>
@@ -272,7 +271,7 @@
     <h2>まとめ</h2>
     <ul>
       <li>モザイクもぼかしも、情報を減らす処理であって、暗号化ではありません。</li>
-      <li>破られるのは「中身の候補が少ないとき」です。文字がまさにそれにあたります。</li>
+      <li>心もとなくなるのは「中身の候補が少ないとき」です。文字がまさにそれにあたります。</li>
       <li><strong>文字は塗りつぶす。</strong>写真や顔はモザイクで構いません。</li>
       <li>ぼかしを使うなら半径は文字高の半分以上。弱いぼかしは隠せていません。</li>
       <li>文書ファイルの黒塗りは、下のテキストが残ります。墨消し機能を使ってください。</li>
@@ -314,7 +313,8 @@
           <li><a href="tool.html">匿名化ツールを開く</a></li>
           <li><a href="guide.html">使い方ガイド</a></li>
           <li><a href="checklist.html">公開前チェックリスト</a></li>
-          <li><a href="mosaic.html">モザイクは復元できるのか</a></li>
+          <li><a href="capture.html">必要な範囲だけを撮る</a></li>
+          <li><a href="mosaic.html">隠しかたの選びかた</a></li>
         </ul>
       </div>
       <div>

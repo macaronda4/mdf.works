@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5GDKSW8H7X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-5GDKSW8H7X');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8613999974980382"
+     crossorigin="anonymous"></script>
+<title>必要な範囲だけを撮る方法｜Windows・Mac・iPhone・Android</title>
+<meta name="description" content="スクリーンショットは撮る範囲を絞るだけで、あとから隠す手間も消し忘れも減ります。ウィンドウ単位・範囲指定の撮り方を4つのOSごとに、通知を止める設定とあわせて解説します。">
+<link rel="canonical" href="https://mdf.works/kuroko/capture.html">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="theme-color" content="#131720">
+<meta name="author" content="マカロン大福">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="mdf.works">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="必要な範囲だけを撮る方法｜Windows・Mac・iPhone・Android">
+<meta property="og:description" content="撮る範囲を絞るだけで、あとから隠す手間も消し忘れも減ります。OSごとの範囲指定の撮り方と、通知を止める設定をまとめました。">
+<meta property="og:url" content="https://mdf.works/kuroko/capture.html">
+<meta property="og:image" content="https://mdf.works/assets/og/capture.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="必要な範囲だけを撮る方法｜Windows・Mac・iPhone・Android">
+<meta name="twitter:description" content="撮る範囲を絞るだけで、あとから隠す手間も消し忘れも減ります。OSごとの範囲指定の撮り方をまとめました。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/capture.png">
+<meta name="twitter:creator" content="@sugerslp">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "スクリーンショットは必要な範囲だけを撮る",
+      "description": "撮る範囲を絞るだけで、あとから隠す手間も消し忘れも減ります。OSごとの範囲指定の撮り方と、通知を止める設定。",
+      "image": "https://mdf.works/assets/og/capture.png",
+      "datePublished": "2026-08-16",
+      "dateModified": "2026-08-16",
+      "inLanguage": "ja",
+      "author": { "@id": "https://mdf.works/#person" },
+      "publisher": { "@id": "https://mdf.works/#person" },
+      "mainEntityOfPage": "https://mdf.works/kuroko/capture.html"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mdf.works/#person",
+      "name": "マカロン大福",
+      "url": "https://mdf.works/about.html",
+      "sameAs": ["https://x.com/sugerslp"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mdf.works/" },
+        { "@type": "ListItem", "position": 2, "name": "Kuroko", "item": "https://mdf.works/kuroko/" },
+        { "@type": "ListItem", "position": 3, "name": "必要な範囲だけを撮る", "item": "https://mdf.works/kuroko/capture.html" }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <span class="mark">mdf<b>.works</b></span>
+      <span class="sub">個人開発のウェブツール</span>
+    </a>
+    <nav class="site-nav" aria-label="メインナビゲーション">
+      <a href="index.html">Kuroko 概要</a>
+      <a href="guide.html">使い方</a>
+      <a href="checklist.html">安全ガイド</a>
+      <a class="cta" href="tool.html">ツールを開く</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap prose">
+
+    <p class="crumb"><a href="../index.html">mdf.works</a><span aria-hidden="true">›</span><a href="index.html">Kuroko</a><span aria-hidden="true">›</span>必要な範囲だけを撮る</p>
+
+    <div class="page-head">
+      <p class="eyebrow">Basics</p>
+      <h1>スクリーンショットは<br>必要な範囲だけを撮る</h1>
+      <p class="lead">
+        隠す作業を減らすいちばん確実な方法は、そもそも写さないことです。
+        範囲を絞って撮るだけで、あとの手間も消し忘れも大きく減ります。
+      </p>
+      <p class="updated">公開：2026年8月16日</p>
+    </div>
+
+    <p>
+      画面全体を撮ってから要らない部分を塗る、という順番だと、
+      塗る場所が多くなるうえに「塗り忘れ」が起きます。
+      逆に、必要な部分だけを撮ってしまえば、確認すべき箇所は最初から少なくなります。
+    </p>
+    <p>
+      全画面のスクリーンショットには、思っているより多くのものが写ります。
+      時刻、バッテリー、通知、他のタブのタイトル、タスクバーに並ぶアプリ、
+      デスクトップのファイル名。どれも単体では些細ですが、
+      組み合わさると生活や所属の手がかりになります。
+    </p>
+
+    <h2>Windows</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">操作</th><th scope="col">撮れる範囲</th></tr></thead>
+        <tbody>
+          <tr><td><code>Win</code>＋<code>Shift</code>＋<code>S</code></td><td><strong>範囲を指定して撮る。</strong>いちばんおすすめです。長方形・自由形・ウィンドウ・全画面から選べます</td></tr>
+          <tr><td><code>Alt</code>＋<code>PrintScreen</code></td><td>いま選んでいるウィンドウだけ</td></tr>
+          <tr><td><code>Win</code>＋<code>PrintScreen</code></td><td>全画面（ピクチャ内のスクリーンショットへ自動保存）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      <code>Win</code>＋<code>Shift</code>＋<code>S</code> は「Snipping Tool」が起動し、
+      撮った画像はクリップボードに入ります。そのまま <code>Ctrl</code>＋<code>V</code> で
+      <a href="tool.html">Kuroko</a> に貼り付けられるので、ファイルを保存する手間もいりません。
+    </p>
+
+    <h2>macOS</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">操作</th><th scope="col">撮れる範囲</th></tr></thead>
+        <tbody>
+          <tr><td><code>⌘</code>＋<code>Shift</code>＋<code>4</code></td><td><strong>ドラッグした範囲だけ。</strong></td></tr>
+          <tr><td><code>⌘</code>＋<code>Shift</code>＋<code>4</code> のあと <code>Space</code></td><td>ウィンドウ単位。カーソルがカメラに変わります</td></tr>
+          <tr><td><code>⌘</code>＋<code>Shift</code>＋<code>5</code></td><td>撮影メニュー。範囲の記憶や保存先の指定ができます</td></tr>
+          <tr><td><code>⌘</code>＋<code>Shift</code>＋<code>3</code></td><td>全画面</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      上記に <code>Control</code> を足すと、ファイルではなくクリップボードに入ります
+      （例：<code>Control</code>＋<code>⌘</code>＋<code>Shift</code>＋<code>4</code>）。
+    </p>
+    <div class="note">
+      ウィンドウ単位で撮ると、既定では周囲に大きな影が付きます。
+      撮影メニュー（<code>⌘</code>＋<code>Shift</code>＋<code>5</code>）の「オプション」で影を外せます。
+      影があると画像が無駄に大きくなり、貼り付けたときの見栄えも悪くなります。
+    </div>
+
+    <h2>iPhone・iPad</h2>
+    <p>
+      サイドボタンと音量を上げるボタン（ホームボタンのある機種はホームボタンとサイドボタン）を同時に押します。
+      撮った直後に左下へ現れるサムネイルをタップすると、<strong>その場でトリミングできます。</strong>
+      ここで範囲を切っておくと、あとの作業がかなり楽になります。
+    </p>
+    <p>
+      チャットアプリの画面を撮るときは、上部のステータスバーと下部の入力欄まで入ることを意識してください。
+      入力欄には相手の名前が「〇〇へメッセージを送信」のように出ていることがあります。
+    </p>
+
+    <h2>Android</h2>
+    <p>
+      電源ボタンと音量を下げるボタンの同時押しが基本です（機種により異なります）。
+      撮影後に表示されるプレビューから、多くの機種でそのままトリミングできます。
+    </p>
+    <p>
+      機種によっては「スクロールキャプチャ」で画面外まで撮れますが、
+      長く撮るほど写り込みは増えます。必要な範囲で止めてください。
+    </p>
+
+    <h2>撮る前に止めておくもの</h2>
+
+    <h3>通知</h3>
+    <p>
+      撮影の瞬間に別のアプリの通知が重なると、無関係な第三者の名前とメッセージの冒頭が写ります。
+      これは自分では気づきにくく、あとから塗るにも「そこに通知が出ていた」ことを覚えている必要があります。
+    </p>
+    <ul>
+      <li><strong>Windows：</strong>通知センターの「集中モード」／「応答不可」をオンにする</li>
+      <li><strong>macOS：</strong>コントロールセンターの「集中モード」→「おやすみモード」</li>
+      <li><strong>iPhone：</strong>コントロールセンターの三日月アイコン、または設定の「集中モード」</li>
+      <li><strong>Android：</strong>クイック設定の「サイレント モード」</li>
+    </ul>
+
+    <h3>他のタブとウィンドウ</h3>
+    <p>
+      ブラウザのタブは、タイトルだけで内容が分かってしまうことがあります。
+      勤務先の社内システム名、調べ物の内容、開いている別のサービス。
+      ウィンドウ単位で撮れば大半は防げますが、撮る前に不要なタブを閉じておくとさらに安全です。
+    </p>
+
+    <h3>ブックマークバー</h3>
+    <p>
+      見落としがちですが、ブックマークバーには所属や関心がそのまま並んでいます。
+      <code>Ctrl</code>＋<code>Shift</code>＋<code>B</code>（Mac は <code>⌘</code>＋<code>Shift</code>＋<code>B</code>）で
+      一時的に隠せます。
+    </p>
+
+    <h2>撮ったあとの流れ</h2>
+    <ol class="steps">
+      <li>
+        <b>範囲を絞って撮る</b>
+        <span>必要な会話だけが入るように、ウィンドウ単位か範囲指定で撮ります。</span>
+      </li>
+      <li>
+        <b>アイコンと名前を伏せる</b>
+        <span><a href="tool.html">Kuroko</a> に貼り付けて自動検出を実行します。画像はブラウザから出ません。</span>
+      </li>
+      <li>
+        <b>拡大して確認する</b>
+        <span>四隅と最下部を順に見ます。<a href="checklist.html">チェックリスト</a>に見落としやすい項目をまとめています。</span>
+      </li>
+    </ol>
+
+    <h2>関連ページ</h2>
+    <div class="grid cols-3">
+      <div class="card">
+        <h3><a href="checklist.html" style="text-decoration:none">公開前のチェックリスト12項目</a></h3>
+        <p>通知バナー、Exif、ファイル名、背景の映り込みなど、隠す対象だと思っていなかったものを整理しました。</p>
+      </div>
+      <div class="card">
+        <h3><a href="mosaic.html" style="text-decoration:none">隠しかたの選びかた</a></h3>
+        <p>モザイク・ぼかし・塗りつぶしのどれを選ぶか。隠す対象ごとの推奨をまとめています。</p>
+      </div>
+      <div class="card">
+        <h3><a href="tool.html" style="text-decoration:none">匿名化ツールを開く</a></h3>
+        <p>アイコンと名前を自動で検出して伏せます。無料・登録不要、画像は端末から出ません。</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>mdf.works</h4>
+        <p class="about">ブラウザの中だけで完結する、無料のウェブツールを公開しています。インストールも登録も不要です。</p>
+      </div>
+      <div>
+        <h4>ツール</h4>
+        <ul>
+          <li><a href="index.html">Kuroko — 概要</a></li>
+          <li><a href="tool.html">匿名化ツールを開く</a></li>
+          <li><a href="guide.html">使い方ガイド</a></li>
+          <li><a href="checklist.html">公開前チェックリスト</a></li>
+          <li><a href="capture.html">必要な範囲だけを撮る</a></li>
+          <li><a href="mosaic.html">隠しかたの選びかた</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>サイト情報</h4>
+        <ul>
+          <li><a href="../about.html">このサイトについて</a></li>
+          <li><a href="../privacy.html">プライバシーポリシー</a></li>
+          <li><a href="../terms.html">利用規約・免責事項</a></li>
+          <li><a href="../contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© 2026 mdf.works</p>
+  </div>
+</footer>
+</body>
+</html>
