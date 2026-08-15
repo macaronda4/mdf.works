@@ -78,7 +78,7 @@
       "@type": "Person",
       "@id": "https://mdf.works/#person",
       "name": "マカロン大福",
-      "url": "https://mdf.works/about.html",
+      "url": "https://mdf.works/about",
       "sameAs": [
         "https://x.com/sugerslp"
       ]
@@ -156,22 +156,22 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
 <a class="skip" href="#main">本文へスキップ</a>
 
 <header class="site-head">
   <div class="wrap">
-    <a class="brand" href="../index.html">
+    <a class="brand" href="/">
       <span class="mark">mdf<b>.works</b></span>
       <span class="sub">個人開発のウェブツール</span>
     </a>
     <nav class="site-nav" aria-label="メインナビゲーション">
-      <a href="index.html" aria-current="page">Kuroko 概要</a>
-      <a href="guide.html">使い方</a>
-      <a href="../blog/index.html">ブログ</a>
-      <a class="cta" href="tool.html">ツールを開く</a>
+      <a href="/kuroko/" aria-current="page">Kuroko 概要</a>
+      <a href="/kuroko/guide">使い方</a>
+      <a href="/blog/">ブログ</a>
+      <a class="cta" href="/kuroko/tool">ツールを開く</a>
     </nav>
   </div>
 </header>
@@ -180,7 +180,7 @@
   <div class="wrap">
 
     <section class="prose" style="padding:20px 0 8px">
-      <p class="crumb"><a href="../index.html">mdf.works</a><span aria-hidden="true">›</span>Kuroko</p>
+      <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span>Kuroko</p>
       
       <p class="eyebrow">Kuroko — mdf.works のツール</p>
       <h1>スクリーンショットのアイコンと名前を、<br>ブラウザの中だけで隠す。</h1>
@@ -189,15 +189,15 @@
         Kuroko はその一手間を引き受ける道具です。画像はあなたの端末から一歩も出ません。
       </p>
       <div class="btnrow">
-        <a class="btn primary" href="tool.html">
+        <a class="btn primary" href="/kuroko/tool">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 12h16M13 5l7 7-7 7"/></svg>
           ツールを開く
         </a>
-        <a class="btn" href="guide.html">使い方を読む</a>
+        <a class="btn" href="/kuroko/guide">使い方を読む</a>
       </div>
       <p class="muted" style="margin-top:16px">
         インストール不要・登録不要・無料。読み込みから書き出しまで、すべてブラウザ内で完結します。
-        <a href="../index.html">mdf.works</a> が公開しているツールのひとつです。
+        <a href="/">mdf.works</a> が公開しているツールのひとつです。
       </p>
     </section>
 
@@ -284,7 +284,7 @@
         手動のマスクツールは画像の種類を問わず使えます。範囲をドラッグするだけなので、数か所であれば手作業の方が早い場合もあります。
       </p>
       <div class="btnrow">
-        <a class="btn" href="guide.html">検出がうまくいかないときの調整方法</a>
+        <a class="btn" href="/kuroko/guide">検出がうまくいかないときの調整方法</a>
       </div>
     </div>
 
@@ -296,7 +296,7 @@
         参加者のアカウントまで晒す必要はない、というときに使うことを想定しています。
       </p>
       <p>
-        次のような使い方は想定しておらず、<a href="../terms.html">利用規約</a>でも禁止しています。
+        次のような使い方は想定しておらず、<a href="/terms">利用規約</a>でも禁止しています。
       </p>
       <ul>
         <li>やりとりの内容を偽って伝えるために、発言者を差し替えること</li>
@@ -318,11 +318,11 @@
       </details>
       <details>
         <summary>モザイクをかければ完全に安全ですか？</summary>
-        <div class="body"><p>いいえ。モザイクは粗さが足りないと、文字の形状から内容を推測されることがあります。特に文字に対しては、モザイクよりも塗りつぶしのほうが確実です。重要な情報は塗りつぶしを選び、書き出した画像を拡大して確認してください。詳しくは<a href="../blog/mosaic.html">モザイク・ぼかし・塗りつぶしの選びかた</a>をご覧ください。</p></div>
+        <div class="body"><p>いいえ。モザイクは粗さが足りないと、文字の形状から内容を推測されることがあります。特に文字に対しては、モザイクよりも塗りつぶしのほうが確実です。重要な情報は塗りつぶしを選び、書き出した画像を拡大して確認してください。詳しくは<a href="/blog/mosaic">モザイク・ぼかし・塗りつぶしの選びかた</a>をご覧ください。</p></div>
       </details>
       <details>
         <summary>自動検出が何も見つけてくれません。</summary>
-        <div class="body"><p>「検出の積極性」を上げてから再実行してください。それでも見つからない場合は、アイコンが円形でない可能性があります。手動ツールで範囲をドラッグしてください。詳しくは<a href="guide.html">使い方ガイド</a>で説明しています。</p></div>
+        <div class="body"><p>「検出の積極性」を上げてから再実行してください。それでも見つからない場合は、アイコンが円形でない可能性があります。手動ツールで範囲をドラッグしてください。詳しくは<a href="/kuroko/guide">使い方ガイド</a>で説明しています。</p></div>
       </details>
       <details>
         <summary>保存ボタンを押しても何も起きません。</summary>
@@ -334,22 +334,22 @@
       </details>
       <details>
         <summary>加工した画像の扱いに責任は持ってもらえますか。</summary>
-        <div class="body"><p>いいえ。自動検出は万能ではなく、隠し漏れが起こりえます。公開前にご自身で必ず確認してください。詳しくは<a href="../terms.html">利用規約</a>の免責事項をご確認ください。</p></div>
+        <div class="body"><p>いいえ。自動検出は万能ではなく、隠し漏れが起こりえます。公開前にご自身で必ず確認してください。詳しくは<a href="/terms">利用規約</a>の免責事項をご確認ください。</p></div>
       </details>
     </div>
 
     <h2>関連する記事</h2>
     <div class="grid cols-3">
       <div class="card">
-        <h3><a href="../blog/checklist.html" style="text-decoration:none">スクリーンショットを公開する前のチェックリスト</a></h3>
+        <h3><a href="/blog/checklist" style="text-decoration:none">スクリーンショットを公開する前のチェックリスト</a></h3>
         <p>アイコンと名前を隠しただけでは足りません。通知バナー、Exif、ファイル名、背景の映り込みなど、見落としやすい12項目をまとめました。</p>
       </div>
       <div class="card">
-        <h3><a href="guide.html" style="text-decoration:none">Kuroko の使い方と調整のコツ</a></h3>
+        <h3><a href="/kuroko/guide" style="text-decoration:none">Kuroko の使い方と調整のコツ</a></h3>
         <p>自動検出の仕組み、感度の選びかた、手動マスクの操作、キーボードショートカット、保存できないときの対処までひと通り解説します。</p>
       </div>
       <div class="card">
-        <h3><a href="../blog/mosaic.html" style="text-decoration:none">モザイク・ぼかし・塗りつぶしの選びかた</a></h3>
+        <h3><a href="/blog/mosaic" style="text-decoration:none">モザイク・ぼかし・塗りつぶしの選びかた</a></h3>
         <p>文字に対してモザイクが弱い理由を仕組みから説明します。どのくらい粗ければ安全か、塗りつぶしとの使い分けまで。</p>
       </div>
     </div>
@@ -367,19 +367,19 @@
       <div>
         <h4>コンテンツ</h4>
         <ul>
-          <li><a href="index.html">Kuroko — 概要</a></li>
-          <li><a href="tool.html">匿名化ツールを開く</a></li>
-          <li><a href="guide.html">使い方ガイド</a></li>
-          <li><a href="../blog/index.html">ブログ（記事一覧）</a></li>
+          <li><a href="/kuroko/">Kuroko — 概要</a></li>
+          <li><a href="/kuroko/tool">匿名化ツールを開く</a></li>
+          <li><a href="/kuroko/guide">使い方ガイド</a></li>
+          <li><a href="/blog/">ブログ（記事一覧）</a></li>
         </ul>
       </div>
       <div>
         <h4>サイト情報</h4>
         <ul>
-          <li><a href="../about.html">このサイトについて</a></li>
-          <li><a href="../privacy.html">プライバシーポリシー</a></li>
-          <li><a href="../terms.html">利用規約・免責事項</a></li>
-          <li><a href="../contact.html">お問い合わせ</a></li>
+          <li><a href="/about">このサイトについて</a></li>
+          <li><a href="/privacy">プライバシーポリシー</a></li>
+          <li><a href="/terms">利用規約・免責事項</a></li>
+          <li><a href="/contact">お問い合わせ</a></li>
         </ul>
       </div>
     </div>

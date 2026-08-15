@@ -21,6 +21,11 @@ kuroko/checklist.html       https://mdf.works/kuroko/checklist.html 公開前チ
 assets/site.css             コンテンツページ共通のスタイル
 robots.txt / sitemap.xml / ads.txt
 dist/preview-site.html      確認用に全ページを1ファイルへまとめたもの（公開不要）
+
+_local/build_blog.py        記事一覧の生成（記事を足すときはここに1件追加して実行）
+_local/cleanurls.py         内部リンクを配信 URL に揃える
+_local/serve.py             クリーン URL を解決するローカルサーバー
+_local/make_og.py           OGP 画像の生成
 ```
 
 `kuroko/tool.html` はツール本体で、CSS も JavaScript も内包した1ファイルです。
@@ -50,12 +55,13 @@ Select-String -Path *.html,kuroko\*.html -Pattern '要記入'
 
 ## ローカルで確認する
 
-ディレクトリ形式のリンク（`kuroko/`）を使っているため、ファイルを直接開くとリンクが切れます。
-簡易サーバーを立ててください。
+リンクは配信時と同じクリーン URL（`/about`、`/blog/browser`）を使っているため、
+ファイルを直接開いても、`python -m http.server` でも解決できません。
+同梱の簡易サーバーを使ってください。Cloudflare Pages と同じ解決をします。
 
 ```powershell
 cd C:\claude-project\hide-info
-python -m http.server 8000
+python _local\serve.py
 ```
 
 ブラウザで <http://localhost:8000/> を開きます。
