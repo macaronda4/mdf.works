@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5GDKSW8H7X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-5GDKSW8H7X');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8613999974980382"
+     crossorigin="anonymous"></script>
+<title>ブラウザの選び方｜Chrome・Firefox・Edge・Safari・Braveの違い</title>
+<meta name="description" content="ブラウザの違いはレンダリングエンジンだけでは決まりません。拡張機能の扱い、プライバシーの初期設定、同期の仕組みという実際に差が出る3点から、用途別の選び方と使い分けを整理しました。">
+<link rel="canonical" href="https://mdf.works/blog/browser.html">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="theme-color" content="#131720">
+<meta name="author" content="マカロン大福">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="mdf.works">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="ブラウザの選び方｜Chrome・Firefox・Edge・Safari・Braveの違い">
+<meta property="og:description" content="実際に差が出るのは拡張機能・プライバシーの初期設定・同期の3点です。用途別の選び方と、複数を使い分けるという答えについて。">
+<meta property="og:url" content="https://mdf.works/blog/browser.html">
+<meta property="og:image" content="https://mdf.works/assets/og/browser.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ブラウザの選び方｜Chrome・Firefox・Edge・Safari・Braveの違い">
+<meta name="twitter:description" content="実際に差が出るのは拡張機能・プライバシーの初期設定・同期の3点です。用途別の選び方をまとめました。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/browser.png">
+<meta name="twitter:creator" content="@sugerslp">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "ブラウザの選び方 — Chrome・Firefox・Edge・Safari・Brave の違い",
+      "description": "実際に差が出るのは拡張機能・プライバシーの初期設定・同期の3点。用途別の選び方と使い分け。",
+      "image": "https://mdf.works/assets/og/browser.png",
+      "datePublished": "2026-08-17",
+      "dateModified": "2026-08-17",
+      "inLanguage": "ja",
+      "articleSection": "ブラウザ",
+      "author": { "@id": "https://mdf.works/#person" },
+      "publisher": { "@id": "https://mdf.works/#person" },
+      "mainEntityOfPage": "https://mdf.works/blog/browser.html"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mdf.works/#person",
+      "name": "マカロン大福",
+      "url": "https://mdf.works/about.html",
+      "sameAs": ["https://x.com/sugerslp"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mdf.works/" },
+        { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mdf.works/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "ブラウザの選び方", "item": "https://mdf.works/blog/browser.html" }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <span class="mark">mdf<b>.works</b></span>
+      <span class="sub">個人開発のウェブツール</span>
+    </a>
+    <nav class="site-nav" aria-label="メインナビゲーション">
+      <a href="index.html">記事一覧</a>
+      <a href="../kuroko/index.html">Kuroko</a>
+      <a href="../about.html">このサイトについて</a>
+      <a class="cta" href="../kuroko/tool.html">ツールを開く</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap prose">
+
+    <p class="crumb"><a href="../index.html">mdf.works</a><span aria-hidden="true">›</span><a href="index.html">ブログ</a><span aria-hidden="true">›</span>ブラウザの選び方</p>
+
+    <div class="page-head">
+      <p class="eyebrow">Browser</p>
+      <h1>ブラウザの選び方<br>結局どれを使えばいいのか</h1>
+      <p class="lead">
+        「どのブラウザが速いか」で選ぼうとすると、たいてい決まりません。
+        体感できる差はほとんど別のところにあります。何を見て選べばいいのかを整理しました。
+      </p>
+      <p class="updated">公開：2026年8月17日</p>
+    </div>
+
+    <h2>先に結論</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">こういう人</th><th scope="col">向いているもの</th><th scope="col">理由</th></tr></thead>
+        <tbody>
+          <tr><td>とくにこだわりがない</td><td>Chrome / Edge</td><td>対応していないサイトがまず無い。困ったときの情報も多い</td></tr>
+          <tr><td>広告と追跡を減らしたい</td><td>Firefox / Brave</td><td>初期設定の時点で防止が強く、拡張機能の自由度も高い</td></tr>
+          <tr><td>Mac・iPhone 中心</td><td>Safari</td><td>省電力と OS 連携。バッテリーの持ちが目に見えて違う</td></tr>
+          <tr><td>Windows で軽く済ませたい</td><td>Edge</td><td>OS に統合されており、二重にインストールしなくてよい</td></tr>
+          <tr><td>Web 開発をする</td><td>Chrome ＋ Firefox の2本</td><td>開発ツールの性格が違い、両方あると原因の切り分けが早い</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      以下は、なぜそうなるのかの話です。
+    </p>
+
+    <h2>エンジンは3種類しかない</h2>
+    <p>
+      ページを解釈して描画する部分を<strong>レンダリングエンジン</strong>と呼びます。
+      名前の付いたブラウザはたくさんありますが、中身は3系統に収束しています。
+    </p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">エンジン</th><th scope="col">採用しているブラウザ</th></tr></thead>
+        <tbody>
+          <tr><td>Blink</td><td>Chrome、Edge、Brave、Opera、Vivaldi、Arc など</td></tr>
+          <tr><td>Gecko</td><td>Firefox、およびその派生</td></tr>
+          <tr><td>WebKit</td><td>Safari</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      つまり Chrome と Edge と Brave は、<strong>表示に関してはほぼ同じもの</strong>です。
+      「Edge のほうが表示が速い」といった話が噛み合わないのは、比べているものが同じだからです。
+      差が出るのは、エンジンの上に載っている部分です。
+    </p>
+    <div class="note">
+      iPhone・iPad では長らく、どのブラウザアプリも WebKit を使うことが求められてきました。
+      「iPhone に Chrome を入れた」場合も、表示しているのは Safari と同じエンジンです。
+      近年は規制の動きにより変わりつつありますが、地域や時期によって状況が異なるため、
+      手元の環境で確かめるのが確実です。
+    </div>
+
+    <h2>実際に差が出る3つのこと</h2>
+
+    <h3>1. 拡張機能をどう扱うか</h3>
+    <p>
+      いちばん体感に効くのがここです。とくに<strong>コンテンツブロッカー</strong>の性能は、
+      ブラウザが拡張機能にどこまで権限を渡すかで決まります。
+    </p>
+    <p>
+      Chrome 系は拡張機能の仕組みを新しい世代（Manifest V3）へ移行しており、
+      拡張機能がネットワーク要求を自由に書き換える方式から、
+      あらかじめ登録したルールをブラウザ側が適用する方式に変わりました。
+      安全性と性能のための変更ですが、副作用として<strong>高機能なブロッカーの一部機能が制限されます</strong>。
+    </p>
+    <p>
+      Firefox は従来方式のサポートも続けているため、この点では自由度が高い状態です。
+      Brave はブロック機能をブラウザ本体に組み込んでいるので、拡張機能の制約を受けません。
+    </p>
+    <p>
+      広告やトラッキングをどれだけ減らしたいかが強い希望なら、この一点で選んでよいと思います。
+    </p>
+
+    <h3>2. プライバシーの初期設定</h3>
+    <p>
+      どのブラウザも設定を詰めればそれなりに固くできます。差が出るのは<strong>何もしない状態</strong>です。
+    </p>
+    <ul>
+      <li><strong>Safari・Firefox・Brave</strong>：サードパーティ Cookie の遮断やトラッカー防止が既定で有効。何もしなくてもある程度守られます。</li>
+      <li><strong>Chrome</strong>：既定は緩めです。設定から強化できますが、自分で選ぶ必要があります。</li>
+      <li><strong>Edge</strong>：3段階から選ぶ形式で、既定は中間です。</li>
+    </ul>
+    <p>
+      「設定をいじらない人が家族にいる」という状況なら、初期設定が固いものを入れておくほうが結果的に安全です。
+    </p>
+
+    <h3>3. 同期がどこに紐づくか</h3>
+    <p>
+      ブックマーク・パスワード・履歴・開いているタブを、どのアカウントに預けるかという話です。
+      これは実質的に<strong>乗り換えコスト</strong>になります。
+    </p>
+    <ul>
+      <li>Chrome → Google アカウント</li>
+      <li>Edge → Microsoft アカウント</li>
+      <li>Safari → Apple アカウント（iCloud）</li>
+      <li>Firefox → Mozilla アカウント</li>
+    </ul>
+    <p>
+      普段使っている環境と揃っているものを選ぶと素直です。
+      逆に「検索も動画もメールも Google なので、ブラウザくらいは分けたい」という判断もあります。
+      どちらが正しいという話ではなく、意識して選ぶ価値があるという話です。
+    </p>
+
+    <h2>見なくていい指標</h2>
+
+    <h3>ベンチマークのスコア</h3>
+    <p>
+      JavaScript の実行速度を測る類のスコアは、数値としては差が出ますが、
+      <strong>普通の使い方では体感に現れません</strong>。
+      実際の待ち時間の大半は、回線とサーバーの応答時間です。
+      同じエンジンを使うブラウザ同士なら、なおさら比べる意味が薄くなります。
+    </p>
+
+    <h3>メモリ使用量の絶対値</h3>
+    <p>
+      「タスクマネージャーで見たら何 GB 使っていた」という比較もよく見かけますが、
+      現代のブラウザはタブごとにプロセスを分ける設計で、
+      空きメモリがあれば積極的に使い、足りなくなれば解放します。
+      使用量が多いこと自体は問題ではありません。
+      実際に困るのは<strong>タブを切り替えたときに再読み込みが走る</strong>ような状況で、
+      それはメモリの総量とタブの開きすぎが原因です。
+    </p>
+
+    <h2>結論：分けて使うのが楽</h2>
+    <p>
+      ひとつに絞ろうとするから決まらないのであって、<strong>用途で分ける</strong>と一気に楽になります。
+    </p>
+    <ul>
+      <li><strong>普段用</strong>：ログインしたままにしておくもの。同期もここに集約します。</li>
+      <li><strong>調べもの用</strong>：ログインしないブラウザ。追跡防止を強めに設定しておきます。</li>
+      <li><strong>仕事用</strong>：業務アカウントだけを入れる。プライベートと混ざらないようにします。</li>
+    </ul>
+    <p>
+      同じブラウザの<strong>プロファイル機能</strong>でも分けられますが、
+      別のブラウザにしてしまったほうが取り違えが起きません。
+      アイコンの色と形が違うだけで、うっかり業務アカウントで私的な操作をする事故が減ります。
+    </p>
+    <div class="note good">
+      <strong>ひとつだけ勧めるなら：</strong>
+      普段使いはそのままに、<strong>調べもの用にもう1本入れる</strong>ところから始めるのがおすすめです。
+      乗り換えの手間がなく、同期の移行も不要で、効果だけ先に得られます。
+    </div>
+
+    <h2>おまけ：ブラウザだけでできることは増えている</h2>
+    <p>
+      かつては専用ソフトが必要だった処理も、いまはブラウザの中で完結します。
+      画像の解析や加工もそのひとつで、ファイルをサーバーへ送らずに処理できます。
+      このサイトで公開している <a href="../kuroko/index.html">Kuroko</a> も、
+      画像処理をすべてブラウザ内で行っています。
+    </p>
+    <p>
+      「アップロードしないと使えない」と思っていた作業が、実はローカルで済むことは意外と多いです。
+      ブラウザを選ぶときに、そういう用途まで含めて考えると、また違った見方になります。
+    </p>
+
+    <h2>関連する記事</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3><a href="capture.html" style="text-decoration:none">必要な範囲だけを撮る</a></h3>
+        <p>スクリーンショットを撮るとき、ブラウザのタブやブックマークバーは意外と写り込みます。範囲の絞り方をまとめました。</p>
+      </div>
+      <div class="card">
+        <h3><a href="index.html" style="text-decoration:none">記事一覧</a></h3>
+        <p>ブラウザ、ガジェット、プライバシーなど、書いた記事の一覧です。</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>mdf.works</h4>
+        <p class="about">ブラウザの中だけで完結する、無料のウェブツールを公開しています。インストールも登録も不要です。</p>
+      </div>
+      <div>
+        <h4>コンテンツ</h4>
+        <ul>
+          <li><a href="../kuroko/index.html">Kuroko — 概要</a></li>
+          <li><a href="../kuroko/tool.html">匿名化ツールを開く</a></li>
+          <li><a href="../kuroko/guide.html">使い方ガイド</a></li>
+          <li><a href="index.html">ブログ（記事一覧）</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>サイト情報</h4>
+        <ul>
+          <li><a href="../about.html">このサイトについて</a></li>
+          <li><a href="../privacy.html">プライバシーポリシー</a></li>
+          <li><a href="../terms.html">利用規約・免責事項</a></li>
+          <li><a href="../contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© 2026 mdf.works</p>
+  </div>
+</footer>
+</body>
+</html>

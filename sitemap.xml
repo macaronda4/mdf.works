@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://mdf.works/</loc><lastmod>2026-08-16</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://mdf.works/kuroko/</loc><lastmod>2026-08-16</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://mdf.works/kuroko/tool.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://mdf.works/kuroko/guide.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://mdf.works/blog/</loc><lastmod>2026-08-16</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://mdf.works/blog/capture.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://mdf.works/blog/mosaic.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://mdf.works/blog/checklist.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://mdf.works/about.html</loc><lastmod>2026-08-16</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://mdf.works/privacy.html</loc><lastmod>2026-08-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://mdf.works/terms.html</loc><lastmod>2026-08-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://mdf.works/contact.html</loc><lastmod>2026-08-16</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://mdf.works/</loc><lastmod>2026-08-17</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://mdf.works/kuroko/</loc><lastmod>2026-08-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mdf.works/kuroko/tool.html</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mdf.works/kuroko/guide.html</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mdf.works/blog/</loc><lastmod>2026-08-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mdf.works/blog/browser.html</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mdf.works/blog/capture.html</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mdf.works/blog/mosaic.html</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mdf.works/blog/checklist.html</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mdf.works/about.html</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://mdf.works/privacy.html</loc><lastmod>2026-08-17</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://mdf.works/terms.html</loc><lastmod>2026-08-17</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://mdf.works/contact.html</loc><lastmod>2026-08-17</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
 </urlset>

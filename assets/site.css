@@ -332,3 +332,28 @@ tr:last-child td{border-bottom:0}
   flex:none;min-width:8.5em;font-variant-numeric:tabular-nums;
 }
 .log span{font-size:14.5px;color:var(--ink-2)}
+
+/* ------------------------------------------------------------ blog index */
+.cats{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 26px}
+.cats a{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:7px 14px;border-radius:99px;
+  background:var(--surface);border:1px solid var(--line);
+  color:var(--ink-2);text-decoration:none;font-size:13.5px;
+}
+.cats a:hover{border-color:var(--accent-line);color:var(--accent)}
+.cats a b{font-family:var(--f-mono);font-size:11px;color:var(--muted);font-weight:400}
+.cats a:hover b{color:var(--accent)}
+
+.proj .cat{
+  font-family:var(--f-display);font-size:10.5px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  background:var(--accent-soft);border:1px solid var(--accent-line);
+  border-radius:99px;padding:2px 9px;
+}
+.proj .meta{display:flex;align-items:center;gap:9px;margin:0 0 12px;flex-wrap:wrap}
+.proj .meta time{font-family:var(--f-mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.proj h3.post{
+  font-family:var(--f-ui);font-size:17.5px;font-weight:600;letter-spacing:0;text-transform:none;
+  margin:0 0 10px;line-height:1.5;
+}
