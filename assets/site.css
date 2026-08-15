@@ -27,7 +27,7 @@
   --r:8px;
 }
 @media (prefers-color-scheme:dark){
-  :root{
+  :root:not([data-theme="light"]){
     --bg:#131720;
     --surface:#1B2028;
     --surface-2:#222833;
@@ -45,6 +45,24 @@
     --warn:#D9A63A;
     --shadow:0 1px 2px rgba(0,0,0,.35), 0 12px 34px -18px rgba(0,0,0,.75);
   }
+}
+:root[data-theme="dark"]{
+  --bg:#131720;
+  --surface:#1B2028;
+  --surface-2:#222833;
+  --sunken:#161B23;
+  --ink:#E7E9EE;
+  --ink-2:#B7BDCA;
+  --muted:#848C9C;
+  --line:#2B3240;
+  --line-strong:#3B4354;
+  --accent:#FF8244;
+  --accent-ink:#20130A;
+  --accent-soft:rgba(255,130,68,.13);
+  --accent-line:rgba(255,130,68,.50);
+  --ok:#4BC08A;
+  --warn:#D9A63A;
+  --shadow:0 1px 2px rgba(0,0,0,.35), 0 12px 34px -18px rgba(0,0,0,.75);
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -72,7 +90,7 @@ body{
   background:var(--surface);
   border-bottom:1px solid var(--line);
 }
-.site-head .wrap{display:flex;align-items:center;gap:18px;min-height:58px;flex-wrap:wrap}
+.site-head .wrap{display:flex;align-items:center;gap:14px;min-height:58px;flex-wrap:wrap}
 .brand{
   display:inline-flex;align-items:baseline;gap:8px;text-decoration:none;color:inherit;flex:none;
 }
@@ -82,7 +100,14 @@ body{
 }
 .brand .mark b{color:var(--accent)}
 .brand .sub{font-size:11.5px;color:var(--muted);white-space:nowrap}
-.site-nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.site-nav{display:flex;gap:4px;order:3;width:100%}
+@media (min-width:760px){.site-nav{order:2;margin-left:auto;width:auto;flex-wrap:wrap}}
+@media (max-width:759px){
+  .site-nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;margin:0 -4px}
+  .site-nav::-webkit-scrollbar{display:none}
+  .site-nav a{white-space:nowrap;flex:none}
+}
+.brand{order:1}
 .site-nav a{
   display:inline-block;padding:7px 11px;border-radius:var(--r);
   color:var(--ink-2);text-decoration:none;font-size:14px;
@@ -474,3 +499,28 @@ tr:last-child td{border-bottom:0}
 .pager .next{text-align:right}
 
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ------------------------------------------------------------ theme toggle */
+.themebtn{
+  order:2;margin-left:auto;flex:none;
+  width:40px;height:40px;padding:0;
+  display:grid;place-items:center;
+  background:var(--surface);border:1px solid var(--line);border-radius:50%;
+  color:var(--ink-2);cursor:pointer;
+}
+@media (min-width:760px){.themebtn{order:3;margin-left:0}}
+.themebtn:hover{border-color:var(--accent-line);color:var(--accent)}
+.themebtn svg{width:18px;height:18px;display:block}
+.themebtn .i-sun{display:none}
+.themebtn .i-moon{display:block}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .themebtn .i-sun{display:block}
+  :root:not([data-theme="light"]) .themebtn .i-moon{display:none}
+}
+:root[data-theme="dark"] .themebtn .i-sun{display:block}
+:root[data-theme="dark"] .themebtn .i-moon{display:none}
+:root[data-theme="light"] .themebtn .i-sun{display:none}
+:root[data-theme="light"] .themebtn .i-moon{display:block}
+
+/* スタイル未適用の一瞬でもアイコンが暴れないように */
+svg{max-width:100%}

@@ -24,6 +24,7 @@ dist/preview-site.html      確認用に全ページを1ファイルへまとめ
 
 _local/build_blog.py        記事一覧の生成（記事を足すときはここに1件追加して実行）
 _local/cleanurls.py         内部リンクを配信 URL に揃える
+_local/chrome.py            テーマ切替・SVG サイズ・CSS のバージョン付与
 _local/serve.py             クリーン URL を解決するローカルサーバー
 _local/make_og.py           OGP 画像の生成
 ```
@@ -65,6 +66,23 @@ python _local\serve.py
 ```
 
 ブラウザで <http://localhost:8000/> を開きます。
+
+---
+
+## 生成スクリプトの実行順
+
+記事を追加したり CSS を変えたあとは、この順に実行してください。
+`chrome.py` は CSS の内容ハッシュを URL に埋めるので、**必ず最後**です。
+
+```powershell
+python _localuild_blog.py     # 記事一覧と各記事の共通パーツ
+python _local\cleanurls.py      # 内部リンクを配信 URL に揃える
+python _local\chrome.py         # テーマ切替・SVG サイズ・CSS のバージョン
+```
+
+CSS を変えたのにスマートフォンで反映されない、という事故を防ぐために、
+`site.css` は `?v=<内容ハッシュ>` を付けて参照しています。
+ハッシュが変わると別 URL になるため、端末のキャッシュを確実に踏み越えます。
 
 ---
 

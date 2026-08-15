@@ -4,8 +4,9 @@
   X-Frame-Options: SAMEORIGIN
   Permissions-Policy: geolocation=(), camera=(), microphone=()
 
+# CSS は ?v=<内容ハッシュ> 付きで参照しているので、長期キャッシュしてよい
 /assets/site.css
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=31536000, immutable
 
 /assets/og/*
   Cache-Control: public, max-age=2592000, immutable
