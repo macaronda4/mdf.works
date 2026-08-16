@@ -84,29 +84,35 @@
     {
       "@type": "ItemList",
       "itemListOrder": "https://schema.org/ItemListOrderDescending",
-      "numberOfItems": 4,
+      "numberOfItems": 5,
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
+          "url": "https://mdf.works/blog/cache",
+          "name": "HTMLは新しいのにCSSだけ古い — 静的サイトのキャッシュの罠"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
           "url": "https://mdf.works/blog/browser",
           "name": "ブラウザの選び方 — Chrome・Firefox・Edge・Safari・Brave の違い"
         },
         {
           "@type": "ListItem",
-          "position": 2,
+          "position": 3,
           "url": "https://mdf.works/blog/capture",
           "name": "スクリーンショットは必要な範囲だけを撮る"
         },
         {
           "@type": "ListItem",
-          "position": 3,
+          "position": 4,
           "url": "https://mdf.works/blog/mosaic",
           "name": "モザイク・ぼかし・塗りつぶし — 文字を隠すならどれを選ぶか"
         },
         {
           "@type": "ListItem",
-          "position": 4,
+          "position": 5,
           "url": "https://mdf.works/blog/checklist",
           "name": "スクリーンショットを公開する前のチェックリスト12項目"
         }
@@ -674,19 +680,39 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       </select>
     </div>
 
-    <div class="chips" id="cats" role="group" aria-label="カテゴリで絞り込む"><button type="button" data-cat="" aria-pressed="true">すべて <b>4</b></button><button type="button" data-cat="ブラウザ" aria-pressed="false">ブラウザ <b>1</b></button><button type="button" data-cat="基本" aria-pressed="false">基本 <b>1</b></button><button type="button" data-cat="プライバシー" aria-pressed="false">プライバシー <b>2</b></button></div>
+    <div class="chips" id="cats" role="group" aria-label="カテゴリで絞り込む"><button type="button" data-cat="" aria-pressed="true">すべて <b>5</b></button><button type="button" data-cat="開発" aria-pressed="false">開発 <b>1</b></button><button type="button" data-cat="ブラウザ" aria-pressed="false">ブラウザ <b>1</b></button><button type="button" data-cat="基本" aria-pressed="false">基本 <b>1</b></button><button type="button" data-cat="プライバシー" aria-pressed="false">プライバシー <b>2</b></button></div>
 
     <details class="tagbox" id="tagbox">
       <summary>タグで絞り込む</summary>
-      <div class="chips" id="tags" role="group" aria-label="タグで絞り込む"><button type="button" data-tag="Chrome" aria-pressed="false">Chrome</button><button type="button" data-tag="Firefox" aria-pressed="false">Firefox</button><button type="button" data-tag="Safari" aria-pressed="false">Safari</button><button type="button" data-tag="Brave" aria-pressed="false">Brave</button><button type="button" data-tag="拡張機能" aria-pressed="false">拡張機能</button><button type="button" data-tag="Windows" aria-pressed="false">Windows</button><button type="button" data-tag="macOS" aria-pressed="false">macOS</button><button type="button" data-tag="iPhone" aria-pressed="false">iPhone</button><button type="button" data-tag="Android" aria-pressed="false">Android</button><button type="button" data-tag="ショートカット" aria-pressed="false">ショートカット</button><button type="button" data-tag="モザイク" aria-pressed="false">モザイク</button><button type="button" data-tag="ぼかし" aria-pressed="false">ぼかし</button><button type="button" data-tag="塗りつぶし" aria-pressed="false">塗りつぶし</button><button type="button" data-tag="PDF" aria-pressed="false">PDF</button><button type="button" data-tag="Exif" aria-pressed="false">Exif</button><button type="button" data-tag="通知" aria-pressed="false">通知</button><button type="button" data-tag="確認手順" aria-pressed="false">確認手順</button></div>
+      <div class="chips" id="tags" role="group" aria-label="タグで絞り込む"><button type="button" data-tag="キャッシュ" aria-pressed="false">キャッシュ</button><button type="button" data-tag="Cloudflare" aria-pressed="false">Cloudflare</button><button type="button" data-tag="静的サイト" aria-pressed="false">静的サイト</button><button type="button" data-tag="CSS" aria-pressed="false">CSS</button><button type="button" data-tag="デプロイ" aria-pressed="false">デプロイ</button><button type="button" data-tag="Chrome" aria-pressed="false">Chrome</button><button type="button" data-tag="Firefox" aria-pressed="false">Firefox</button><button type="button" data-tag="Safari" aria-pressed="false">Safari</button><button type="button" data-tag="Brave" aria-pressed="false">Brave</button><button type="button" data-tag="拡張機能" aria-pressed="false">拡張機能</button><button type="button" data-tag="Windows" aria-pressed="false">Windows</button><button type="button" data-tag="macOS" aria-pressed="false">macOS</button><button type="button" data-tag="iPhone" aria-pressed="false">iPhone</button><button type="button" data-tag="Android" aria-pressed="false">Android</button><button type="button" data-tag="ショートカット" aria-pressed="false">ショートカット</button><button type="button" data-tag="モザイク" aria-pressed="false">モザイク</button><button type="button" data-tag="ぼかし" aria-pressed="false">ぼかし</button><button type="button" data-tag="塗りつぶし" aria-pressed="false">塗りつぶし</button><button type="button" data-tag="PDF" aria-pressed="false">PDF</button><button type="button" data-tag="Exif" aria-pressed="false">Exif</button><button type="button" data-tag="通知" aria-pressed="false">通知</button><button type="button" data-tag="確認手順" aria-pressed="false">確認手順</button></div>
     </details>
 
     <div class="resultbar">
-      <span class="n" id="count">4件の記事</span>
+      <span class="n" id="count">5件の記事</span>
       <button type="button" class="reset" id="reset" hidden>絞り込みを解除</button>
     </div>
 
     <div class="projects" id="posts">
+
+      <a class="proj" href="/blog/cache"
+         data-cat="開発" data-tags="キャッシュ|Cloudflare|静的サイト|CSS|デプロイ"
+         data-date="2026-08-18" data-text="htmlは新しいのにcssだけ古い — 静的サイトのキャッシュの罠 パソコンでは正常なのに、スマートフォンでだけレイアウトが崩れる。原因は css の中身ではなく、html と css でキャッシュの寿命が違っていたことでした。切り分けの手順と、3つの対処のどれを選ぶかまで。 開発 キャッシュ cloudflare 静的サイト css デプロイ">
+        <div class="top">
+          <span class="glyph" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3.5 6.5c0-1.7 3.8-3 8.5-3s8.5 1.3 8.5 3-3.8 3-8.5 3-8.5-1.3-8.5-3z"/><path d="M3.5 6.5v11c0 1.7 3.8 3 8.5 3s8.5-1.3 8.5-3v-11"/><path d="M3.5 12c0 1.7 3.8 3 8.5 3s8.5-1.3 8.5-3"/></svg>
+          </span>
+          <div class="meta" style="margin:0">
+            <span class="cat">開発</span>
+            <time datetime="2026-08-18">2026年8月18日</time>
+          </div>
+        </div>
+        <h3 class="post">HTMLは新しいのにCSSだけ古い — 静的サイトのキャッシュの罠</h3>
+        <p>パソコンでは正常なのに、スマートフォンでだけレイアウトが崩れる。原因は CSS の中身ではなく、HTML と CSS でキャッシュの寿命が違っていたことでした。切り分けの手順と、3つの対処のどれを選ぶかまで。</p>
+        <div class="tags"><span class="tag">キャッシュ</span><span class="tag">Cloudflare</span><span class="tag">静的サイト</span><span class="tag">CSS</span><span class="tag">デプロイ</span></div>
+        <span class="go">読む · 約6分
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
 
       <a class="proj" href="/blog/browser"
          data-cat="ブラウザ" data-tags="Chrome|Firefox|Safari|Brave|拡張機能"

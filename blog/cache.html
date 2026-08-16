@@ -30,25 +30,25 @@
 <!-- Google AdSense -->
 <script async fetchpriority="low" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8613999974980382"
      crossorigin="anonymous"></script>
-<title>mdf.works｜アップロード不要のブラウザ完結ウェブツール</title>
-<meta name="description" content="ファイルをサーバーに送らずに使える無料のウェブツールを公開しています。インストールも登録も不要。スクリーンショットの名前とアイコンを隠す「Kuroko」を公開中です。">
-<link rel="canonical" href="https://mdf.works/">
+<title>HTMLは新しいのにCSSだけ古い｜静的サイトのキャッシュの罠</title>
+<meta name="description" content="スマホだけレイアウトが崩れる。原因はHTMLとCSSでキャッシュの寿命が違うことでした。切り分けの手順と、内容ハッシュ・埋め込みという2つの対処、どちらを選ぶべきかを整理します。">
+<link rel="canonical" href="https://mdf.works/blog/cache">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="theme-color" content="#131720">
 <meta name="author" content="マカロン大福">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="mdf.works">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="mdf.works｜アップロード不要のブラウザ完結ウェブツール">
-<meta property="og:description" content="ファイルをサーバーに送らずに使える無料のウェブツールを公開しています。インストールも登録も不要。スクリーンショットの名前とアイコンを隠す「Kuroko」を公開中です。">
-<meta property="og:url" content="https://mdf.works/">
-<meta property="og:image" content="https://mdf.works/assets/og/home.png">
+<meta property="og:title" content="HTMLは新しいのにCSSだけ古い｜静的サイトのキャッシュの罠">
+<meta property="og:description" content="スマホだけレイアウトが崩れる。原因はHTMLとCSSでキャッシュの寿命が違うことでした。切り分けの手順と2つの対処。">
+<meta property="og:url" content="https://mdf.works/blog/cache">
+<meta property="og:image" content="https://mdf.works/assets/og/cache.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mdf.works｜アップロード不要のブラウザ完結ウェブツール">
-<meta name="twitter:description" content="ファイルをサーバーに送らずに使える無料のウェブツールを公開しています。インストールも登録も不要。スクリーンショットの名前とアイコンを隠す「Kuroko」を公開中です。">
-<meta name="twitter:image" content="https://mdf.works/assets/og/home.png">
+<meta name="twitter:title" content="HTMLは新しいのにCSSだけ古い｜静的サイトのキャッシュの罠">
+<meta name="twitter:description" content="スマホだけレイアウトが崩れる。原因はHTMLとCSSでキャッシュの寿命が違うことでした。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/cache.png">
 <meta name="twitter:creator" content="@sugerslp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
 <script type="application/ld+json">
@@ -56,72 +56,32 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "WebSite",
-      "@id": "https://mdf.works/#website",
-      "url": "https://mdf.works/",
-      "name": "mdf.works",
-      "description": "ファイルをサーバーに送らずに使える無料のウェブツールを公開している個人サイト。",
+      "@type": "Article",
+      "headline": "HTMLは新しいのにCSSだけ古い — 静的サイトのキャッシュの罠",
+      "description": "HTMLとサブリソースでキャッシュの寿命が違うと、新しいマークアップに古いCSSが当たる。切り分けと対処。",
+      "image": "https://mdf.works/assets/og/cache.png",
+      "datePublished": "2026-08-18",
+      "dateModified": "2026-08-18",
       "inLanguage": "ja",
-      "publisher": {
-        "@id": "https://mdf.works/#person"
-      }
+      "articleSection": "開発",
+      "author": { "@id": "https://mdf.works/#person" },
+      "publisher": { "@id": "https://mdf.works/#person" },
+      "mainEntityOfPage": "https://mdf.works/blog/cache"
     },
     {
       "@type": "Person",
       "@id": "https://mdf.works/#person",
       "name": "マカロン大福",
       "url": "https://mdf.works/about",
-      "sameAs": [
-        "https://x.com/sugerslp"
+      "sameAs": ["https://x.com/sugerslp"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mdf.works/" },
+        { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mdf.works/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "キャッシュの罠", "item": "https://mdf.works/blog/cache" }
       ]
-    },
-    {
-      "@type": "CollectionPage",
-      "@id": "https://mdf.works/#webpage",
-      "url": "https://mdf.works/",
-      "name": "mdf.works",
-      "isPartOf": {
-        "@id": "https://mdf.works/#website"
-      },
-      "inLanguage": "ja",
-      "about": {
-        "@id": "https://mdf.works/kuroko/#app"
-      }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "@id": "https://mdf.works/kuroko/#app",
-      "name": "Kuroko",
-      "alternateName": "スクリーンショット匿名化ツール",
-      "url": "https://mdf.works/kuroko/",
-      "applicationCategory": "MultimediaApplication",
-      "applicationSubCategory": "画像編集",
-      "operatingSystem": "Web ブラウザ（Windows / macOS / iOS / Android）",
-      "browserRequirements": "JavaScript と HTML5 Canvas に対応したブラウザ",
-      "inLanguage": "ja",
-      "description": "Discord などのスクリーンショットから、アイコン・表示名・ユーザーIDを自動で検出してマスクする無料ツール。画像はサーバーに送信されず、ブラウザの中だけで処理されます。",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "JPY"
-      },
-      "featureList": [
-        "円形アイコンの自動検出",
-        "表示名・タグ・時刻の行の自動検出",
-        "同一人物のアイコンをまとめて同じ仮名に置き換え",
-        "返信プレビューのアイコンと名前に対応",
-        "モザイク・ぼかし・塗りつぶし・ダミー名",
-        "手動マスクの追加と数値指定",
-        "画像を送信しないブラウザ内処理",
-        "書き出し時に Exif が残らない"
-      ],
-      "author": {
-        "@id": "https://mdf.works/#person"
-      },
-      "publisher": {
-        "@id": "https://mdf.works/#person"
-      },
-      "isAccessibleForFree": true
     }
   ]
 }
@@ -626,11 +586,10 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       <span class="sub">個人開発のウェブツール</span>
     </a>
     <nav class="site-nav" aria-label="メインナビゲーション">
-      <a href="/" aria-current="page">ホーム</a>
-      <a href="/blog/">ブログ</a>
+      <a href="/blog/">記事一覧</a>
+      <a href="/kuroko/">Kuroko</a>
       <a href="/about">このサイトについて</a>
-      <a href="/contact">お問い合わせ</a>
-      <a class="cta" href="/kuroko/">Kuroko</a>
+      <a class="cta" href="/kuroko/tool">ツールを開く</a>
     </nav>
     <button class="themebtn" type="button" id="themebtn" aria-label="表示テーマを切り替える" title="表示テーマを切り替える">
       <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>
@@ -640,132 +599,272 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
 </header>
 
 <main id="main">
-  <div class="wrap">
+  <div class="wrap prose">
 
-    <section class="hero prose">
-      <p class="kicker">mdf.works — personal web tools</p>
-      <h1>送らなくても、できる。</h1>
-      <p class="tagline">
-        ファイルをサーバーに預けずに使える、無料のウェブツールを作って公開しています。
-        インストールも登録もいりません。ブラウザで開いて、使って、閉じるだけです。
+    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>キャッシュの罠</p>
+
+    <div class="page-head">
+      <p class="eyebrow">Development</p>
+      <h1>HTMLは新しいのにCSSだけ古い<br>静的サイトのキャッシュの罠</h1>
+      <p class="lead">
+        パソコンでは問題なく、スマートフォンでだけレイアウトが崩れる。
+        アイコンが画面いっぱいに膨らみ、ボタンが未装飾になる。
+        原因は CSS の中身ではなく、<strong>HTML と CSS で「寿命」が違っていたこと</strong>でした。
       </p>
-      <div class="btnrow">
-        <a class="btn primary" href="/kuroko/">
-          Kuroko を見る
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 12h16M13 5l7 7-7 7"/></svg>
-        </a>
-        <a class="btn" href="/about">このサイトについて</a>
-      </div>
-    </section>
-
-    <h2 id="tools">公開しているもの</h2>
-    <div class="projects">
-      <a class="proj" href="/kuroko/">
-        <div class="top">
-          <span class="glyph" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="9.5" r="4"/><rect x="3" y="16" width="18" height="4" rx="2" fill="currentColor" stroke="none"/></svg>
-          </span>
-          <div>
-            <h3>Kuroko</h3>
-            <p class="role">スクリーンショット匿名化</p>
-          </div>
-        </div>
-        <p>
-          Discord などのチャット画面を人に見せるとき、写り込んだ第三者のアイコン・表示名・ユーザーIDを伏せます。
-          同じ人物には同じ仮名が振られるので、会話の流れを保ったまま匿名化できます。
-          画像は端末から一歩も出ません。
-        </p>
-        <div class="tags">
-          <span class="tag">画像処理</span>
-          <span class="tag">送信なし</span>
-          <span class="tag">無料</span>
-          <span class="tag">登録不要</span>
-        </div>
-        <span class="go">
-          詳しく見る
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M12 5l7 7-7 7"/></svg>
-        </span>
-      </a>
-
-      <a class="proj" href="/blog/">
-        <div class="top">
-          <span class="glyph" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4.5h11l3.5 3.5v11.5H5z"/><path d="M8.5 10h8M8.5 13.5h8M8.5 17h5"/></svg>
-          </span>
-          <div>
-            <h3>Blog</h3>
-            <p class="role">ブラウザ・ガジェット・プライバシー</p>
-          </div>
-        </div>
-        <p>
-          ブラウザやガジェットの話、個人開発で分かったこと、
-          スクリーンショットと個人情報のこと。
-          調べた結果ではなく、実際に試して分かったことを書いています。
-        </p>
-        <div class="tags">
-          <span class="tag">ブラウザ</span>
-          <span class="tag">開発</span>
-          <span class="tag">プライバシー</span>
-          <span class="tag">5本</span>
-        </div>
-        <span class="go">
-          記事一覧を見る
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M12 5l7 7-7 7"/></svg>
-        </span>
-      </a>
-    </div>
-
-    <h2>作るときに決めていること</h2>
-    <div class="principles">
-      <div>
-        <p class="n">01</p>
-        <h3>ファイルを預からない</h3>
-        <p>処理はすべてブラウザの中で行います。サーバーが受け取らないなら、漏れることも、目的外に使われることもありません。</p>
-      </div>
-      <div>
-        <p class="n">02</p>
-        <h3>開いたらすぐ使える</h3>
-        <p>アカウント登録、メール認証、インストール。使い捨ての道具にそれらは不要です。開いて、使って、閉じる。</p>
-      </div>
-      <div>
-        <p class="n">03</p>
-        <h3>できないことを隠さない</h3>
-        <p>自動処理には限界があります。何ができて何ができないかを書き、最後の確認は使う人に委ねます。</p>
+      <div class="postmeta">
+        <span class="cat">開発</span>
+        <time datetime="2026-08-18">2026年8月18日</time>
+        <span class="read">約6分で読めます</span>
       </div>
     </div>
 
-    <h2>このサイトについて</h2>
-    <div class="prose">
-      <p>
-        個人が趣味で運営している、小さなウェブツール置き場です。
-        「アップロードしないと使えないツール」に不便さと不安を感じることが多く、
-        ブラウザだけで完結するなら、そのほうがいいだろうと思って作り始めました。
-      </p>
-      <p>
-        サーバー側の処理を持たないので、運営者は利用者が何を処理したかを知ることができません。
-        これは設計上そうなっているというだけで、信用してくださいという話ではありません。
-        ページを読み込んだあとに通信を切っても最後まで動作することで、誰でも確かめられます。
-        （広告とアクセス解析のための通信は発生しますが、そこに扱ったファイルは含まれません。）
-      </p>
-      <div class="btnrow">
-        <a class="btn" href="/about">くわしく読む</a>
-        <a class="btn" href="/privacy">プライバシーポリシー</a>
-      </div>
+    <nav class="toc" id="toc" hidden aria-label="目次">
+      <p class="toctitle">目次</p>
+      <ol></ol>
+    </nav>
+
+    <!-- postbody:start --><div class="postbody">
+    <h2>起きたこと</h2>
+    <p>
+      このサイトのブログ一覧に、検索窓とタグの絞り込みを追加した直後の話です。
+      パソコンでは意図どおりに表示されるのに、スマートフォンで開くと崩れていました。
+    </p>
+    <ul>
+      <li>検索窓の虫眼鏡アイコンが、画面の横幅いっぱいに拡大されている</li>
+      <li>カテゴリのボタンが、装飾のない素のボタンに見える</li>
+      <li>共有ボタンの X のロゴが、これも画面いっぱい</li>
+    </ul>
+    <p>
+      アイコンが巨大化するのは、SVG に寸法指定がなく、CSS も当たっていないときの典型的な見た目です。
+      つまり<strong>スタイルが適用されていない</strong>。ここまでは分かります。
+      分からないのは、なぜパソコンでは正常なのか、です。
+    </p>
+
+    <h2>最初に疑ったこと（と、外れた理由）</h2>
+    <p>
+      真っ先に疑うのは CSS の書き間違いです。どこかに閉じ忘れの波括弧があると、
+      そこから後ろのルールがまとめて無効になります。実際そういう壊れ方は珍しくありません。
+    </p>
+    <p>
+      ただ、それなら<strong>パソコンでも同じように崩れるはず</strong>です。
+      端末によって CSS の解釈が変わるわけではありません。
+      仮説が症状を説明できていないので、これは違います。
+    </p>
+    <p>
+      次に疑ったのはデプロイ漏れ。ファイルは書き換えたが、公開されているものは古いまま、という筋です。
+      これは症状と噛み合います。確かめるには、<strong>手元のファイルではなく、実際に配信されているものを見る</strong>のがいちばん早い。
+    </p>
+
+    <h2>配信物を直接見る</h2>
+    <p>
+      ブラウザの開発者ツールでも確認できますが、コマンドで取ってしまうほうが確実です。
+      ブラウザ自身のキャッシュが介在しないので、素の配信内容が分かります。
+    </p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">見たいこと</th><th scope="col">やること</th></tr></thead>
+        <tbody>
+          <tr><td>配信中の CSS に、目的のルールが入っているか</td><td>CSS を取得して、セレクタ名で検索する</td></tr>
+          <tr><td>いつまでキャッシュされる設定か</td><td>レスポンスヘッダの <code>Cache-Control</code> を見る</td></tr>
+          <tr><td>圧縮が効いているか</td><td><code>Content-Encoding</code> を見る</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      結果は<strong>拍子抜けするもの</strong>でした。配信されている CSS には、追加したはずのルールが
+      すべて含まれていたのです。デプロイは成功していました。
+    </p>
+
+    <h2>原因：寿命の違う2つのファイル</h2>
+    <p>
+      答えはレスポンスヘッダにありました。HTML と CSS で、キャッシュの設定がまったく違っていたのです。
+    </p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">ファイル</th><th scope="col">Cache-Control</th><th scope="col">意味</th></tr></thead>
+        <tbody>
+          <tr><td>HTML</td><td><code>max-age=0, must-revalidate</code></td><td>毎回サーバーに確認する。つまり常に最新</td></tr>
+          <tr><td>CSS</td><td><code>max-age=86400</code></td><td>24時間は確認せず、手元のものを使う</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      前日にサイトを見ていた端末は、CSS を24時間ぶん抱えています。
+      そこへ翌日アクセスすると、<strong>HTML だけが新しくなり、CSS は昨日のまま</strong>になる。
+      新しいマークアップに、そのマークアップを知らないスタイルシートが当たっていたわけです。
+    </p>
+    <p>
+      パソコンで正常だったのは、単に「その端末では初めて開いたから」でした。
+      環境の違いではなく、<strong>訪問履歴の違い</strong>だったのです。
+      これに気づくまで、ブラウザの差異を疑って時間を使いました。
+    </p>
+
+    <div class="note warn">
+      <strong>この不具合のたちが悪いところ：</strong>
+      開発している本人はスーパーリロードを習慣的に使うので、まず遭遇しません。
+      遭遇するのは「前にも来たことがある訪問者」だけです。
+      しかもその人たちは、わざわざ報告してくれません。黙って離脱します。
     </div>
 
-    <h2>更新履歴</h2>
-    <ul class="log">
-      <li><time datetime="2026-08-18">2026-08-18</time><span>記事「HTMLは新しいのにCSSだけ古い」を公開しました。</span></li>
-      <li><time datetime="2026-08-17">2026-08-17</time><span>ブログを開設し、記事「ブラウザの選び方」を公開しました。</span></li>
-      <li><time datetime="2026-08-16">2026-08-16</time><span>解説記事「必要な範囲だけを撮る」を公開しました。</span></li>
-      <li><time datetime="2026-08-14">2026-08-14</time><span>解説記事「モザイクやぼかしは復元できるのか」を公開しました。</span></li>
-      <li><time datetime="2026-08-13">2026-08-13</time><span>サイトを公開しました。</span></li>
-      <li><time datetime="2026-08-13">2026-08-13</time><span>Kuroko：返信プレビューのアイコンと名前に対応しました。</span></li>
-      <li><time datetime="2026-08-10">2026-08-10</time><span>Kuroko：装飾フレーム付きアイコン、低コントラストなアイコンの検出精度を改善しました。</span></li>
-      <li><time datetime="2026-08-09">2026-08-09</time><span>Kuroko：スマートフォン向けの操作画面と、ピンチ操作に対応しました。</span></li>
+    <h2>「キャッシュを消してください」は解決ではない</h2>
+    <p>
+      その場しのぎとしては有効ですが、対処としては失格です。
+      訪問者にキャッシュ操作を求めるのは、こちらの設計不備を相手に押し付けているだけですし、
+      そもそも大半の人はやり方を知りません。
+    </p>
+    <p>
+      直すべきは<strong>仕組みのほう</strong>です。方法は3つあります。
+    </p>
+
+    <h3>案1：CSS のキャッシュ期間を短くする</h3>
+    <p>
+      いちばん素直ですが、あまり良くありません。
+      期間を短くするほど問い合わせが増え、キャッシュの意味が薄れます。
+      かといって長くすれば同じ問題が起きる。<strong>どこに設定しても、どちらかが犠牲になります</strong>。
+      根本的には「同じ URL で中身が変わりうる」ことが問題なので、そこに手を入れないと解決しません。
+    </p>
+
+    <h3>案2：URL に内容のハッシュを入れる</h3>
+    <p>
+      <code>/assets/site.css?v=94eb1160</code> のように、ファイルの中身から計算した値を URL に付けます。
+      中身を1文字でも変えればハッシュが変わり、<strong>別の URL になる</strong>。
+      古いキャッシュは参照されなくなり、確実に新しいものが読まれます。
+    </p>
+    <p>
+      そのうえ、URL が変われば内容も必ず変わるので、
+      キャッシュ期間は逆に<strong>思い切り長くできます</strong>。1年でも構いません。
+      「短くする」のではなく「長くしても壊れないようにする」という発想の転換です。
+    </p>
+    <p>
+      ビルドの手順にハッシュ計算を組み込む必要はありますが、
+      静的サイトなら小さなスクリプト1本で足ります。
+    </p>
+
+    <h3>案3：CSS を HTML に埋め込む</h3>
+    <p>
+      別ファイルにするのをやめて、<code>&lt;style&gt;</code> としてページに直接書いてしまう方法です。
+      HTML は毎回最新が配信されるので、<strong>CSS が HTML より古くなること自体が起こらなくなります</strong>。
+    </p>
+    <p>
+      副次的に、描画をブロックする往復が1つ減るので表示も少し速くなります。
+      代わりに、ページ間で CSS を使い回せなくなり、各ページが少し重くなります。
+    </p>
+
+    <h2>どれを選ぶか</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">状況</th><th scope="col">向いている案</th></tr></thead>
+        <tbody>
+          <tr><td>CSS が数十 KB 以上ある／ページ数が多い</td><td><strong>案2</strong>（内容ハッシュ）</td></tr>
+          <tr><td>CSS が数 KB 程度／ページ数が少ない</td><td><strong>案3</strong>（埋め込み）</td></tr>
+          <tr><td>ビルド工程を持てない</td><td>案1でしのぐ（期間を数分に）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      このサイトは最終的に<strong>案3</strong>にしました。
+      スタイルシートが圧縮後 6KB 程度と小さく、ページも十数枚しかないので、
+      使い回せない不利より、事故が構造的に起きなくなる利点が勝ると判断したためです。
+      表示速度の面でも、外部ファイルへの往復が1つ減ります。
+    </p>
+    <p>
+      元のスタイルシートは1枚のまま残し、
+      公開用のファイルを作るときにコメントを落として各ページへ流し込む形にしました。
+      編集するのは従来どおり1枚なので、手間は増えていません。
+    </p>
+
+    <h2>一般化すると</h2>
+    <p>
+      今回の教訓は、CSS に限った話ではありません。
+    </p>
+    <div class="note">
+      <strong>HTML と、そこから読むファイルの寿命が違うと、いつか噛み合わなくなる。</strong>
+      HTML を常に最新にするなら、そこから参照するファイルは
+      「URL が変われば中身も変わる」状態にしておく。
+    </div>
+    <p>
+      JavaScript でも同じことが起きます。むしろ JS のほうが深刻で、
+      新しい HTML の要素を古いスクリプトが探しにいって、
+      エラーも出さずに<strong>ただ動かない</strong>という壊れ方をします。
+      画面が崩れる CSS のほうが、まだ気づきやすいくらいです。
+    </p>
+    <p>
+      画像やフォントは中身が変わりにくいので実害は出にくいのですが、
+      差し替えたときに同じ罠にはまります。ロゴを新しくしたのに古いロゴが出続ける、というやつです。
+    </p>
+
+    <h2>まとめ</h2>
+    <ul>
+      <li>特定の端末でだけ崩れるときは、環境差ではなく<strong>訪問履歴の差</strong>を疑う</li>
+      <li>手元のファイルではなく、<strong>実際に配信されているもの</strong>を取得して確かめる</li>
+      <li><code>Cache-Control</code> は HTML とサブリソースで別々に設定されている。両方見る</li>
+      <li>直すのは期間ではなく、<strong>同じ URL で中身が変わる状態</strong>のほう</li>
+      <li>小さいサイトなら、埋め込んでしまうのがいちばん確実</li>
     </ul>
 
+    </div><!-- postbody:end -->
+    <!-- postnav:start -->
+    <div class="postnav">
+      <div class="share">
+        <span class="label">この記事を共有</span>
+        <a href="https://x.com/intent/post?text=HTMLは新しいのにCSSだけ古い — 静的サイトのキャッシュの罠&amp;url=https://mdf.works/blog/cache" target="_blank" rel="noopener noreferrer">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.2-5.8 6.2H1.5l7.5-8.6L1 3h6.7l4.6 5.8L17.5 3zm-1.1 16.2h1.8L7.7 4.7H5.8l10.6 14.5z"/></svg>
+          X で共有
+        </a>
+        <button type="button" id="copylink">リンクをコピー</button>
+      </div>
+
+      <nav class="pager" aria-label="記事の移動">
+        <a class="prev" href="/blog/browser"><span class="dir">← 前の記事</span><span class="t">ブラウザの選び方 — 結局どれを使えばいいのか</span></a>
+      </nav>
+
+      <h2>ほかの記事</h2>
+      <div class="grid cols-2">
+      <div class="card">
+        <h3><a href="/blog/browser" style="text-decoration:none">ブラウザの選び方 — 結局どれを使えばいいのか</a></h3>
+        <p>「どれが速いか」で選ぼうとすると決まりません。実際に差が出るのは拡張機能の扱い、プライバシーの初期設定、同期の紐づけ先の3つです。用途別の選び方と、分けて使…</p>
+      </div>
+      <div class="card">
+        <h3><a href="/blog/capture" style="text-decoration:none">スクリーンショットは必要な範囲だけを撮る</a></h3>
+        <p>隠す作業を減らすいちばん確実な方法は、そもそも写さないことです。Windows・macOS・iPhone・Android それぞれの範囲指定の撮り方と、撮る…</p>
+      </div>
+      </div>
+      <div class="btnrow">
+        <a class="btn" href="/blog/">記事一覧に戻る</a>
+      </div>
+    </div>
+    <!-- postnav:end -->
   </div>
+<script>
+(function () {
+  var prose = document.querySelector('main .prose');
+  var toc = document.getElementById('toc');
+  if (prose && toc) {
+    var ol = toc.querySelector('ol'), n = 0;
+    prose.querySelectorAll('h2, h3').forEach(function (h) {
+      if (h.closest('.postnav')) return;
+      if (!h.id) h.id = 'sec' + (++n);
+      var li = document.createElement('li');
+      li.className = h.tagName === 'H3' ? 'lv3' : 'lv2';
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent.trim();
+      li.appendChild(a);
+      ol.appendChild(li);
+    });
+    if (ol.children.length >= 3) toc.hidden = false;
+  }
+  var copy = document.getElementById('copylink');
+  if (copy) copy.addEventListener('click', function () {
+    var done = function (ok) {
+      copy.textContent = ok ? 'コピーしました' : 'コピーできませんでした';
+      setTimeout(function () { copy.textContent = 'リンクをコピー'; }, 1800);
+    };
+    if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { done(true); }, function () { done(false); });
+    else done(false);
+  });
+})();
+</script>
 </main>
 
 <footer class="site-foot">
