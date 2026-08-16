@@ -81,8 +81,8 @@ body{
 }
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 
-.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
-.prose{max-width:68ch}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.prose{max-width:78ch}
 
 /* ------------------------------------------------------------ header */
 .site-head{
@@ -524,3 +524,26 @@ tr:last-child td{border-bottom:0}
 
 /* スタイル未適用の一瞬でもアイコンが暴れないように */
 svg{max-width:100%}
+
+/* ------------------------------------------------------------ article layout
+   記事は読み幅を保ちつつ、広い画面では空いていた右側に目次を寄せる。
+   本文は .postbody にまとめてあるので、段落どうしのマージンは従来どおり相殺される。 */
+@media (min-width:1160px){
+  .wrap.prose:has(.toc:not([hidden])){
+    max-width:1180px;
+    display:grid;
+    grid-template-columns:minmax(0,78ch) 260px;
+    column-gap:60px;
+    justify-content:center;
+    align-items:start;
+  }
+  .wrap.prose:has(.toc:not([hidden])) > *{grid-column:1;min-width:0}
+  .wrap.prose:has(.toc:not([hidden])) > .toc{
+    grid-column:2;grid-row:1 / span 40;
+    position:sticky;top:78px;align-self:start;
+    margin:0;padding:16px 18px 18px;
+    max-height:calc(100dvh - 110px);overflow-y:auto;
+  }
+  .wrap.prose:has(.toc:not([hidden])) > .toc a{font-size:13.5px}
+  .wrap.prose:has(.toc:not([hidden])) > .toc li{margin-bottom:5px}
+}
