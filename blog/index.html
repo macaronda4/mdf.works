@@ -84,41 +84,47 @@
     {
       "@type": "ItemList",
       "itemListOrder": "https://schema.org/ItemListOrderDescending",
-      "numberOfItems": 6,
+      "numberOfItems": 7,
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
+          "url": "https://mdf.works/blog/battery",
+          "name": "モバイルバッテリーは mAh で選ばない — 見るべきは Wh と W"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
           "url": "https://mdf.works/blog/ping",
           "name": "Ping はどこで生まれるのか — 回線を速くしても下がらない理由"
         },
         {
           "@type": "ListItem",
-          "position": 2,
+          "position": 3,
           "url": "https://mdf.works/blog/cache",
           "name": "HTMLは新しいのにCSSだけ古い — 静的サイトのキャッシュの罠"
         },
         {
           "@type": "ListItem",
-          "position": 3,
+          "position": 4,
           "url": "https://mdf.works/blog/browser",
           "name": "ブラウザの選び方 — Chrome・Firefox・Edge・Safari・Brave の違い"
         },
         {
           "@type": "ListItem",
-          "position": 4,
+          "position": 5,
           "url": "https://mdf.works/blog/capture",
           "name": "スクリーンショットは必要な範囲だけを撮る"
         },
         {
           "@type": "ListItem",
-          "position": 5,
+          "position": 6,
           "url": "https://mdf.works/blog/mosaic",
           "name": "モザイク・ぼかし・塗りつぶし — 文字を隠すならどれを選ぶか"
         },
         {
           "@type": "ListItem",
-          "position": 6,
+          "position": 7,
           "url": "https://mdf.works/blog/checklist",
           "name": "スクリーンショットを公開する前のチェックリスト12項目"
         }
@@ -686,19 +692,39 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       </select>
     </div>
 
-    <div class="chips" id="cats" role="group" aria-label="カテゴリで絞り込む"><button type="button" data-cat="" aria-pressed="true">すべて <b>6</b></button><button type="button" data-cat="ゲーム" aria-pressed="false">ゲーム <b>1</b></button><button type="button" data-cat="開発" aria-pressed="false">開発 <b>1</b></button><button type="button" data-cat="ブラウザ" aria-pressed="false">ブラウザ <b>1</b></button><button type="button" data-cat="基本" aria-pressed="false">基本 <b>1</b></button><button type="button" data-cat="プライバシー" aria-pressed="false">プライバシー <b>2</b></button></div>
+    <div class="chips" id="cats" role="group" aria-label="カテゴリで絞り込む"><button type="button" data-cat="" aria-pressed="true">すべて <b>7</b></button><button type="button" data-cat="ガジェット" aria-pressed="false">ガジェット <b>1</b></button><button type="button" data-cat="ゲーム" aria-pressed="false">ゲーム <b>1</b></button><button type="button" data-cat="開発" aria-pressed="false">開発 <b>1</b></button><button type="button" data-cat="ブラウザ" aria-pressed="false">ブラウザ <b>1</b></button><button type="button" data-cat="基本" aria-pressed="false">基本 <b>1</b></button><button type="button" data-cat="プライバシー" aria-pressed="false">プライバシー <b>2</b></button></div>
 
     <details class="tagbox" id="tagbox">
       <summary>タグで絞り込む</summary>
-      <div class="chips" id="tags" role="group" aria-label="タグで絞り込む"><button type="button" data-tag="ゲーム" aria-pressed="false">ゲーム</button><button type="button" data-tag="ネットワーク" aria-pressed="false">ネットワーク</button><button type="button" data-tag="回線" aria-pressed="false">回線</button><button type="button" data-tag="Wi-Fi" aria-pressed="false">Wi-Fi</button><button type="button" data-tag="遅延" aria-pressed="false">遅延</button><button type="button" data-tag="キャッシュ" aria-pressed="false">キャッシュ</button><button type="button" data-tag="Cloudflare" aria-pressed="false">Cloudflare</button><button type="button" data-tag="静的サイト" aria-pressed="false">静的サイト</button><button type="button" data-tag="CSS" aria-pressed="false">CSS</button><button type="button" data-tag="デプロイ" aria-pressed="false">デプロイ</button><button type="button" data-tag="Chrome" aria-pressed="false">Chrome</button><button type="button" data-tag="Firefox" aria-pressed="false">Firefox</button><button type="button" data-tag="Safari" aria-pressed="false">Safari</button><button type="button" data-tag="Brave" aria-pressed="false">Brave</button><button type="button" data-tag="拡張機能" aria-pressed="false">拡張機能</button><button type="button" data-tag="Windows" aria-pressed="false">Windows</button><button type="button" data-tag="macOS" aria-pressed="false">macOS</button><button type="button" data-tag="iPhone" aria-pressed="false">iPhone</button><button type="button" data-tag="Android" aria-pressed="false">Android</button><button type="button" data-tag="ショートカット" aria-pressed="false">ショートカット</button><button type="button" data-tag="モザイク" aria-pressed="false">モザイク</button><button type="button" data-tag="ぼかし" aria-pressed="false">ぼかし</button><button type="button" data-tag="塗りつぶし" aria-pressed="false">塗りつぶし</button><button type="button" data-tag="PDF" aria-pressed="false">PDF</button><button type="button" data-tag="Exif" aria-pressed="false">Exif</button><button type="button" data-tag="通知" aria-pressed="false">通知</button><button type="button" data-tag="確認手順" aria-pressed="false">確認手順</button></div>
+      <div class="chips" id="tags" role="group" aria-label="タグで絞り込む"><button type="button" data-tag="ガジェット" aria-pressed="false">ガジェット</button><button type="button" data-tag="モバイルバッテリー" aria-pressed="false">モバイルバッテリー</button><button type="button" data-tag="USB" aria-pressed="false">USB</button><button type="button" data-tag="充電" aria-pressed="false">充電</button><button type="button" data-tag="選び方" aria-pressed="false">選び方</button><button type="button" data-tag="ゲーム" aria-pressed="false">ゲーム</button><button type="button" data-tag="ネットワーク" aria-pressed="false">ネットワーク</button><button type="button" data-tag="回線" aria-pressed="false">回線</button><button type="button" data-tag="Wi-Fi" aria-pressed="false">Wi-Fi</button><button type="button" data-tag="遅延" aria-pressed="false">遅延</button><button type="button" data-tag="キャッシュ" aria-pressed="false">キャッシュ</button><button type="button" data-tag="Cloudflare" aria-pressed="false">Cloudflare</button><button type="button" data-tag="静的サイト" aria-pressed="false">静的サイト</button><button type="button" data-tag="CSS" aria-pressed="false">CSS</button><button type="button" data-tag="デプロイ" aria-pressed="false">デプロイ</button><button type="button" data-tag="Chrome" aria-pressed="false">Chrome</button><button type="button" data-tag="Firefox" aria-pressed="false">Firefox</button><button type="button" data-tag="Safari" aria-pressed="false">Safari</button><button type="button" data-tag="Brave" aria-pressed="false">Brave</button><button type="button" data-tag="拡張機能" aria-pressed="false">拡張機能</button><button type="button" data-tag="Windows" aria-pressed="false">Windows</button><button type="button" data-tag="macOS" aria-pressed="false">macOS</button><button type="button" data-tag="iPhone" aria-pressed="false">iPhone</button><button type="button" data-tag="Android" aria-pressed="false">Android</button><button type="button" data-tag="ショートカット" aria-pressed="false">ショートカット</button><button type="button" data-tag="モザイク" aria-pressed="false">モザイク</button><button type="button" data-tag="ぼかし" aria-pressed="false">ぼかし</button><button type="button" data-tag="塗りつぶし" aria-pressed="false">塗りつぶし</button><button type="button" data-tag="PDF" aria-pressed="false">PDF</button><button type="button" data-tag="Exif" aria-pressed="false">Exif</button><button type="button" data-tag="通知" aria-pressed="false">通知</button><button type="button" data-tag="確認手順" aria-pressed="false">確認手順</button></div>
     </details>
 
     <div class="resultbar">
-      <span class="n" id="count">6件の記事</span>
+      <span class="n" id="count">7件の記事</span>
       <button type="button" class="reset" id="reset" hidden>絞り込みを解除</button>
     </div>
 
     <div class="projects" id="posts">
+
+      <a class="proj" href="/blog/battery"
+         data-cat="ガジェット" data-tags="ガジェット|モバイルバッテリー|USB|充電|選び方"
+         data-date="2026-08-20" data-text="モバイルバッテリーは mah で選ばない — 見るべきは wh と w 10000mah のバッテリーで 5000mah のスマートフォンは2回充電できません。mah を wh に直す計算、速さを決める w、usb pd と pps、ケーブルの上限、飛行機の 100wh 制限、日本の pse マークまで。選ぶときに見る数字は4つだけです。 ガジェット ガジェット モバイルバッテリー usb 充電 選び方">
+        <div class="top">
+          <span class="glyph" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="7.5" width="16" height="9" rx="2.2"/><path d="M21.5 11v2"/><path d="M5.5 10.5v3M8.5 10.5v3M11.5 10.5v3"/></svg>
+          </span>
+          <div class="meta" style="margin:0">
+            <span class="cat">ガジェット</span>
+            <time datetime="2026-08-20">2026年8月20日</time>
+          </div>
+        </div>
+        <h3 class="post">モバイルバッテリーは mAh で選ばない — 見るべきは Wh と W</h3>
+        <p>10000mAh のバッテリーで 5000mAh のスマートフォンは2回充電できません。mAh を Wh に直す計算、速さを決める W、USB PD と PPS、ケーブルの上限、飛行機の 100Wh 制限、日本の PSE マークまで。選ぶときに見る数字は4つだけです。</p>
+        <div class="tags"><span class="tag">ガジェット</span><span class="tag">モバイルバッテリー</span><span class="tag">USB</span><span class="tag">充電</span><span class="tag">選び方</span></div>
+        <span class="go">読む · 約8分
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
 
       <a class="proj" href="/blog/ping"
          data-cat="ゲーム" data-tags="ゲーム|ネットワーク|回線|Wi-Fi|遅延"
