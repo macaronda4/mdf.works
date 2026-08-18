@@ -30,25 +30,25 @@
 <!-- Google AdSense -->
 <script async fetchpriority="low" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8613999974980382"
      crossorigin="anonymous"></script>
-<title>プライバシーポリシー｜mdf.works</title>
-<meta name="description" content="mdf.works における情報の取り扱い、Cookie、Google AdSense をはじめとする第三者配信広告、アクセス解析、免責事項について記載しています。">
-<link rel="canonical" href="https://mdf.works/privacy">
+<title>二段階認証はどれを選ぶか｜SMS・認証アプリ・パスキーの違い</title>
+<meta name="description" content="SMS・認証アプリ・パスキーは、防げる攻撃が違います。分かれ目は「人がコードを入力するかどうか」。パスキーが仕組みとしてフィッシングに強い理由と、最初に固めるべきアカウント、設定する順番を整理します。">
+<link rel="canonical" href="https://mdf.works/blog/passkey">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="theme-color" content="#131720">
 <meta name="author" content="マカロン大福">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="mdf.works">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="プライバシーポリシー｜mdf.works">
-<meta property="og:description" content="mdf.works における情報の取り扱い、Cookie、Google AdSense をはじめとする第三者配信広告、アクセス解析、免責事項について記載しています。">
-<meta property="og:url" content="https://mdf.works/privacy">
-<meta property="og:image" content="https://mdf.works/assets/og/home.png">
+<meta property="og:title" content="二段階認証はどれを選ぶか｜SMS・認証アプリ・パスキーの違い">
+<meta property="og:description" content="分かれ目は「人がコードを入力するかどうか」。パスキーがフィッシングに強い理由と、設定する順番。">
+<meta property="og:url" content="https://mdf.works/blog/passkey">
+<meta property="og:image" content="https://mdf.works/assets/og/passkey.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="プライバシーポリシー｜mdf.works">
-<meta name="twitter:description" content="mdf.works における情報の取り扱い、Cookie、Google AdSense をはじめとする第三者配信広告、アクセス解析、免責事項について記載しています。">
-<meta name="twitter:image" content="https://mdf.works/assets/og/home.png">
+<meta name="twitter:title" content="二段階認証はどれを選ぶか｜SMS・認証アプリ・パスキーの違い">
+<meta name="twitter:description" content="分かれ目は「人がコードを入力するかどうか」。パスキーがフィッシングに強い理由と、設定する順番。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/passkey.png">
 <meta name="twitter:creator" content="@sugerslp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
 <script type="application/ld+json">
@@ -56,29 +56,31 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "WebPage",
-      "url": "https://mdf.works/privacy",
-      "name": "プライバシーポリシー",
+      "@type": "Article",
+      "headline": "二段階認証はどれを選ぶか — SMS・認証アプリ・パスキーの違い",
+      "description": "防げる攻撃の違いを整理し、パスキーが仕組みとしてフィッシングに強い理由と、設定する順番を示す。",
+      "image": "https://mdf.works/assets/og/passkey.png",
+      "datePublished": "2026-08-18",
+      "dateModified": "2026-08-18",
       "inLanguage": "ja",
-      "isPartOf": {
-        "@id": "https://mdf.works/#website"
-      }
+      "articleSection": "セキュリティ",
+      "author": { "@id": "https://mdf.works/#person" },
+      "publisher": { "@id": "https://mdf.works/#person" },
+      "mainEntityOfPage": "https://mdf.works/blog/passkey"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mdf.works/#person",
+      "name": "マカロン大福",
+      "url": "https://mdf.works/about",
+      "sameAs": ["https://x.com/sugerslp"]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "ホーム",
-          "item": "https://mdf.works/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "プライバシーポリシー",
-          "item": "https://mdf.works/privacy"
-        }
+        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mdf.works/" },
+        { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mdf.works/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "二段階認証はどれを選ぶか", "item": "https://mdf.works/blog/passkey" }
       ]
     }
   ]
@@ -584,11 +586,10 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       <span class="sub">個人開発のウェブツール</span>
     </a>
     <nav class="site-nav" aria-label="メインナビゲーション">
-      <a href="/">ホーム</a>
-      <a href="/blog/">ブログ</a>
+      <a href="/blog/">記事一覧</a>
+      <a href="/kuroko/">Kuroko</a>
       <a href="/about">このサイトについて</a>
-      <a href="/contact">お問い合わせ</a>
-      <a class="cta" href="/kuroko/">Kuroko</a>
+      <a class="cta" href="/kuroko/tool">ツールを開く</a>
     </nav>
     <button class="themebtn" type="button" id="themebtn" aria-label="表示テーマを切り替える" title="表示テーマを切り替える">
       <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>
@@ -600,161 +601,270 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
 <main id="main">
   <div class="wrap prose">
 
-    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span>プライバシーポリシー</p>
+    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>二段階認証はどれを選ぶか</p>
 
     <div class="page-head">
-      <p class="eyebrow">Privacy Policy</p>
-      <h1>プライバシーポリシー</h1>
+      <p class="eyebrow">Security</p>
+      <h1>二段階認証はどれを選ぶか<br>SMS・認証アプリ・パスキーの違い</h1>
       <p class="lead">
-        mdf.works（以下「当サイト」）における、利用者の情報の取り扱いについて定めます。
+        二段階認証を有効にしていても、乗っ取られることはあります。
+        方式によって<strong>防げる攻撃が違う</strong>からです。
+        そして分かれ目は、意外なところにあります。
+        <strong>人がコードを入力するかどうか</strong>です。
       </p>
-      <p class="updated">制定：2026年8月13日 ／ 最終改定：2026年8月13日</p>
+      <div class="postmeta">
+        <span class="cat">セキュリティ</span>
+        <time datetime="2026-08-18">2026年8月18日</time>
+        <span class="read">約7分で読めます</span>
+      </div>
     </div>
 
-    <h2>1. 運営者</h2>
+    <nav class="toc" id="toc" hidden aria-label="目次">
+      <p class="toctitle">目次</p>
+      <ol></ol>
+    </nav>
+
+    <!-- postbody:start --><div class="postbody">
+    <h2>その前に：パスワードの何が問題なのか</h2>
+    <p>
+      「複雑なパスワードにしていれば大丈夫」と思われがちですが、
+      実際に被害の多くを占めるのは<strong>総当たりではなく使い回し</strong>です。
+    </p>
+    <p>
+      どこかのサービスから流出したメールアドレスとパスワードの組み合わせを、
+      攻撃者は別のサービスに片端から試します。同じ組み合わせを使っていれば、
+      そのパスワードがどれだけ複雑でも通ってしまいます。
+      <strong>強さの問題ではなく、他所で漏れたかどうかの問題</strong>です。
+    </p>
+
+    <h3>「定期的な変更」はもう推奨されていない</h3>
+    <p>
+      米国 NIST のデジタルアイデンティティに関するガイドライン（SP 800-63B）では、
+      <strong>漏洩の兆候がない限り、定期的なパスワード変更を要求すべきではない</strong>とされています。
+      記号や数字の混在を強制することも、同様に推奨されていません。
+    </p>
+    <p>
+      理由は、人間の行動を悪化させるからです。90日ごとの変更を強いると、
+      人は末尾の数字を1つ増やすだけになり、覚えられないぶんメモに残します。
+      <strong>複雑さより長さ、そして使い回さないこと</strong>のほうが効きます。
+    </p>
+    <div class="note good">
+      <strong>実務的な結論：</strong>
+      パスワードマネージャーに長いランダム文字列を生成させ、サービスごとに別のものを使う。
+      覚える必要がないので、複雑さも長さも自由に上げられます。
+      副次的な効果として、<strong>マネージャーは登録したドメイン以外では自動入力しません</strong>。
+      「いつも入るのに今日は出てこない」は、偽サイトを見分ける手がかりになります。
+    </div>
+
+    <h2>二段階認証の4つの方式</h2>
+    <p>
+      パスワードが漏れても、もうひとつの要素で止める。それが二段階認証です。
+      ただし「もうひとつ」の中身によって、止められる範囲がかなり違います。
+    </p>
     <div class="tablewrap">
       <table>
+        <thead><tr><th scope="col">方式</th><th scope="col">仕組み</th><th scope="col">パスワード流出</th><th scope="col">フィッシング</th><th scope="col">SIMスワップ</th></tr></thead>
         <tbody>
-          <tr><th scope="row">サイト名</th><td>mdf.works</td></tr>
-          <tr><th scope="row">URL</th><td>https://mdf.works/</td></tr>
-          <tr><th scope="row">運営者</th><td>マカロン大福</td></tr>
-          <tr><th scope="row">連絡先</th><td><a href="mailto:contact@mdf.works">contact@mdf.works</a>（<a href="/contact">お問い合わせ</a>もご利用いただけます）</td></tr>
+          <tr><td>SMS・音声通話</td><td>電話番号にコードが届く</td><td>防げる</td><td>防げない</td><td>防げない</td></tr>
+          <tr><td>認証アプリ（TOTP）</td><td>30秒ごとに変わる6桁</td><td>防げる</td><td>防げない</td><td>防げる</td></tr>
+          <tr><td>プッシュ承認</td><td>アプリに「許可しますか」</td><td>防げる</td><td>条件つき</td><td>防げる</td></tr>
+          <tr><td>パスキー・セキュリティキー</td><td>公開鍵暗号による署名</td><td>防げる</td><td><strong>防げる</strong></td><td>防げる</td></tr>
         </tbody>
       </table>
     </div>
 
-    <h2>2. 利用者のファイルの取り扱いについて</h2>
+    <h3>SMS が弱いとされる理由</h3>
     <p>
-      当サイトが提供するツール（<a href="/kuroko/tool">Kuroko 匿名化ツール</a>ほか）は、利用者が読み込んだファイルを
-      <strong>一切サーバーへ送信しません</strong>。読み込み、解析、マスク処理、書き出しのすべてが、
-      利用者のブラウザ内（クライアントサイド）で完結します。
+      ひとつは <strong>SIM スワップ</strong>です。攻撃者が本人になりすまして携帯会社に連絡し、
+      電話番号を自分の SIM に移してしまう手口で、そうなると SMS は攻撃者に届きます。
+      もうひとつは、SMS を運ぶ電話網そのものが、傍受に対して強い設計ではないことです。
     </p>
     <p>
-      したがって当サイトの運営者は、利用者が処理したファイルの内容、ファイル名、件数、処理結果のいずれも
-      取得・保存・閲覧することができません。処理したファイルは利用者の端末上にのみ存在します。
+      前述の NIST のガイドラインでも、電話網を使った認証は<strong>「制限付き（RESTRICTED）」</strong>に分類され、
+      利用するならリスク評価と代替手段の提示が求められています。
     </p>
-    <div class="note good">
-      この動作は、ページを読み込んだあとに端末をオフラインにしても機能が最後まで動作することによって、
-      利用者ご自身で確認できます。なお、広告およびアクセス解析のための通信は発生しますが、
-      そこに利用者が処理したファイルが含まれることはありません。
+    <div class="note">
+      とはいえ、<strong>SMS しか選べないサービスなら、SMS を設定してください。</strong>
+      「弱い」のは他の方式と比べた場合の話で、何も無いよりは桁違いに強いです。
+      ここで「完璧でないならやらない」を選ぶのが、いちばん損をします。
     </div>
 
-    <h2>3. 取得する情報</h2>
-    <p>当サイトでは、以下の情報を取得する場合があります。</p>
+    <h2>本題：なぜフィッシングだけ別格なのか</h2>
+    <p>
+      表を見て気づくのは、<strong>フィッシングだけ多くの方式で防げない</strong>ことです。理由は単純です。
+    </p>
+    <p>
+      偽サイトに誘導された利用者が、パスワードとコードを入力する。
+      攻撃者はそれを<strong>受け取った瞬間に、本物のサイトへ転送する</strong>。
+      コードは30秒有効なので、間に合います。利用者から見れば、少し画面が遅かっただけです。
+    </p>
+    <p>
+      つまり、<strong>人が読み取って手で入力できる情報は、そのまま他人に渡せてしまう</strong>。
+      6桁の数字である限り、これは避けられません。
+      認証アプリが SMS より安全なのは SIM スワップに対してであって、フィッシングに対してではないのです。
+    </p>
+
+    <h2>パスキーは、渡そうとしても渡せない</h2>
+    <p>
+      パスキー（技術的には FIDO2 / WebAuthn と呼ばれる仕組み）が違うのは、
+      <strong>そもそも人が扱える形の秘密が存在しない</strong>点です。
+    </p>
+
+    <h3>登録するとき</h3>
+    <p>
+      端末の中で<strong>鍵のペア</strong>が作られます。片方は公開鍵で、サービス側に預けます。
+      もう片方の秘密鍵は<strong>端末から出ません</strong>。
+      サービス側が保管するのは公開鍵だけなので、
+      <strong>そのサービスが流出事故を起こしても、ログインに使える情報は漏れません</strong>。
+    </p>
+
+    <h3>ログインするとき</h3>
+    <ol class="steps">
+      <li>
+        <b>サービスがランダムな文字列を送る</b>
+        <span>毎回違う値です。盗んで使い回すことはできません。</span>
+      </li>
+      <li>
+        <b>端末が秘密鍵で署名する</b>
+        <span>このとき顔や指紋、PIN で本人確認をします。鍵を使う許可を出す操作です。</span>
+      </li>
+      <li>
+        <b>署名だけを送り返す</b>
+        <span>サービスは預かっていた公開鍵で検証します。秘密鍵は一度もネットワークを通りません。</span>
+      </li>
+    </ol>
+
+    <h3>そして、ここが決定的です</h3>
+    <p>
+      パスキーは<strong>登録したドメインに紐づいています</strong>。
+      ブラウザは、いま表示しているサイトのドメインに対応する鍵しか使いません。
+    </p>
+    <p>
+      本物そっくりの偽サイトを開いても、ドメインが違えば<strong>ブラウザは鍵を出しません</strong>。
+      利用者が騙されていても、うっかり渡してしまうことがない。
+      注意力ではなく<strong>仕組みで防いでいる</strong>ので、疲れていても、急いでいても効きます。
+    </p>
+    <div class="note good">
+      <strong>よくある誤解：</strong>
+      「顔や指紋をサービスに送るのは怖い」。送っていません。
+      生体情報は端末の中で照合され、<strong>秘密鍵を使う許可を出すためだけ</strong>に使われます。
+      端末の外には出ないので、サービス側は指紋も顔も持っていません。
+    </div>
+
+    <h2>パスキーの弱点は「復旧」にある</h2>
+    <p>
+      仕組みとして強くても、運用には穴が残ります。<strong>端末をなくしたときどうするか</strong>です。
+    </p>
     <ul>
-      <li><strong>アクセスログ</strong>：IP アドレス、ブラウザの種類とバージョン、リファラー、閲覧日時、閲覧ページなど。ホスティング事業者のサーバーによって自動的に記録されます。</li>
-      <li><strong>Cookie およびそれに類する技術によって取得される情報</strong>：詳細は第4項および第5項に記載します。</li>
-      <li><strong>お問い合わせの際にご提供いただく情報</strong>：メールアドレス、お名前（記載いただいた場合）、本文の内容。</li>
+      <li><strong>同期型のパスキー</strong>は、OS やブラウザのアカウント経由で複数端末に共有されます。便利ですが、<strong>強度はその親アカウントの守り方に依存します</strong>。</li>
+      <li><strong>復旧手段が SMS のままだと、そこが最も弱い部分になります。</strong>鍵を頑丈にしても、裏口が開いていれば意味がありません。</li>
+      <li>物理的なセキュリティキーを使う場合は、<strong>2本登録して1本を別の場所に保管する</strong>のが定石です。</li>
     </ul>
     <p>
-      これらの情報は、サイトの品質改善、不正アクセスへの対応、およびお問い合わせへの返信のために利用します。
-      本人の同意なく、法令に基づく場合を除いて第三者へ提供することはありません。
+      アカウントの強さは、<strong>いちばん弱い入口で決まります</strong>。
+      新しい認証方式を足したら、古い入口が残っていないかを必ず見てください。
     </p>
 
-    <h2>4. Cookie について</h2>
-    <p>
-      Cookie は、ウェブサイトが利用者のブラウザに保存する小さなテキストデータです。
-      当サイトでは、広告配信およびアクセス解析のために Cookie を使用することがあります。
-    </p>
-    <p>
-      Cookie の受け入れは、お使いのブラウザの設定によって拒否できます。拒否した場合でも、
-      当サイトの匿名化ツールを含む主要な機能はご利用いただけます。
-      設定方法はブラウザによって異なりますので、各ブラウザのヘルプをご確認ください。
-    </p>
+    <h2>何から手を付けるか</h2>
+    <ol class="steps">
+      <li>
+        <b>メールアカウントを最優先で固める</b>
+        <span>ほぼ全てのサービスが、パスワード再設定にメールを使います。ここが破られると他が連鎖して落ちます。最初の1つを選ぶなら、迷わずここです。</span>
+      </li>
+      <li>
+        <b>パスワードマネージャーを入れ、使い回しをやめる</b>
+        <span>流出リストによる連鎖を断ちます。既存のパスワードを一度に全部替える必要はなく、重要なものから順で構いません。</span>
+      </li>
+      <li>
+        <b>対応しているサービスはパスキーにする</b>
+        <span>フィッシングを仕組みで防げるのはここだけです。対応サービスは着実に増えています。</span>
+      </li>
+      <li>
+        <b>非対応なら認証アプリ。それも無ければ SMS</b>
+        <span>順位は下がりますが、設定しないよりはるかに良い。</span>
+      </li>
+      <li>
+        <b>リカバリコードを保存する</b>
+        <span>発行されたら、印刷するか端末とは別の場所に保管します。ここを飛ばすと、端末を失った時点で自分も締め出されます。</span>
+      </li>
+      <li>
+        <b>古い認証方式を外す</b>
+        <span>パスキーを登録したあと SMS が残っていると、攻撃者は弱いほうを狙います。</span>
+      </li>
+    </ol>
 
-    <h2>5. 広告配信について</h2>
+    <h2>まとめ</h2>
+    <ul>
+      <li>パスワードの敵は複雑さ不足ではなく<strong>使い回し</strong>。定期変更はもう推奨されていない</li>
+      <li>二段階認証は方式ごとに<strong>防げる攻撃が違う</strong></li>
+      <li>フィッシングが別格なのは、<strong>人が入力できる情報は他人にも渡せる</strong>から</li>
+      <li>パスキーは秘密鍵が端末から出ず、<strong>ドメインが違えばブラウザが鍵を出さない</strong></li>
+      <li>弱点は復旧経路。<strong>裏口を閉じないと、表を固めても意味がない</strong></li>
+    </ul>
 
-    <h3>Google AdSense</h3>
-    <p>
-      当サイトでは、第三者配信の広告サービスである <strong>Google AdSense</strong> を利用しています。
-      Google などの第三者配信事業者は、Cookie を使用して、利用者が当サイトや他のサイトに過去にアクセスした際の情報に基づき、
-      広告を配信します。
-    </p>
-    <p>
-      Google が広告 Cookie を使用することにより、利用者が当サイトや他のサイトにアクセスした際の情報に基づいて、
-      Google やそのパートナーが適切な広告を表示できます。
-    </p>
-    <p>
-      利用者は、<a href="https://adssettings.google.com/authenticated" target="_blank" rel="noopener noreferrer">広告設定</a>
-      でパーソナライズ広告を無効にできます。また、
-      <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer">www.aboutads.info</a>
-      にアクセスすれば、第三者配信事業者による Cookie の使用を無効にできます。
-    </p>
-    <p>
-      Google がデータをどのように収集・処理するかについては、
-      <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">Google のポリシーと規約「Google のサービスを使用するサイトやアプリから収集した情報の Google による使用」</a>
-      をご確認ください。
-    </p>
+    </div><!-- postbody:end -->
+    <!-- postnav:start -->
+    <div class="postnav">
+      <div class="share">
+        <span class="label">この記事を共有</span>
+        <a href="https://x.com/intent/post?text=二段階認証はどれを選ぶか — SMS・認証アプリ・パスキーの違い&amp;url=https://mdf.works/blog/passkey" target="_blank" rel="noopener noreferrer">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.2-5.8 6.2H1.5l7.5-8.6L1 3h6.7l4.6 5.8L17.5 3zm-1.1 16.2h1.8L7.7 4.7H5.8l10.6 14.5z"/></svg>
+          X で共有
+        </a>
+        <button type="button" id="copylink">リンクをコピー</button>
+      </div>
 
-    <h3>その他の広告配信事業者</h3>
-    <p>
-      当サイトでは、Google 以外の第三者配信事業者による広告を掲載する場合があります。
-      その場合も、Cookie を使用して利用者の興味に応じた広告が表示されることがあります。
-    </p>
+      <nav class="pager" aria-label="記事の移動">
+        <a class="prev" href="/blog/battery"><span class="dir">← 前の記事</span><span class="t">モバイルバッテリーは mAh で選ばない — 見るべきは Wh と W</span></a>
+      </nav>
 
-    <h2>6. アクセス解析について</h2>
-    <p>
-      当サイトでは、サイトの利用状況を把握するために <strong>Google Analytics 4</strong>（測定 ID: <code>G-5GDKSW8H7X</code>）を利用しています。
-      Google Analytics は Cookie を使用して、閲覧されたページ、滞在時間、参照元、おおまかな地域、
-      ブラウザや端末の種類といった情報を収集します。これらは統計的に処理されるものであり、
-      氏名やメールアドレスなど個人を直接特定する情報は含まれません。IP アドレスは Google Analytics 4 の仕様により
-      収集時点で匿名化されます。
-    </p>
-    <p>
-      収集されるデータの内容や利用目的については
-      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google のプライバシーポリシー</a>
-      をご確認ください。
-      また、<a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google アナリティクス オプトアウト アドオン</a>
-      によって収集を無効にできます。
-    </p>
-    <p>
-      収集を望まない場合は、上記のオプトアウト アドオンを利用するか、ブラウザの設定で Cookie を無効にしてください。
-      無効にしても、当サイトのツールを含む主要な機能はご利用いただけます。
-    </p>
-
-    <h2>7. 免責事項</h2>
-    <p>
-      当サイトの匿名化ツールは、画像内の要素を自動的に検出してマスクを提案するものであり、
-      <strong>すべての個人情報が確実に隠されることを保証するものではありません</strong>。
-      検出漏れやマスクの不足が生じる可能性があります。
-      利用者は、加工後の画像を公開・共有する前に、内容をご自身で必ずご確認ください。
-    </p>
-    <p>
-      当サイトのコンテンツおよびツールの利用によって生じたいかなる損害についても、
-      運営者は責任を負いかねます。詳細は<a href="/terms">利用規約</a>をご確認ください。
-    </p>
-    <p>
-      当サイトから他のウェブサイトへのリンクを設置している場合がありますが、リンク先で提供される情報、
-      サービス等について、運営者は一切の責任を負いません。
-    </p>
-
-    <h2>8. 著作権について</h2>
-    <p>
-      当サイトに掲載されている文章および画像の著作権は、運営者または正当な権利者に帰属します。
-      引用の範囲を超えて無断で転載・複製することはご遠慮ください。
-      引用される場合は、出典として当サイトへのリンクを明記してください。
-    </p>
-
-    <h2>9. 個人情報の開示・訂正・削除</h2>
-    <p>
-      当サイトが保有する利用者の個人情報について、開示、訂正、利用停止、削除のご希望がある場合は、
-      <a href="/contact">お問い合わせ</a>よりご連絡ください。
-      ご本人であることを確認のうえ、法令に従い速やかに対応いたします。
-    </p>
-
-    <h2>10. 本ポリシーの変更</h2>
-    <p>
-      当サイトは、法令の変更やサービス内容の変更に伴い、本ポリシーを予告なく変更することがあります。
-      変更後の内容は、当ページに掲載した時点から効力を生じるものとします。
-      重要な変更を行う場合は、当ページ上でお知らせします。
-    </p>
-
-    <h2>11. お問い合わせ</h2>
-    <p>
-      本ポリシーに関するご質問は、<a href="/contact">お問い合わせページ</a>よりご連絡ください。
-    </p>
-
+      <h2>ほかの記事</h2>
+      <div class="grid cols-2">
+      <div class="card">
+        <h3><a href="/blog/battery" style="text-decoration:none">モバイルバッテリーは mAh で選ばない — 見るべきは Wh と W</a></h3>
+        <p>10000mAh のバッテリーで 5000mAh のスマートフォンは2回充電できません。mAh を Wh に直す計算、速さを決める W、USB PD と P…</p>
+      </div>
+      <div class="card">
+        <h3><a href="/blog/ping" style="text-decoration:none">Ping はどこで生まれるのか — 回線を速くしても下がらない理由</a></h3>
+        <p>回線を 1Gbps にしても Ping は下がりません。速度と遅延は別のものだからです。光の速度が決める下限から順に、遅延が何ミリ秒ずつどこで積まれているの…</p>
+      </div>
+      </div>
+      <div class="btnrow">
+        <a class="btn" href="/blog/">記事一覧に戻る</a>
+      </div>
+    </div>
+    <!-- postnav:end -->
   </div>
+<script>
+(function () {
+  var prose = document.querySelector('main .prose');
+  var toc = document.getElementById('toc');
+  if (prose && toc) {
+    var ol = toc.querySelector('ol'), n = 0;
+    prose.querySelectorAll('h2, h3').forEach(function (h) {
+      if (h.closest('.postnav')) return;
+      if (!h.id) h.id = 'sec' + (++n);
+      var li = document.createElement('li');
+      li.className = h.tagName === 'H3' ? 'lv3' : 'lv2';
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent.trim();
+      li.appendChild(a);
+      ol.appendChild(li);
+    });
+    if (ol.children.length >= 3) toc.hidden = false;
+  }
+  var copy = document.getElementById('copylink');
+  if (copy) copy.addEventListener('click', function () {
+    var done = function (ok) {
+      copy.textContent = ok ? 'コピーしました' : 'コピーできませんでした';
+      setTimeout(function () { copy.textContent = 'リンクをコピー'; }, 1800);
+    };
+    if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { done(true); }, function () { done(false); });
+    else done(false);
+  });
+})();
+</script>
 </main>
 
 <footer class="site-foot">
