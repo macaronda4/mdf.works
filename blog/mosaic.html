@@ -428,6 +428,19 @@ font-family:var(--f-mono);font-size:12.5px;color:var(--muted);
 flex:none;min-width:8.5em;font-variant-numeric:tabular-nums;
 }
 .log span{font-size:14.5px;color:var(--ink-2)}
+.log .kind{
+display:inline-block;margin-right:10px;padding:1px 8px;border-radius:99px;
+background:var(--sunken);border:1px solid var(--line-strong);
+font-family:var(--f-display);font-size:11.5px;letter-spacing:.06em;
+color:var(--ink-2);vertical-align:1px;white-space:nowrap;
+}
+.more{margin:18px 0 0;font-size:14.5px}
+.more a{
+display:inline-flex;align-items:center;gap:7px;
+color:var(--accent);text-decoration:none;font-weight:600;
+}
+.more a:hover{text-decoration:underline}
+.more svg{width:17px;height:17px;flex:none}
 .cats{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 26px}
 .cats a{
 display:inline-flex;align-items:center;gap:7px;
@@ -825,8 +838,8 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
         <p>アイコンと名前を隠せば安心、とはいきません。通知バナー、ステータスバー、Exif、ファイル名、背景の映り込み。見落としやすいものを、実際に問題になりやすい順…</p>
       </div>
       <div class="card">
-        <h3><a href="/blog/passkey" style="text-decoration:none">二段階認証はどれを選ぶか — SMS・認証アプリ・パスキーの違い</a></h3>
-        <p>二段階認証を有効にしていても乗っ取られることはあります。方式によって防げる攻撃が違うからです。分かれ目は「人がコードを入力するかどうか」。パスキーが仕組みと…</p>
+        <h3><a href="/blog/imageformat" style="text-decoration:none">スクリーンショットはPNG、写真はJPEG — 画像形式の選び方</a></h3>
+        <p>スクリーンショットを JPEG で保存すると文字がにじみます。原因は 8×8 ブロック単位の処理と、色を間引く仕組みです。PNG・JPEG・WebP・AVI…</p>
       </div>
       </div>
       <div class="btnrow">
@@ -887,6 +900,7 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
         <h4>サイト情報</h4>
         <ul>
           <li><a href="/about">このサイトについて</a></li>
+          <li><a href="/changelog">更新履歴</a></li>
           <li><a href="/privacy">プライバシーポリシー</a></li>
           <li><a href="/terms">利用規約・免責事項</a></li>
           <li><a href="/contact">お問い合わせ</a></li>

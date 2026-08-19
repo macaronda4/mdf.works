@@ -357,6 +357,19 @@ tr:last-child td{border-bottom:0}
   flex:none;min-width:8.5em;font-variant-numeric:tabular-nums;
 }
 .log span{font-size:14.5px;color:var(--ink-2)}
+.log .kind{
+  display:inline-block;margin-right:10px;padding:1px 8px;border-radius:99px;
+  background:var(--sunken);border:1px solid var(--line-strong);
+  font-family:var(--f-display);font-size:11.5px;letter-spacing:.06em;
+  color:var(--ink-2);vertical-align:1px;white-space:nowrap;
+}
+.more{margin:18px 0 0;font-size:14.5px}
+.more a{
+  display:inline-flex;align-items:center;gap:7px;
+  color:var(--accent);text-decoration:none;font-weight:600;
+}
+.more a:hover{text-decoration:underline}
+.more svg{width:17px;height:17px;flex:none}
 
 /* ------------------------------------------------------------ blog index */
 .cats{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 26px}

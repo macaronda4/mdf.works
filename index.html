@@ -448,6 +448,19 @@ font-family:var(--f-mono);font-size:12.5px;color:var(--muted);
 flex:none;min-width:8.5em;font-variant-numeric:tabular-nums;
 }
 .log span{font-size:14.5px;color:var(--ink-2)}
+.log .kind{
+display:inline-block;margin-right:10px;padding:1px 8px;border-radius:99px;
+background:var(--sunken);border:1px solid var(--line-strong);
+font-family:var(--f-display);font-size:11.5px;letter-spacing:.06em;
+color:var(--ink-2);vertical-align:1px;white-space:nowrap;
+}
+.more{margin:18px 0 0;font-size:14.5px}
+.more a{
+display:inline-flex;align-items:center;gap:7px;
+color:var(--accent);text-decoration:none;font-weight:600;
+}
+.more a:hover{text-decoration:underline}
+.more svg{width:17px;height:17px;flex:none}
 .cats{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 26px}
 .cats a{
 display:inline-flex;align-items:center;gap:7px;
@@ -709,7 +722,7 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
           <span class="tag">ガジェット</span>
           <span class="tag">セキュリティ</span>
           <span class="tag">プライバシー</span>
-          <span class="tag">8本</span>
+          <span class="tag">9本</span>
         </div>
         <span class="go">
           記事一覧を見る
@@ -758,16 +771,13 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
 
     <h2>更新履歴</h2>
     <ul class="log">
-      <li><time datetime="2026-08-18">2026-08-18</time><span>記事「二段階認証はどれを選ぶか」を公開しました。</span></li>
-      <li><time datetime="2026-08-17">2026-08-17</time><span>記事「モバイルバッテリーは mAh で選ばない」を公開しました。</span></li>
-      <li><time datetime="2026-08-16">2026-08-16</time><span>記事「Pingはどこで生まれるのか」「HTMLは新しいのにCSSだけ古い」を公開しました。</span></li>
-      <li><time datetime="2026-08-16">2026-08-16</time><span>ブログを /blog/ に開設し、記事「ブラウザの選び方」「必要な範囲だけを撮る」を公開しました。</span></li>
-      <li><time datetime="2026-08-14">2026-08-14</time><span>解説記事「モザイクやぼかしは復元できるのか」を公開しました。</span></li>
-      <li><time datetime="2026-08-13">2026-08-13</time><span>サイトを公開しました。</span></li>
-      <li><time datetime="2026-08-13">2026-08-13</time><span>Kuroko：返信プレビューのアイコンと名前に対応しました。</span></li>
-      <li><time datetime="2026-08-10">2026-08-10</time><span>Kuroko：装飾フレーム付きアイコン、低コントラストなアイコンの検出精度を改善しました。</span></li>
-      <li><time datetime="2026-08-09">2026-08-09</time><span>Kuroko：スマートフォン向けの操作画面と、ピンチ操作に対応しました。</span></li>
+      <li><time datetime="2026-08-19">2026-08-19</time><span><span class="kind">ブログ</span>記事「スクリーンショットはPNG、写真はJPEG — 画像形式の選び方」を公開しました。</span></li>
+      <li><time datetime="2026-08-19">2026-08-19</time><span><span class="kind">サイト</span>更新履歴の全件ページを追加し、トップページには最新5件を表示するようにしました。</span></li>
+      <li><time datetime="2026-08-18">2026-08-18</time><span><span class="kind">ブログ</span>記事「二段階認証はどれを選ぶか」を公開し、カテゴリ「セキュリティ」を追加しました。</span></li>
+      <li><time datetime="2026-08-18">2026-08-18</time><span><span class="kind">サイト</span>連絡先のメールアドレスを contact@mdf.works に統一しました。</span></li>
+      <li><time datetime="2026-08-18">2026-08-18</time><span><span class="kind">サイト</span>記事の公開日が実際より先の日付になっていたのを修正しました。</span></li>
     </ul>
+    <p class="more"><a href="/changelog">更新履歴をすべて見る（全20件）<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M12 5l7 7-7 7"/></svg></a></p>
 
   </div>
 </main>
