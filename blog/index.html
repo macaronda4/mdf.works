@@ -84,59 +84,65 @@
     {
       "@type": "ItemList",
       "itemListOrder": "https://schema.org/ItemListOrderDescending",
-      "numberOfItems": 9,
+      "numberOfItems": 10,
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
+          "url": "https://mdf.works/blog/extension",
+          "name": "拡張機能の権限の見かた — 「すべてのサイトのデータを読み取る」とは何か"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
           "url": "https://mdf.works/blog/imageformat",
           "name": "スクリーンショットはPNG、写真はJPEG — 画像形式の選び方"
         },
         {
           "@type": "ListItem",
-          "position": 2,
+          "position": 3,
           "url": "https://mdf.works/blog/passkey",
           "name": "二段階認証はどれを選ぶか — SMS・認証アプリ・パスキーの違い"
         },
         {
           "@type": "ListItem",
-          "position": 3,
+          "position": 4,
           "url": "https://mdf.works/blog/battery",
           "name": "モバイルバッテリーは mAh で選ばない — 見るべきは Wh と W"
         },
         {
           "@type": "ListItem",
-          "position": 4,
+          "position": 5,
           "url": "https://mdf.works/blog/ping",
           "name": "Ping はどこで生まれるのか — 回線を速くしても下がらない理由"
         },
         {
           "@type": "ListItem",
-          "position": 5,
+          "position": 6,
           "url": "https://mdf.works/blog/cache",
           "name": "HTMLは新しいのにCSSだけ古い — 静的サイトのキャッシュの罠"
         },
         {
           "@type": "ListItem",
-          "position": 6,
+          "position": 7,
           "url": "https://mdf.works/blog/browser",
           "name": "ブラウザの選び方 — Chrome・Firefox・Edge・Safari・Brave の違い"
         },
         {
           "@type": "ListItem",
-          "position": 7,
+          "position": 8,
           "url": "https://mdf.works/blog/capture",
           "name": "スクリーンショットは必要な範囲だけを撮る"
         },
         {
           "@type": "ListItem",
-          "position": 8,
+          "position": 9,
           "url": "https://mdf.works/blog/mosaic",
           "name": "モザイク・ぼかし・塗りつぶし — 文字を隠すならどれを選ぶか"
         },
         {
           "@type": "ListItem",
-          "position": 9,
+          "position": 10,
           "url": "https://mdf.works/blog/checklist",
           "name": "スクリーンショットを公開する前のチェックリスト12項目"
         }
@@ -717,19 +723,39 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       </select>
     </div>
 
-    <div class="chips" id="cats" role="group" aria-label="カテゴリで絞り込む"><button type="button" data-cat="" aria-pressed="true">すべて <b>9</b></button><button type="button" data-cat="基本" aria-pressed="false">基本 <b>2</b></button><button type="button" data-cat="セキュリティ" aria-pressed="false">セキュリティ <b>1</b></button><button type="button" data-cat="ガジェット" aria-pressed="false">ガジェット <b>1</b></button><button type="button" data-cat="ゲーム" aria-pressed="false">ゲーム <b>1</b></button><button type="button" data-cat="開発" aria-pressed="false">開発 <b>1</b></button><button type="button" data-cat="ブラウザ" aria-pressed="false">ブラウザ <b>1</b></button><button type="button" data-cat="プライバシー" aria-pressed="false">プライバシー <b>2</b></button></div>
+    <div class="chips" id="cats" role="group" aria-label="カテゴリで絞り込む"><button type="button" data-cat="" aria-pressed="true">すべて <b>10</b></button><button type="button" data-cat="ブラウザ" aria-pressed="false">ブラウザ <b>2</b></button><button type="button" data-cat="基本" aria-pressed="false">基本 <b>2</b></button><button type="button" data-cat="セキュリティ" aria-pressed="false">セキュリティ <b>1</b></button><button type="button" data-cat="ガジェット" aria-pressed="false">ガジェット <b>1</b></button><button type="button" data-cat="ゲーム" aria-pressed="false">ゲーム <b>1</b></button><button type="button" data-cat="開発" aria-pressed="false">開発 <b>1</b></button><button type="button" data-cat="プライバシー" aria-pressed="false">プライバシー <b>2</b></button></div>
 
     <details class="tagbox" id="tagbox">
       <summary>タグで絞り込む</summary>
-      <div class="chips" id="tags" role="group" aria-label="タグで絞り込む"><button type="button" data-tag="PNG" aria-pressed="false">PNG</button><button type="button" data-tag="JPEG" aria-pressed="false">JPEG</button><button type="button" data-tag="WebP" aria-pressed="false">WebP</button><button type="button" data-tag="AVIF" aria-pressed="false">AVIF</button><button type="button" data-tag="画像" aria-pressed="false">画像</button><button type="button" data-tag="パスキー" aria-pressed="false">パスキー</button><button type="button" data-tag="二段階認証" aria-pressed="false">二段階認証</button><button type="button" data-tag="パスワード" aria-pressed="false">パスワード</button><button type="button" data-tag="フィッシング" aria-pressed="false">フィッシング</button><button type="button" data-tag="セキュリティ" aria-pressed="false">セキュリティ</button><button type="button" data-tag="ガジェット" aria-pressed="false">ガジェット</button><button type="button" data-tag="モバイルバッテリー" aria-pressed="false">モバイルバッテリー</button><button type="button" data-tag="USB" aria-pressed="false">USB</button><button type="button" data-tag="充電" aria-pressed="false">充電</button><button type="button" data-tag="選び方" aria-pressed="false">選び方</button><button type="button" data-tag="ゲーム" aria-pressed="false">ゲーム</button><button type="button" data-tag="ネットワーク" aria-pressed="false">ネットワーク</button><button type="button" data-tag="回線" aria-pressed="false">回線</button><button type="button" data-tag="Wi-Fi" aria-pressed="false">Wi-Fi</button><button type="button" data-tag="遅延" aria-pressed="false">遅延</button><button type="button" data-tag="キャッシュ" aria-pressed="false">キャッシュ</button><button type="button" data-tag="Cloudflare" aria-pressed="false">Cloudflare</button><button type="button" data-tag="静的サイト" aria-pressed="false">静的サイト</button><button type="button" data-tag="CSS" aria-pressed="false">CSS</button><button type="button" data-tag="デプロイ" aria-pressed="false">デプロイ</button><button type="button" data-tag="Chrome" aria-pressed="false">Chrome</button><button type="button" data-tag="Firefox" aria-pressed="false">Firefox</button><button type="button" data-tag="Safari" aria-pressed="false">Safari</button><button type="button" data-tag="Brave" aria-pressed="false">Brave</button><button type="button" data-tag="拡張機能" aria-pressed="false">拡張機能</button><button type="button" data-tag="Windows" aria-pressed="false">Windows</button><button type="button" data-tag="macOS" aria-pressed="false">macOS</button><button type="button" data-tag="iPhone" aria-pressed="false">iPhone</button><button type="button" data-tag="Android" aria-pressed="false">Android</button><button type="button" data-tag="ショートカット" aria-pressed="false">ショートカット</button><button type="button" data-tag="モザイク" aria-pressed="false">モザイク</button><button type="button" data-tag="ぼかし" aria-pressed="false">ぼかし</button><button type="button" data-tag="塗りつぶし" aria-pressed="false">塗りつぶし</button><button type="button" data-tag="PDF" aria-pressed="false">PDF</button><button type="button" data-tag="Exif" aria-pressed="false">Exif</button><button type="button" data-tag="通知" aria-pressed="false">通知</button><button type="button" data-tag="確認手順" aria-pressed="false">確認手順</button></div>
+      <div class="chips" id="tags" role="group" aria-label="タグで絞り込む"><button type="button" data-tag="拡張機能" aria-pressed="false">拡張機能</button><button type="button" data-tag="Chrome" aria-pressed="false">Chrome</button><button type="button" data-tag="権限" aria-pressed="false">権限</button><button type="button" data-tag="プライバシー" aria-pressed="false">プライバシー</button><button type="button" data-tag="セキュリティ" aria-pressed="false">セキュリティ</button><button type="button" data-tag="PNG" aria-pressed="false">PNG</button><button type="button" data-tag="JPEG" aria-pressed="false">JPEG</button><button type="button" data-tag="WebP" aria-pressed="false">WebP</button><button type="button" data-tag="AVIF" aria-pressed="false">AVIF</button><button type="button" data-tag="画像" aria-pressed="false">画像</button><button type="button" data-tag="パスキー" aria-pressed="false">パスキー</button><button type="button" data-tag="二段階認証" aria-pressed="false">二段階認証</button><button type="button" data-tag="パスワード" aria-pressed="false">パスワード</button><button type="button" data-tag="フィッシング" aria-pressed="false">フィッシング</button><button type="button" data-tag="ガジェット" aria-pressed="false">ガジェット</button><button type="button" data-tag="モバイルバッテリー" aria-pressed="false">モバイルバッテリー</button><button type="button" data-tag="USB" aria-pressed="false">USB</button><button type="button" data-tag="充電" aria-pressed="false">充電</button><button type="button" data-tag="選び方" aria-pressed="false">選び方</button><button type="button" data-tag="ゲーム" aria-pressed="false">ゲーム</button><button type="button" data-tag="ネットワーク" aria-pressed="false">ネットワーク</button><button type="button" data-tag="回線" aria-pressed="false">回線</button><button type="button" data-tag="Wi-Fi" aria-pressed="false">Wi-Fi</button><button type="button" data-tag="遅延" aria-pressed="false">遅延</button><button type="button" data-tag="キャッシュ" aria-pressed="false">キャッシュ</button><button type="button" data-tag="Cloudflare" aria-pressed="false">Cloudflare</button><button type="button" data-tag="静的サイト" aria-pressed="false">静的サイト</button><button type="button" data-tag="CSS" aria-pressed="false">CSS</button><button type="button" data-tag="デプロイ" aria-pressed="false">デプロイ</button><button type="button" data-tag="Firefox" aria-pressed="false">Firefox</button><button type="button" data-tag="Safari" aria-pressed="false">Safari</button><button type="button" data-tag="Brave" aria-pressed="false">Brave</button><button type="button" data-tag="Windows" aria-pressed="false">Windows</button><button type="button" data-tag="macOS" aria-pressed="false">macOS</button><button type="button" data-tag="iPhone" aria-pressed="false">iPhone</button><button type="button" data-tag="Android" aria-pressed="false">Android</button><button type="button" data-tag="ショートカット" aria-pressed="false">ショートカット</button><button type="button" data-tag="モザイク" aria-pressed="false">モザイク</button><button type="button" data-tag="ぼかし" aria-pressed="false">ぼかし</button><button type="button" data-tag="塗りつぶし" aria-pressed="false">塗りつぶし</button><button type="button" data-tag="PDF" aria-pressed="false">PDF</button><button type="button" data-tag="Exif" aria-pressed="false">Exif</button><button type="button" data-tag="通知" aria-pressed="false">通知</button><button type="button" data-tag="確認手順" aria-pressed="false">確認手順</button></div>
     </details>
 
     <div class="resultbar">
-      <span class="n" id="count">9件の記事</span>
+      <span class="n" id="count">10件の記事</span>
       <button type="button" class="reset" id="reset" hidden>絞り込みを解除</button>
     </div>
 
     <div class="projects" id="posts">
+
+      <a class="proj" href="/blog/extension"
+         data-cat="ブラウザ" data-tags="拡張機能|Chrome|権限|プライバシー|セキュリティ"
+         data-date="2026-08-21" data-text="拡張機能の権限の見かた — 「すべてのサイトのデータを読み取る」とは何か あの確認画面は具体的に何を許しているのか。入力中の文字も表示内容も読めます。そして本当の危険は入れた瞬間ではなく、通知なく届く自動更新のほうにあります。権限を絞る設定と、入れる前に見る場所をまとめました。 ブラウザ 拡張機能 chrome 権限 プライバシー セキュリティ">
+        <div class="top">
+          <span class="glyph" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9.5 3.5h5v3a2 2 0 0 0 2 2h3v5h-3a2 2 0 0 0-2 2v3h-5v-3a2 2 0 0 0-2-2h-3v-5h3a2 2 0 0 0 2-2z"/></svg>
+          </span>
+          <div class="meta" style="margin:0">
+            <span class="cat">ブラウザ</span>
+            <time datetime="2026-08-21">2026年8月21日</time>
+          </div>
+        </div>
+        <h3 class="post">拡張機能の権限の見かた — 「すべてのサイトのデータを読み取る」とは何か</h3>
+        <p>あの確認画面は具体的に何を許しているのか。入力中の文字も表示内容も読めます。そして本当の危険は入れた瞬間ではなく、通知なく届く自動更新のほうにあります。権限を絞る設定と、入れる前に見る場所をまとめました。</p>
+        <div class="tags"><span class="tag">拡張機能</span><span class="tag">Chrome</span><span class="tag">権限</span><span class="tag">プライバシー</span><span class="tag">セキュリティ</span></div>
+        <span class="go">読む · 約5分
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
 
       <a class="proj" href="/blog/imageformat"
          data-cat="基本" data-tags="PNG|JPEG|WebP|AVIF|画像"
@@ -746,7 +772,7 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
         <h3 class="post">スクリーンショットはPNG、写真はJPEG — 画像形式の選び方</h3>
         <p>スクリーンショットを JPEG で保存すると文字がにじみます。原因は 8×8 ブロック単位の処理と、色を間引く仕組みです。PNG・JPEG・WebP・AVIF が何に強いのかを、劣化の起きかたから説明します。</p>
         <div class="tags"><span class="tag">PNG</span><span class="tag">JPEG</span><span class="tag">WebP</span><span class="tag">AVIF</span><span class="tag">画像</span></div>
-        <span class="go">読む · 約5分
+        <span class="go">読む · 約6分
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M12 5l7 7-7 7"/></svg>
         </span>
       </a>

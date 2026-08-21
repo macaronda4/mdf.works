@@ -30,25 +30,25 @@
 <!-- Google AdSense -->
 <script async fetchpriority="low" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8613999974980382"
      crossorigin="anonymous"></script>
-<title>モバイルバッテリーの選び方｜mAhではなくWhとWを見る</title>
-<meta name="description" content="10000mAhのバッテリーで5000mAhのスマホを2回充電できない理由。mAhをWhに直す計算、出力のW、USB PDとPPSの違い、飛行機の100Wh制限、日本のPSEマークまで、選ぶときに実際に見るべき数字を整理します。">
-<link rel="canonical" href="https://mdf.works/blog/battery">
+<title>拡張機能の権限の見かた｜「すべてのサイトのデータを読み取る」とは</title>
+<meta name="description" content="拡張機能を入れるときに出る「すべてのサイトのデータの読み取りと変更」は、具体的に何を許しているのか。本当の危険は入れた瞬間ではなく自動更新にあります。権限を絞る設定と、入れる前に見る場所をまとめました。">
+<link rel="canonical" href="https://mdf.works/blog/extension">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="theme-color" content="#131720">
 <meta name="author" content="マカロン大福">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="mdf.works">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="モバイルバッテリーの選び方｜mAhではなくWhとWを見る">
-<meta property="og:description" content="10000mAhで5000mAhのスマホを2回充電できない理由。選ぶときに実際に見るべき数字。">
-<meta property="og:url" content="https://mdf.works/blog/battery">
-<meta property="og:image" content="https://mdf.works/assets/og/battery.png">
+<meta property="og:title" content="拡張機能の権限の見かた｜「すべてのサイトのデータを読み取る」とは">
+<meta property="og:description" content="本当の危険は入れた瞬間ではなく自動更新にあります。権限を絞る設定と、入れる前に見る場所。">
+<meta property="og:url" content="https://mdf.works/blog/extension">
+<meta property="og:image" content="https://mdf.works/assets/og/extension.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="モバイルバッテリーの選び方｜mAhではなくWhとWを見る">
-<meta name="twitter:description" content="10000mAhで5000mAhのスマホを2回充電できない理由。選ぶときに実際に見るべき数字。">
-<meta name="twitter:image" content="https://mdf.works/assets/og/battery.png">
+<meta name="twitter:title" content="拡張機能の権限の見かた｜「すべてのサイトのデータを読み取る」とは">
+<meta name="twitter:description" content="本当の危険は入れた瞬間ではなく自動更新にあります。権限を絞る設定と、入れる前に見る場所。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/extension.png">
 <meta name="twitter:creator" content="@sugerslp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
 <script type="application/ld+json">
@@ -57,16 +57,16 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "モバイルバッテリーは mAh で選ばない — 見るべきは Wh と W",
-      "description": "mAh を Wh に直す計算、出力のワット数、USB PD と PPS の違い、飛行機の 100Wh 制限、日本の PSE マークまで。",
-      "image": "https://mdf.works/assets/og/battery.png",
-      "datePublished": "2026-08-17",
-      "dateModified": "2026-08-17",
+      "headline": "拡張機能の権限の見かた — 「すべてのサイトのデータを読み取る」とは何か",
+      "description": "拡張機能が要求する権限が具体的に何を許しているのかと、自動更新という本当の危険、権限を絞る設定。",
+      "image": "https://mdf.works/assets/og/extension.png",
+      "datePublished": "2026-08-21",
+      "dateModified": "2026-08-21",
       "inLanguage": "ja",
-      "articleSection": "ガジェット",
+      "articleSection": "ブラウザ",
       "author": { "@id": "https://mdf.works/#person" },
       "publisher": { "@id": "https://mdf.works/#person" },
-      "mainEntityOfPage": "https://mdf.works/blog/battery"
+      "mainEntityOfPage": "https://mdf.works/blog/extension"
     },
     {
       "@type": "Person",
@@ -80,7 +80,7 @@
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mdf.works/" },
         { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mdf.works/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "モバイルバッテリーの選び方", "item": "https://mdf.works/blog/battery" }
+        { "@type": "ListItem", "position": 3, "name": "拡張機能の権限の見かた", "item": "https://mdf.works/blog/extension" }
       ]
     }
   ]
@@ -614,21 +614,22 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
 <main id="main">
   <div class="wrap prose">
 
-    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>モバイルバッテリーの選び方</p>
+    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>拡張機能の権限の見かた</p>
 
     <div class="page-head">
-      <p class="eyebrow">Gadget</p>
-      <h1>モバイルバッテリーは mAh で選ばない<br>見るべきは Wh と W</h1>
+      <p class="eyebrow">Browser</p>
+      <h1>拡張機能の権限の見かた<br>「すべてのサイトのデータを読み取る」とは何か</h1>
       <p class="lead">
-        10000mAh のバッテリーで、5000mAh のスマートフォンは2回充電できません。
-        1.5回くらいです。数字が誇張されているわけではなく、
-        <strong>mAh という単位の意味を取り違えている</strong>だけです。
-        店頭でいちばん大きく書かれている数字が、いちばん役に立たない理由から始めます。
+        拡張機能を入れるとき、必ず一度は目にする確認画面。
+        たいていの人は読まずに「追加」を押します。
+        <strong>読んだところで、何を許したことになるのか分からない</strong>からです。
+        具体的に何ができるようになるのかと、
+        本当に注意すべきなのは<strong>入れた瞬間ではない</strong>という話をします。
       </p>
       <div class="postmeta">
-        <span class="cat">ガジェット</span>
-        <time datetime="2026-08-17">2026年8月17日</time>
-        <span class="read">約8分で読めます</span>
+        <span class="cat">ブラウザ</span>
+        <time datetime="2026-08-21">2026年8月21日</time>
+        <span class="read">約5分で読めます</span>
       </div>
     </div>
 
@@ -638,232 +639,168 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
     </nav>
 
     <!-- postbody:start --><div class="postbody">
-    <h2>mAh は「容量」ではない</h2>
+    <h2>あの一文が意味していること</h2>
     <p>
-      mAh（ミリアンペアアワー）は、電流 × 時間です。
-      1000mAh なら「1000mA を1時間流せる」という意味になります。
-      ここで抜けているものが、<strong>電圧</strong>です。
+      拡張機能の権限で圧倒的に多いのが、
+      <strong>「すべてのサイトのデータの読み取りと変更」</strong>という表示です。
+      これは、その拡張機能のプログラムを<strong>あなたが開くすべてのページの内部で動かす</strong>という意味です。
     </p>
     <p>
-      電気の量、つまり本当に比べたい「エネルギー」は、電圧をかけないと出てきません。
-    </p>
-    <div class="note">
-      <strong>Wh（ワットアワー）＝ mAh ÷ 1000 × 電圧(V)</strong>
-    </div>
-    <p>
-      問題は、モバイルバッテリーの mAh が<strong>内部のリチウムイオン電池の電圧で数えられている</strong>ことです。
-      この電圧は約 3.7V です。ところが USB から出てくるのは 5V 以上。
-      つまり<strong>数えている場所と、出てくる場所で電圧が違います</strong>。
-    </p>
-    <p>
-      10000mAh のバッテリーを Wh に直すと、10 × 3.7 = <strong>37Wh</strong>。
-      これを 5V で取り出すと 37 ÷ 5 = 7400mAh 相当です。
-      パッケージの数字より、はじめから 26% 少ないことになります。
-    </p>
-
-    <h2>さらに、変換で目減りする</h2>
-    <p>
-      3.7V を 5V や 9V に持ち上げる回路（昇圧）は、必ず熱を出します。
-      充電中にバッテリーが温かくなるのは、そこで失われた分です。
-      加えて、受け取ったスマートフォン側にも同じ変換があり、そこでも少し失われます。
-    </p>
-    <p>
-      製品や条件によりますが、<strong>実際に相手のバッテリーに入るのは、表示の 7 割前後</strong>が目安になります。
-    </p>
-
-    <h3>何回充電できるかを計算する</h3>
-    <p>
-      これで計算できるようになりました。手順は3つです。
-    </p>
-    <ol class="steps">
-      <li>
-        <b>バッテリーを Wh に直す</b>
-        <span>表示の mAh ÷ 1000 × 3.7。10000mAh なら 37Wh。</span>
-      </li>
-      <li>
-        <b>7 割をかける</b>
-        <span>37 × 0.7 ＝ 約 26Wh。これが実際に使える分です。</span>
-      </li>
-      <li>
-        <b>端末のバッテリー容量（Wh）で割る</b>
-        <span>スマートフォンの容量は 3.85V 前後で数えられています。5000mAh なら約 19Wh。26 ÷ 19 ＝ <strong>約1.4回</strong>。</span>
-      </li>
-    </ol>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th scope="col">バッテリーの表示</th><th scope="col">Wh</th><th scope="col">実際に使える分</th><th scope="col">5000mAh のスマホ</th></tr></thead>
-        <tbody>
-          <tr><td>5000mAh</td><td>18.5Wh</td><td>約 13Wh</td><td>約 0.7 回</td></tr>
-          <tr><td>10000mAh</td><td>37Wh</td><td>約 26Wh</td><td>約 1.4 回</td></tr>
-          <tr><td>20000mAh</td><td>74Wh</td><td>約 52Wh</td><td>約 2.7 回</td></tr>
-          <tr><td>27000mAh</td><td>100Wh</td><td>約 70Wh</td><td>約 3.6 回</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p>
-      5000mAh のバッテリーで 5000mAh のスマートフォンが満充電にならない、というのが直感に反するところですが、
-      単位の意味を踏まえれば当然の結果です。<strong>「同じ数字だから1回分」ではありません。</strong>
-    </p>
-    <div class="note good">
-      <strong>Wh はほぼ必ずどこかに書かれています。</strong>
-      本体の底面や側面の小さな印字、あるいは仕様表です。
-      飛行機の規則が Wh で決まっているため、書かないわけにいかないからです。
-      比較するなら、大きく書かれた mAh ではなく、この小さい数字を見るほうが正確です。
-    </div>
-
-    <h2>速さを決めるのは W（ワット）</h2>
-    <p>
-      容量とは別に、<strong>どれだけ速く充電できるか</strong>があります。こちらの単位はワットです。
-    </p>
-    <div class="note">
-      <strong>W ＝ 電圧(V) × 電流(A)</strong>
-    </div>
-    <p>
-      ここで注意したいのが、<strong>「最大3A」という書き方だけでは何も分からない</strong>ことです。
-      5V で 3A なら 15W ですが、9V で 3A なら 27W。同じ 3A でも倍近く違います。
-      アンペアだけの表記を見たら、電圧を探してください。
-    </p>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th scope="col">出力</th><th scope="col">用途の目安</th></tr></thead>
-        <tbody>
-          <tr><td>5W〜12W</td><td>イヤホン、時計、ゆっくりでよい場面</td></tr>
-          <tr><td>18W〜30W</td><td>スマートフォンの急速充電。多くの機種はこの範囲で上限に達します</td></tr>
-          <tr><td>45W〜65W</td><td>タブレット、薄型ノートパソコン</td></tr>
-          <tr><td>100W 以上</td><td>性能の高いノートパソコン</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3>規格の名前も見る</h3>
-    <p>
-      ワット数が足りていても、<strong>規格が合っていないと速くなりません</strong>。
-      現在の主役は <strong>USB PD（Power Delivery）</strong>で、USB-C 端子で使われる共通の仕組みです。
-      機器同士が話し合って、5V・9V・15V・20V といった段階から適切なものを選びます。
-    </p>
-    <p>
-      その拡張として <strong>PPS</strong> があります。電圧を細かく刻んで調整できる仕組みで、
-      一部のメーカーの端末は<strong>PPS に対応した相手でないと最高速度が出ません</strong>。
-      製品の仕様に PPS と書いてあるかどうかは、対応機種を使っている場合は確認する価値があります。
-    </p>
-    <p>
-      古い <strong>Quick Charge</strong> は主に USB-A 側で使われてきた別系統です。
-      これから買うなら、USB-C と USB PD を軸に選ぶのが素直だと思います。
-    </p>
-
-    <h2>見落としやすい3つの落とし穴</h2>
-
-    <h3>1. ケーブルが上限を決める</h3>
-    <p>
-      USB-C のケーブルは、見た目が同じでも通せる電流が違います。
-      標準では 3A まで。<strong>5A を通すには、ケーブル内部に識別用のチップ（E-Marker）が必要</strong>です。
-      20V × 3A ＝ 60W が、普通のケーブルの実質的な上限になります。
-    </p>
-    <p>
-      65W や 100W の製品を買っても、付属品でないケーブルを使うと 60W で止まることがあります。
-      「対応しているはずなのに速くならない」ときは、まずケーブルを疑うのが早いです。
-    </p>
-
-    <h3>2. 合計出力と、ポートごとの出力は違う</h3>
-    <p>
-      「最大 65W・2ポート」という表記の多くは、<strong>2つ合わせて 65W</strong>という意味です。
-      2台つなぐと 45W + 20W のように分かれ、片方は遅くなります。
-      同時に使う前提なら、分配後の数字が仕様に書かれているかを確認してください。
-    </p>
-
-    <h3>3. 端末側の上限のほうが低いことが多い</h3>
-    <p>
-      充電速度は、<strong>バッテリー・ケーブル・端末のうち、いちばん低いところで決まります</strong>。
-      スマートフォンの多くは 20W〜30W 程度で上限に達し、
-      さらに<strong>バッテリー残量が増えるにつれて自分から速度を落とします</strong>。
-      リチウムイオン電池を保護するための仕組みです。
-    </p>
-    <p>
-      なので、スマートフォンだけが目的なら 100W の製品を買っても速くなりません。
-      大きい数字が効いてくるのは、ノートパソコンをつなぐ場合です。
-    </p>
-
-    <h2>日本で買うなら PSE マーク</h2>
-    <p>
-      2019年2月以降、リチウムイオン蓄電池を使ったモバイルバッテリーは
-      日本の<strong>電気用品安全法（電安法）の対象</strong>になりました。
-      国内で販売するには技術基準を満たし、<strong>丸型の PSE マーク</strong>を表示する義務があります。
-    </p>
-    <p>
-      裏を返すと、<strong>PSE マークのない製品は国内で適法に販売できません</strong>。
-      通販で見かける極端に安い製品や、輸入品をそのまま売っているような出品では、
-      本体の表示を確認する価値があります。発火の危険がある製品なので、ここは値段より優先したいところです。
-    </p>
-
-    <h2>飛行機に持ち込める大きさ</h2>
-    <p>
-      国際的な航空規則では、リチウム電池の扱いが Wh で決まっています。
-      mAh ではなく Wh なのは、危険性がエネルギー量で決まるからです。
-    </p>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th scope="col">容量</th><th scope="col">扱い</th><th scope="col">mAh のおよその換算</th></tr></thead>
-        <tbody>
-          <tr><td>100Wh 以下</td><td>手荷物として持ち込み可</td><td>約 27000mAh まで</td></tr>
-          <tr><td>100Wh 超 160Wh 以下</td><td>航空会社の承認が必要</td><td>約 43000mAh まで</td></tr>
-          <tr><td>160Wh 超</td><td>旅客機では持ち込めません</td><td>—</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p>
-      加えて重要なのが、<strong>預け入れ荷物に入れられない</strong>という点です。
-      貨物室で発火しても気づけないためで、必ず機内に持ち込む手荷物に入れます。
-      細かい条件は航空会社ごとに異なるので、大容量のものを持って行くなら事前に確認してください。
-    </p>
-    <div class="note">
-      よく売られている 20000mAh は 74Wh なので、この規則にはまず引っかかりません。
-      迷うのは 25000mAh を超えたあたりからです。
-    </div>
-
-    <h2>長く使うために、そして捨てるとき</h2>
-    <p>
-      リチウムイオン電池が劣化する主な要因は、<strong>熱</strong>と<strong>満充電のまま置くこと</strong>です。
+      ページの中で動くコードにできることは、そのページを見ているあなたとほぼ同じです。つまり:
     </p>
     <ul>
-      <li><strong>充電しながらの使用は熱くなります</strong>。急ぐとき以外は避けたほうが電池には優しいです。</li>
-      <li><strong>車内や直射日光の当たる場所に放置しない</strong>。高温は劣化を早め、危険でもあります。</li>
-      <li><strong>長期保管は半分くらいの残量で</strong>。満充電も空も、どちらも負担になります。</li>
-      <li><strong>数か月に一度は充電する</strong>。自然に放電し、空のまま放置すると回復しなくなることがあります。</li>
+      <li>表示されている<strong>すべての文章を読む</strong>（メールの本文、社内システムの画面、DMの中身）</li>
+      <li><strong>入力欄に打った文字を読む</strong>（検索語、フォームの内容、そして入力中のパスワード）</li>
+      <li>ログイン状態を保持している<strong>Cookie を読む</strong></li>
+      <li>ページの<strong>表示を書き換える</strong>（金額やリンク先を差し替えることも技術的には可能）</li>
+      <li>読み取った内容を<strong>外部のサーバーへ送る</strong></li>
     </ul>
-    <p>
-      そして、<strong>膨らんだら使用をやめてください</strong>。内部でガスが発生している状態で、
-      押したり穴を開けたりすると発火します。
-    </p>
-    <p>
-      捨てるときは、<strong>家庭ごみに出してはいけません</strong>。
-      収集車やごみ処理施設での火災は実際に起きています。
-      家電量販店などに設置された回収ボックス、または自治体の指定する方法に従ってください。
-    </p>
+    <div class="note">
+      <strong>ここが重要です。</strong>
+      HTTPS はあなたとサイトの間の通信を守る仕組みで、
+      <strong>ブラウザの中で動くものに対しては何の防御にもなりません</strong>。
+      拡張機能は暗号化が解かれたあとの画面を見ています。
+      鍵マークが付いていても関係ありません。
+    </div>
 
-    <h2>結論：用途から選ぶ</h2>
+    <h2>では、要求する拡張機能は全部危険なのか</h2>
+    <p>
+      違います。<strong>広い権限そのものは、悪い印だとは限りません。</strong>
+      機能を果たすために本当に必要なことが多いからです。
+    </p>
     <div class="tablewrap">
       <table>
-        <thead><tr><th scope="col">使い方</th><th scope="col">目安</th><th scope="col">出力</th></tr></thead>
+        <thead><tr><th scope="col">拡張機能の種類</th><th scope="col">広い権限が必要か</th><th scope="col">理由</th></tr></thead>
         <tbody>
-          <tr><td>通勤・外出中の保険</td><td>5000mAh 前後（軽さ優先）</td><td>18W 以上</td></tr>
-          <tr><td>一日出歩く、スマホ中心</td><td>10000mAh</td><td>20W〜30W</td></tr>
-          <tr><td>泊まりの移動、複数台</td><td>20000mAh</td><td>45W 以上・ポートごとの数字を確認</td></tr>
-          <tr><td>ノートパソコンも充電</td><td>20000mAh 以上</td><td>65W 以上・USB PD 必須</td></tr>
+          <tr><td>広告ブロッカー</td><td>必要</td><td>どのサイトにも広告が出るため</td></tr>
+          <tr><td>パスワード管理</td><td>必要</td><td>あらゆるログイン画面を認識する必要がある</td></tr>
+          <tr><td>翻訳・辞書</td><td>必要</td><td>どのページの文章も対象になる</td></tr>
+          <tr><td>特定サービスの補助</td><td>不要</td><td>そのサイトだけで足りる</td></tr>
+          <tr><td>テーマ・配色の変更</td><td>場合による</td><td>対象を限定できることが多い</td></tr>
+          <tr><td>電卓・単位変換など</td><td>不要</td><td>ページの中身を読む必要がない</td></tr>
         </tbody>
       </table>
     </div>
     <p>
-      並べてみると、選ぶときに見る数字は多くありません。
-      <strong>Wh（本当の容量）、W（速さ）、USB PD かどうか、PSE マーク</strong>。この4つです。
-      パッケージでいちばん目立つ mAh は、<strong>同じメーカーの製品同士を比べるとき以外は役に立ちません</strong>。
+      判断の軸は「権限が広いかどうか」ではなく、
+      <strong>「その機能を実現するのに、その権限が要るか」</strong>です。
+      画面に付箋を貼るだけの拡張機能が全サイトの読み取りを求めるなら、説明がつきません。
     </p>
+
+    <h2>本当の危険は「入れたあと」にある</h2>
+    <p>
+      ここが、この記事でいちばん伝えたい部分です。
+    </p>
+    <p>
+      拡張機能は<strong>自動で更新されます</strong>。
+      そして更新の中身は、あなたに知らされません。
+      <strong>権限は最初に一度許可すれば、その後の更新版にも引き継がれます。</strong>
+    </p>
+    <p>
+      つまり、あなたが審査したのは<strong>インストールした時点のバージョン</strong>だけです。
+      その後、同じ拡張機能がまったく別のコードに置き換わっても、
+      あなたの許可はそのまま有効であり続けます。
+    </p>
+
+    <h3>これが問題になる典型的な流れ</h3>
+    <ol class="steps">
+      <li>
+        <b>個人開発者が便利な拡張機能を公開する</b>
+        <span>中身は誠実で、評価も高く、利用者が数万人まで増える。</span>
+      </li>
+      <li>
+        <b>買収の打診が来る</b>
+        <span>「あなたの拡張機能を買いたい」。利用者数のある拡張機能には、実際にこうした話が持ちかけられます。</span>
+      </li>
+      <li>
+        <b>所有者が変わる</b>
+        <span>ストアの表示は何も変わりません。利用者に通知もありません。</span>
+      </li>
+      <li>
+        <b>更新が配信される</b>
+        <span>閲覧履歴の収集、広告の差し込み、アフィリエイトリンクの書き換え。すでに許可された権限の範囲内なので、追加の確認は出ません。</span>
+      </li>
+    </ol>
+    <p>
+      利用者から見て変わるものは何もありません。アイコンも名前も同じままです。
+      <strong>「入れるときに気をつける」だけでは、この経路を防げません。</strong>
+    </p>
+
+    <h2>対策：権限そのものを狭める</h2>
+    <p>
+      入れる／入れないの二択で考えるのをやめて、
+      <strong>入れたうえで権限を絞る</strong>のが現実的です。多くのブラウザにこの設定があります。
+    </p>
+    <p>
+      拡張機能のアイコンを右クリックし、管理画面を開くと
+      <strong>「サイトへのアクセス」</strong>にあたる項目があります。選べるのはおおむね次の3つです
+      （表記はブラウザやバージョンで少し異なります）。
+    </p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">設定</th><th scope="col">動作</th><th scope="col">向いているもの</th></tr></thead>
+        <tbody>
+          <tr><td><strong>クリックしたときのみ</strong></td><td>普段は何も読まない。押した時だけ動く</td><td>ときどき使う道具（切り抜き、色の抽出など）</td></tr>
+          <tr><td><strong>特定のサイトのみ</strong></td><td>指定したサイトでだけ動く</td><td>特定サービス用の補助</td></tr>
+          <tr><td>すべてのサイト</td><td>常時すべてのページを読む</td><td>広告ブロッカー、パスワード管理など</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note good">
+      <strong>まずやること：</strong>
+      いま入っている拡張機能を一覧で開き、<strong>「クリックしたときのみ」に変えても困らないものを全部変える</strong>。
+      これだけで、常時あなたの画面を読んでいるプログラムの数が一気に減ります。
+      不便になったら戻せばいいので、試す代償がほとんどありません。
+    </div>
+    <p>
+      ネットバンキングや会社のシステムを扱うなら、
+      <strong>そこ専用のブラウザを1つ用意して、拡張機能を一切入れない</strong>という分け方も有効です。
+      <a href="/blog/browser">ブラウザを用途で分ける</a>話とつながります。
+    </p>
+
+    <h2>入れる前に見るところ</h2>
+    <ul>
+      <li><strong>権限が機能と釣り合っているか</strong>。前述のとおり、ここが最初の判断です。</li>
+      <li><strong>最終更新日</strong>。何年も更新されていないものは、開発が止まっている可能性があります。放置された拡張機能は、譲渡の対象になりやすいものでもあります。</li>
+      <li><strong>開発者の情報</strong>。サイトや連絡先が明記されているか。誰が作っているか分からないものに、全サイトの読み取りを渡すかどうか。</li>
+      <li><strong>プライバシーポリシー</strong>。何を集めるかが書かれているか。ストアの掲載情報にデータ収集の申告欄があります。</li>
+      <li><strong>評価の中身</strong>。星の数ではなく、低評価の理由を読むほうが役に立ちます。「ある時期から広告が出るようになった」といった声は、まさに前述の流れの兆候です。</li>
+      <li><strong>公式ストア以外から入れない</strong>。審査は完全ではありませんが、無いよりはるかに良い。</li>
+    </ul>
+
+    <h2>ときどき棚卸しをする</h2>
+    <p>
+      拡張機能は<strong>入れたことを忘れます</strong>。一度も開かない拡張機能が、
+      何年もすべてのページを読み続けている、というのはよくある状態です。
+    </p>
+    <p>
+      年に何回かでいいので、一覧を開いて確認してください。
+    </p>
+    <ul>
+      <li><strong>使っていないものは消す</strong>。無効化ではなく削除が確実です。</li>
+      <li><strong>何のために入れたか思い出せないものは消す</strong>。必要ならまた入れられます。</li>
+      <li><strong>同じ役割のものが重複していないか</strong>。それぞれが独立して画面を読んでいます。</li>
+    </ul>
+    <p>
+      数を減らすこと自体が対策になります。拡張機能は1つ増えるごとに、
+      <strong>あなたの画面を読める独立した参加者が1人増える</strong>のと同じだからです。
+    </p>
+
+    <h2>まとめ</h2>
+    <ul>
+      <li>「すべてのサイトのデータの読み取りと変更」は、<strong>入力中の文字や表示内容を読める</strong>という意味</li>
+      <li><strong>HTTPS はブラウザの中で動くものには効かない</strong></li>
+      <li>広い権限が必要な拡張機能は実在する。見るべきは<strong>権限と機能が釣り合っているか</strong></li>
+      <li>危険の本質は自動更新。<strong>審査できるのは入れた時点のバージョンだけ</strong></li>
+      <li>対策は<strong>「クリックしたときのみ」への変更</strong>と、<strong>使っていないものの削除</strong></li>
+    </ul>
 
     </div><!-- postbody:end -->
     <!-- postnav:start -->
     <div class="postnav">
       <div class="share">
         <span class="label">この記事を共有</span>
-        <a href="https://x.com/intent/post?text=モバイルバッテリーは mAh で選ばない — 見るべきは Wh と W&amp;url=https://mdf.works/blog/battery" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/intent/post?text=拡張機能の権限の見かた — 「すべてのサイトのデータを読み取る」とは何か&amp;url=https://mdf.works/blog/extension" target="_blank" rel="noopener noreferrer">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.2-5.8 6.2H1.5l7.5-8.6L1 3h6.7l4.6 5.8L17.5 3zm-1.1 16.2h1.8L7.7 4.7H5.8l10.6 14.5z"/></svg>
           X で共有
         </a>
@@ -871,14 +808,14 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       </div>
 
       <nav class="pager" aria-label="記事の移動">
-        <a class="prev" href="/blog/ping"><span class="dir">← 前の記事</span><span class="t">Ping はどこで生まれるのか — 回線を速くしても下がらない理由</span></a><a class="next" href="/blog/passkey"><span class="dir">次の記事 →</span><span class="t">二段階認証はどれを選ぶか — SMS・認証アプリ・パスキーの違い</span></a>
+        <a class="prev" href="/blog/imageformat"><span class="dir">← 前の記事</span><span class="t">スクリーンショットはPNG、写真はJPEG — 画像形式の選び方</span></a>
       </nav>
 
       <h2>ほかの記事</h2>
       <div class="grid cols-2">
       <div class="card">
-        <h3><a href="/blog/extension" style="text-decoration:none">拡張機能の権限の見かた — 「すべてのサイトのデータを読み取る」とは何か</a></h3>
-        <p>あの確認画面は具体的に何を許しているのか。入力中の文字も表示内容も読めます。そして本当の危険は入れた瞬間ではなく、通知なく届く自動更新のほうにあります。権限…</p>
+        <h3><a href="/blog/browser" style="text-decoration:none">ブラウザの選び方 — 結局どれを使えばいいのか</a></h3>
+        <p>「どれが速いか」で選ぼうとすると決まりません。実際に差が出るのは拡張機能の扱い、プライバシーの初期設定、同期の紐づけ先の3つです。用途別の選び方と、分けて使…</p>
       </div>
       <div class="card">
         <h3><a href="/blog/imageformat" style="text-decoration:none">スクリーンショットはPNG、写真はJPEG — 画像形式の選び方</a></h3>
