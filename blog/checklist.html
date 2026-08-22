@@ -236,6 +236,14 @@ code{
 font-family:var(--f-mono);font-size:.88em;
 background:var(--sunken);border:1px solid var(--line);border-radius:4px;padding:1px 5px;
 }
+pre{
+background:var(--sunken);border:1px solid var(--line);border-left:3px solid var(--line-strong);
+border-radius:var(--r);padding:14px 16px;margin:0 0 18px;
+overflow-x:auto;-webkit-overflow-scrolling:touch;
+font-family:var(--f-mono);font-size:13px;line-height:1.8;color:var(--ink-2);
+}
+pre code{background:none;border:0;padding:0;font-size:inherit;color:inherit}
+pre b{color:var(--accent);font-weight:600}
 hr{border:0;border-top:1px solid var(--line);margin:34px 0}
 .lead{font-size:17.5px;color:var(--ink-2)}
 .eyebrow{
@@ -797,8 +805,8 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
         <p>同じ設定でも、写真なら十分で、アカウント名なら心もとない。その差がどこから来るのかと、隠す対象ごとに何を選べばよいかの基準を整理しました。ぼかしの半径の目安…</p>
       </div>
       <div class="card">
-        <h3><a href="/blog/extension" style="text-decoration:none">拡張機能の権限の見かた — 「すべてのサイトのデータを読み取る」とは何か</a></h3>
-        <p>あの確認画面は具体的に何を許しているのか。入力中の文字も表示内容も読めます。そして本当の危険は入れた瞬間ではなく、通知なく届く自動更新のほうにあります。権限…</p>
+        <h3><a href="/blog/circle" style="text-decoration:none">画像から円を検出する — ハフ変換だけでは足りなかった話</a></h3>
+        <p>スクリーンショットの丸いアイコンをブラウザだけで見つける。候補を出すのは教科書どおりで足りましたが、本物かどうかの判定が難所でした。合成画像で16分の1、実…</p>
       </div>
       </div>
       <div class="btnrow">

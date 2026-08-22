@@ -30,25 +30,25 @@
 <!-- Google AdSense -->
 <script async fetchpriority="low" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8613999974980382"
      crossorigin="anonymous"></script>
-<title>拡張機能の権限の見かた｜「すべてのサイトのデータを読み取る」とは</title>
-<meta name="description" content="拡張機能を入れるときに出る「すべてのサイトのデータの読み取りと変更」は、具体的に何を許しているのか。本当の危険は入れた瞬間ではなく自動更新にあります。権限を絞る設定と、入れる前に見る場所をまとめました。">
-<link rel="canonical" href="https://mdf.works/blog/extension">
+<title>画像から円を検出する｜ハフ変換だけでは足りなかった話</title>
+<meta name="description" content="スクリーンショットの中の丸いアイコンをブラウザだけで見つける。ハフ変換で候補は出せても、本物かどうかの判定が本当の難所でした。合成画像で16分の1、実写で11分の0まで落ちた原因と、そこから直した4つの手当て。">
+<link rel="canonical" href="https://mdf.works/blog/circle">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="theme-color" content="#131720">
 <meta name="author" content="マカロン大福">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="mdf.works">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="拡張機能の権限の見かた｜「すべてのサイトのデータを読み取る」とは">
-<meta property="og:description" content="本当の危険は入れた瞬間ではなく自動更新にあります。権限を絞る設定と、入れる前に見る場所。">
-<meta property="og:url" content="https://mdf.works/blog/extension">
-<meta property="og:image" content="https://mdf.works/assets/og/extension.png">
+<meta property="og:title" content="画像から円を検出する｜ハフ変換だけでは足りなかった話">
+<meta property="og:description" content="候補を出すのは簡単でした。難しかったのは本物かどうかの判定です。">
+<meta property="og:url" content="https://mdf.works/blog/circle">
+<meta property="og:image" content="https://mdf.works/assets/og/circle.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="拡張機能の権限の見かた｜「すべてのサイトのデータを読み取る」とは">
-<meta name="twitter:description" content="本当の危険は入れた瞬間ではなく自動更新にあります。権限を絞る設定と、入れる前に見る場所。">
-<meta name="twitter:image" content="https://mdf.works/assets/og/extension.png">
+<meta name="twitter:title" content="画像から円を検出する｜ハフ変換だけでは足りなかった話">
+<meta name="twitter:description" content="候補を出すのは簡単でした。難しかったのは本物かどうかの判定です。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/circle.png">
 <meta name="twitter:creator" content="@sugerslp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
 <script type="application/ld+json">
@@ -57,16 +57,16 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "拡張機能の権限の見かた — 「すべてのサイトのデータを読み取る」とは何か",
-      "description": "拡張機能が要求する権限が具体的に何を許しているのかと、自動更新という本当の危険、権限を絞る設定。",
-      "image": "https://mdf.works/assets/og/extension.png",
-      "datePublished": "2026-08-21",
-      "dateModified": "2026-08-21",
+      "headline": "画像から円を検出する — ハフ変換だけでは足りなかった話",
+      "description": "ブラウザだけで丸いアイコンを見つける。候補の生成より、本物かどうかの判定のほうが難しかった記録。",
+      "image": "https://mdf.works/assets/og/circle.png",
+      "datePublished": "2026-08-22",
+      "dateModified": "2026-08-22",
       "inLanguage": "ja",
-      "articleSection": "ブラウザ",
+      "articleSection": "開発",
       "author": { "@id": "https://mdf.works/#person" },
       "publisher": { "@id": "https://mdf.works/#person" },
-      "mainEntityOfPage": "https://mdf.works/blog/extension"
+      "mainEntityOfPage": "https://mdf.works/blog/circle"
     },
     {
       "@type": "Person",
@@ -80,7 +80,7 @@
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mdf.works/" },
         { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mdf.works/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "拡張機能の権限の見かた", "item": "https://mdf.works/blog/extension" }
+        { "@type": "ListItem", "position": 3, "name": "画像から円を検出する", "item": "https://mdf.works/blog/circle" }
       ]
     }
   ]
@@ -622,22 +622,22 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
 <main id="main">
   <div class="wrap prose">
 
-    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>拡張機能の権限の見かた</p>
+    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>画像から円を検出する</p>
 
     <div class="page-head">
-      <p class="eyebrow">Browser</p>
-      <h1>拡張機能の権限の見かた<br>「すべてのサイトのデータを読み取る」とは何か</h1>
+      <p class="eyebrow">Development</p>
+      <h1>画像から円を検出する<br>ハフ変換だけでは足りなかった話</h1>
       <p class="lead">
-        拡張機能を入れるとき、必ず一度は目にする確認画面。
-        たいていの人は読まずに「追加」を押します。
-        <strong>読んだところで、何を許したことになるのか分からない</strong>からです。
-        具体的に何ができるようになるのかと、
-        本当に注意すべきなのは<strong>入れた瞬間ではない</strong>という話をします。
+        スクリーンショットの中の丸いアイコンを、ブラウザだけで自動的に見つける。
+        <a href="/kuroko/">Kuroko</a> の中核にある処理です。
+        教科書どおりに実装した最初の版は、合成した練習用の画像で
+        <strong>16個中1個</strong>しか見つけられませんでした。
+        候補を出すことは簡単で、<strong>本物かどうかを決めることが難しい</strong>という話をします。
       </p>
       <div class="postmeta">
-        <span class="cat">ブラウザ</span>
-        <time datetime="2026-08-21">2026年8月21日</time>
-        <span class="read">約6分で読めます</span>
+        <span class="cat">開発</span>
+        <time datetime="2026-08-22">2026年8月22日</time>
+        <span class="read">約8分で読めます</span>
       </div>
     </div>
 
@@ -647,168 +647,253 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
     </nav>
 
     <!-- postbody:start --><div class="postbody">
-    <h2>あの一文が意味していること</h2>
+    <h2>やりたかったこと</h2>
     <p>
-      拡張機能の権限で圧倒的に多いのが、
-      <strong>「すべてのサイトのデータの読み取りと変更」</strong>という表示です。
-      これは、その拡張機能のプログラムを<strong>あなたが開くすべてのページの内部で動かす</strong>という意味です。
-    </p>
-    <p>
-      ページの中で動くコードにできることは、そのページを見ているあなたとほぼ同じです。つまり:
+      チャットのスクリーンショットには、丸いアイコンが縦に並びます。
+      これを自動で見つけて隠したい。制約は2つありました。
     </p>
     <ul>
-      <li>表示されている<strong>すべての文章を読む</strong>（メールの本文、社内システムの画面、DMの中身）</li>
-      <li><strong>入力欄に打った文字を読む</strong>（検索語、フォームの内容、そして入力中のパスワード）</li>
-      <li>ログイン状態を保持している<strong>Cookie を読む</strong></li>
-      <li>ページの<strong>表示を書き換える</strong>（金額やリンク先を差し替えることも技術的には可能）</li>
-      <li>読み取った内容を<strong>外部のサーバーへ送る</strong></li>
+      <li><strong>画像を外に出さない</strong>。処理はすべてブラウザの中で完結させる。サーバーに送らないことがこのツールの前提です。</li>
+      <li><strong>学習済みモデルを使わない</strong>。数MBのモデルを読み込むと、ページを開いた瞬間に使える手軽さが失われます。</li>
     </ul>
-    <div class="note">
-      <strong>ここが重要です。</strong>
-      HTTPS はあなたとサイトの間の通信を守る仕組みで、
-      <strong>ブラウザの中で動くものに対しては何の防御にもなりません</strong>。
-      拡張機能は暗号化が解かれたあとの画面を見ています。
-      鍵マークが付いていても関係ありません。
-    </div>
-
-    <h2>では、要求する拡張機能は全部危険なのか</h2>
     <p>
-      違います。<strong>広い権限そのものは、悪い印だとは限りません。</strong>
-      機能を果たすために本当に必要なことが多いからです。
-    </p>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th scope="col">拡張機能の種類</th><th scope="col">広い権限が必要か</th><th scope="col">理由</th></tr></thead>
-        <tbody>
-          <tr><td>広告ブロッカー</td><td>必要</td><td>どのサイトにも広告が出るため</td></tr>
-          <tr><td>パスワード管理</td><td>必要</td><td>あらゆるログイン画面を認識する必要がある</td></tr>
-          <tr><td>翻訳・辞書</td><td>必要</td><td>どのページの文章も対象になる</td></tr>
-          <tr><td>特定サービスの補助</td><td>不要</td><td>そのサイトだけで足りる</td></tr>
-          <tr><td>テーマ・配色の変更</td><td>場合による</td><td>対象を限定できることが多い</td></tr>
-          <tr><td>電卓・単位変換など</td><td>不要</td><td>ページの中身を読む必要がない</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p>
-      判断の軸は「権限が広いかどうか」ではなく、
-      <strong>「その機能を実現するのに、その権限が要るか」</strong>です。
-      画面に付箋を貼るだけの拡張機能が全サイトの読み取りを求めるなら、説明がつきません。
+      つまり、<strong>古典的な画像処理だけで解く</strong>ということです。
+      幸い「円を見つける」には確立した方法があります。ハフ変換です。
     </p>
 
-    <h2>本当の危険は「入れたあと」にある</h2>
+    <h2>ハフ変換：総当たりを賢くやる</h2>
     <p>
-      ここが、この記事でいちばん伝えたい部分です。
+      素朴に考えると、円を探すには「中心の位置」と「半径」の組み合わせを
+      すべて試すことになります。画像が 1000×1000 で半径が 10〜100 なら、
+      <strong>1000 × 1000 × 90 通り</strong>。これは重すぎます。
     </p>
     <p>
-      拡張機能は<strong>自動で更新されます</strong>。
-      そして更新の中身は、あなたに知らされません。
-      <strong>権限は最初に一度許可すれば、その後の更新版にも引き継がれます。</strong>
+      ハフ変換の発想は逆向きです。<strong>候補を試すのではなく、輪郭の点に投票させます。</strong>
     </p>
-    <p>
-      つまり、あなたが審査したのは<strong>インストールした時点のバージョン</strong>だけです。
-      その後、同じ拡張機能がまったく別のコードに置き換わっても、
-      あなたの許可はそのまま有効であり続けます。
-    </p>
-
-    <h3>これが問題になる典型的な流れ</h3>
     <ol class="steps">
       <li>
-        <b>個人開発者が便利な拡張機能を公開する</b>
-        <span>中身は誠実で、評価も高く、利用者が数万人まで増える。</span>
+        <b>輪郭を取り出す</b>
+        <span>隣り合うピクセルの明るさの差（勾配）が大きいところが、輪郭です。</span>
       </li>
       <li>
-        <b>買収の打診が来る</b>
-        <span>「あなたの拡張機能を買いたい」。利用者数のある拡張機能には、実際にこうした話が持ちかけられます。</span>
+        <b>各点が「中心はこのへんだ」と投票する</b>
+        <span>投票先を集計する配列を用意して、票を足していきます。</span>
       </li>
       <li>
-        <b>所有者が変わる</b>
-        <span>ストアの表示は何も変わりません。利用者に通知もありません。</span>
+        <b>票が集中した場所が中心</b>
+        <span>円周上の点はすべて同じ点を指すので、そこだけ票が突出します。</span>
+      </li>
+    </ol>
+
+    <h3>勾配の向きを使うと、一気に軽くなる</h3>
+    <p>
+      素朴なハフ変換では、1つの輪郭点が「あり得る中心」すべてに投票します。
+      半径が未知なら、その点を中心とする円全体が投票先です。これでも重い。
+    </p>
+    <p>
+      ここで使えるのが、<strong>輪郭には向きがある</strong>という性質です。
+      円周上の点では、明るさの変化する方向が<strong>必ず中心を向いています</strong>。
+      だから、その線上だけに投票すればよい。
+    </p>
+    <pre><code>// 勾配（Sobel）の向きに沿って投票する
+const gx = ..., gy = ...;            // その点の勾配
+const len = Math.hypot(gx, gy);
+if (len &lt; EDGE_MIN) continue;        // 弱い輪郭は無視
+
+const ux = gx / len, uy = gy / len;  // 中心を向く単位ベクトル
+for (let r = R_MIN; r &lt;= R_MAX; r++) {
+  // 内側と外側の両方に投票する（明暗どちらの円か分からないため）
+  vote(x - ux * r, y - uy * r);
+  vote(x + ux * r, y + uy * r);
+}</code></pre>
+    <p>
+      投票先が面から線に減るので、計算量が桁で変わります。
+      さらに投票用の配列を<strong>半分の解像度</strong>で持てば、票が集まりやすくなり、
+      メモリも4分の1で済みます。
+    </p>
+    <p>
+      ここまでは順調でした。中心の候補は、実際きれいに出ます。
+    </p>
+
+    <h2>そして、16個中1個</h2>
+    <p>
+      候補が出たら、次は<strong>それぞれが本当に円か</strong>を判定します。
+      最初に書いたのは素直な方法でした。
+    </p>
+    <p>
+      <strong>円周被覆率</strong>。推定した円周上を等間隔にたどり、
+      そこに輪郭がある割合を数える。8割あれば円だろう、と。
+    </p>
+    <p>
+      練習用に作った合成画像（背景の上にアイコンを並べただけのもの）で試したところ、
+      <strong>16個のうち1個しか通りませんでした。</strong>
+      通らなかったのではなく、正確には<strong>間違ったものが大量に通った</strong>結果、
+      本物が埋もれていました。
+    </p>
+    <div class="note">
+      <strong>原因はこうでした。</strong>
+      被覆率は「円周上に輪郭があるか」しか見ていません。
+      ところが文字が詰まった領域は、<strong>どこを通っても輪郭にぶつかります</strong>。
+      半径をいろいろ変えれば、そのうちどれかが高得点を出す。
+      <strong>「輪郭が多い場所」を「円」と取り違えていた</strong>わけです。
+    </div>
+
+    <h3>手当て1：外側が静かであることも要求する</h3>
+    <p>
+      本物のアイコンには、被覆率だけでは表せない特徴があります。
+      <strong>円の外側が平坦</strong>で、しかも<strong>境界をまたぐと色が段差状に変わる</strong>ことです。
+      これを別の得点として計算し、2つを組み合わせました。
+    </p>
+    <pre><code>// 円周の被覆率と、外周の「静かさ＋段差」を別々に測り
+// <b>低いほうを採用する</b>（両方を満たすものだけが残る）
+const score = Math.min(coverage, ringScore);</code></pre>
+    <p>
+      平均ではなく <strong>min</strong> にしたのが要点です。
+      平均だと、片方が突出していればもう片方の低さを埋めてしまいます。
+      文字だらけの領域は被覆率こそ高くても、外周が静かではないので落ちる。
+      <strong>2つの独立した条件を同時に要求すると、偽物は急に通らなくなります。</strong>
+    </p>
+    <p>
+      これで合成画像は 16 個すべて検出できるようになりました。
+      問題は、ここからでした。
+    </p>
+
+    <h2>実際のスクリーンショットで、11個中0個</h2>
+    <p>
+      手元の実際のスマートフォンのスクリーンショットに掛けたところ、
+      <strong>1個も見つかりませんでした</strong>。合成画像で満点なのにです。
+    </p>
+    <p>
+      調べていくと、原因は判定そのものではなく、
+      その手前に置いていた<strong>足切りの条件</strong>でした。
+      「候補の周囲とどれだけ差があるか」を測って、差が小さいものを先に捨てていたのです。
+    </p>
+    <p>
+      合成画像では、この値がだいたい 0.45 以上ありました。だから 0.45 を境目にした。
+      ところが実物では <strong>0.25</strong> しかありませんでした。
+      明るいアイコンが、単色に近い背景に載っていたためです。
+    </p>
+    <div class="note warn">
+      <strong>ここが今回いちばんの反省点です。</strong>
+      しきい値の 0.45 は、測って決めた「正しい値」のつもりでした。
+      実際には<strong>自分が作った練習用画像の性質を、そのまま数値にしていただけ</strong>でした。
+      合成データで調整したしきい値は、暗黙の前提ごと固定されます。
+      そして前提が外れていることは、実データを通すまで分かりません。
+    </div>
+    <p>
+      この足切りは廃止し、半径の推定は勾配の分布から求める方式に置き換えました。
+      判定は前述の <code>min(coverage, ring)</code> に一本化しています。
+    </p>
+
+    <h2>そもそも輪郭が無い場合</h2>
+    <p>
+      次に当たったのが、<strong>装飾フレーム</strong>です。
+      アイコンの周りに飾り枠を付けられる機能があり、これが付くと
+      <strong>円の輪郭そのものが存在しません</strong>。
+      探すべき形が無いので、ハフ変換には原理的に見つけられません。
+    </p>
+    <p>
+      ここで方針を変えました。<strong>輪郭を探すのをやめました。</strong>
+    </p>
+    <ol class="steps">
+      <li>
+        <b>背景色を決める</b>
+        <span>その行の帯全体で最も多く出現する色を背景とします。</span>
       </li>
       <li>
-        <b>更新が配信される</b>
-        <span>閲覧履歴の収集、広告の差し込み、アフィリエイトリンクの書き換え。すでに許可された権限の範囲内なので、追加の確認は出ません。</span>
+        <b>列ごとに、背景でないピクセルの割合を数える</b>
+        <span>アイコンがある列は、上から下まで背景以外で埋まります。</span>
+      </li>
+      <li>
+        <b>その割合が高い列が続く範囲を、横幅とする</b>
+        <span>アイコンの左端と右端が、これで決まります。</span>
+      </li>
+      <li>
+        <b>縦方向にたどって上下端を決める</b>
+        <span>背景の行が2行続いたら、そこで終わりと判断します。</span>
       </li>
     </ol>
     <p>
-      利用者から見て変わるものは何もありません。アイコンも名前も同じままです。
-      <strong>「入れるときに気をつける」だけでは、この経路を防げません。</strong>
+      形を仮定しない代わりに、<strong>「背景ではない塊がそこにある」</strong>という
+      弱い事実だけを使います。飾り枠が付いていても、この事実は変わりません。
     </p>
 
-    <h2>対策：権限そのものを狭める</h2>
+    <h3>背景色の取りかたで一度壊した</h3>
     <p>
-      入れる／入れないの二択で考えるのをやめて、
-      <strong>入れたうえで権限を絞る</strong>のが現実的です。多くのブラウザにこの設定があります。
+      この方式は背景色が命です。最初は左上あたりを参照していました。
+      ところが、そこがちょうど飾り枠の内側に入ってしまい、
+      背景を <code>[227, 240, 253]</code>、つまりほぼ白と判定していました。
     </p>
     <p>
-      拡張機能のアイコンを右クリックし、管理画面を開くと
-      <strong>「サイトへのアクセス」</strong>にあたる項目があります。選べるのはおおむね次の3つです
-      （表記はブラウザやバージョンで少し異なります）。
+      背景が間違っていると、<strong>そこから先の処理がすべて狂います</strong>。
+      「背景でないピクセル」の定義が壊れるからです。
+      画面の端を1点だけ見るのをやめ、行の帯全体の最頻色を使うようにしました。
+      左右にパネルが分かれた画面でも、背景に濃淡があっても、これなら効きます。
+    </p>
+
+    <h2>動かなかった原因が、2ピクセルだったこと</h2>
+    <p>
+      小さいアイコンだけがどうしても見つからない、という症状が残っていました。
+      判定を緩めても改善しません。
+    </p>
+    <p>
+      原因は、投票用の配列を半分の解像度で持っていたことに対する、
+      <strong>座標の戻しかたの間違い</strong>でした。ずれは2ピクセルです。
+    </p>
+    <pre><code>// 誤り：半分の格子から元の座標に戻すときに 2px ずれていた
+const cx = xx * 2 + 3 - 2;
+
+// 正しい：格子の中心を指す
+const cx = (xx + 1) * 2 + 1;</code></pre>
+    <p>
+      大きいアイコンでは、2ピクセルのずれは判定の誤差に吸収されます。
+      半径 15 ピクセル程度のアイコンでは、吸収されません。
+      <strong>「アルゴリズムが悪い」と思って何時間も式をいじっていた対象が、
+      実際には座標の変換式だった</strong>ということです。
+    </p>
+    <div class="note good">
+      <strong>教訓として残しているもの：</strong>
+      画像処理で結果がおかしいとき、疑う順番は
+      <strong>①座標の対応 ②境界の扱い ③しきい値 ④アルゴリズム</strong>。
+      この順です。実感として、上の2つが原因であることのほうが多いです。
+    </div>
+
+    <h2>最終的な結果</h2>
+    <p>
+      同じ画像を Python に移植して、正解を数えながら詰めました。
+      ブラウザ上でログを見るより、はるかに速く回せます。
     </p>
     <div class="tablewrap">
       <table>
-        <thead><tr><th scope="col">設定</th><th scope="col">動作</th><th scope="col">向いているもの</th></tr></thead>
+        <thead><tr><th scope="col">対象</th><th scope="col">最初の版</th><th scope="col">最終</th></tr></thead>
         <tbody>
-          <tr><td><strong>クリックしたときのみ</strong></td><td>普段は何も読まない。押した時だけ動く</td><td>ときどき使う道具（切り抜き、色の抽出など）</td></tr>
-          <tr><td><strong>特定のサイトのみ</strong></td><td>指定したサイトでだけ動く</td><td>特定サービス用の補助</td></tr>
-          <tr><td>すべてのサイト</td><td>常時すべてのページを読む</td><td>広告ブロッカー、パスワード管理など</td></tr>
+          <tr><td>合成画像（明・暗・JPEG・縮小の4種）</td><td>16個中1個</td><td><strong>すべて検出</strong></td></tr>
+          <tr><td>スマートフォンのスクリーンショット</td><td>11個中0個</td><td><strong>11個中11個</strong></td></tr>
+          <tr><td>返信プレビューを含む画面</td><td>—</td><td><strong>8個中8個</strong>（返信2件の判別も含む）</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="note good">
-      <strong>まずやること：</strong>
-      いま入っている拡張機能を一覧で開き、<strong>「クリックしたときのみ」に変えても困らないものを全部変える</strong>。
-      これだけで、常時あなたの画面を読んでいるプログラムの数が一気に減ります。
-      不便になったら戻せばいいので、試す代償がほとんどありません。
-    </div>
-    <p>
-      ネットバンキングや会社のシステムを扱うなら、
-      <strong>そこ専用のブラウザを1つ用意して、拡張機能を一切入れない</strong>という分け方も有効です。
-      <a href="/blog/browser">ブラウザを用途で分ける</a>話とつながります。
-    </p>
 
-    <h2>入れる前に見るところ</h2>
+    <h2>この作業から持ち帰ったこと</h2>
     <ul>
-      <li><strong>権限が機能と釣り合っているか</strong>。前述のとおり、ここが最初の判断です。</li>
-      <li><strong>最終更新日</strong>。何年も更新されていないものは、開発が止まっている可能性があります。放置された拡張機能は、譲渡の対象になりやすいものでもあります。</li>
-      <li><strong>開発者の情報</strong>。サイトや連絡先が明記されているか。誰が作っているか分からないものに、全サイトの読み取りを渡すかどうか。</li>
-      <li><strong>プライバシーポリシー</strong>。何を集めるかが書かれているか。ストアの掲載情報にデータ収集の申告欄があります。</li>
-      <li><strong>評価の中身</strong>。星の数ではなく、低評価の理由を読むほうが役に立ちます。「ある時期から広告が出るようになった」といった声は、まさに前述の流れの兆候です。</li>
-      <li><strong>公式ストア以外から入れない</strong>。審査は完全ではありませんが、無いよりはるかに良い。</li>
-    </ul>
-
-    <h2>ときどき棚卸しをする</h2>
-    <p>
-      拡張機能は<strong>入れたことを忘れます</strong>。一度も開かない拡張機能が、
-      何年もすべてのページを読み続けている、というのはよくある状態です。
-    </p>
-    <p>
-      年に何回かでいいので、一覧を開いて確認してください。
-    </p>
-    <ul>
-      <li><strong>使っていないものは消す</strong>。無効化ではなく削除が確実です。</li>
-      <li><strong>何のために入れたか思い出せないものは消す</strong>。必要ならまた入れられます。</li>
-      <li><strong>同じ役割のものが重複していないか</strong>。それぞれが独立して画面を読んでいます。</li>
+      <li><strong>見つけることより、確かめることのほうが難しい。</strong>候補の生成は教科書どおりで足ります。手間の大半は、偽物を落とす側に掛かりました。</li>
+      <li><strong>独立した2つの条件の min を取ると、偽物が急に落ちる。</strong>1つの指標を厳しくするより効きます。</li>
+      <li><strong>合成データで決めたしきい値は、前提ごと固定される。</strong>実データを通すまで、その前提には気づけません。</li>
+      <li><strong>探している形が無いなら、形を探すのをやめる。</strong>より弱い、しかし壊れにくい事実に乗り換えるほうが確実です。</li>
+      <li><strong>まず座標を疑う。</strong>2ピクセルで結果は変わります。</li>
     </ul>
     <p>
-      数を減らすこと自体が対策になります。拡張機能は1つ増えるごとに、
-      <strong>あなたの画面を読める独立した参加者が1人増える</strong>のと同じだからです。
+      実際の動きは <a href="/kuroko/tool">ツール</a> で確認できます。
+      画像はブラウザから出ないので、手元のスクリーンショットでそのまま試せます。
+      うまく検出されない画像があれば、<a href="/contact">お問い合わせ</a>から教えてください。
     </p>
-
-    <h2>まとめ</h2>
-    <ul>
-      <li>「すべてのサイトのデータの読み取りと変更」は、<strong>入力中の文字や表示内容を読める</strong>という意味</li>
-      <li><strong>HTTPS はブラウザの中で動くものには効かない</strong></li>
-      <li>広い権限が必要な拡張機能は実在する。見るべきは<strong>権限と機能が釣り合っているか</strong></li>
-      <li>危険の本質は自動更新。<strong>審査できるのは入れた時点のバージョンだけ</strong></li>
-      <li>対策は<strong>「クリックしたときのみ」への変更</strong>と、<strong>使っていないものの削除</strong></li>
-    </ul>
 
     </div><!-- postbody:end -->
     <!-- postnav:start -->
     <div class="postnav">
       <div class="share">
         <span class="label">この記事を共有</span>
-        <a href="https://x.com/intent/post?text=拡張機能の権限の見かた — 「すべてのサイトのデータを読み取る」とは何か&amp;url=https://mdf.works/blog/extension" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/intent/post?text=画像から円を検出する — ハフ変換だけでは足りなかった話&amp;url=https://mdf.works/blog/circle" target="_blank" rel="noopener noreferrer">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.2-5.8 6.2H1.5l7.5-8.6L1 3h6.7l4.6 5.8L17.5 3zm-1.1 16.2h1.8L7.7 4.7H5.8l10.6 14.5z"/></svg>
           X で共有
         </a>
@@ -816,18 +901,18 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       </div>
 
       <nav class="pager" aria-label="記事の移動">
-        <a class="prev" href="/blog/imageformat"><span class="dir">← 前の記事</span><span class="t">スクリーンショットはPNG、写真はJPEG — 画像形式の選び方</span></a><a class="next" href="/blog/circle"><span class="dir">次の記事 →</span><span class="t">画像から円を検出する — ハフ変換だけでは足りなかった話</span></a>
+        <a class="prev" href="/blog/extension"><span class="dir">← 前の記事</span><span class="t">拡張機能の権限の見かた — 「すべてのサイトのデータを読み取る」とは何か</span></a>
       </nav>
 
       <h2>ほかの記事</h2>
       <div class="grid cols-2">
       <div class="card">
-        <h3><a href="/blog/browser" style="text-decoration:none">ブラウザの選び方 — 結局どれを使えばいいのか</a></h3>
-        <p>「どれが速いか」で選ぼうとすると決まりません。実際に差が出るのは拡張機能の扱い、プライバシーの初期設定、同期の紐づけ先の3つです。用途別の選び方と、分けて使…</p>
+        <h3><a href="/blog/cache" style="text-decoration:none">HTMLは新しいのにCSSだけ古い — 静的サイトのキャッシュの罠</a></h3>
+        <p>パソコンでは正常なのに、スマートフォンでだけレイアウトが崩れる。原因は CSS の中身ではなく、HTML と CSS でキャッシュの寿命が違っていたことでし…</p>
       </div>
       <div class="card">
-        <h3><a href="/blog/circle" style="text-decoration:none">画像から円を検出する — ハフ変換だけでは足りなかった話</a></h3>
-        <p>スクリーンショットの丸いアイコンをブラウザだけで見つける。候補を出すのは教科書どおりで足りましたが、本物かどうかの判定が難所でした。合成画像で16分の1、実…</p>
+        <h3><a href="/blog/extension" style="text-decoration:none">拡張機能の権限の見かた — 「すべてのサイトのデータを読み取る」とは何か</a></h3>
+        <p>あの確認画面は具体的に何を許しているのか。入力中の文字も表示内容も読めます。そして本当の危険は入れた瞬間ではなく、通知なく届く自動更新のほうにあります。権限…</p>
       </div>
       </div>
       <div class="btnrow">
