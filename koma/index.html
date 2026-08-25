@@ -27,28 +27,25 @@
   })();
 </script>
 <script>(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
-<!-- Google AdSense -->
-<script async fetchpriority="low" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8613999974980382"
-     crossorigin="anonymous"></script>
-<title>このサイトについて・運営者情報｜mdf.works</title>
-<meta name="description" content="mdf.works の方針、公開しているツール、検出アルゴリズムなど技術的な仕組み、運営者情報を記載しています。運営者はマカロン大福です。ファイルを預からない設計にしている理由も説明しています。">
-<link rel="canonical" href="https://mdf.works/about">
+<title>Koma｜連番PNGを背景透過してAPNG・WebPにする無料ツール</title>
+<meta name="description" content="連番のPNGをまとめて読み込み、背景色を抜いて、APNG またはアニメーションWebP として書き出せる無料ツールです。透過は自動判定・スポイト・許容値の調整に対応。画像はブラウザの外に出ません。">
+<link rel="canonical" href="https://mdf.works/koma/">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="theme-color" content="#131720">
 <meta name="author" content="マカロン大福">
-<meta property="og:type" content="profile">
+<meta property="og:type" content="website">
 <meta property="og:site_name" content="mdf.works">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="このサイトについて・運営者情報｜mdf.works">
-<meta property="og:description" content="mdf.works の方針、公開しているツール、検出アルゴリズムなど技術的な仕組み、運営者情報を記載しています。運営者はマカロン大福です。ファイルを預からない設計にしている理由も説明しています。">
-<meta property="og:url" content="https://mdf.works/about">
-<meta property="og:image" content="https://mdf.works/assets/og/about.png">
+<meta property="og:title" content="Koma｜連番PNGを背景透過してAPNG・WebPにする無料ツール">
+<meta property="og:description" content="連番のPNGを読み込んで、背景を抜いて、アニメーションとして書き出す。画像はこの端末から出ません。">
+<meta property="og:url" content="https://mdf.works/koma/">
+<meta property="og:image" content="https://mdf.works/assets/og/koma.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="このサイトについて・運営者情報｜mdf.works">
-<meta name="twitter:description" content="mdf.works の方針、公開しているツール、検出アルゴリズムなど技術的な仕組み、運営者情報を記載しています。運営者はマカロン大福です。ファイルを預からない設計にしている理由も説明しています。">
-<meta name="twitter:image" content="https://mdf.works/assets/og/about.png">
+<meta name="twitter:title" content="Koma｜連番PNGを背景透過してAPNG・WebPにする無料ツール">
+<meta name="twitter:description" content="連番のPNGを読み込んで、背景を抜いて、アニメーションとして書き出す。画像はこの端末から出ません。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/koma.png">
 <meta name="twitter:creator" content="@sugerslp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
 <script type="application/ld+json">
@@ -56,38 +53,59 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "SoftwareApplication",
+      "@id": "https://mdf.works/koma/#app",
+      "name": "Koma",
+      "alternateName": "連番PNG → APNG・WebP 変換ツール",
+      "url": "https://mdf.works/koma/",
+      "applicationCategory": "MultimediaApplication",
+      "applicationSubCategory": "画像変換",
+      "operatingSystem": "Web ブラウザ（Windows / macOS / iOS / Android）",
+      "browserRequirements": "JavaScript と HTML5 Canvas に対応したブラウザ",
+      "inLanguage": "ja",
+      "description": "連番のPNGをまとめて読み込み、背景色を透過してアニメーションPNG（APNG）またはアニメーションWebPとして書き出す無料ツール。画像はサーバーに送信されず、ブラウザの中だけで処理されます。",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+      "author": { "@id": "https://mdf.works/#person" },
+      "publisher": { "@id": "https://mdf.works/#person" },
+      "isAccessibleForFree": true
+    },
+    {
       "@type": "Person",
       "@id": "https://mdf.works/#person",
       "name": "マカロン大福",
       "url": "https://mdf.works/about",
-      "sameAs": [
-        "https://x.com/sugerslp"
-      ]
+      "sameAs": ["https://x.com/sugerslp"]
     },
     {
-      "@type": "AboutPage",
-      "url": "https://mdf.works/about",
-      "name": "このサイトについて",
-      "inLanguage": "ja",
-      "isPartOf": {
-        "@id": "https://mdf.works/#website"
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "画像はアップロードされますか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "されません。読み込みも加工も書き出しも canvas だけで行っており、画像を送信するコードがありません。ページを開いたあとに通信を切っても最後まで動作します。" }
+        },
+        {
+          "@type": "Question",
+          "name": "APNG と WebP はどちらを選べばよいですか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "色をそのまま保ちたいとき、透明の縁をきれいに出したいときは APNG です。ファイルサイズを小さくしたいときは WebP を選んでください。WebP は非可逆なので、色がわずかに変わります。" }
+        },
+        {
+          "@type": "Question",
+          "name": "背景がうまく抜けません。",
+          "acceptedAnswer": { "@type": "Answer", "text": "まず「画面から選ぶ」で背景そのものの色を指定してください。そのうえで許容値を少しずつ上げます。絵の中身まで消える場合は「外側だけを抜く」を有効にしてください。" }
+        },
+        {
+          "@type": "Question",
+          "name": "GIF では書き出せませんか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "対応していません。GIF は色を256色までしか持てず、半透明も表現できないため、透過したアニメーションの保存先としては APNG と WebP のほうが適しています。" }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "ホーム",
-          "item": "https://mdf.works/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "このサイトについて",
-          "item": "https://mdf.works/about"
-        }
+        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mdf.works/" },
+        { "@type": "ListItem", "position": 2, "name": "Koma", "item": "https://mdf.works/koma/" }
       ]
     }
   ]
@@ -614,11 +632,10 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       <span class="sub">個人開発のウェブツール</span>
     </a>
     <nav class="site-nav" aria-label="メインナビゲーション">
-      <a href="/">ホーム</a>
-      <a href="/blog/">ブログ</a>
-      <a href="/about" aria-current="page">このサイトについて</a>
-      <a href="/contact">お問い合わせ</a>
-      <a class="cta" href="/kuroko/">Kuroko</a>
+      <a href="/blog/">記事一覧</a>
+      <a href="/kuroko/">Kuroko</a>
+      <a href="/about">このサイトについて</a>
+      <a class="cta" href="/koma/tool">ツールを開く</a>
     </nav>
     <button class="themebtn" type="button" id="themebtn" aria-label="表示テーマを切り替える" title="表示テーマを切り替える">
       <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>
@@ -628,128 +645,191 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
 </header>
 
 <main id="main">
-  <div class="wrap prose">
+  <div class="wrap">
 
-    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span>このサイトについて</p>
+    <section class="prose" style="padding:20px 0 8px">
+      <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span>Koma</p>
 
-    <div class="page-head">
-      <p class="eyebrow">About</p>
-      <h1>このサイトについて</h1>
-      <p class="lead">
-        mdf.works は、ブラウザの中だけで完結するウェブツールを公開している、個人の小さなサイトです。
+      <p class="eyebrow">Koma — mdf.works のツール</p>
+      <h1>連番のPNGを、背景を抜いて、<br>ひとつのアニメーションにする。</h1>
+      <p class="lead" style="margin-top:18px">
+        書き出したコマが何十枚もフォルダに並んでいて、動く1枚にしたい。
+        Koma はその工程をブラウザだけで済ませる道具です。
+        背景色を抜いて、<strong>APNG</strong> か <strong>アニメーションWebP</strong> にまとめます。
+        画像はあなたの端末から一歩も出ません。
       </p>
-      <p class="updated">最終更新：2026年8月13日</p>
-    </div>
-
-    <h2>なぜ作っているのか</h2>
-    <p>
-      画像を切り抜きたい、PDF をまとめたい、個人情報を消したい。
-      そういう「一度きりの、ちょっとした作業」のために、ファイルをどこかのサーバーへアップロードするのは、
-      よく考えると不思議なことです。処理そのものは手元の端末で十分できるのに、
-      わざわざ他人の管理下へ渡している。
-    </p>
-    <p>
-      ブラウザは十分に高機能になりました。画像の解析も、ファイルの読み書きも、
-      サーバーを介さずにその場で実行できます。それならそうしたほうがいい、というのがこのサイトの出発点です。
-    </p>
-    <p>
-      とくに<strong>個人情報を消すための道具</strong>は、その性質上、いちばん見られたくない状態のファイルを扱います。
-      それを預けなくて済むなら、預けないほうがいいはずです。
-    </p>
-
-    <h2>3つの方針</h2>
-    <div class="principles" style="margin-bottom:22px">
-      <div>
-        <p class="n">01</p>
-        <h3>ファイルを預からない</h3>
-        <p>処理はすべてブラウザの中で行います。サーバーが受け取らないなら、漏れることも、目的外に使われることもありません。</p>
+      <div class="btnrow">
+        <a class="btn primary" href="/koma/tool">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M7 4.5l12 7.5-12 7.5z"/></svg>
+          ツールを開く
+        </a>
+        <a class="btn" href="/kuroko/">もうひとつのツール Kuroko</a>
       </div>
-      <div>
-        <p class="n">02</p>
-        <h3>開いたらすぐ使える</h3>
-        <p>アカウント登録もインストールも求めません。開いて、使って、閉じる。それで完結します。</p>
+      <p class="muted" style="margin-top:16px">
+        インストール不要・登録不要・無料。読み込みから書き出しまで、すべてブラウザ内で完結します。
+        <a href="/">mdf.works</a> が公開しているツールのひとつです。
+      </p>
+    </section>
+
+    <h2>Koma がすること</h2>
+    <div class="grid cols-3">
+      <div class="card">
+        <h3>画像を送信しない</h3>
+        <p>読み込み・透過・書き出しのすべてがブラウザ内の処理です。サーバーへのアップロードはなく、通信も発生しません。</p>
       </div>
-      <div>
-        <p class="n">03</p>
-        <h3>できないことを隠さない</h3>
-        <p>自動処理には限界があります。何ができて何ができないかを明記し、最後の確認は使う人に委ねます。</p>
+      <div class="card">
+        <h3>背景色を抜く</h3>
+        <p>四隅を見て背景色を自動で判定します。スポイトでの指定、許容値となじませ幅の調整、外側だけを抜く設定に対応しています。</p>
+      </div>
+      <div class="card">
+        <h3>ひとつの動く画像にする</h3>
+        <p>並べ替え・速さ・くり返し回数を決めて、<code>APNG</code> か <code>WebP</code> として書き出します。どちらも透明を保てます。</p>
       </div>
     </div>
-    <p>
-      3つめは特に大事にしています。「自動でやっておきました」と言い切るほうが気持ちよく使えますが、
-      それで隠し漏れが起きたら意味がありません。結果を一覧で見せて、
-      利用者が目で確かめられる形にしておくことを優先しています。
-    </p>
 
-    <h2>公開しているツール</h2>
-
-    <h3>Kuroko — スクリーンショット匿名化</h3>
-    <p>
-      Discord などのチャット画面から、アイコン・表示名・ユーザーIDを検出して隠すツールです。
-      同一人物のアイコンをまとめて同じ仮名を割り当てるため、誰と誰の会話かという構造を保ったまま匿名化できます。
-    </p>
-    <p>
-      検出には機械学習モデルを使わず、古典的な画像処理を組み合わせています。
-      輪郭の勾配から円を探し、円周がどれだけ実際の輪郭で覆われているか、
-      平らな面の上に置かれた円盤に見えるかどうかの二つで検証します。
-      さらに、同じ位置に並ぶアイコンを「列」として扱うことで、
-      装飾フレームで輪郭が崩れたアイコンや、背景と同系色で見分けにくいアイコンにも対応しています。
-    </p>
-    <div class="btnrow" style="margin-bottom:8px">
-      <a class="btn primary" href="/kuroko/tool">ツールを開く</a>
-      <a class="btn" href="/kuroko/">Kuroko について</a>
+    <h2>こんな素材を想定しています</h2>
+    <div class="prose">
+      <p>
+        3D やモーショングラフィックスのソフトから書き出した連番、ドット絵のコマ、
+        画面録画をコマに分解したもの、スキャンしたパラパラ漫画。
+        <strong>ファイル名に通し番号が入っていれば、順番はこちらで判断します</strong>
+        （<code>cut_2.png</code> が <code>cut_10.png</code> より先に来る並べ方をします）。
+      </p>
+      <p>
+        背景が単色で塗られているものがいちばんきれいに抜けます。
+        すでに透過されている PNG なら、そのことを検出して「抜かない」設定に切り替えるので、
+        そのままアニメーションにまとめられます。
+      </p>
     </div>
 
-    <h2>ブログ</h2>
-    <p>
-      ツールを作る過程で分かったことや、普段使っているものについて
-      <a href="/blog/">ブログ</a>に書いています。
-      ブラウザやアプリの選び方、ガジェット、個人開発でつまずいたところ、
-      スクリーンショットと個人情報の扱い方など、話題はそのときどきです。
-      共通しているのは、確かめられることだけを書くという点です。
-      自分で試した話も、調べて整理した話もありますが、
-      どちらも読んだあとに手を動かせる形にすることを心がけています。
-    </p>
+    <h2>3ステップで終わります</h2>
+    <ol class="steps">
+      <li>
+        <b>連番PNGをまとめて読み込む</b>
+        <span>ドラッグ＆ドロップ、またはファイル選択でまとめて選びます。ファイル名の数字を見て自動で並べ替えます。</span>
+      </li>
+      <li>
+        <b>背景の抜けかたを確認する</b>
+        <span>市松模様の上でプレビューされます。抜けすぎ・抜けなさすぎがあれば、許容値となじませ幅を動かして調整します。</span>
+      </li>
+      <li>
+        <b>形式と速さを決めて書き出す</b>
+        <span>APNG か WebP、fps、くり返し回数を決めて書き出します。できあがりはその場で再生して確認できます。</span>
+      </li>
+    </ol>
 
-    <h2>技術的なこと</h2>
-    <ul>
-      <li><strong>サーバー側の処理はありません。</strong>静的な HTML・CSS・JavaScript のみで構成されています。</li>
-      <li><strong>外部ライブラリを使っていません。</strong>ツール本体は1ファイルで完結しており、CDN への依存もありません。</li>
-      <li><strong>画像処理は <code>&lt;canvas&gt;</code> のみ</strong>で行っています。読み込んだ画像を外部に送る経路がコード上に存在しません。</li>
-      <li>ページを読み込んだあとは、<strong>通信を切っても最後まで動作します</strong>。ネットワークタブには広告とアクセス解析の通信が出ますが、そこに画像は含まれません。</li>
-    </ul>
-    <div class="note">
-      なお、当サイトは広告（Google AdSense）とアクセス解析（Google Analytics）のために外部と通信します。
-      これらに利用者が処理したファイルの内容が含まれることはありません。
-      詳細は<a href="/privacy">プライバシーポリシー</a>をご確認ください。
-    </div>
-
-    <h2>運営者情報</h2>
+    <h2>APNG と WebP、どちらを選ぶか</h2>
     <div class="tablewrap">
       <table>
+        <caption class="muted" style="text-align:left;padding:10px 14px">どちらも透明を保てます。違いは色の正確さとファイルサイズです。</caption>
+        <thead>
+          <tr><th scope="col"></th><th scope="col">APNG</th><th scope="col">アニメーションWebP</th></tr>
+        </thead>
         <tbody>
-          <tr><th scope="row">サイト名</th><td>mdf.works</td></tr>
-          <tr><th scope="row">URL</th><td>https://mdf.works/</td></tr>
-          <tr><th scope="row">運営者</th><td>マカロン大福</td></tr>
-          <tr><th scope="row">連絡先</th><td>Discord: <code>m_df</code> ／ X: <a href="https://x.com/sugerslp" target="_blank" rel="noopener noreferrer">@sugerslp</a> ／ Mail: <a href="mailto:contact@mdf.works">contact@mdf.works</a><br><a href="/contact">お問い合わせページ</a>もご利用いただけます。</td></tr>
-          <tr><th scope="row">開設</th><td>2026年</td></tr>
+          <tr><td>色</td><td>元のまま（可逆）</td><td>わずかに変わる（非可逆）</td></tr>
+          <tr><td>ファイルサイズ</td><td>大きめ</td><td>小さい</td></tr>
+          <tr><td>半透明の縁</td><td>そのまま保てる</td><td>おおむね保てる</td></tr>
+          <tr><td>向いている素材</td><td>ドット絵、線画、文字が入るもの</td><td>写真的なもの、枚数が多いもの</td></tr>
+          <tr><td>書き出せる環境</td><td>どのブラウザでも</td><td>ブラウザ側の対応が必要</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="muted">
-      個人が趣味で運営しています。お問い合わせへの返信にはお時間をいただく場合があります。
-    </p>
+    <div class="prose">
+      <p>
+        迷ったら <strong>APNG</strong> を選んでください。色が変わらないぶん、あとから加工し直せます。
+        枚数が多くて重くなったときに WebP を試すのが安全な順番です。
+        形式ごとの向き不向きは<a href="/blog/imageformat">画像形式の選び方</a>でも扱っています。
+      </p>
+    </div>
 
-    <h2>運営費用について</h2>
-    <p>
-      公開しているツールはすべて無料です。ドメインとホスティングの費用は、
-      サイトに掲載している広告によってまかなっています。
-      広告配信に伴う情報の取り扱いについては、<a href="/privacy">プライバシーポリシー</a>に記載しています。
-    </p>
+    <h2>背景をきれいに抜くコツ</h2>
+    <ol class="steps">
+      <li>
+        <b>まず「画面から選ぶ」で背景そのものをクリックする</b>
+        <span>自動判定は四隅を見ています。四隅に絵がかかっている素材では、狙った色にならないことがあります。</span>
+      </li>
+      <li>
+        <b>許容値は下から上げる</b>
+        <span>いきなり大きくすると、絵の中の近い色まで消えます。輪郭のまわりに背景色が残る程度から少しずつ上げてください。</span>
+      </li>
+      <li>
+        <b>輪郭がギザギザなら「なじませ幅」を広げる</b>
+        <span>境目を半透明にする幅です。アンチエイリアスのかかった素材では、ここを広げるだけで見た目が大きく変わります。</span>
+      </li>
+      <li>
+        <b>絵の中身まで消えるなら「外側だけを抜く」</b>
+        <span>画面の縁からつながっている範囲だけを対象にします。キャラクターの白い服や目の中の白は残ります。</span>
+      </li>
+      <li>
+        <b>縁が背景色っぽいなら「縁の色かぶりを取る」</b>
+        <span>半透明になった画素から背景色の混ざりぶんを差し引きます。白背景で抜いたときの白い縁取りが薄くなります。</span>
+      </li>
+    </ol>
+
+    <h2>どうして「送信しない」ことにこだわるのか</h2>
+    <div class="prose">
+      <p>
+        連番の書き出しは、公開前の制作物であることがほとんどです。
+        オンラインの変換サービスに預けるということは、未公開の素材を第三者のサーバーに一度渡すということです。
+        処理後に削除される運用だとしても、通信経路・保存先・ログという、増えなくてよいリスクが増えます。
+      </p>
+      <p>
+        Koma は <code>&lt;canvas&gt;</code> による画像処理と、
+        <strong>ページの中で組み立てているファイル形式の処理</strong>だけでできています。
+        APNG も WebP も、外部のライブラリやサーバーを使わずにこのページの JavaScript が組み立てています。
+        読み込んだ画像を外部に送る経路を持ちません。
+      </p>
+      <div class="note good">
+        <strong>確かめる方法：</strong>
+        ページを読み込んだあとで機内モードにして、そのまま操作してみてください。
+        読み込みから書き出しまで、通信が無い状態で最後まで動作します。
+        （オンラインのときは広告とアクセス解析の通信が出ますが、そこに画像は含まれません。）
+      </div>
+    </div>
+
+    <h2>よくある質問</h2>
+    <div class="prose">
+      <details>
+        <summary>本当に画像はアップロードされませんか？</summary>
+        <div class="body"><p>されません。読み込みも加工も書き出しも <code>&lt;canvas&gt;</code> だけで行っており、画像を送信するコードが存在しません。ページ読み込み後にオフラインにしても最後まで動作することで確認できます。なお、当サイトは広告・アクセス解析のために外部と通信することがありますが、これらに画像が含まれることはありません。</p></div>
+      </details>
+      <details>
+        <summary>APNG と WebP はどちらを選べばよいですか？</summary>
+        <div class="body"><p>色をそのまま保ちたいとき、透明の縁をきれいに出したいときは APNG です。ファイルサイズを小さくしたいときは WebP を選んでください。WebP は非可逆なので、色がわずかに変わります。判断がつかない場合は APNG で書き出しておけば、あとからいつでも変換できます。</p></div>
+      </details>
+      <details>
+        <summary>背景がうまく抜けません。</summary>
+        <div class="body"><p>まず「画面から選ぶ」で背景そのものの色を指定してください。そのうえで許容値を少しずつ上げます。絵の中身まで消える場合は「外側だけを抜く」を有効にしてください。グラデーションのかかった背景や、コマごとに背景色が変わる素材は、色による判定では抜けません。</p></div>
+      </details>
+      <details>
+        <summary>GIF では書き出せませんか？</summary>
+        <div class="body"><p>対応していません。GIF は色を256色までしか持てず、半透明も表現できないため、透過したアニメーションの保存先としては APNG と WebP のほうが適しています。GIF が必要な場面は年々減っており、いまはどちらの形式も主要なブラウザとSNSで表示できます。</p></div>
+      </details>
+      <details>
+        <summary>何枚まで扱えますか？</summary>
+        <div class="body"><p>枚数そのものの上限は設けていませんが、すべての画像を端末のメモリに置くので、大きな画像を何百枚も読み込むと動作が重くなります。重いと感じたら、出力する幅を小さくするか、「間引き」で使うコマを減らしてください。</p></div>
+      </details>
+      <details>
+        <summary>1枚ずつバラバラのサイズでも大丈夫ですか？</summary>
+        <div class="body"><p>1枚目の大きさに合わせて、はみ出さないように縮小して中央へ置きます。大きさが違うコマがある場合は画面上に注意が出ます。位置をそろえたい場合は、書き出し元のソフトでサイズを統一してから読み込んでください。</p></div>
+      </details>
+    </div>
+
+    <h2>関連する記事</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3><a href="/blog/imageformat" style="text-decoration:none">スクリーンショットはPNG、写真はJPEG — 画像形式の選び方</a></h3>
+        <p>PNG・JPEG・WebP・AVIF が何に強いのかを、劣化の起きかたから説明します。</p>
+      </div>
+      <div class="card">
+        <h3><a href="/blog/" style="text-decoration:none">ブログ（記事一覧）</a></h3>
+        <p>ブラウザやガジェットの話、個人開発で分かったこと、スクリーンショットと個人情報のこと。</p>
+      </div>
+    </div>
 
     <div class="btnrow">
-      <a class="btn primary" href="/kuroko/">Kuroko を見る</a>
-      <a class="btn" href="/contact">お問い合わせ</a>
+      <a class="btn primary" href="/koma/tool">Koma を開く</a>
+      <a class="btn" href="/about">このサイトについて</a>
     </div>
 
   </div>
