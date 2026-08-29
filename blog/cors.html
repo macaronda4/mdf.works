@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-5GDKSW8H7X');
+  (function () {
+    var loaded = false;
+    function load() {
+      if (loaded) return;
+      loaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5GDKSW8H7X';
+      document.head.appendChild(s);
+    }
+    if (window.requestIdleCallback) requestIdleCallback(load, { timeout: 2500 });
+    else setTimeout(load, 1500);
+  })();
+</script>
+<script>(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<!-- Google AdSense -->
+<script async fetchpriority="low" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8613999974980382"
+     crossorigin="anonymous"></script>
+<title>ブラウザだけでは動画を保存できない｜CORSを実測して確かめる</title>
+<meta name="description" content="別オリジンのデータをJavaScriptが読めないのはなぜか。実際にfetchして、no-corsが返す空の応答と、Origin・Referer・User-Agent・Cookieが必ず書き換えられる様子を実測しました。CORSは要求の鍵ではなく応答の門です。">
+<link rel="canonical" href="https://mdf.works/blog/cors">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="theme-color" content="#131720">
+<meta name="author" content="マカロン大福">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="mdf.works">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="ブラウザだけでは動画を保存できない｜CORSを実測して確かめる">
+<meta property="og:description" content="要求は送れる。けれど中身は読めない。その境目を実際に測りました。">
+<meta property="og:url" content="https://mdf.works/blog/cors">
+<meta property="og:image" content="https://mdf.works/assets/og/cors.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ブラウザだけでは動画を保存できない｜CORSを実測して確かめる">
+<meta name="twitter:description" content="要求は送れる。けれど中身は読めない。その境目を実際に測りました。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/cors.png">
+<meta name="twitter:creator" content="@sugerslp">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "ブラウザだけでは動画を保存できない — CORS を実測して確かめる",
+      "description": "別オリジンのデータを JavaScript が読めない仕組みを、実際に fetch して確かめた記録。no-cors が返す空の応答と、書き換えられるヘッダーの実測。",
+      "image": "https://mdf.works/assets/og/cors.png",
+      "datePublished": "2026-08-27",
+      "dateModified": "2026-08-27",
+      "inLanguage": "ja",
+      "articleSection": "ブラウザ",
+      "author": { "@id": "https://mdf.works/#person" },
+      "publisher": { "@id": "https://mdf.works/#person" },
+      "mainEntityOfPage": "https://mdf.works/blog/cors"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mdf.works/#person",
+      "name": "マカロン大福",
+      "url": "https://mdf.works/about",
+      "sameAs": ["https://x.com/sugerslp"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mdf.works/" },
+        { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mdf.works/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "ブラウザだけでは動画を保存できない", "item": "https://mdf.works/blog/cors" }
+      ]
+    }
+  ]
+}
+</script>
+<!-- site css -->
+<style>:root{
+--bg:#EEEFF2;
+--surface:#FFFFFF;
+--surface-2:#F5F6F9;
+--sunken:#E8EAEF;
+--ink:#16181D;
+--ink-2:#454B58;
+--muted:#626879;
+--line:#D5D9E1;
+--line-strong:#7E8AA2;
+--accent:#A83D0D;
+--accent-ink:#FFFFFF;
+--accent-soft:rgba(168,61,13,.10);
+--accent-line:rgba(168,61,13,.45);
+--ok:#1E764F;
+--warn:#8B6005;
+--shadow:0 1px 2px rgba(16,20,28,.06), 0 10px 30px -18px rgba(16,20,28,.30);
+--f-display:"Bahnschrift","DIN Alternate","DIN Condensed","Roboto Condensed","Arial Narrow",system-ui,sans-serif;
+--f-ui:"Segoe UI Variable Text","Segoe UI",-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI",system-ui,sans-serif;
+--f-mono:"Cascadia Mono","SF Mono",Consolas,"Roboto Mono",ui-monospace,monospace;
+--r:8px;
+}
+@media (prefers-color-scheme:dark){
+:root:not([data-theme="light"]){
+--bg:#131720;
+--surface:#1B2028;
+--surface-2:#222833;
+--sunken:#161B23;
+--ink:#E7E9EE;
+--ink-2:#B7BDCA;
+--muted:#878F9E;
+--line:#2B3240;
+--line-strong:#5F6C87;
+--accent:#FF8244;
+--accent-ink:#20130A;
+--accent-soft:rgba(255,130,68,.13);
+--accent-line:rgba(255,130,68,.50);
+--ok:#4BC08A;
+--warn:#D9A63A;
+--shadow:0 1px 2px rgba(0,0,0,.35), 0 12px 34px -18px rgba(0,0,0,.75);
+}
+}
+:root[data-theme="dark"]{
+--bg:#131720;
+--surface:#1B2028;
+--surface-2:#222833;
+--sunken:#161B23;
+--ink:#E7E9EE;
+--ink-2:#B7BDCA;
+--muted:#878F9E;
+--line:#2B3240;
+--line-strong:#5F6C87;
+--accent:#FF8244;
+--accent-ink:#20130A;
+--accent-soft:rgba(255,130,68,.13);
+--accent-line:rgba(255,130,68,.50);
+--ok:#4BC08A;
+--warn:#D9A63A;
+--shadow:0 1px 2px rgba(0,0,0,.35), 0 12px 34px -18px rgba(0,0,0,.75);
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+margin:0;
+background:var(--bg);
+color:var(--ink);
+font-family:var(--f-ui);
+font-size:16px;
+line-height:1.8;
+-webkit-font-smoothing:antialiased;
+}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.prose{max-width:78ch}
+.site-head{
+position:sticky;top:0;z-index:30;
+background:var(--surface);
+border-bottom:1px solid var(--line);
+}
+.site-head .wrap{display:flex;align-items:center;gap:14px;min-height:58px;flex-wrap:wrap}
+.brand{
+display:inline-flex;align-items:baseline;gap:8px;text-decoration:none;color:inherit;flex:none;
+}
+.brand .mark{
+font-family:var(--f-display);
+font-size:21px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;
+}
+.brand .mark b{color:var(--accent)}
+.brand .sub{font-size:11.5px;color:var(--muted);white-space:nowrap}
+.site-nav{display:flex;gap:4px;order:3;width:100%}
+@media (min-width:760px){.site-nav{order:2;margin-left:auto;width:auto;flex-wrap:wrap}}
+@media (max-width:759px){
+.site-nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;margin:0 -4px}
+.site-nav::-webkit-scrollbar{display:none}
+.site-nav a{white-space:nowrap;flex:none}
+}
+.brand{order:1}
+.site-nav a{
+display:inline-block;padding:7px 11px;border-radius:var(--r);
+color:var(--ink-2);text-decoration:none;font-size:14px;
+}
+.site-nav a:hover{background:var(--surface-2);color:var(--ink)}
+.site-nav a[aria-current="page"]{color:var(--accent);background:var(--accent-soft);font-weight:600}
+.site-nav a.cta{background:var(--accent);color:var(--accent-ink);font-weight:600}
+.site-nav a.cta:hover{filter:brightness(1.07);color:var(--accent-ink)}
+h1,h2,h3,h4{text-wrap:balance;line-height:1.35;margin:0}
+h1{
+font-family:var(--f-display);
+font-size:clamp(28px,4.6vw,42px);font-weight:700;letter-spacing:.005em;
+}
+h2{
+font-family:var(--f-display);
+font-size:clamp(21px,2.7vw,27px);font-weight:700;
+margin:52px 0 14px;padding-top:14px;border-top:1px solid var(--line);
+}
+h3{font-size:17px;font-weight:600;margin:30px 0 8px}
+p{margin:0 0 16px}
+ul,ol{margin:0 0 18px;padding-left:1.35em}
+li{margin:0 0 8px}
+li::marker{color:var(--muted)}
+a{color:var(--accent);text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+strong{font-weight:600}
+code{
+font-family:var(--f-mono);font-size:.88em;
+background:var(--sunken);border:1px solid var(--line);border-radius:4px;padding:1px 5px;
+}
+pre{
+background:var(--sunken);border:1px solid var(--line);border-left:3px solid var(--line-strong);
+border-radius:var(--r);padding:14px 16px;margin:0 0 18px;
+overflow-x:auto;-webkit-overflow-scrolling:touch;
+font-family:var(--f-mono);font-size:13px;line-height:1.8;color:var(--ink-2);
+}
+pre code{background:none;border:0;padding:0;font-size:inherit;color:inherit}
+pre b{color:var(--accent);font-weight:600}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+.lead{font-size:17.5px;color:var(--ink-2)}
+.eyebrow{
+font-family:var(--f-display);
+font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+color:var(--accent);margin:0 0 10px;
+}
+.muted{color:var(--muted);font-size:14px}
+.updated{
+font-family:var(--f-mono);font-size:12.5px;color:var(--muted);
+margin:6px 0 0;font-variant-numeric:tabular-nums;
+}
+main{padding:44px 0 72px}
+.page-head{margin-bottom:30px}
+.card{
+background:var(--surface);
+border:1px solid var(--line);
+border-radius:12px;
+padding:22px 22px 20px;
+box-shadow:var(--shadow);
+}
+.grid{display:grid;gap:16px}
+@media (min-width:720px){.grid.cols-2{grid-template-columns:1fr 1fr}.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+.card h3{margin:0 0 6px;font-size:16.5px}
+.card p{margin:0;font-size:14.5px;color:var(--ink-2);line-height:1.75}
+.card .ico{
+width:30px;height:30px;color:var(--accent);margin-bottom:12px;display:block;
+}
+.note{
+background:var(--sunken);
+border:1px solid var(--line);
+border-left:3px solid var(--accent);
+border-radius:var(--r);
+padding:14px 16px;
+margin:0 0 18px;
+font-size:14.5px;line-height:1.75;color:var(--ink-2);
+}
+.note strong{color:var(--ink)}
+.note.good{border-left-color:var(--ok)}
+.note.warn{border-left-color:var(--warn)}
+.btn{
+display:inline-flex;align-items:center;justify-content:center;gap:9px;
+padding:13px 22px;min-height:48px;
+background:var(--surface);color:var(--ink);
+border:1px solid var(--line-strong);border-radius:var(--r);
+font-size:15px;font-weight:500;text-decoration:none;cursor:pointer;
+}
+.btn:hover{background:var(--surface-2)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:transparent;font-weight:600}
+.btn.primary:hover{filter:brightness(1.07);background:var(--accent)}
+.btn svg{width:17px;height:17px;flex:none}
+.btnrow{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0 0}
+.steps{list-style:none;padding:0;margin:0;counter-reset:s}
+.steps li{
+counter-increment:s;position:relative;
+padding:0 0 22px 52px;margin:0;
+}
+.steps li::before{
+content:counter(s,decimal-leading-zero);
+position:absolute;left:0;top:1px;
+font-family:var(--f-display);font-size:14px;font-weight:700;letter-spacing:.06em;
+color:var(--accent);background:var(--accent-soft);
+border:1px solid var(--accent-line);border-radius:50%;
+width:34px;height:34px;display:grid;place-items:center;
+}
+.steps li b{display:block;font-size:16px;margin-bottom:3px}
+.steps li span{color:var(--ink-2);font-size:14.5px}
+details{
+background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+padding:0 16px;margin:0 0 10px;
+}
+details summary{
+cursor:pointer;padding:14px 0;font-weight:600;font-size:15.5px;list-style:none;
+display:flex;align-items:center;gap:10px;
+}
+details summary::-webkit-details-marker{display:none}
+details summary::before{
+content:"+";font-family:var(--f-mono);color:var(--accent);font-size:16px;flex:none;
+}
+details[open] summary::before{content:"−"}
+details .body{padding:0 0 14px;border-top:1px solid var(--line);margin-top:-1px;padding-top:14px;color:var(--ink-2);font-size:14.5px}
+details .body p:last-child{margin-bottom:0}
+.tablewrap{overflow-x:auto;margin:0 0 20px;border:1px solid var(--line);border-radius:var(--r)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;background:var(--surface)}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--surface-2);font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.site-foot{
+border-top:1px solid var(--line);
+background:var(--surface);
+padding:34px 0 40px;
+font-size:14px;
+}
+.site-foot .cols{display:grid;gap:26px;margin-bottom:26px}
+@media (min-width:720px){.site-foot .cols{grid-template-columns:1.4fr 1fr 1fr}}
+.site-foot h4{
+font-family:var(--f-display);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+color:var(--muted);margin:0 0 10px;font-weight:700;
+}
+.site-foot ul{list-style:none;padding:0;margin:0}
+.site-foot li{margin:0 0 7px}
+.site-foot a{color:var(--ink-2);text-decoration:none}
+.site-foot a:hover{color:var(--accent);text-decoration:underline}
+.site-foot .copy{color:var(--muted);font-size:13px;border-top:1px solid var(--line);padding-top:18px}
+.site-foot .about{color:var(--muted);max-width:40ch;line-height:1.7}
+.skip{
+position:absolute;left:-9999px;top:0;
+background:var(--accent);color:var(--accent-ink);padding:10px 16px;border-radius:0 0 var(--r) 0;z-index:99;
+}
+.skip:focus{left:0}
+.todo{
+background:var(--accent-soft);
+border:1px dashed var(--accent-line);
+border-radius:4px;padding:1px 7px;
+color:var(--accent);
+font-family:var(--f-mono);font-size:.88em;white-space:nowrap;
+}
+.hero{padding:46px 0 10px}
+.hero .kicker{
+font-family:var(--f-mono);font-size:12.5px;color:var(--muted);
+letter-spacing:.02em;margin:0 0 14px;
+}
+.hero h1{font-size:clamp(32px,6vw,54px);line-height:1.2}
+.hero .tagline{
+font-size:clamp(17px,2.2vw,20px);color:var(--ink-2);
+max-width:46ch;margin:20px 0 0;line-height:1.7;
+}
+.crumb{
+font-size:13px;color:var(--muted);margin:0 0 18px;
+display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+}
+.crumb a{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--accent);text-decoration:underline}
+.crumb span[aria-hidden]{opacity:.5}
+.projects{display:grid;gap:18px;margin:0}
+@media (min-width:760px){.projects{grid-template-columns:repeat(2,1fr)}}
+.proj{
+display:flex;flex-direction:column;
+background:var(--surface);border:1px solid var(--line);border-radius:14px;
+padding:24px 24px 22px;box-shadow:var(--shadow);
+text-decoration:none;color:inherit;
+transition:border-color .14s,transform .14s;
+}
+.proj:hover{border-color:var(--accent-line);transform:translateY(-2px)}
+.proj .top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.proj .glyph{
+width:44px;height:44px;flex:none;border-radius:11px;
+background:var(--sunken);border:1px solid var(--line);
+display:grid;place-items:center;color:var(--accent);
+}
+.proj .glyph svg{width:24px;height:24px}
+.proj h3{
+margin:0;font-family:var(--f-display);
+font-size:20px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+}
+.proj .role{font-size:12px;color:var(--muted);margin:2px 0 0;letter-spacing:.02em}
+.proj p{margin:0 0 16px;font-size:14.5px;color:var(--ink-2);line-height:1.75;flex:1}
+.proj .tags{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 16px}
+.proj .go{
+font-size:14px;font-weight:600;color:var(--accent);
+display:inline-flex;align-items:center;gap:7px;
+}
+.proj .go svg{width:15px;height:15px}
+.tag{
+font-family:var(--f-mono);font-size:11px;
+padding:3px 8px;border-radius:99px;
+background:var(--sunken);border:1px solid var(--line);color:var(--muted);
+}
+.principles{display:grid;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
+@media (min-width:760px){.principles{grid-template-columns:repeat(3,1fr)}}
+.principles > div{padding:22px 22px 20px;border-bottom:1px solid var(--line)}
+@media (min-width:760px){
+.principles > div{border-bottom:0;border-right:1px solid var(--line)}
+.principles > div:last-child{border-right:0}
+}
+.principles > div:last-child{border-bottom:0}
+.principles .n{
+font-family:var(--f-display);font-size:11px;font-weight:700;
+letter-spacing:.18em;color:var(--accent);margin:0 0 8px;
+}
+.principles h3{margin:0 0 6px;font-size:16px}
+.principles p{margin:0;font-size:14px;color:var(--ink-2);line-height:1.7}
+.log{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.log li{
+display:flex;gap:16px;flex-wrap:wrap;align-items:baseline;
+padding:12px 2px;margin:0;border-bottom:1px solid var(--line);
+}
+.log time{
+font-family:var(--f-mono);font-size:12.5px;color:var(--muted);
+flex:none;min-width:8.5em;font-variant-numeric:tabular-nums;
+}
+.log span{font-size:14.5px;color:var(--ink-2)}
+.log .kind{
+display:inline-block;margin-right:10px;padding:1px 8px;border-radius:99px;
+background:var(--sunken);border:1px solid var(--line-strong);
+font-family:var(--f-display);font-size:11.5px;letter-spacing:.06em;
+color:var(--ink-2);vertical-align:1px;white-space:nowrap;
+}
+.more{margin:18px 0 0;font-size:14.5px}
+.more a{
+display:inline-flex;align-items:center;gap:7px;
+color:var(--accent);text-decoration:none;font-weight:600;
+}
+.more a:hover{text-decoration:underline}
+.more svg{width:17px;height:17px;flex:none}
+.cats{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 26px}
+.cats a{
+display:inline-flex;align-items:center;gap:7px;
+padding:7px 14px;border-radius:99px;
+background:var(--surface);border:1px solid var(--line-strong);
+color:var(--ink-2);text-decoration:none;font-size:13.5px;
+}
+.cats a:hover{border-color:var(--accent-line);color:var(--accent)}
+.cats a b{font-family:var(--f-mono);font-size:11px;color:var(--muted);font-weight:400}
+.cats a:hover b{color:var(--accent)}
+.proj .cat{
+font-family:var(--f-display);font-size:10.5px;font-weight:700;
+letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+background:var(--accent-soft);border:1px solid var(--accent-line);
+border-radius:99px;padding:2px 9px;
+}
+.proj .meta{display:flex;align-items:center;gap:9px;margin:0 0 12px;flex-wrap:wrap}
+.proj .meta time{font-family:var(--f-mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.proj h3.post{
+font-family:var(--f-ui);font-size:17.5px;font-weight:600;letter-spacing:0;text-transform:none;
+margin:0 0 10px;line-height:1.5;
+}
+.blogtools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 14px}
+.searchbox{
+position:relative;flex:1 1 260px;display:flex;align-items:center;
+background:var(--surface);border:1px solid var(--line-strong);border-radius:99px;
+padding:0 14px;min-height:46px;
+}
+.searchbox:focus-within{border-color:var(--accent-line);box-shadow:0 0 0 3px var(--accent-soft)}
+.searchbox svg{width:17px;height:17px;color:var(--muted);flex:none}
+.searchbox input{
+flex:1;border:0;background:transparent;outline:none;
+font:inherit;font-size:15px;color:var(--ink);padding:0 10px;min-width:0;
+}
+.searchbox input::placeholder{color:var(--muted)}
+.searchbox input::-webkit-search-cancel-button{display:none}
+.searchbox button{
+border:0;background:var(--sunken);color:var(--ink-2);cursor:pointer;
+width:24px;height:24px;border-radius:50%;font-size:14px;line-height:1;flex:none;padding:0;
+}
+.searchbox button:hover{background:var(--line);color:var(--ink)}
+.blogtools select{
+width:auto;min-height:46px;border-radius:99px;padding:0 16px;
+background:var(--surface);border:1px solid var(--line-strong);font-size:14px;
+}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+.chips button{
+display:inline-flex;align-items:center;gap:7px;
+padding:7px 14px;border-radius:99px;min-height:36px;
+background:var(--surface);border:1px solid var(--line-strong);
+color:var(--ink-2);font-size:13.5px;cursor:pointer;
+}
+.chips button:hover{border-color:var(--line-strong);color:var(--ink)}
+.chips button b{font-family:var(--f-mono);font-size:11px;color:var(--muted);font-weight:400}
+.chips button[aria-pressed="true"]{
+background:var(--accent);border-color:transparent;color:var(--accent-ink);font-weight:600;
+}
+.chips button[aria-pressed="true"] b{color:var(--accent-ink);opacity:.75}
+.tagbox{border:0;background:transparent;padding:0;margin:0 0 14px}
+.tagbox summary{padding:6px 0;font-size:13.5px;font-weight:500;color:var(--ink-2)}
+.tagbox summary::before{font-size:14px}
+.tagbox .chips{margin:8px 0 0}
+.tagbox .chips button{min-height:32px;padding:5px 12px;font-size:12.5px}
+.resultbar{
+display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+border-top:1px solid var(--line);padding:12px 0 18px;margin:6px 0 0;
+}
+.resultbar .n{font-family:var(--f-mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.resultbar .reset{
+background:transparent;border:0;color:var(--accent);font-size:13px;cursor:pointer;padding:4px 2px;
+}
+.resultbar .reset:hover{text-decoration:underline}
+.noresult{
+border:1px dashed var(--line-strong);border-radius:12px;
+padding:34px 24px;text-align:center;color:var(--muted);font-size:14.5px;
+}
+.noresult b{display:block;color:var(--ink);font-size:16px;margin-bottom:6px}
+.postmeta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:14px 0 0}
+.postmeta .cat{
+font-family:var(--f-display);font-size:10.5px;font-weight:700;
+letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+background:var(--accent-soft);border:1px solid var(--accent-line);
+border-radius:99px;padding:3px 11px;
+}
+.postmeta time,.postmeta .read{
+font-family:var(--f-mono);font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;
+}
+.postmeta .read::before{content:"·";margin-right:10px;opacity:.6}
+.toc{
+background:var(--surface);border:1px solid var(--line);border-radius:12px;
+padding:18px 22px 20px;margin:0 0 34px;
+}
+.toc .toctitle{
+font-family:var(--f-display);font-size:11px;font-weight:700;letter-spacing:.16em;
+text-transform:uppercase;color:var(--accent);margin:0 0 10px;
+}
+.toc ol{list-style:none;padding:0;margin:0;counter-reset:t}
+.toc li{margin:0 0 6px;line-height:1.6}
+.toc li.lv3{padding-left:20px;font-size:14px}
+.toc a{color:var(--ink-2);text-decoration:none;font-size:14.5px}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+.postnav{margin:56px 0 0;border-top:1px solid var(--line);padding-top:28px}
+.share{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 34px}
+.share .label{font-size:13.5px;color:var(--muted);margin-right:2px}
+.share a,.share button{
+display:inline-flex;align-items:center;gap:8px;
+padding:9px 16px;min-height:42px;border-radius:99px;
+background:var(--surface);border:1px solid var(--line-strong);
+color:var(--ink-2);text-decoration:none;font-size:13.5px;cursor:pointer;font-family:inherit;
+}
+.share a:hover,.share button:hover{border-color:var(--accent-line);color:var(--accent)}
+.share svg{width:15px;height:15px}
+.pager{display:grid;gap:12px;margin:0 0 34px}
+@media (min-width:700px){.pager{grid-template-columns:1fr 1fr}}
+.pager a{
+display:block;padding:16px 18px;border-radius:12px;
+background:var(--surface);border:1px solid var(--line);text-decoration:none;color:inherit;
+}
+.pager a:hover{border-color:var(--accent-line)}
+.pager .dir{
+font-family:var(--f-display);font-size:10.5px;font-weight:700;letter-spacing:.14em;
+text-transform:uppercase;color:var(--accent);display:block;margin-bottom:6px;
+}
+.pager .t{font-size:14.5px;line-height:1.55;color:var(--ink-2)}
+.pager a:hover .t{color:var(--ink)}
+.pager .next{text-align:right}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.themebtn{
+order:2;margin-left:auto;flex:none;
+width:40px;height:40px;padding:0;
+display:grid;place-items:center;
+background:var(--surface);border:1px solid var(--line-strong);border-radius:50%;
+color:var(--ink-2);cursor:pointer;
+}
+@media (min-width:760px){.themebtn{order:3;margin-left:0}}
+.themebtn:hover{border-color:var(--accent-line);color:var(--accent)}
+.themebtn svg{width:18px;height:18px;display:block}
+.themebtn .i-sun{display:none}
+.themebtn .i-moon{display:block}
+@media (prefers-color-scheme:dark){
+:root:not([data-theme="light"]) .themebtn .i-sun{display:block}
+:root:not([data-theme="light"]) .themebtn .i-moon{display:none}
+}
+:root[data-theme="dark"] .themebtn .i-sun{display:block}
+:root[data-theme="dark"] .themebtn .i-moon{display:none}
+:root[data-theme="light"] .themebtn .i-sun{display:none}
+:root[data-theme="light"] .themebtn .i-moon{display:block}
+svg{max-width:100%}
+@media (min-width:1160px){
+.wrap.prose:has(.toc:not([hidden])){
+max-width:1180px;
+display:grid;
+grid-template-columns:minmax(0,78ch) 260px;
+column-gap:60px;
+justify-content:center;
+align-items:start;
+}
+.wrap.prose:has(.toc:not([hidden])) > *{grid-column:1;min-width:0}
+.wrap.prose:has(.toc:not([hidden])) > .toc{
+grid-column:2;grid-row:1 / span 40;
+position:sticky;top:78px;align-self:start;
+margin:0;padding:16px 18px 18px;
+max-height:calc(100dvh - 110px);overflow-y:auto;
+}
+.wrap.prose:has(.toc:not([hidden])) > .toc a{font-size:13.5px}
+.wrap.prose:has(.toc:not([hidden])) > .toc li{margin-bottom:5px}
+}</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <span class="mark">mdf<b>.works</b></span>
+      <span class="sub">個人開発のウェブツール</span>
+    </a>
+    <nav class="site-nav" aria-label="メインナビゲーション">
+      <a href="/blog/">記事一覧</a>
+      <a href="/kuroko/">Kuroko</a>
+      <a href="/koma/">Koma</a>
+      <a href="/about">このサイトについて</a>
+      <a class="cta" href="/kuroko/tool">ツールを開く</a>
+    </nav>
+    <button class="themebtn" type="button" id="themebtn" aria-label="表示テーマを切り替える" title="表示テーマを切り替える">
+      <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.4A8.6 8.6 0 1 1 9.6 4a6.9 6.9 0 0 0 10.4 10.4z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap prose">
+
+    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>ブラウザだけでは動画を保存できない</p>
+
+    <div class="page-head">
+      <p class="eyebrow">Browser</p>
+      <h1>ブラウザだけでは動画を保存できない<br>CORS を実測して確かめる</h1>
+      <p class="lead">
+        このサイトのツールは、どれもブラウザの中だけで動きます。
+        では動画の保存も同じようにできるのか、と考えて調べたら、はっきり無理でした。
+        <strong>要求は送れるのに、返ってきた中身が読めない。</strong>
+        その境目がどこにあるのかを、実際に測った記録です。
+      </p>
+      <div class="postmeta">
+        <span class="cat">ブラウザ</span>
+        <time datetime="2026-08-27">2026年8月27日</time>
+        <span class="read">約7分で読めます</span>
+      </div>
+    </div>
+
+    <nav class="toc" id="toc" hidden aria-label="目次">
+      <p class="toctitle">目次</p>
+      <ol></ol>
+    </nav>
+
+    <!-- postbody:start --><div class="postbody">
+    <h2>まず測ってみる</h2>
+    <p>
+      ローカルに置いたページから、いくつかの宛先へ <code>fetch</code> しました。
+      比較のために、<strong>CORS を許可しているAPI</strong>を1件混ぜてあります。
+      これが読めていれば「そもそも通信できていない」という説明は消えます。
+    </p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">宛先</th><th scope="col">結果</th><th scope="col">本文の読み取り</th></tr></thead>
+        <tbody>
+          <tr><td>CORS を許可しているAPI</td><td>status 200</td><td><strong>199,008 文字</strong></td></tr>
+          <tr><td>動画サイトの視聴ページ</td><td><code>TypeError: Failed to fetch</code></td><td>—</td></tr>
+          <tr><td>その内部API</td><td><code>TypeError: Failed to fetch</code></td><td>—</td></tr>
+          <tr><td>同じものを <code>no-cors</code> で</td><td>type <code>opaque</code> / status 0</td><td><strong>0 文字</strong></td></tr>
+          <tr><td>動画データの配信元</td><td><code>TypeError: Failed to fetch</code></td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      1行目が 199,008 文字読めています。回線は生きています。
+      にもかかわらず他は読めない。<strong>差はサーバー側が許可を出しているかどうかだけ</strong>でした。
+    </p>
+    <p>
+      いちばん示唆的なのは4行目です。<code>no-cors</code> を指定すると要求は送信できます。
+      失敗しません。ところが返ってきた応答は <code>opaque</code> と呼ばれる状態で、
+      <strong>本文の読み取りは 0 文字</strong>。要求は通り、応答も届き、しかし中身だけが渡されない。
+    </p>
+
+    <h2>CORS は要求の鍵ではなく、応答の門</h2>
+    <p>
+      ここを取り違えると、ずっと解決策を探し続けることになります。私も最初そうでした。
+      <strong>CORS は「送っていいか」の判定ではなく、「返ってきたものを読ませていいか」の判定です。</strong>
+    </p>
+    <p>
+      ブラウザは、いま動いているページのオリジン（プロトコル・ホスト・ポートの組）を自分で保持しています。
+      応答が届いた時点で、その中の <code>Access-Control-Allow-Origin</code> と、
+      <strong>自分が知っている本当のオリジン</strong>を突き合わせます。
+      一致しなければ、応答は届いているのに JavaScript には渡しません。それが <code>opaque</code> です。
+    </p>
+    <div class="note">
+      画像や <code>&lt;video&gt;</code> は別オリジンでも表示できるのに、と思うかもしれません。
+      あれは<strong>「表示する」ことは許され、「中身を読む」ことは許されていない</strong>状態です。
+      別オリジンの画像を描いた <code>&lt;canvas&gt;</code> から画素を読み出そうとすると、
+      同じ理由でエラーになります。<strong>見えることと読めることは、別の権限です。</strong>
+    </div>
+
+    <h2>では偽装すればいいのでは</h2>
+    <p>
+      応答の判定にオリジンが使われるなら、そのオリジンを詐称すればいい。自然な発想です。これも測りました。
+      ローカルに、受け取ったヘッダーをそのまま返すだけのサーバーを立て、
+      <strong>別のポート（＝別オリジン）のページから</strong>偽装したヘッダーを送ってみます。
+    </p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">送ろうとした値</th><th scope="col">実際に届いた値</th><th scope="col"></th></tr></thead>
+        <tbody>
+          <tr><td><code>Origin: (別サイト)</code></td><td>本当のオリジン</td><td>上書きされた</td></tr>
+          <tr><td><code>Referer: (別サイト)</code></td><td>本当の参照元</td><td>上書きされた</td></tr>
+          <tr><td><code>User-Agent: (偽のUA)</code></td><td>本物の Chrome の UA</td><td>上書きされた</td></tr>
+          <tr><td><code>Cookie: SID=fake</code></td><td>（届いていない）</td><td>削除された</td></tr>
+          <tr><td><code>X-Youtube-Client-Name: 1</code></td><td><code>1</code></td><td><strong>通った</strong></td></tr>
+          <tr><td><code>X-Test-Allowed: this-should-pass</code></td><td><code>this-should-pass</code></td><td><strong>通った</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      独自のヘッダーは自由に付けられます。素通りしました。
+      ところが<strong>「誰からの要求か」を示す4つだけは、指定しても必ずブラウザ自身の値に差し替えられます</strong>。
+      仕様上 <strong>forbidden header name</strong> と呼ばれる区分で、スクリプトからは書き込めません。
+    </p>
+    <p>
+      なぜこの4つなのか。<strong>サーバーがこれらを信用して認可を決めているから</strong>です。
+      スクリプトに書き換えさせたら、ログイン状態の判定も、参照元の制限も、
+      オリジンごとの許可も、すべて意味を失います。
+    </p>
+    <div class="note good">
+      <strong>そして仮に偽装できたとしても、結果は変わりません。</strong>
+      読ませるかどうかを決める突き合わせに使われるのは、要求ヘッダーに書いた値ではなく、
+      ブラウザが自分で覚えている本当のオリジンだからです。
+      要求を細工しても、読み取りの判定には影響しません。
+    </div>
+
+    <h2>動画サイトのページでは動くのに</h2>
+    <p>
+      同じことをしているように見えて、条件がまったく違います。
+      <strong>あちらのコードは、本当にそのオリジンで動いています。</strong>
+      自分のドメインの資源を読むのは、そもそも別オリジンではないので判定の対象外です。
+    </p>
+    <p>
+      配信元が別ドメインになっている場合も、そこには
+      <strong>その動画サイト自身のオリジンを名指しした許可</strong>が返ります。
+      許可は出ている。ただし宛先が限定されている。
+      他所のページから同じ要求を出すと、ブラウザは正直に自分のオリジンを書くので、許可が返りません。
+      <strong>偽装が防がれているというより、偽装できないことを前提に成り立っている設計</strong>です。
+    </p>
+
+    <h2>「JavaScript で処理を模倣する」を分解する</h2>
+    <p>
+      模倣という言葉を、2つに割ると見通しがよくなります。
+    </p>
+    <ul>
+      <li><strong>計算は模倣できます。</strong>署名の組み立ても、パラメータの変換も、アルゴリズムである以上 JavaScript で書けます。ここは壁ではありません</li>
+      <li><strong>通信は模倣できません。</strong>その計算に必要な入力を取ってこられず、計算結果を使って得たデータも読めません</li>
+    </ul>
+    <p>
+      詰まっているのは処理の再現ではなく、<strong>入口と出口の両方</strong>です。
+      中間をどれだけ完璧に再現しても、渡すものと受け取るものがありません。
+    </p>
+    <h3>WebAssembly なら、という話</h3>
+    <p>
+      Python をブラウザで動かす仕組みなどを持ち出しても解決しません。
+      <strong>wasm 側からの通信も、最終的にはブラウザの fetch を通ります。</strong>
+      言語を変えても、通信を許可するかどうかを決めているのはブラウザのままです。
+    </p>
+    <h3>拡張機能は別枠</h3>
+    <p>
+      これは事実として別です。拡張機能は権限を宣言することで別オリジンを読めます。
+      ただしそれは<strong>ウェブページではありません</strong>。
+      利用者が明示的にインストールし、権限に同意したから与えられている力です。
+      その同意が具体的に何を許しているかは<a href="/blog/extension">拡張機能の権限の見かた</a>に書きました。
+    </p>
+
+    <h2>これは制限ではなく、前提</h2>
+    <p>
+      不便に見えますが、逆から考えると位置づけが変わります。
+      <strong>もし別オリジンの応答を自由に読めたら、何が起きるか。</strong>
+    </p>
+    <p>
+      あなたが社内の Wiki やメールにログインしたままのタブを開いているとします。
+      そこで別のタブで開いた見知らぬページの JavaScript が、
+      あなたのブラウザからその Wiki へ要求を出し、<strong>あなたのログイン状態のまま中身を読めてしまう</strong>。
+      認証を通す必要すらありません。ブラウザが Cookie を付けてくれるからです。
+    </p>
+    <p>
+      だから既定は<strong>「読めない」</strong>で、サーバーが明示的に許した場合だけ読める、という順序になっています。
+      動画が保存できないのは、この設計のいわば副作用です。
+      <strong>動画のために例外を作ると、上の話も一緒に成立してしまいます。</strong>
+    </p>
+    <div class="note warn">
+      「ブラウザだけで動く」と称する変換サービスの多くは、実際には運営者のサーバーを経由しています。
+      ここまで見たとおり、経由せずに成立させる方法が無いからです。
+      <strong>ファイルを渡す前に、それがどこへ行くのかを一度考える価値があります。</strong>
+      このサイトのツールが送信しないと書いているのは、
+      <a href="/kuroko/">利用者のファイルを</a>入力として受け取るだけで、外へ出す経路を持たないためです。
+    </div>
+
+    <h2>まとめ</h2>
+    <ul>
+      <li>回線は通っていても、<strong>許可のない応答は中身が読めない</strong>。実測で 0 文字だった</li>
+      <li>CORS は要求の鍵ではなく、<strong>応答を読ませるかどうかの門</strong></li>
+      <li>Origin・Referer・User-Agent・Cookie は<strong>スクリプトから書き換えられない</strong>。認可の土台だから</li>
+      <li>偽装できたとしても、判定に使われるのは<strong>ブラウザが覚えている本当のオリジン</strong></li>
+      <li>模倣できないのは計算ではなく<strong>通信</strong>。言語を変えても同じ</li>
+      <li>この既定があるおかげで、<strong>ログイン中のタブを他所のページから読まれずに済んでいる</strong></li>
+    </ul>
+
+    </div><!-- postbody:end -->
+    <!-- postnav:start -->
+    <div class="postnav">
+      <div class="share">
+        <span class="label">この記事を共有</span>
+        <a href="https://x.com/intent/post?text=ブラウザだけでは動画を保存できない — CORS を実測して確かめる&amp;url=https://mdf.works/blog/cors" target="_blank" rel="noopener noreferrer">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.2-5.8 6.2H1.5l7.5-8.6L1 3h6.7l4.6 5.8L17.5 3zm-1.1 16.2h1.8L7.7 4.7H5.8l10.6 14.5z"/></svg>
+          X で共有
+        </a>
+        <button type="button" id="copylink">リンクをコピー</button>
+      </div>
+
+      <nav class="pager" aria-label="記事の移動">
+        <a class="prev" href="/blog/exif"><span class="dir">← 前の記事</span><span class="t">スマホの写真から何が分かるか — Exif と、消しても残るもの</span></a><a class="next" href="/blog/wifi"><span class="dir">次の記事 →</span><span class="t">公衆Wi-Fiは危険か — HTTPSが片付けたことと、残っているもの</span></a>
+      </nav>
+
+      <h2>ほかの記事</h2>
+      <div class="grid cols-2">
+      <div class="card">
+        <h3><a href="/blog/extension" style="text-decoration:none">拡張機能の権限の見かた — 「すべてのサイトのデータを読み取る」とは何か</a></h3>
+        <p>あの確認画面は具体的に何を許しているのか。入力中の文字も表示内容も読めます。そして本当の危険は入れた瞬間ではなく、通知なく届く自動更新のほうにあります。権限…</p>
+      </div>
+      <div class="card">
+        <h3><a href="/blog/browser" style="text-decoration:none">ブラウザの選び方 — 結局どれを使えばいいのか</a></h3>
+        <p>「どれが速いか」で選ぼうとすると決まりません。実際に差が出るのは拡張機能の扱い、プライバシーの初期設定、同期の紐づけ先の3つです。用途別の選び方と、分けて使…</p>
+      </div>
+      </div>
+      <div class="btnrow">
+        <a class="btn" href="/blog/">記事一覧に戻る</a>
+      </div>
+    </div>
+    <!-- postnav:end -->
+  </div>
+<script>
+(function () {
+  var prose = document.querySelector('main .prose');
+  var toc = document.getElementById('toc');
+  if (prose && toc) {
+    var ol = toc.querySelector('ol'), n = 0;
+    prose.querySelectorAll('h2, h3').forEach(function (h) {
+      if (h.closest('.postnav')) return;
+      if (!h.id) h.id = 'sec' + (++n);
+      var li = document.createElement('li');
+      li.className = h.tagName === 'H3' ? 'lv3' : 'lv2';
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent.trim();
+      li.appendChild(a);
+      ol.appendChild(li);
+    });
+    if (ol.children.length >= 3) toc.hidden = false;
+  }
+  var copy = document.getElementById('copylink');
+  if (copy) copy.addEventListener('click', function () {
+    var done = function (ok) {
+      copy.textContent = ok ? 'コピーしました' : 'コピーできませんでした';
+      setTimeout(function () { copy.textContent = 'リンクをコピー'; }, 1800);
+    };
+    if (navigator.clipboard) navigator.clipboard.writeText(location.href).then(function () { done(true); }, function () { done(false); });
+    else done(false);
+  });
+})();
+</script>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>mdf.works</h4>
+        <p class="about">ブラウザの中だけで完結する、無料のウェブツールを公開しています。インストールも登録も不要です。</p>
+      </div>
+      <div>
+        <h4>コンテンツ</h4>
+        <ul>
+          <li><a href="/kuroko/">Kuroko — 概要</a></li>
+          <li><a href="/kuroko/tool">匿名化ツールを開く</a></li>
+          <li><a href="/kuroko/guide">使い方ガイド</a></li>
+          <li><a href="/koma/">Koma — 連番PNG変換</a></li>
+          <li><a href="/blog/">ブログ（記事一覧）</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>サイト情報</h4>
+        <ul>
+          <li><a href="/about">このサイトについて</a></li>
+          <li><a href="/changelog">更新履歴</a></li>
+          <li><a href="/privacy">プライバシーポリシー</a></li>
+          <li><a href="/terms">利用規約・免責事項</a></li>
+          <li><a href="/contact">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© 2026 mdf.works</p>
+  </div>
+</footer>
+<script>
+(function () {
+  var b = document.getElementById('themebtn');
+  if (!b) return;
+  var meta = document.querySelector('meta[name="theme-color"]');
+  function paint(t) {
+    if (meta) meta.setAttribute('content', t === 'dark' ? '#131720' : '#EEEFF2');
+  }
+  var set = document.documentElement.getAttribute('data-theme');
+  paint(set || (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'));
+  b.addEventListener('click', function () {
+    var cur = document.documentElement.getAttribute('data-theme');
+    if (!cur) cur = window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+    var next = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    paint(next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>
