@@ -84,83 +84,95 @@
     {
       "@type": "ItemList",
       "itemListOrder": "https://schema.org/ItemListOrderDescending",
-      "numberOfItems": 13,
+      "numberOfItems": 15,
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
+          "url": "https://mdf.works/blog/wifi",
+          "name": "公衆Wi-Fiは危険か — HTTPSが片付けたことと、残っているもの"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://mdf.works/blog/cors",
+          "name": "ブラウザだけでは動画を保存できない — CORS を実測して確かめる"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
           "url": "https://mdf.works/blog/exif",
           "name": "スマホの写真から何が分かるか — Exif と、消しても残るもの"
         },
         {
           "@type": "ListItem",
-          "position": 2,
+          "position": 4,
           "url": "https://mdf.works/blog/qr",
           "name": "QRコードは中身が見えない — 貼り替え詐欺と、読み取る前の確認"
         },
         {
           "@type": "ListItem",
-          "position": 3,
+          "position": 5,
           "url": "https://mdf.works/blog/circle",
           "name": "画像から円を検出する — ハフ変換だけでは足りなかった話"
         },
         {
           "@type": "ListItem",
-          "position": 4,
+          "position": 6,
           "url": "https://mdf.works/blog/extension",
           "name": "拡張機能の権限の見かた — 「すべてのサイトのデータを読み取る」とは何か"
         },
         {
           "@type": "ListItem",
-          "position": 5,
+          "position": 7,
           "url": "https://mdf.works/blog/imageformat",
           "name": "スクリーンショットはPNG、写真はJPEG — 画像形式の選び方"
         },
         {
           "@type": "ListItem",
-          "position": 6,
+          "position": 8,
           "url": "https://mdf.works/blog/passkey",
           "name": "二段階認証はどれを選ぶか — SMS・認証アプリ・パスキーの違い"
         },
         {
           "@type": "ListItem",
-          "position": 7,
+          "position": 9,
           "url": "https://mdf.works/blog/battery",
           "name": "モバイルバッテリーは mAh で選ばない — 見るべきは Wh と W"
         },
         {
           "@type": "ListItem",
-          "position": 8,
+          "position": 10,
           "url": "https://mdf.works/blog/ping",
           "name": "Ping はどこで生まれるのか — 回線を速くしても下がらない理由"
         },
         {
           "@type": "ListItem",
-          "position": 9,
+          "position": 11,
           "url": "https://mdf.works/blog/cache",
           "name": "HTMLは新しいのにCSSだけ古い — 静的サイトのキャッシュの罠"
         },
         {
           "@type": "ListItem",
-          "position": 10,
+          "position": 12,
           "url": "https://mdf.works/blog/browser",
           "name": "ブラウザの選び方 — Chrome・Firefox・Edge・Safari・Brave の違い"
         },
         {
           "@type": "ListItem",
-          "position": 11,
+          "position": 13,
           "url": "https://mdf.works/blog/capture",
           "name": "スクリーンショットは必要な範囲だけを撮る"
         },
         {
           "@type": "ListItem",
-          "position": 12,
+          "position": 14,
           "url": "https://mdf.works/blog/mosaic",
           "name": "モザイク・ぼかし・塗りつぶし — 文字を隠すならどれを選ぶか"
         },
         {
           "@type": "ListItem",
-          "position": 13,
+          "position": 15,
           "url": "https://mdf.works/blog/checklist",
           "name": "スクリーンショットを公開する前のチェックリスト12項目"
         }
@@ -709,6 +721,7 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
     <nav class="site-nav" aria-label="メインナビゲーション">
       <a href="/blog/" aria-current="page">記事一覧</a>
       <a href="/kuroko/">Kuroko</a>
+      <a href="/koma/">Koma</a>
       <a href="/about">このサイトについて</a>
       <a class="cta" href="/kuroko/tool">ツールを開く</a>
     </nav>
@@ -749,19 +762,59 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       </select>
     </div>
 
-    <div class="chips" id="cats" role="group" aria-label="カテゴリで絞り込む"><button type="button" data-cat="" aria-pressed="true">すべて <b>13</b></button><button type="button" data-cat="プライバシー" aria-pressed="false">プライバシー <b>3</b></button><button type="button" data-cat="セキュリティ" aria-pressed="false">セキュリティ <b>2</b></button><button type="button" data-cat="開発" aria-pressed="false">開発 <b>2</b></button><button type="button" data-cat="ブラウザ" aria-pressed="false">ブラウザ <b>2</b></button><button type="button" data-cat="基本" aria-pressed="false">基本 <b>2</b></button><button type="button" data-cat="ガジェット" aria-pressed="false">ガジェット <b>1</b></button><button type="button" data-cat="ゲーム" aria-pressed="false">ゲーム <b>1</b></button></div>
+    <div class="chips" id="cats" role="group" aria-label="カテゴリで絞り込む"><button type="button" data-cat="" aria-pressed="true">すべて <b>15</b></button><button type="button" data-cat="セキュリティ" aria-pressed="false">セキュリティ <b>3</b></button><button type="button" data-cat="ブラウザ" aria-pressed="false">ブラウザ <b>3</b></button><button type="button" data-cat="プライバシー" aria-pressed="false">プライバシー <b>3</b></button><button type="button" data-cat="開発" aria-pressed="false">開発 <b>2</b></button><button type="button" data-cat="基本" aria-pressed="false">基本 <b>2</b></button><button type="button" data-cat="ガジェット" aria-pressed="false">ガジェット <b>1</b></button><button type="button" data-cat="ゲーム" aria-pressed="false">ゲーム <b>1</b></button></div>
 
     <details class="tagbox" id="tagbox">
       <summary>タグで絞り込む</summary>
-      <div class="chips" id="tags" role="group" aria-label="タグで絞り込む"><button type="button" data-tag="Exif" aria-pressed="false">Exif</button><button type="button" data-tag="位置情報" aria-pressed="false">位置情報</button><button type="button" data-tag="写真" aria-pressed="false">写真</button><button type="button" data-tag="プライバシー" aria-pressed="false">プライバシー</button><button type="button" data-tag="SNS" aria-pressed="false">SNS</button><button type="button" data-tag="QRコード" aria-pressed="false">QRコード</button><button type="button" data-tag="フィッシング" aria-pressed="false">フィッシング</button><button type="button" data-tag="キャッシュレス決済" aria-pressed="false">キャッシュレス決済</button><button type="button" data-tag="Wi-Fi" aria-pressed="false">Wi-Fi</button><button type="button" data-tag="セキュリティ" aria-pressed="false">セキュリティ</button><button type="button" data-tag="画像処理" aria-pressed="false">画像処理</button><button type="button" data-tag="ハフ変換" aria-pressed="false">ハフ変換</button><button type="button" data-tag="Canvas" aria-pressed="false">Canvas</button><button type="button" data-tag="JavaScript" aria-pressed="false">JavaScript</button><button type="button" data-tag="アルゴリズム" aria-pressed="false">アルゴリズム</button><button type="button" data-tag="拡張機能" aria-pressed="false">拡張機能</button><button type="button" data-tag="Chrome" aria-pressed="false">Chrome</button><button type="button" data-tag="権限" aria-pressed="false">権限</button><button type="button" data-tag="PNG" aria-pressed="false">PNG</button><button type="button" data-tag="JPEG" aria-pressed="false">JPEG</button><button type="button" data-tag="WebP" aria-pressed="false">WebP</button><button type="button" data-tag="AVIF" aria-pressed="false">AVIF</button><button type="button" data-tag="画像" aria-pressed="false">画像</button><button type="button" data-tag="パスキー" aria-pressed="false">パスキー</button><button type="button" data-tag="二段階認証" aria-pressed="false">二段階認証</button><button type="button" data-tag="パスワード" aria-pressed="false">パスワード</button><button type="button" data-tag="ガジェット" aria-pressed="false">ガジェット</button><button type="button" data-tag="モバイルバッテリー" aria-pressed="false">モバイルバッテリー</button><button type="button" data-tag="USB" aria-pressed="false">USB</button><button type="button" data-tag="充電" aria-pressed="false">充電</button><button type="button" data-tag="選び方" aria-pressed="false">選び方</button><button type="button" data-tag="ゲーム" aria-pressed="false">ゲーム</button><button type="button" data-tag="ネットワーク" aria-pressed="false">ネットワーク</button><button type="button" data-tag="回線" aria-pressed="false">回線</button><button type="button" data-tag="遅延" aria-pressed="false">遅延</button><button type="button" data-tag="キャッシュ" aria-pressed="false">キャッシュ</button><button type="button" data-tag="Cloudflare" aria-pressed="false">Cloudflare</button><button type="button" data-tag="静的サイト" aria-pressed="false">静的サイト</button><button type="button" data-tag="CSS" aria-pressed="false">CSS</button><button type="button" data-tag="デプロイ" aria-pressed="false">デプロイ</button><button type="button" data-tag="Firefox" aria-pressed="false">Firefox</button><button type="button" data-tag="Safari" aria-pressed="false">Safari</button><button type="button" data-tag="Brave" aria-pressed="false">Brave</button><button type="button" data-tag="Windows" aria-pressed="false">Windows</button><button type="button" data-tag="macOS" aria-pressed="false">macOS</button><button type="button" data-tag="iPhone" aria-pressed="false">iPhone</button><button type="button" data-tag="Android" aria-pressed="false">Android</button><button type="button" data-tag="ショートカット" aria-pressed="false">ショートカット</button><button type="button" data-tag="モザイク" aria-pressed="false">モザイク</button><button type="button" data-tag="ぼかし" aria-pressed="false">ぼかし</button><button type="button" data-tag="塗りつぶし" aria-pressed="false">塗りつぶし</button><button type="button" data-tag="PDF" aria-pressed="false">PDF</button><button type="button" data-tag="通知" aria-pressed="false">通知</button><button type="button" data-tag="確認手順" aria-pressed="false">確認手順</button></div>
+      <div class="chips" id="tags" role="group" aria-label="タグで絞り込む"><button type="button" data-tag="Wi-Fi" aria-pressed="false">Wi-Fi</button><button type="button" data-tag="HTTPS" aria-pressed="false">HTTPS</button><button type="button" data-tag="VPN" aria-pressed="false">VPN</button><button type="button" data-tag="セキュリティ" aria-pressed="false">セキュリティ</button><button type="button" data-tag="公衆無線LAN" aria-pressed="false">公衆無線LAN</button><button type="button" data-tag="CORS" aria-pressed="false">CORS</button><button type="button" data-tag="fetch" aria-pressed="false">fetch</button><button type="button" data-tag="JavaScript" aria-pressed="false">JavaScript</button><button type="button" data-tag="ブラウザ" aria-pressed="false">ブラウザ</button><button type="button" data-tag="Exif" aria-pressed="false">Exif</button><button type="button" data-tag="位置情報" aria-pressed="false">位置情報</button><button type="button" data-tag="写真" aria-pressed="false">写真</button><button type="button" data-tag="プライバシー" aria-pressed="false">プライバシー</button><button type="button" data-tag="SNS" aria-pressed="false">SNS</button><button type="button" data-tag="QRコード" aria-pressed="false">QRコード</button><button type="button" data-tag="フィッシング" aria-pressed="false">フィッシング</button><button type="button" data-tag="キャッシュレス決済" aria-pressed="false">キャッシュレス決済</button><button type="button" data-tag="画像処理" aria-pressed="false">画像処理</button><button type="button" data-tag="ハフ変換" aria-pressed="false">ハフ変換</button><button type="button" data-tag="Canvas" aria-pressed="false">Canvas</button><button type="button" data-tag="アルゴリズム" aria-pressed="false">アルゴリズム</button><button type="button" data-tag="拡張機能" aria-pressed="false">拡張機能</button><button type="button" data-tag="Chrome" aria-pressed="false">Chrome</button><button type="button" data-tag="権限" aria-pressed="false">権限</button><button type="button" data-tag="PNG" aria-pressed="false">PNG</button><button type="button" data-tag="JPEG" aria-pressed="false">JPEG</button><button type="button" data-tag="WebP" aria-pressed="false">WebP</button><button type="button" data-tag="AVIF" aria-pressed="false">AVIF</button><button type="button" data-tag="画像" aria-pressed="false">画像</button><button type="button" data-tag="パスキー" aria-pressed="false">パスキー</button><button type="button" data-tag="二段階認証" aria-pressed="false">二段階認証</button><button type="button" data-tag="パスワード" aria-pressed="false">パスワード</button><button type="button" data-tag="ガジェット" aria-pressed="false">ガジェット</button><button type="button" data-tag="モバイルバッテリー" aria-pressed="false">モバイルバッテリー</button><button type="button" data-tag="USB" aria-pressed="false">USB</button><button type="button" data-tag="充電" aria-pressed="false">充電</button><button type="button" data-tag="選び方" aria-pressed="false">選び方</button><button type="button" data-tag="ゲーム" aria-pressed="false">ゲーム</button><button type="button" data-tag="ネットワーク" aria-pressed="false">ネットワーク</button><button type="button" data-tag="回線" aria-pressed="false">回線</button><button type="button" data-tag="遅延" aria-pressed="false">遅延</button><button type="button" data-tag="キャッシュ" aria-pressed="false">キャッシュ</button><button type="button" data-tag="Cloudflare" aria-pressed="false">Cloudflare</button><button type="button" data-tag="静的サイト" aria-pressed="false">静的サイト</button><button type="button" data-tag="CSS" aria-pressed="false">CSS</button><button type="button" data-tag="デプロイ" aria-pressed="false">デプロイ</button><button type="button" data-tag="Firefox" aria-pressed="false">Firefox</button><button type="button" data-tag="Safari" aria-pressed="false">Safari</button><button type="button" data-tag="Brave" aria-pressed="false">Brave</button><button type="button" data-tag="Windows" aria-pressed="false">Windows</button><button type="button" data-tag="macOS" aria-pressed="false">macOS</button><button type="button" data-tag="iPhone" aria-pressed="false">iPhone</button><button type="button" data-tag="Android" aria-pressed="false">Android</button><button type="button" data-tag="ショートカット" aria-pressed="false">ショートカット</button><button type="button" data-tag="モザイク" aria-pressed="false">モザイク</button><button type="button" data-tag="ぼかし" aria-pressed="false">ぼかし</button><button type="button" data-tag="塗りつぶし" aria-pressed="false">塗りつぶし</button><button type="button" data-tag="PDF" aria-pressed="false">PDF</button><button type="button" data-tag="通知" aria-pressed="false">通知</button><button type="button" data-tag="確認手順" aria-pressed="false">確認手順</button></div>
     </details>
 
     <div class="resultbar">
-      <span class="n" id="count">13件の記事</span>
+      <span class="n" id="count">15件の記事</span>
       <button type="button" class="reset" id="reset" hidden>絞り込みを解除</button>
     </div>
 
     <div class="projects" id="posts">
+
+      <a class="proj" href="/blog/wifi"
+         data-cat="セキュリティ" data-tags="Wi-Fi|HTTPS|VPN|セキュリティ|公衆無線LAN"
+         data-date="2026-08-30" data-text="公衆wi-fiは危険か — httpsが片付けたことと、残っているもの 10年前の危なさと、いまの危なさは中身が違います。通信を覗かれる問題はほぼ解決し、代わりに「つなぐ相手を間違えさせる」経路が残りました。偽アクセスポイント、同意画面、証明書の警告、そして vpn が効く範囲。 セキュリティ wi-fi https vpn セキュリティ 公衆無線lan">
+        <div class="top">
+          <span class="glyph" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3.2 9.6a13 13 0 0 1 17.6 0"/><path d="M6.2 12.9a8.7 8.7 0 0 1 11.6 0"/><rect x="8.8" y="16.2" width="6.4" height="5" rx="1.2"/><path d="M10.4 16.2v-1.1a1.6 1.6 0 0 1 3.2 0v1.1"/></svg>
+          </span>
+          <div class="meta" style="margin:0">
+            <span class="cat">セキュリティ</span>
+            <time datetime="2026-08-30">2026年8月30日</time>
+          </div>
+        </div>
+        <h3 class="post">公衆Wi-Fiは危険か — HTTPSが片付けたことと、残っているもの</h3>
+        <p>10年前の危なさと、いまの危なさは中身が違います。通信を覗かれる問題はほぼ解決し、代わりに「つなぐ相手を間違えさせる」経路が残りました。偽アクセスポイント、同意画面、証明書の警告、そして VPN が効く範囲。</p>
+        <div class="tags"><span class="tag">Wi-Fi</span><span class="tag">HTTPS</span><span class="tag">VPN</span><span class="tag">セキュリティ</span><span class="tag">公衆無線LAN</span></div>
+        <span class="go">読む · 約6分
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
+
+      <a class="proj" href="/blog/cors"
+         data-cat="ブラウザ" data-tags="CORS|fetch|JavaScript|セキュリティ|ブラウザ"
+         data-date="2026-08-27" data-text="ブラウザだけでは動画を保存できない — cors を実測して確かめる 要求は送れるのに、返ってきた中身が読めない。その境目を実際に測りました。no-cors が返す0文字の応答、指定しても必ず書き換えられる4つのヘッダー、そして「読めないのが既定」であることが何を守っているのか。 ブラウザ cors fetch javascript セキュリティ ブラウザ">
+        <div class="top">
+          <span class="glyph" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2.5 12h9.6"/><path d="M8.9 8.8L12.1 12l-3.2 3.2"/><circle cx="17.6" cy="12" r="3.9"/><path d="M14.8 9.2l5.6 5.6"/></svg>
+          </span>
+          <div class="meta" style="margin:0">
+            <span class="cat">ブラウザ</span>
+            <time datetime="2026-08-27">2026年8月27日</time>
+          </div>
+        </div>
+        <h3 class="post">ブラウザだけでは動画を保存できない — CORS を実測して確かめる</h3>
+        <p>要求は送れるのに、返ってきた中身が読めない。その境目を実際に測りました。no-cors が返す0文字の応答、指定しても必ず書き換えられる4つのヘッダー、そして「読めないのが既定」であることが何を守っているのか。</p>
+        <div class="tags"><span class="tag">CORS</span><span class="tag">fetch</span><span class="tag">JavaScript</span><span class="tag">セキュリティ</span><span class="tag">ブラウザ</span></div>
+        <span class="go">読む · 約7分
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
 
       <a class="proj" href="/blog/exif"
          data-cat="プライバシー" data-tags="Exif|位置情報|写真|プライバシー|SNS"
