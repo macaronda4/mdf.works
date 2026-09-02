@@ -1,8 +1,8 @@
 """下書きを1本取り出して公開する。
 
-    python _local/publish_next.py            # 中身を確かめるだけ（何も書かない）
-    python _local/publish_next.py --write    # 公開してコミットまで
-    python _local/publish_next.py --write --push
+    python _local/publish_next.py                     # 中身を確かめるだけ（何も書かない）
+    python _local/publish_next.py --write             # 公開してコミットと push まで
+    python _local/publish_next.py --write --no-push   # push せず手元に留める
 
 _local/drafts/ にある `NN-slug.html` を番号順に1本取り、記事ページを組み立てて
 blog/ に置き、POSTS・更新履歴・OGP・sitemap に登録し、生成スクリプトを順に回す。
@@ -361,7 +361,9 @@ def dgit(*args):
 # ------------------------------------------------------------------ main
 def main():
     write = '--write' in sys.argv
-    push = '--push' in sys.argv
+    # 公開したら push まで済ませる。手元にだけ残したいときは --no-push を付ける。
+    # （--push は以前の書き方。付いていても同じ動きになる）
+    push = write and '--no-push' not in sys.argv
     import datetime
     date = datetime.date.today().isoformat()
     for a in sys.argv[1:]:
@@ -425,16 +427,21 @@ def main():
     dgit('commit', '-m', '公開したので下書きを外す: %s（残り %d 本）'
          % (os.path.basename(path), n_left))
 
-    if push:
-        git('fetch', 'origin')
-        behind = git('rev-list', '--count', 'HEAD..origin/main')
-        if behind != '0':
-            print('リモートが %s コミット進んでいます。載せ直します。' % behind)
-            git('rebase', 'origin/main')
-        git('push', 'origin', 'main')
-        print('push しました。')
-        # 下書き側はリモート未設定でも止まらないようにしてある
-        dgit('push', 'origin', 'main')
+    if not push:
+        print('（--no-push が付いているので、手元に留めました）')
+        return 0
+
+    git('fetch', 'origin')
+    behind = git('rev-list', '--count', 'HEAD..origin/main')
+    if behind != '0':
+        print('リモートが %s コミット進んでいます。載せ直します。' % behind)
+        git('rebase', 'origin/main')
+    git('push', 'origin', 'main')
+    print('サイトを push しました:', git('rev-parse', '--short', 'HEAD'))
+
+    # 下書き側はリモート未設定でも止まらないようにしてある
+    if dgit('push', 'origin', 'main') is not None:
+        print('下書きを push しました:', dgit('rev-parse', '--short', 'HEAD'))
     return 0
 
 

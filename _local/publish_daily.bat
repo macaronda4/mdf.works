@@ -1,23 +1,29 @@
 @echo off
-rem 下書きを1本公開して push する。タスクスケジューラから1日1回呼ばれる。
-rem 下書きが尽きたら何もせずに終わる。作業ツリーが汚れているときも中止する。
+rem ---------------------------------------------------------------------------
+rem Publish one draft per day, then commit and push.
+rem
+rem NOTE: keep this file ASCII-only. cmd.exe reads .bat in the system ANSI
+rem code page, so UTF-8 Japanese comments corrupt the commands themselves.
+rem Anything that needs Japanese belongs in publish_next.py, not here.
+rem ---------------------------------------------------------------------------
 setlocal
 cd /d "%~dp0.."
 
-set LOG=%~dp0publish.log
-set PYTHONIOENCODING=utf-8
+set "LOG=%~dp0publish.log"
 
-for /f "tokens=1-3 delims=/ " %%a in ("%date%") do set TODAY=%%a-%%b-%%c
-echo. >> "%LOG%"
-echo ================ %TODAY% %time% ================ >> "%LOG%"
+rem Redirection goes first on purpose: a digit right before ">>" would be
+rem read as a file handle, so "exit=%RC%>>" silently swallows the number.
+>> "%LOG%" echo.
+>> "%LOG%" echo ======== %date% %time% ========
 
-python "_local\publish_next.py" --write --push >> "%LOG%" 2>&1
+rem --write already implies commit and push (use --no-push to keep it local)
+>> "%LOG%" 2>&1 python "_local\publish_next.py" --write
 set RC=%errorlevel%
 
-rem このファイル自身の出力は ASCII にしておく（コードページによる文字化けを避ける）
-if %RC%==0 (
-  echo [OK] exit=0 >> "%LOG%"
+if "%RC%"=="0" (
+  >> "%LOG%" echo [OK] exit=%RC%
 ) else (
-  echo [NG] exit=%RC% >> "%LOG%"
+  >> "%LOG%" echo [NG] exit=%RC%
 )
+
 exit /b %RC%
