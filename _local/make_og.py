@@ -165,3 +165,7 @@ card(o("wifi.png"), "Security",
 card(o("theme.png"), "Development",
      "ダークモードは\n色を反転しない",
      "三段構えのCSSと、描画前のちらつき")
+
+card(o("framerate.png"), "Game",
+     "144Hzで\n何が変わるのか",
+     "滑らかさと反応の速さは別物")

@@ -30,25 +30,25 @@
 <!-- Google AdSense -->
 <script async fetchpriority="low" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8613999974980382"
      crossorigin="anonymous"></script>
-<title>必要な範囲だけを撮る方法｜Windows・Mac・iPhone・Android</title>
-<meta name="description" content="スクリーンショットは撮る範囲を絞るだけで、あとから隠す手間も消し忘れも減ります。ウィンドウ単位・範囲指定の撮り方を4つのOSごとに、通知を止める設定とあわせて解説します。">
-<link rel="canonical" href="https://mdf.works/blog/capture">
+<title>144Hzで何が変わるのか｜遅延はどこで積まれているか</title>
+<meta name="description" content="144Hzのモニタで実際に何が変わるのかを、書き換え間隔・入力遅延・フレームタイムの3つに分けて説明します。遅延がどこで何ミリ秒積まれるのか、可変リフレッシュレートと残像対策の副作用、そして効く対策の順番。">
+<link rel="canonical" href="https://mdf.works/blog/framerate">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="theme-color" content="#131720">
 <meta name="author" content="マカロン大福">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="mdf.works">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="必要な範囲だけを撮る方法｜Windows・Mac・iPhone・Android">
-<meta property="og:description" content="撮る範囲を絞るだけで、あとから隠す手間も消し忘れも減ります。OSごとの範囲指定の撮り方と、通知を止める設定をまとめました。">
-<meta property="og:url" content="https://mdf.works/blog/capture">
-<meta property="og:image" content="https://mdf.works/assets/og/capture.png">
+<meta property="og:title" content="144Hzで何が変わるのか｜遅延はどこで積まれているか">
+<meta property="og:description" content="滑らかさと反応の速さは別物です。分けて見ないと投資先を間違えます。">
+<meta property="og:url" content="https://mdf.works/blog/framerate">
+<meta property="og:image" content="https://mdf.works/assets/og/framerate.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="必要な範囲だけを撮る方法｜Windows・Mac・iPhone・Android">
-<meta name="twitter:description" content="撮る範囲を絞るだけで、あとから隠す手間も消し忘れも減ります。OSごとの範囲指定の撮り方をまとめました。">
-<meta name="twitter:image" content="https://mdf.works/assets/og/capture.png">
+<meta name="twitter:title" content="144Hzで何が変わるのか｜遅延はどこで積まれているか">
+<meta name="twitter:description" content="滑らかさと反応の速さは別物です。分けて見ないと投資先を間違えます。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/framerate.png">
 <meta name="twitter:creator" content="@sugerslp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
 <script type="application/ld+json">
@@ -57,45 +57,52 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "スクリーンショットは必要な範囲だけを撮る",
-      "description": "撮る範囲を絞るだけで、あとから隠す手間も消し忘れも減ります。OSごとの範囲指定の撮り方と、通知を止める設定。",
-      "image": "https://mdf.works/assets/og/capture.png",
-      "datePublished": "2026-08-16",
-      "dateModified": "2026-08-16",
+      "headline": "144Hzで何が変わるのか — 遅延はどこで積まれているか",
+      "description": "リフレッシュレート・入力遅延・フレームタイムの違いを段階ごとに分解し、可変リフレッシュレートや残像対策の影響と、実際に効く対策の順番を整理した記事。",
+      "image": "https://mdf.works/assets/og/framerate.png",
+      "datePublished": "2026-09-02",
+      "dateModified": "2026-09-02",
       "inLanguage": "ja",
-      "author": { "@id": "https://mdf.works/#person" },
-      "publisher": { "@id": "https://mdf.works/#person" },
-      "mainEntityOfPage": "https://mdf.works/blog/capture"
+      "articleSection": "ゲーム",
+      "author": {
+        "@id": "https://mdf.works/#person"
+      },
+      "publisher": {
+        "@id": "https://mdf.works/#person"
+      },
+      "mainEntityOfPage": "https://mdf.works/blog/framerate"
     },
     {
       "@type": "Person",
       "@id": "https://mdf.works/#person",
       "name": "マカロン大福",
       "url": "https://mdf.works/about",
-      "sameAs": ["https://x.com/sugerslp"]
+      "sameAs": [
+        "https://x.com/sugerslp"
+      ]
     },
     {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-                {
-                      "@type": "ListItem",
-                      "position": 1,
-                      "name": "ホーム",
-                      "item": "https://mdf.works/"
-                },
-                {
-                      "@type": "ListItem",
-                      "position": 2,
-                      "name": "ブログ",
-                      "item": "https://mdf.works/blog/"
-                },
-                {
-                      "@type": "ListItem",
-                      "position": 3,
-                      "name": "必要な範囲だけを撮る",
-                      "item": "https://mdf.works/blog/capture"
-                }
-          ]
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://mdf.works/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "ブログ",
+          "item": "https://mdf.works/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "144Hzで何が変わるのか",
+          "item": "https://mdf.works/blog/framerate"
+        }
+      ]
     }
   ]
 }
@@ -637,19 +644,18 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
 <main id="main">
   <div class="wrap prose">
 
-    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>必要な範囲だけを撮る</p>
+    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>144Hzで何が変わるのか</p>
 
     <div class="page-head">
-      <p class="eyebrow">Basics</p>
-      <h1>スクリーンショットは<br>必要な範囲だけを撮る</h1>
+      <p class="eyebrow">Game</p>
+      <h1>144Hzで何が変わるのか<br>遅延はどこで積まれているか</h1>
       <p class="lead">
-        隠す作業を減らすいちばん確実な方法は、そもそも写さないことです。
-        範囲を絞って撮るだけで、あとの手間も消し忘れも大きく減ります。
+        60Hz から 144Hz にすると、確かに滑らかになります。ただし<strong>「滑らかさ」と「反応の速さ」は別の話</strong>です。前者は画面が書き換わる間隔、後者は操作が絵に出るまでの合計。さらに<strong>平均の枚数では見えない引っかかり</strong>もあります。3つを分けないと、お金をかける場所を間違えます。
       </p>
       <div class="postmeta">
-        <span class="cat">基本</span>
-        <time datetime="2026-08-16">2026年8月16日</time>
-        <span class="read">約4分で読めます</span>
+        <span class="cat">ゲーム</span>
+        <time datetime="2026-09-02">2026年9月2日</time>
+        <span class="read">約8分で読めます</span>
       </div>
     </div>
 
@@ -659,128 +665,228 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
     </nav>
 
     <!-- postbody:start --><div class="postbody">
+    <h2>まず3つの言葉を分ける</h2>
     <p>
-      画面全体を撮ってから要らない部分を塗る、という順番だと、
-      塗る場所が多くなるうえに「塗り忘れ」が起きます。
-      逆に、必要な部分だけを撮ってしまえば、確認すべき箇所は最初から少なくなります。
+      混ざりやすいものを、先に切り離します。この3つはそれぞれ別の原因で悪くなり、別の対策で良くなります。
     </p>
-    <p>
-      全画面のスクリーンショットには、思っているより多くのものが写ります。
-      時刻、バッテリー、通知、他のタブのタイトル、タスクバーに並ぶアプリ、
-      デスクトップのファイル名。どれも単体では些細ですが、
-      組み合わさると生活や所属の手がかりになります。
-    </p>
-
-    <h2>Windows</h2>
     <div class="tablewrap">
       <table>
-        <thead><tr><th scope="col">操作</th><th scope="col">撮れる範囲</th></tr></thead>
+        <thead><tr><th scope="col">呼びかた</th><th scope="col">中身</th><th scope="col">悪いとどう感じるか</th></tr></thead>
         <tbody>
-          <tr><td><code>Win</code>＋<code>Shift</code>＋<code>S</code></td><td><strong>範囲を指定して撮る。</strong>いちばんおすすめです。長方形・自由形・ウィンドウ・全画面から選べます</td></tr>
-          <tr><td><code>Alt</code>＋<code>PrintScreen</code></td><td>いま選んでいるウィンドウだけ</td></tr>
-          <tr><td><code>Win</code>＋<code>PrintScreen</code></td><td>全画面（ピクチャ内のスクリーンショットへ自動保存）</td></tr>
+          <tr><td>書き換えの間隔</td><td>画面が1秒に何回描き直されるか</td><td>動くものがカクカクして見える</td></tr>
+          <tr><td>反応までの時間</td><td>操作してから、結果が光になるまで</td><td>照準が遅れてついてくる、ぬるい</td></tr>
+          <tr><td>1枚あたりの揺れ</td><td>絵と絵の間隔がどれだけ揃っているか</td><td>平均は出ているのに時々つっかえる</td></tr>
         </tbody>
       </table>
     </div>
     <p>
-      <code>Win</code>＋<code>Shift</code>＋<code>S</code> は「Snipping Tool」が起動し、
-      撮った画像はクリップボードに入ります。そのまま <code>Ctrl</code>＋<code>V</code> で
-      <a href="/kuroko/tool">Kuroko</a> に貼り付けられるので、ファイルを保存する手間もいりません。
+      144Hz が直接改善するのは1番目です。約6.9ミリ秒ごとに絵が更新されます。60Hz なら約16.7ミリ秒。
+      <strong>動いているものの見やすさは、ここで決まります</strong>。
+      2番目はいくつもの段階の合計で、3番目は平均の数字にまったく現れません。順に見ていきます。
     </p>
 
-    <h2>macOS</h2>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th scope="col">操作</th><th scope="col">撮れる範囲</th></tr></thead>
-        <tbody>
-          <tr><td><code>⌘</code>＋<code>Shift</code>＋<code>4</code></td><td><strong>ドラッグした範囲だけ。</strong></td></tr>
-          <tr><td><code>⌘</code>＋<code>Shift</code>＋<code>4</code> のあと <code>Space</code></td><td>ウィンドウ単位。カーソルがカメラに変わります</td></tr>
-          <tr><td><code>⌘</code>＋<code>Shift</code>＋<code>5</code></td><td>撮影メニュー。範囲の記憶や保存先の指定ができます</td></tr>
-          <tr><td><code>⌘</code>＋<code>Shift</code>＋<code>3</code></td><td>全画面</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <h2>反応までの時間を分解する</h2>
     <p>
-      上記に <code>Control</code> を足すと、ファイルではなくクリップボードに入ります
-      （例：<code>Control</code>＋<code>⌘</code>＋<code>Shift</code>＋<code>4</code>）。
+      マウスを動かしてから、その結果が目に届くまでに通る場所を並べます。
+      数値は一般的な目安で、環境によって変わります。
     </p>
-    <div class="note">
-      ウィンドウ単位で撮ると、既定では周囲に大きな影が付きます。
-      撮影メニュー（<code>⌘</code>＋<code>Shift</code>＋<code>5</code>）の「オプション」で影を外せます。
-      影があると画像が無駄に大きくなり、貼り付けたときの見栄えも悪くなります。
-    </div>
-
-    <h2>iPhone・iPad</h2>
-    <p>
-      サイドボタンと音量を上げるボタン（ホームボタンのある機種はホームボタンとサイドボタン）を同時に押します。
-      撮った直後に左下へ現れるサムネイルをタップすると、<strong>その場でトリミングできます。</strong>
-      ここで範囲を切っておくと、あとの作業がかなり楽になります。
-    </p>
-    <p>
-      チャットアプリの画面を撮るときは、上部のステータスバーと下部の入力欄まで入ることを意識してください。
-      入力欄には相手の名前が「〇〇へメッセージを送信」のように出ていることがあります。
-    </p>
-
-    <h2>Android</h2>
-    <p>
-      電源ボタンと音量を下げるボタンの同時押しが基本です（機種により異なります）。
-      撮影後に表示されるプレビューから、多くの機種でそのままトリミングできます。
-    </p>
-    <p>
-      機種によっては「スクロールキャプチャ」で画面外まで撮れますが、
-      長く撮るほど写り込みは増えます。必要な範囲で止めてください。
-    </p>
-
-    <h2>撮る前に止めておくもの</h2>
-
-    <h3>通知</h3>
-    <p>
-      撮影の瞬間に別のアプリの通知が重なると、無関係な第三者の名前とメッセージの冒頭が写ります。
-      これは自分では気づきにくく、あとから塗るにも「そこに通知が出ていた」ことを覚えている必要があります。
-    </p>
-    <ul>
-      <li><strong>Windows：</strong>通知センターの「集中モード」／「応答不可」をオンにする</li>
-      <li><strong>macOS：</strong>コントロールセンターの「集中モード」→「おやすみモード」</li>
-      <li><strong>iPhone：</strong>コントロールセンターの三日月アイコン、または設定の「集中モード」</li>
-      <li><strong>Android：</strong>クイック設定の「サイレント モード」</li>
-    </ul>
-
-    <h3>他のタブとウィンドウ</h3>
-    <p>
-      ブラウザのタブは、タイトルだけで内容が分かってしまうことがあります。
-      勤務先の社内システム名、調べ物の内容、開いている別のサービス。
-      ウィンドウ単位で撮れば大半は防げますが、撮る前に不要なタブを閉じておくとさらに安全です。
-    </p>
-
-    <h3>ブックマークバー</h3>
-    <p>
-      見落としがちですが、ブックマークバーには所属や関心がそのまま並んでいます。
-      <code>Ctrl</code>＋<code>Shift</code>＋<code>B</code>（Mac は <code>⌘</code>＋<code>Shift</code>＋<code>B</code>）で
-      一時的に隠せます。
-    </p>
-
-    <h2>撮ったあとの流れ</h2>
     <ol class="steps">
       <li>
-        <b>範囲を絞って撮る</b>
-        <span>必要な会話だけが入るように、ウィンドウ単位か範囲指定で撮ります。</span>
+        <b>マウスが動きを報告する</b>
+        <span>報告の間隔は設定で変わります。1000回/秒なら平均0.5ミリ秒ほど。ここは既に十分小さく、さらに上げても合計にはほとんど効きません。</span>
       </li>
       <li>
-        <b>アイコンと名前を伏せる</b>
-        <span><a href="/kuroko/tool">Kuroko</a> に貼り付けて自動検出を実行します。画像はブラウザから出ません。</span>
+        <b>ゲームが操作を受け取り、次の絵を作る</b>
+        <span>いちばん大きく、しかも自分で変えられます。毎秒60枚しか作れていなければ1枚あたり16.7ミリ秒、240枚なら4.2ミリ秒。<strong>モニタが144Hzでも、絵が60枚しか無ければ埋まりません。</strong></span>
       </li>
       <li>
-        <b>拡大して確認する</b>
-        <span>四隅と最下部を順に見ます。<a href="/blog/checklist">チェックリスト</a>に見落としやすい項目をまとめています。</span>
+        <b>できた絵が順番待ちをする</b>
+        <span>作った絵をすぐ出さず、数枚ためてから出す仕組みがあります。枚数が揺れても表示が途切れない代わりに、ためた枚数ぶん遅れます。3枚ためていれば、それだけで数十ミリ秒になることがあります。</span>
+      </li>
+      <li>
+        <b>ケーブルを通って届く</b>
+        <span>1ミリ秒に満たない程度。ここを気にする段階ではありません。</span>
+      </li>
+      <li>
+        <b>モニタが受け取って処理する</b>
+        <span>製品差が大きい部分です。映像を加工する機能が有効だと、ここで数十ミリ秒増えることがあります。テレビをモニタ代わりにすると重くなりやすいのは、主にここです。</span>
+      </li>
+      <li>
+        <b>画素の色が実際に変わる</b>
+        <span>液晶が色を切り替える時間。速いパネルなら数ミリ秒、遅いと十数ミリ秒。ここが遅いと、動くものに尾を引きます。</span>
       </li>
     </ol>
+    <div class="note">
+      合計のうち、<strong>2 と 3 と 5 が大半</strong>です。
+      つまり「絵を何枚作れているか」「ためずに出しているか」「モニタが余計なことをしていないか」。
+      マウスやケーブルを替えても、この3つが直っていなければ体感は変わりません。
+      <strong>いちばん小さい項目から手を付けてしまう</strong>のが、よくある遠回りです。
+    </div>
+
+    <h2>平均の枚数では見えないもの</h2>
+    <p>
+      平均で毎秒120枚出ていても、快適とは限りません。
+      平均は<strong>1秒間の合計を割っただけ</strong>なので、その中の分布を隠します。
+    </p>
+    <p>
+      例えば、ほとんどの絵が8ミリ秒間隔で出ていて、1秒に数回だけ40ミリ秒空くとします。
+      平均は良い数字になりますが、<strong>体感としては数回つっかえた1秒</strong>です。
+      人間は平均ではなく、いちばん悪かった瞬間を覚えています。
+    </p>
+    <p>
+      そこで見るのが、1枚あたりの間隔そのものです。
+      よく使われる指標に「下位1%」があり、
+      <strong>悪いほうから1%の絵がどれだけ待たされたか</strong>を表します。
+      平均が高いのに下位1%が低い構成は、数字ほど快適ではありません。
+    </p>
+    <div class="note good">
+      <strong>測りかた：</strong>
+      多くの計測ソフトに、平均だけでなく間隔の推移をグラフで出す機能があります。
+      平らな線が続いていれば良く、<strong>棘のように跳ね上がる点</strong>があれば、そこが引っかかりです。
+      棘の原因は描画とは限らず、記憶装置の読み込み待ちや、
+      裏で動いている別の処理であることもよくあります。
+    </div>
+
+    <h2>可変リフレッシュレートは何をしているのか</h2>
+    <p>
+      絵の枚数は常に一定ではありません。一方、モニタの書き換えは決まった間隔で来ます。
+      この2つがずれると、<strong>1枚の絵の上下で別々の絵が表示される</strong>裂けが起きます。
+    </p>
+    <p>
+      従来の対策は、モニタの書き換えに合わせて絵を待たせる方法でした。
+      裂けは消えますが、<strong>待つぶん遅くなります</strong>。しかも間に合わなかった場合、
+      次の機会まで丸ごと待つことになるので、枚数が大きく落ちます。
+    </p>
+    <p>
+      可変リフレッシュレートは、逆に<strong>モニタ側が絵の到着に合わせて書き換える</strong>仕組みです。
+      裂けが出ず、待たせる時間も最小限になります。対応していれば、有効にしておく価値があります。
+    </p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">やりかた</th><th scope="col">裂け</th><th scope="col">遅延</th><th scope="col">枚数が落ちたとき</th></tr></thead>
+        <tbody>
+          <tr><td>何もしない</td><td>出る</td><td>いちばん小さい</td><td>そのまま</td></tr>
+          <tr><td>モニタに合わせて待たせる</td><td>出ない</td><td>大きい</td><td>大きく落ち込む</td></tr>
+          <tr><td>可変リフレッシュレート</td><td>出ない</td><td>小さい</td><td>なめらかに追従する</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      ひとつ注意があります。可変で追従できる範囲には下限と上限があり、
+      <strong>上限を超えるとただ待たされる状態に戻ります</strong>。
+      上限より少しだけ低いところに枚数の上限を設定しておくと、
+      常に可変の範囲に収まって安定します。
+    </p>
+
+    <h2>パネルと、残像対策の副作用</h2>
+    <p>
+      切り替えの速さはパネルの種類でおおよそ決まります。
+      そのうえで、多くのモニタには<strong>切り替えを速めるための補正</strong>が入っています。
+    </p>
+    <p>
+      これは電圧を強めにかけて色の変化を急がせる仕組みで、
+      強くしすぎると<strong>目標を通り越して、逆向きの残像が出ます</strong>。
+      動く物体の後ろに明るい影がついてくる現象がこれです。
+      補正の強さは設定で段階的に選べることが多いので、
+      <strong>いちばん強い設定が最良とは限りません</strong>。中間で止めるのが無難です。
+    </p>
+    <p>
+      もうひとつ、残像を減らすためにバックライトを短く点滅させる機能があります。
+      輪郭ははっきりしますが、<strong>画面が暗くなり、可変リフレッシュレートと同時に使えない</strong>ことが多く、
+      ちらつきが苦手な人には向きません。効果と副作用の差が大きい機能です。
+    </p>
+
+    <h2>効く順番</h2>
+    <ol class="steps">
+      <li>
+        <b>本当に144Hzで動いているか確認する</b>
+        <span>OSの設定画面で、実際のリフレッシュレートを見ます。<strong>挿しただけでは60Hzのままのことがよくあります。</strong>ケーブルの規格が足りない場合も、上限が下がります。ここが最も多い取りこぼしです。</span>
+      </li>
+      <li>
+        <b>モニタ側の映像加工を切る</b>
+        <span>補間・ノイズ低減・映画向けの映像モードは、そのぶん遅らせます。ゲーム向けの表示モードは、これらをまとめて止める設定であることが多いです。</span>
+      </li>
+      <li>
+        <b>可変リフレッシュレートを有効にする</b>
+        <span>モニタ側とパソコン側の両方で有効にします。片方だけでは効きません。あわせて枚数の上限を、対応範囲の少し下に置きます。</span>
+      </li>
+      <li>
+        <b>絵の枚数を上げる</b>
+        <span>画質設定を下げるのがいちばん直接的です。特に影と反射の設定は、見た目の割に負荷が大きい部分です。</span>
+      </li>
+      <li>
+        <b>ためる枚数を減らす</b>
+        <span>ドライバやゲームの設定にあります。減らすと反応が早くなり、代わりに枚数が不安定なときに揺れやすくなります。</span>
+      </li>
+      <li>
+        <b>引っかかりの原因を別に探す</b>
+        <span>平均が足りているのにつっかえる場合、描画以外が原因です。記憶装置の速度、常駐しているソフト、録画や配信の処理などを疑います。</span>
+      </li>
+    </ol>
+
+    <h2>240Hz まで行く意味はあるか</h2>
+    <p>
+      間隔だけを見ると、60Hz から144Hz は約10ミリ秒の短縮、144Hz から240Hz は約2.7ミリ秒の短縮です。
+      <strong>効き目は等間隔ではなく、最初の一段がいちばん大きい</strong>ということになります。
+    </p>
+    <p>
+      そのうえで、240Hz を活かすには絵を毎秒240枚作り続ける必要があります。
+      <strong>先に「いま何枚出ているか」を測ってから決める</strong>のが確実です。
+    </p>
+    <div class="note warn">
+      <strong>回線の速さは、ここには効きません。</strong>
+      対戦での「相手が先に撃っていた」は、手元の遅延と通信の遅延が混ざった結果です。
+      通信のほうは別の場所で積まれているので、
+      <a href="/blog/ping">Ping はどこで生まれるのか</a>のほうを見てください。
+      手元を詰めても、通信で100ミリ秒待っていれば、そちらが支配します。
+    </div>
+
+    <h2>測ってから決める</h2>
+    <p>
+      ここまでの話は、すべて<strong>自分の環境で測れば数字が出ます</strong>。
+      買い替えの前に30分かけるだけで、投資先がはっきりします。
+    </p>
+    <ol class="steps">
+      <li>
+        <b>いま何枚出ているかを、遊びながら見る</b>
+        <span>常時表示できる計測ソフトを入れて、実際に遊ぶ場面で見ます。待機画面ではなく、<strong>いちばん混雑する場面</strong>の数字が重要です。人が多い、爆発が起きる、視界が開ける。そこが最低値になります。</span>
+      </li>
+      <li>
+        <b>平均ではなく、間隔の推移を見る</b>
+        <span>グラフが平らなら良く、棘のように跳ねる点があれば引っかかりです。棘が出る場所を覚えておくと、原因の見当がつきます。特定の場所に入るときだけ跳ねるなら、読み込み待ちの可能性が高い。</span>
+      </li>
+      <li>
+        <b>設定を1つずつ変えて、同じ場面で比べる</b>
+        <span>まとめて変えると、何が効いたか分かりません。影の品質、反射、描画距離あたりから1つずつ。<strong>見た目の変化に対して数字の変化が大きい設定</strong>が、下げる価値のある設定です。</span>
+      </li>
+      <li>
+        <b>反応の速さは、動画で確かめる</b>
+        <span>専用の測定器がなくても、高速で撮影できるカメラがあれば近いことができます。マウスを動かした瞬間と画面が動いた瞬間の差を、コマ数で数えます。設定変更の前後で比べれば、相対的な効果は分かります。</span>
+      </li>
+    </ol>
+    <div class="note good">
+      数字を見ずに機材を替えると、<strong>効かない場所に払う</strong>ことになりがちです。
+      平均が144枚に届いていないなら、モニタより先に描画側です。
+      平均は出ているのに棘が多いなら、記憶装置か常駐ソフトです。
+      反応が鈍く感じるのに数字は良いなら、モニタ側の処理を疑います。
+    </div>
+
+    <h2>まとめ</h2>
+    <ul>
+      <li>Hz が決めるのは<strong>書き換えの間隔</strong>。反応の速さはいくつもの段階の合計</li>
+      <li>合計の大半は<strong>絵を作る時間・ためる枚数・モニタ側の処理</strong></li>
+      <li>平均の枚数は分布を隠す。<strong>いちばん悪かった瞬間</strong>が体感を決める</li>
+      <li>可変リフレッシュレートは裂けと遅延の両方に効く。<strong>上限の少し下に枚数を止める</strong></li>
+      <li>残像対策の補正は<strong>強すぎると逆向きの残像</strong>が出る。中間で止める</li>
+      <li>効き目は等間隔ではない。<strong>60→144 が最も大きく、その先は伸びが小さい</strong></li>
+    </ul>
 
     </div><!-- postbody:end -->
     <!-- postnav:start -->
     <div class="postnav">
       <div class="share">
         <span class="label">この記事を共有</span>
-        <a href="https://x.com/intent/post?text=スクリーンショットは必要な範囲だけを撮る&amp;url=https://mdf.works/blog/capture" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/intent/post?text=144Hzで何が変わるのか — 遅延はどこで積まれているか&amp;url=https://mdf.works/blog/framerate" target="_blank" rel="noopener noreferrer">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.2-5.8 6.2H1.5l7.5-8.6L1 3h6.7l4.6 5.8L17.5 3zm-1.1 16.2h1.8L7.7 4.7H5.8l10.6 14.5z"/></svg>
           X で共有
         </a>
@@ -788,18 +894,18 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       </div>
 
       <nav class="pager" aria-label="記事の移動">
-        <a class="prev" href="/blog/mosaic"><span class="dir">← 前の記事</span><span class="t">モザイク・ぼかし・塗りつぶし — 文字を隠すならどれを選ぶか</span></a><a class="next" href="/blog/browser"><span class="dir">次の記事 →</span><span class="t">ブラウザの選び方 — 結局どれを使えばいいのか</span></a>
+        <a class="prev" href="/blog/theme"><span class="dir">← 前の記事</span><span class="t">ダークモードは色を反転するのではない — 実装して分かったこと</span></a>
       </nav>
 
       <h2>ほかの記事</h2>
       <div class="grid cols-2">
       <div class="card">
-        <h3><a href="/blog/imageformat" style="text-decoration:none">スクリーンショットはPNG、写真はJPEG — 画像形式の選び方</a></h3>
-        <p>スクリーンショットを JPEG で保存すると文字がにじみます。原因は 8×8 ブロック単位の処理と、色を間引く仕組みです。PNG・JPEG・WebP・AVI…</p>
+        <h3><a href="/blog/ping" style="text-decoration:none">Ping はどこで生まれるのか — 回線を速くしても下がらない理由</a></h3>
+        <p>回線を 1Gbps にしても Ping は下がりません。速度と遅延は別のものだからです。光の速度が決める下限から順に、遅延が何ミリ秒ずつどこで積まれているの…</p>
       </div>
       <div class="card">
-        <h3><a href="/blog/framerate" style="text-decoration:none">144Hzで何が変わるのか — 遅延はどこで積まれているか</a></h3>
-        <p>モニタを144Hzにしても、思ったほど変わらないことがあります。画面が書き換わる間隔と、操作が画面に出るまでの時間は別物だからです。マウスを動かしてから光が…</p>
+        <h3><a href="/blog/theme" style="text-decoration:none">ダークモードは色を反転するのではない — 実装して分かったこと</a></h3>
+        <p>このサイトにテーマ切替を付けたときの記録です。OS の設定に従うだけでは足りず、利用者の上書きを受け付けると CSS が三段構えになります。描画前の一瞬のち…</p>
       </div>
       </div>
       <div class="btnrow">
