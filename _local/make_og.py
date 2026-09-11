@@ -169,3 +169,7 @@ card(o("theme.png"), "Development",
 card(o("framerate.png"), "Game",
      "144Hzで\n何が変わるのか",
      "滑らかさと反応の速さは別物")
+
+card(o("manager.png"), "Security",
+     "パスワードは\n1か所に置いていい",
+     "鍵がどこで作られるかを見る")

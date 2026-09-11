@@ -216,7 +216,7 @@ def wrap_lead(lead, indent=14):
 def register(m, date):
     # POSTS
     p = os.path.join(ROOT, '_local', 'build_blog.py')
-    s = open(p, encoding='utf-8').read()
+    s = open(p, encoding='utf-8', errors='replace').read()
     icon = "\n              ".join(q(x) for x in re.findall(r'<[^>]+/>', m['icon']))
     entry = (
         "    dict(slug=%s, cat=%s, date=%s,\n"
@@ -234,7 +234,7 @@ def register(m, date):
 
     # 更新履歴
     p = os.path.join(ROOT, '_local', 'build_log.py')
-    s = open(p, encoding='utf-8').read()
+    s = open(p, encoding='utf-8', errors='replace').read()
     line = "    (%s, 'ブログ', %s),\n" % (
         q(date), q('記事「%s」を公開しました。' % m['title']))
     anchor = 'ENTRIES = [\n'
@@ -243,7 +243,7 @@ def register(m, date):
 
     # OGP
     p = os.path.join(ROOT, '_local', 'make_og.py')
-    s = open(p, encoding='utf-8').read()
+    s = open(p, encoding='utf-8', errors='replace').read()
     if 'o("%s.png")' % m['slug'] not in s:
         card = ('\ncard(o("%s.png"), "%s",\n     "%s\\n%s",\n     "%s")\n'
                 % (m['slug'], m['eyebrow'], m['ogl1'], m['ogl2'], m['ogsub']))
@@ -251,7 +251,7 @@ def register(m, date):
 
     # sitemap
     p = os.path.join(ROOT, 'sitemap.xml')
-    s = open(p, encoding='utf-8').read()
+    s = open(p, encoding='utf-8', errors='replace').read()
     row = ('  <url><loc>%s/blog/%s</loc><lastmod>%s</lastmod>'
            '<changefreq>monthly</changefreq><priority>0.7</priority></url>\n'
            % (D, m['slug'], date))
@@ -296,7 +296,7 @@ def verify(slug):
                    + glob.glob(os.path.join(ROOT, 'koma', '*.html'))
                    + glob.glob(os.path.join(ROOT, 'blog', '*.html')))
     for f in pages:
-        s = open(f, encoding='utf-8').read()
+        s = open(f, encoding='utf-8', errors='replace').read()
         b = Balance()
         b.feed(s)
         if b.stack or b.errors:
@@ -311,11 +311,11 @@ def verify(slug):
     if not os.path.exists(art):
         problems.append('記事ファイルができていません')
     else:
-        s = open(art, encoding='utf-8').read()
+        s = open(art, encoding='utf-8', errors='replace').read()
         for need in ('postnav:start', 'postbody:start', 'class="postmeta"', 'adsbygoogle'):
             if need not in s:
                 problems.append('記事に %s が入っていません' % need)
-    idx = open(os.path.join(ROOT, 'blog', 'index.html'), encoding='utf-8').read()
+    idx = open(os.path.join(ROOT, 'blog', 'index.html'), encoding='utf-8', errors='replace').read()
     if '/blog/' + slug in idx:
         pass
     else:
@@ -400,7 +400,7 @@ def main():
     # 組み立てに失敗したときに空ファイルが残らないよう、先に文字列を作る
     page = render_page(m, date)
     open(os.path.join(ROOT, 'blog', m['slug'] + '.html'), 'w',
-         encoding='utf-8', newline='').write(page)
+         encoding='utf-8', newline='', errors='replace').write(page)
     register(m, date)
 
     print()
