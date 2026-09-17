@@ -30,8 +30,8 @@
 <!-- Google AdSense -->
 <script async fetchpriority="low" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8613999974980382"
      crossorigin="anonymous"></script>
-<title>ブラウザだけでは動画を保存できない｜CORSを実測して確かめる</title>
-<meta name="description" content="別オリジンのデータをJavaScriptが読めないのはなぜか。実際にfetchして、no-corsが返す空の応答と、Origin・Referer・User-Agent・Cookieが必ず書き換えられる様子を実測しました。CORSは要求の鍵ではなく応答の門です。">
+<title>ブラウザで見えるのに fetch で読めない｜CORS の制約と確認方法</title>
+<meta name="description" content="表示できるデータを別サイトの JavaScript から読めない理由。CORS、no-cors、プリフライト、ヘッダーの制約を整理し、通信エラーを切り分ける確認手順を紹介します。">
 <link rel="canonical" href="https://mdf.works/blog/cors">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="theme-color" content="#131720">
@@ -39,15 +39,15 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="mdf.works">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="ブラウザだけでは動画を保存できない｜CORSを実測して確かめる">
-<meta property="og:description" content="要求は送れる。けれど中身は読めない。その境目を実際に測りました。">
+<meta property="og:title" content="ブラウザで見えるのに fetch で読めない｜CORS の制約と確認方法">
+<meta property="og:description" content="表示できるデータを別サイトの JavaScript から読めない理由。CORS、no-cors、プリフライト、ヘッダーの制約を整理し、通信エラーを切り分ける確認手順を紹介します。">
 <meta property="og:url" content="https://mdf.works/blog/cors">
 <meta property="og:image" content="https://mdf.works/assets/og/cors.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ブラウザだけでは動画を保存できない｜CORSを実測して確かめる">
-<meta name="twitter:description" content="要求は送れる。けれど中身は読めない。その境目を実際に測りました。">
+<meta name="twitter:title" content="ブラウザで見えるのに fetch で読めない｜CORS の制約と確認方法">
+<meta name="twitter:description" content="表示できるデータを別サイトの JavaScript から読めない理由。CORS、no-cors、プリフライト、ヘッダーの制約を整理し、通信エラーを切り分ける確認手順を紹介します。">
 <meta name="twitter:image" content="https://mdf.works/assets/og/cors.png">
 <meta name="twitter:creator" content="@sugerslp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
@@ -57,11 +57,11 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "ブラウザだけでは動画を保存できない — CORS を実測して確かめる",
-      "description": "別オリジンのデータを JavaScript が読めない仕組みを、実際に fetch して確かめた記録。no-cors が返す空の応答と、書き換えられるヘッダーの実測。",
+      "headline": "ブラウザで見えるのに fetch で読めない — CORS の制約と確認方法",
+      "description": "表示できるデータを別サイトの JavaScript から読めない理由。CORS、no-cors、プリフライト、ヘッダーの制約を整理し、通信エラーを切り分ける確認手順を紹介します。",
       "image": "https://mdf.works/assets/og/cors.png",
       "datePublished": "2026-08-27",
-      "dateModified": "2026-08-27",
+      "dateModified": "2026-09-17",
       "inLanguage": "ja",
       "articleSection": "ブラウザ",
       "author": { "@id": "https://mdf.works/#person" },
@@ -80,7 +80,7 @@
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mdf.works/" },
         { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mdf.works/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "ブラウザだけでは動画を保存できない", "item": "https://mdf.works/blog/cors" }
+        { "@type": "ListItem", "position": 3, "name": "ブラウザで見えるのに fetch で読めない", "item": "https://mdf.works/blog/cors" }
       ]
     }
   ]
@@ -623,17 +623,12 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
 <main id="main">
   <div class="wrap prose">
 
-    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>ブラウザだけでは動画を保存できない</p>
+    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>ブラウザで見えるのに fetch で読めない</p>
 
     <div class="page-head">
       <p class="eyebrow">Browser</p>
-      <h1>ブラウザだけでは動画を保存できない<br>CORS を実測して確かめる</h1>
-      <p class="lead">
-        このサイトのツールは、どれもブラウザの中だけで動きます。
-        では動画の保存も同じようにできるのか、と考えて調べたら、はっきり無理でした。
-        <strong>要求は送れるのに、返ってきた中身が読めない。</strong>
-        その境目がどこにあるのかを、実際に測った記録です。
-      </p>
+      <h1>ブラウザで見えるのに fetch で読めない<br>CORS の制約と確認方法</h1>
+      <p class="lead">表示できるデータを別サイトの JavaScript から読めない理由。CORS、no-cors、プリフライト、ヘッダーの制約を整理し、通信エラーを切り分ける確認手順を紹介します。</p>
       <div class="postmeta">
         <span class="cat">ブラウザ</span>
         <time datetime="2026-08-27">2026年8月27日</time>
@@ -647,168 +642,75 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
     </nav>
 
     <!-- postbody:start --><div class="postbody">
-    <h2>まず測ってみる</h2>
-    <p>
-      ローカルに置いたページから、いくつかの宛先へ <code>fetch</code> しました。
-      比較のために、<strong>CORS を許可しているAPI</strong>を1件混ぜてあります。
-      これが読めていれば「そもそも通信できていない」という説明は消えます。
-    </p>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th scope="col">宛先</th><th scope="col">結果</th><th scope="col">本文の読み取り</th></tr></thead>
-        <tbody>
-          <tr><td>CORS を許可しているAPI</td><td>status 200</td><td><strong>199,008 文字</strong></td></tr>
-          <tr><td>動画サイトの視聴ページ</td><td><code>TypeError: Failed to fetch</code></td><td>—</td></tr>
-          <tr><td>その内部API</td><td><code>TypeError: Failed to fetch</code></td><td>—</td></tr>
-          <tr><td>同じものを <code>no-cors</code> で</td><td>type <code>opaque</code> / status 0</td><td><strong>0 文字</strong></td></tr>
-          <tr><td>動画データの配信元</td><td><code>TypeError: Failed to fetch</code></td><td>—</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p>
-      1行目が 199,008 文字読めています。回線は生きています。
-      にもかかわらず他は読めない。<strong>差はサーバー側が許可を出しているかどうかだけ</strong>でした。
-    </p>
-    <p>
-      いちばん示唆的なのは4行目です。<code>no-cors</code> を指定すると要求は送信できます。
-      失敗しません。ところが返ってきた応答は <code>opaque</code> と呼ばれる状態で、
-      <strong>本文の読み取りは 0 文字</strong>。要求は通り、応答も届き、しかし中身だけが渡されない。
-    </p>
-
-    <h2>CORS は要求の鍵ではなく、応答の門</h2>
-    <p>
-      ここを取り違えると、ずっと解決策を探し続けることになります。私も最初そうでした。
-      <strong>CORS は「送っていいか」の判定ではなく、「返ってきたものを読ませていいか」の判定です。</strong>
-    </p>
-    <p>
-      ブラウザは、いま動いているページのオリジン（プロトコル・ホスト・ポートの組）を自分で保持しています。
-      応答が届いた時点で、その中の <code>Access-Control-Allow-Origin</code> と、
-      <strong>自分が知っている本当のオリジン</strong>を突き合わせます。
-      一致しなければ、応答は届いているのに JavaScript には渡しません。それが <code>opaque</code> です。
-    </p>
-    <div class="note">
-      画像や <code>&lt;video&gt;</code> は別オリジンでも表示できるのに、と思うかもしれません。
-      あれは<strong>「表示する」ことは許され、「中身を読む」ことは許されていない</strong>状態です。
-      別オリジンの画像を描いた <code>&lt;canvas&gt;</code> から画素を読み出そうとすると、
-      同じ理由でエラーになります。<strong>見えることと読めることは、別の権限です。</strong>
-    </div>
-
-    <h2>では偽装すればいいのでは</h2>
-    <p>
-      応答の判定にオリジンが使われるなら、そのオリジンを詐称すればいい。自然な発想です。これも測りました。
-      ローカルに、受け取ったヘッダーをそのまま返すだけのサーバーを立て、
-      <strong>別のポート（＝別オリジン）のページから</strong>偽装したヘッダーを送ってみます。
-    </p>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th scope="col">送ろうとした値</th><th scope="col">実際に届いた値</th><th scope="col"></th></tr></thead>
-        <tbody>
-          <tr><td><code>Origin: (別サイト)</code></td><td>本当のオリジン</td><td>上書きされた</td></tr>
-          <tr><td><code>Referer: (別サイト)</code></td><td>本当の参照元</td><td>上書きされた</td></tr>
-          <tr><td><code>User-Agent: (偽のUA)</code></td><td>本物の Chrome の UA</td><td>上書きされた</td></tr>
-          <tr><td><code>Cookie: SID=fake</code></td><td>（届いていない）</td><td>削除された</td></tr>
-          <tr><td><code>X-Youtube-Client-Name: 1</code></td><td><code>1</code></td><td><strong>通った</strong></td></tr>
-          <tr><td><code>X-Test-Allowed: this-should-pass</code></td><td><code>this-should-pass</code></td><td><strong>通った</strong></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p>
-      独自のヘッダーは自由に付けられます。素通りしました。
-      ところが<strong>「誰からの要求か」を示す4つだけは、指定しても必ずブラウザ自身の値に差し替えられます</strong>。
-      仕様上 <strong>forbidden header name</strong> と呼ばれる区分で、スクリプトからは書き込めません。
-    </p>
-    <p>
-      なぜこの4つなのか。<strong>サーバーがこれらを信用して認可を決めているから</strong>です。
-      スクリプトに書き換えさせたら、ログイン状態の判定も、参照元の制限も、
-      オリジンごとの許可も、すべて意味を失います。
-    </p>
-    <div class="note good">
-      <strong>そして仮に偽装できたとしても、結果は変わりません。</strong>
-      読ませるかどうかを決める突き合わせに使われるのは、要求ヘッダーに書いた値ではなく、
-      ブラウザが自分で覚えている本当のオリジンだからです。
-      要求を細工しても、読み取りの判定には影響しません。
-    </div>
-
-    <h2>動画サイトのページでは動くのに</h2>
-    <p>
-      同じことをしているように見えて、条件がまったく違います。
-      <strong>あちらのコードは、本当にそのオリジンで動いています。</strong>
-      自分のドメインの資源を読むのは、そもそも別オリジンではないので判定の対象外です。
-    </p>
-    <p>
-      配信元が別ドメインになっている場合も、そこには
-      <strong>その動画サイト自身のオリジンを名指しした許可</strong>が返ります。
-      許可は出ている。ただし宛先が限定されている。
-      他所のページから同じ要求を出すと、ブラウザは正直に自分のオリジンを書くので、許可が返りません。
-      <strong>偽装が防がれているというより、偽装できないことを前提に成り立っている設計</strong>です。
-    </p>
-
-    <h2>「JavaScript で処理を模倣する」を分解する</h2>
-    <p>
-      模倣という言葉を、2つに割ると見通しがよくなります。
-    </p>
-    <ul>
-      <li><strong>計算は模倣できます。</strong>署名の組み立ても、パラメータの変換も、アルゴリズムである以上 JavaScript で書けます。ここは壁ではありません</li>
-      <li><strong>通信は模倣できません。</strong>その計算に必要な入力を取ってこられず、計算結果を使って得たデータも読めません</li>
-    </ul>
-    <p>
-      詰まっているのは処理の再現ではなく、<strong>入口と出口の両方</strong>です。
-      中間をどれだけ完璧に再現しても、渡すものと受け取るものがありません。
-    </p>
-    <h3>WebAssembly なら、という話</h3>
-    <p>
-      Python をブラウザで動かす仕組みなどを持ち出しても解決しません。
-      <strong>wasm 側からの通信も、最終的にはブラウザの fetch を通ります。</strong>
-      言語を変えても、通信を許可するかどうかを決めているのはブラウザのままです。
-    </p>
-    <h3>拡張機能は別枠</h3>
-    <p>
-      これは事実として別です。拡張機能は権限を宣言することで別オリジンを読めます。
-      ただしそれは<strong>ウェブページではありません</strong>。
-      利用者が明示的にインストールし、権限に同意したから与えられている力です。
-      その同意が具体的に何を許しているかは<a href="/blog/extension">拡張機能の権限の見かた</a>に書きました。
-    </p>
-
-    <h2>これは制限ではなく、前提</h2>
-    <p>
-      不便に見えますが、逆から考えると位置づけが変わります。
-      <strong>もし別オリジンの応答を自由に読めたら、何が起きるか。</strong>
-    </p>
-    <p>
-      あなたが社内の Wiki やメールにログインしたままのタブを開いているとします。
-      そこで別のタブで開いた見知らぬページの JavaScript が、
-      あなたのブラウザからその Wiki へ要求を出し、<strong>あなたのログイン状態のまま中身を読めてしまう</strong>。
-      認証を通す必要すらありません。ブラウザが Cookie を付けてくれるからです。
-    </p>
-    <p>
-      だから既定は<strong>「読めない」</strong>で、サーバーが明示的に許した場合だけ読める、という順序になっています。
-      動画が保存できないのは、この設計のいわば副作用です。
-      <strong>動画のために例外を作ると、上の話も一緒に成立してしまいます。</strong>
-    </p>
-    <div class="note warn">
-      「ブラウザだけで動く」と称する変換サービスの多くは、実際には運営者のサーバーを経由しています。
-      ここまで見たとおり、経由せずに成立させる方法が無いからです。
-      <strong>ファイルを渡す前に、それがどこへ行くのかを一度考える価値があります。</strong>
-      このサイトのツールが送信しないと書いているのは、
-      <a href="/kuroko/">利用者のファイルを</a>入力として受け取るだけで、外へ出す経路を持たないためです。
-    </div>
-
-    <h2>まとめ</h2>
-    <ul>
-      <li>回線は通っていても、<strong>許可のない応答は中身が読めない</strong>。実測で 0 文字だった</li>
-      <li>CORS は要求の鍵ではなく、<strong>応答を読ませるかどうかの門</strong></li>
-      <li>Origin・Referer・User-Agent・Cookie は<strong>スクリプトから書き換えられない</strong>。認可の土台だから</li>
-      <li>偽装できたとしても、判定に使われるのは<strong>ブラウザが覚えている本当のオリジン</strong></li>
-      <li>模倣できないのは計算ではなく<strong>通信</strong>。言語を変えても同じ</li>
-      <li>この既定があるおかげで、<strong>ログイン中のタブを他所のページから読まれずに済んでいる</strong></li>
-    </ul>
-
+<h2>「表示できる」と「データを読める」の違い</h2>
+<p>動画や画像がブラウザに表示されるのに、別のサイトの JavaScript から同じ URL を fetch すると失敗することがあります。これは JavaScript の計算能力の限界ではありません。<strong>表示と、取得した内容をプログラムから読み出すことには、異なる条件がある</strong>ためです。</p>
+<p>ブラウザだけでのファイル保存が一律に不可能なわけではありません。利用者が選んだローカルファイル、同じオリジンのデータ、配信元が CORS で読み取りを許可したデータは処理できます。このサイトの画像ツールも、利用者が選んだファイルをブラウザ内で処理します。</p>
+<p>オリジンは、URL のスキーム・ホスト・ポートの組です。たとえば <code>http://localhost:8000</code> と <code>http://localhost:8001</code> は別オリジンです。自分で立てたサーバー同士でも、ポートが違えば今回の確認に使えます。</p>
+<h2>過去の試行から言えること、言えないこと</h2>
+<p>以前の版では、ある API で status 200 と 199,008 文字の本文が得られ、別の宛先では <code>TypeError: Failed to fetch</code> になったことを根拠に、違いは CORS だけだと説明していました。<strong>その結果だけでは原因を断定できません</strong>。宛先ごとの DNS・TLS・接続状態や、URL の有効性は別に確認する必要があります。</p>
+<p>特に、実際に利用できる完全な動画配信 URL を確認していない試行から、配信元の CORS 設定を判断することはできません。再現条件が揃っていないため、その比較は特定サービスの仕様を示す証拠としては扱いません。以下は Fetch の仕様と MDN の説明に基づいて、原因を切り分ける方法を整理したものです。</p>
+<h2>cors と no-cors の結果を分ける</h2>
+<div class="tablewrap"><table>
+<thead><tr><th scope="col">条件</th><th scope="col">JavaScript から見える結果</th></tr></thead>
+<tbody>
+<tr><td>通常の fetch で CORS が許可される</td><td>許可された応答本文とヘッダーを読み取れる</td></tr>
+<tr><td>通常の fetch で CORS の検査に失敗する</td><td>Promise が拒否される。opaque な Response が返るわけではない</td></tr>
+<tr><td>no-cors で別オリジンの取得が成功する</td><td>opaque な Response。status は 0 と見え、本文やヘッダーは読み取れない</td></tr>
+<tr><td>ネットワーク自体に問題がある</td><td>no-cors でも失敗する場合がある</td></tr>
+</tbody></table></div>
+<p><code>no-cors</code> は CORS を突破して本文を読むためのオプションではありません。opaque な応答で本文が空に見えても、サーバーが空のファイルを返したことや、実際の HTTP ステータスが 0 だったことを意味しません。<strong>プログラムに情報を公開しない応答</strong>です。</p>
+<h2>実際に確認するときの順序</h2>
+<ol class="steps">
+<li><b>同じオリジンの小さなファイルを用意する</b><span>自分のページと同じサーバーに text ファイルを置き、URL の間違いや JavaScript の例外を先に取り除きます。</span></li>
+<li><b>管理できる別オリジンで比較する</b><span>別ポートのサーバーで同じ本文を返し、Access-Control-Allow-Origin の有無だけを変えます。比較する URL、ブラウザのバージョン、送ったヘッダーを記録します。</span></li>
+<li><b>開発者ツールで通信とエラーを確認する</b><span>Console のエラーと Network の要求・応答を照合します。Failed to fetch の文字列だけで CORS と決めないことが大切です。</span></li>
+<li><b>読み取り失敗と HTTP エラーを区別する</b><span>読み取りが許可された応答なら、404 や 500 でも fetch 自体は解決する場合があります。response.ok と status も確認します。</span></li>
+</ol>
+<pre><code>try {
+  const response = await fetch(url);
+  console.log(response.type, response.status, response.ok);
+  const text = await response.text();
+  console.log(text.length);
+} catch (error) {
+  console.error(error);
+  // Console と Network で原因を確認する。
+}</code></pre>
+<p>この例は読み取り結果を調べるものです。ログインが必要なサービスの状態や、署名付き URL の期限まで検証するものではありません。自分で管理するテスト用データを使えば、認証や配信元固有の事情を切り離して確認できます。</p>
+<h2>実際の要求が送られる前に止まることもある</h2>
+<p>CORS は応答の読み取りを制御しますが、「要求は必ず送られる」とも言えません。条件によってはブラウザが先に <code>OPTIONS</code> のプリフライト要求を送り、メソッドやヘッダーが許可されるか確認します。<strong>プリフライトに失敗すれば、本来送りたかった要求は送信されません</strong>。</p>
+<p>一方、プリフライトの要らない要求は、サーバーに届いてから応答の読み取りだけが拒否される場合があります。したがって CORS だけを、操作の実行を防ぐ仕組みとして使うこともできません。サーバー側の認証・認可や CSRF 対策は別に必要です。</p>
+<h2>ヘッダーはどこまで設定できるか</h2>
+<p>ブラウザには、ページのスクリプトから自由に設定できないヘッダーがあります。ただし「Origin・Referer・User-Agent・Cookie の4つだけが、必ず書き換わる」という説明は正確ではありません。</p>
+<div class="tablewrap"><table>
+<thead><tr><th scope="col">ヘッダー</th><th scope="col">確認したい点</th></tr></thead><tbody>
+<tr><td>Origin / Cookie</td><td>通常のページでは fetch の headers に任意の値を設定できない。ブラウザが管理する</td></tr>
+<tr><td>Referer</td><td>headers への直接指定には制限がある。一方、referrer や referrerPolicy オプションで仕様の範囲内の制御ができる</td></tr>
+<tr><td>User-Agent</td><td>現在の仕様では禁止ヘッダー一覧から外れている。ただし MDN は Chrome の fetch が指定値を落とす実装上の挙動を説明している</td></tr>
+<tr><td>独自の X- ヘッダー</td><td>設定できても、別オリジンへの要求ではプリフライトと配信元の許可が必要になる場合がある</td></tr>
+</tbody></table></div>
+<p>禁止対象はこの表だけではありません。最新の一覧は MDN と Fetch 標準で確認できます。また、User-Agent や Referer の値を変更できる環境でも、それだけでブラウザの CORS 判定を無効化できるわけではありません。</p>
+<h2>動画サイト自身のページと条件が違う理由</h2>
+<p>同じオリジンからの取得、配信元が許可した別オリジンからの取得、メディア要素での再生は、それぞれ条件が異なります。別ドメインの動画が再生されたことから「その配信元はすべてのページの fetch を許可している」とも、「特定のオリジンだけ許可している」とも断定できません。実際の配信方式と応答を確認する必要があります。</p>
+<p>さらに、認証・URL の期限・コンテンツ保護など、CORS 以外の条件もあります。CORS の許可だけであらゆる動画を保存できるわけではなく、再生できたことも再利用の許可を示すものではありません。</p>
+<h2>言語を変えると解決するか</h2>
+<p>JavaScript でも WebAssembly でも、ブラウザの fetch を使う部分には同じ制約があります。ファイル形式の変換などの計算を移植できても、配信元から読み取る許可がない問題は別です。逆に、読み取れる入力であれば、ブラウザ内の変換は十分に可能です。</p>
+<p>拡張機能やサーバー上のプログラムは、通常のページとは権限や実行環境が違います。拡張機能の場合も、許可されたホストやコードの実行場所によって挙動が変わります。詳しくは<a href="/blog/extension">拡張機能の権限の見かた</a>を参照してください。</p>
+<h2>この区別が守っているもの</h2>
+<p>見知らぬサイトが、利用者の社内システムやメールの応答を自由に読める状態は困ります。Cookie の送信には fetch の credentials 設定、SameSite、ブラウザの第三者 Cookie 制限なども関わるため、「ログインしたタブがあると常に認証情報が付く」わけではありません。それでも、<strong>別オリジンの応答を誰に読ませるか</strong>を制御する意味は変わりません。</p>
+<p>通信の失敗を調べるときは、まず同じ条件で再現し、次に Network と Console を見る。そのうえで、読み取り許可の問題なのか、接続や認証の問題なのかを分ける。この順序なら、言語の移植やヘッダーの変更を試す前に、必要な対策を絞れます。</p>
+<h2>参考資料と更新</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Request/mode">MDN：Request.mode</a> — cors と no-cors の応答</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">MDN：Forbidden request header</a> — 設定できないヘッダーと実装上の注意</li>
+<li><a href="https://fetch.spec.whatwg.org/">WHATWG Fetch 標準</a> — CORS・プリフライト・credentials の定義</li>
+</ul>
+<p>2026年9月17日確認・更新。以前の版にあった「動画保存は一律に不可能」「失敗原因は CORS だけ」「4つのヘッダーは必ず書き換わる」という断定を修正しました。</p>
     </div><!-- postbody:end -->
     <!-- postnav:start -->
     <div class="postnav">
       <div class="share">
         <span class="label">この記事を共有</span>
-        <a href="https://x.com/intent/post?text=ブラウザだけでは動画を保存できない — CORS を実測して確かめる&amp;url=https://mdf.works/blog/cors" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/intent/post?text=ブラウザで見えるのに fetch で読めない — CORS の制約と確認方法&amp;url=https://mdf.works/blog/cors" target="_blank" rel="noopener noreferrer">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.2-5.8 6.2H1.5l7.5-8.6L1 3h6.7l4.6 5.8L17.5 3zm-1.1 16.2h1.8L7.7 4.7H5.8l10.6 14.5z"/></svg>
           X で共有
         </a>

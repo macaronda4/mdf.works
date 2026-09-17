@@ -7,6 +7,9 @@ rem code page, so UTF-8 Japanese comments corrupt the commands themselves.
 rem Anything that needs Japanese belongs in publish_next.py, not here.
 rem ---------------------------------------------------------------------------
 setlocal
+set "PYTHONUTF8=1"
+set "PYTHONIOENCODING=utf-8"
+set "PYTHONUNBUFFERED=1"
 cd /d "%~dp0.."
 
 set "LOG=%~dp0publish.log"
@@ -17,7 +20,7 @@ rem read as a file handle, so "exit=%RC%>>" silently swallows the number.
 >> "%LOG%" echo ======== %date% %time% ========
 
 rem --write already implies commit and push (use --no-push to keep it local)
->> "%LOG%" 2>&1 python "_local\publish_next.py" --write
+>> "%LOG%" 2>&1 python -X utf8 "_local\publish_next.py" --write
 set RC=%errorlevel%
 
 if "%RC%"=="0" (

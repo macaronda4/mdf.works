@@ -30,25 +30,25 @@
 <!-- Google AdSense -->
 <script async fetchpriority="low" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8613999974980382"
      crossorigin="anonymous"></script>
-<title>QRコードは中身が見えない｜貼り替え詐欺と、読み取る前の確認</title>
-<meta name="description" content="四角い模様から URL を読める人はいません。QR コードに発行元の証明はなく、上から貼るだけで宛先を差し替えられます。貼り替え・メール添付・Wi-Fi 設定の悪用と、タップする前にできる確認、写り込んだ QR から漏れるものまで。">
-<link rel="canonical" href="https://mdf.works/blog/qr">
+<title>パスワードマネージャーの選び方 - 何を預けることになるのか</title>
+<meta name="description" content="パスワードマネージャーを選ぶときに見る点をまとめました。端末内で鍵を作る仕組み、保管庫が流出したときに最後の砦になるもの、ブラウザ内蔵で足りるか、認証コードを同居させるかの線引き、そして復旧経路の設計について。">
+<link rel="canonical" href="https://mdf.works/blog/manager">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="theme-color" content="#131720">
 <meta name="author" content="マカロン大福">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="mdf.works">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="QRコードは中身が見えない｜貼り替え詐欺と、読み取る前の確認">
-<meta property="og:description" content="発行元の証明がないリンクを、目で確かめないまま開いている。">
-<meta property="og:url" content="https://mdf.works/blog/qr">
-<meta property="og:image" content="https://mdf.works/assets/og/qr.png">
+<meta property="og:title" content="パスワードマネージャーの選び方 - 何を預けることになるのか">
+<meta property="og:description" content="見るのは機能の数ではなく、鍵がどこで作られてどこまで運ばれるかです。">
+<meta property="og:url" content="https://mdf.works/blog/manager">
+<meta property="og:image" content="https://mdf.works/assets/og/manager.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="QRコードは中身が見えない｜貼り替え詐欺と、読み取る前の確認">
-<meta name="twitter:description" content="発行元の証明がないリンクを、目で確かめないまま開いている。">
-<meta name="twitter:image" content="https://mdf.works/assets/og/qr.png">
+<meta name="twitter:title" content="パスワードマネージャーの選び方 - 何を預けることになるのか">
+<meta name="twitter:description" content="見るのは機能の数ではなく、鍵がどこで作られてどこまで運ばれるかです。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/manager.png">
 <meta name="twitter:creator" content="@sugerslp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
 <script type="application/ld+json">
@@ -57,30 +57,51 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "QRコードは中身が見えない — 貼り替え詐欺と、読み取る前の確認",
-      "description": "QR コードには発行元を示す情報がない。貼り替えという手口の理由と、タップする前にできる確認、写り込んだ QR から漏れるもの。",
-      "image": "https://mdf.works/assets/og/qr.png",
-      "datePublished": "2026-08-23",
-      "dateModified": "2026-08-23",
+      "headline": "パスワードマネージャーの選び方 - 何を預けることになるのか",
+      "description": "パスワードマネージャーの選定基準を、鍵の生成場所・流出時の耐性・移行性・復旧経路の観点から整理した記事。",
+      "image": "https://mdf.works/assets/og/manager.png",
+      "datePublished": "2026-09-17",
+      "dateModified": "2026-09-17",
       "inLanguage": "ja",
       "articleSection": "セキュリティ",
-      "author": { "@id": "https://mdf.works/#person" },
-      "publisher": { "@id": "https://mdf.works/#person" },
-      "mainEntityOfPage": "https://mdf.works/blog/qr"
+      "author": {
+        "@id": "https://mdf.works/#person"
+      },
+      "publisher": {
+        "@id": "https://mdf.works/#person"
+      },
+      "mainEntityOfPage": "https://mdf.works/blog/manager"
     },
     {
       "@type": "Person",
       "@id": "https://mdf.works/#person",
       "name": "マカロン大福",
       "url": "https://mdf.works/about",
-      "sameAs": ["https://x.com/sugerslp"]
+      "sameAs": [
+        "https://x.com/sugerslp"
+      ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mdf.works/" },
-        { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mdf.works/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "QRコードは中身が見えない", "item": "https://mdf.works/blog/qr" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://mdf.works/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "ブログ",
+          "item": "https://mdf.works/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "パスワードマネージャーの選び方",
+          "item": "https://mdf.works/blog/manager"
+        }
       ]
     }
   ]
@@ -623,21 +644,18 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
 <main id="main">
   <div class="wrap prose">
 
-    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>QRコードは中身が見えない</p>
+    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>パスワードマネージャーの選び方</p>
 
     <div class="page-head">
       <p class="eyebrow">Security</p>
-      <h1>QRコードは中身が見えない<br>貼り替え詐欺と、読み取る前の確認</h1>
+      <h1>パスワードマネージャーの選び方<br>何を預けることになるのか</h1>
       <p class="lead">
-        リンクなら、指を置けば宛先が読めます。QRコードだけは読めません。
-        四角い模様を見て URL を判別できる人はいないからです。
-        <strong>中身を確認できないまま開いている</strong>という一点が、
-        この仕組みの便利さと危うさの両方を作っています。
+        全部を1か所に置くのは怖い。その感覚はもっともです。それでも<strong>使い回しをやめる手段としては、これがいちばん現実的</strong>でした。判断の分かれ目は機能の数ではなく、<strong>鍵がどこで作られ、どこまで運ばれるか</strong>。そして、保管庫が盗まれた日に何が残るかです。
       </p>
       <div class="postmeta">
         <span class="cat">セキュリティ</span>
-        <time datetime="2026-08-23">2026年8月23日</time>
-        <span class="read">約6分で読めます</span>
+        <time datetime="2026-09-17">2026年9月17日</time>
+        <span class="read">約8分で読めます</span>
       </div>
     </div>
 
@@ -647,174 +665,234 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
     </nav>
 
     <!-- postbody:start --><div class="postbody">
-    <h2>QRコードが持っているのは、ただの文字列</h2>
+    <h2>なぜ1か所に集めるほうが安全になるのか</h2>
     <p>
-      QRコードは、文字列を模様の形にして運ぶだけの仕組みです。
-      入っているのは URL であることが多いのですが、そう決まっているわけではありません。
-      読み取ったスマートフォンは、<strong>文字列の先頭の書式を見て、何をするかを決めています</strong>。
+      被害の入口の一つは、パスワードの<strong>使い回し</strong>です。
+      どこかで漏れた組み合わせが、別のサービスに片端から試される。
+      同じものを使っていれば、どれだけ複雑でも通ってしまいます。
+      <strong>強さの問題ではなく、他所で漏れたかどうかの問題</strong>です。
     </p>
+    <p>
+      使い回しをやめるには、サービスごとに違うものを持つしかありません。
+      そして人間は数十個の乱数を覚えられません。
+      覚えようとすると、規則性のある変形（末尾の数字を変えるなど）に落ち着き、
+      <strong>推測されやすい形に戻ってしまいます</strong>。
+      マネージャーは、この「覚える」という制約そのものを外す道具です。
+    </p>
+    <div class="note good">
+      副次的な効果のほうが大きいかもしれません。
+      多くのマネージャーは<strong>登録したURLとの一致を確認して自動入力します</strong>。一致の範囲は製品や設定によって異なります。
+      「いつも出るのに今日は出てこない」が、偽サイトを見分ける合図になります。
+      疲れているときも急いでいるときも同じ判定をするので、
+      人間の注意力より安定して働きます。
+    </div>
+
+    <h2>いちばん大事な一点</h2>
+    <p>
+      比べるべきは機能表ではなく、ここです。
+      <strong>保管庫を開ける鍵が、どこで作られて、どこまで運ばれるか。</strong>
+    </p>
+    <p>
+      まともな設計では、鍵はあなたの端末の中で作られます。
+      マスターパスワードから鍵を導き、その鍵で保管庫を暗号化してから送る。
+      サーバーに届くのは<strong>すでに暗号化された塊</strong>だけで、事業者はそれを開けられません。
+      ただし、暗号化された保管庫が盗まれる可能性は残ります。弱いマスターパスワードや端末の侵害まで防げるわけではありません。
+    </p>
+    <p>
+      確認するのは、<strong>復旧できるかだけでなく、復旧に誰の鍵が必要か</strong>です。
+      利用者が保管する復旧キーや、事前に承認した端末・組織管理者の鍵を使う設計もあります。
+      復旧機能があるだけでは、サービス運営会社が平文を読める証拠になりません。
+      たとえば Bitwarden の組織向け復旧は、組織の公開鍵で暗号化したアカウント鍵を用います。
+      誰に復旧権限があり、どの情報を失うと復旧できないのかを、製品の説明で確かめます。
+    </p>
+
+    <h2>保管庫ごと盗まれた日に、何が残るか</h2>
+    <p>
+      暗号化されていても、<strong>塊そのものを持ち去られる</strong>ことはあります。
+      事業者への侵入や、端末からの流出です。このとき何が起きるかを考えておくと、
+      選ぶ基準がはっきりします。
+    </p>
+    <p>
+      攻撃者は手元で、マスターパスワードの候補を延々と試せます。
+      ネットワーク越しではないので、回数制限も待ち時間もありません。
+      ここで効くのが2つです。
+    </p>
+    <ul>
+      <li><strong>マスターパスワードの長さと予測しにくさ</strong> - 長くても有名な文章や使い回しは避けます</li>
+      <li><strong>鍵を導くときの手間</strong> - 1回の試行にわざと時間をかける仕組みがあり、その回数が多いほど総当たりが遅くなります。設定で増やせる製品もあります</li>
+    </ul>
+    <div class="note warn">
+      暗号化されていない項目がある製品もあります。
+      <strong>登録先のURLやメモが平文のまま</strong>だと、中身は開けられなくても
+      「どのサービスを使っているか」の一覧が渡ります。
+      それだけでも、狙い撃ちの材料としては十分です。
+      何が暗号化の対象なのかは、仕様として公開されているはずの情報です。
+    </div>
+
+    <h2>そのほかに見るところ</h2>
     <div class="tablewrap">
       <table>
-        <thead><tr><th scope="col">中身の例</th><th scope="col">解釈</th><th scope="col">読み取ったときの動き</th></tr></thead>
+        <thead><tr><th scope="col">項目</th><th scope="col">見かた</th></tr></thead>
         <tbody>
-          <tr><td><code>https://…</code></td><td>URL</td><td>ブラウザで開く</td></tr>
-          <tr><td><code>WIFI:T:WPA;S:名前;P:パスワード;;</code></td><td>Wi-Fi の設定</td><td>その場で「接続しますか」が出る</td></tr>
-          <tr><td><code>tel:</code> / <code>SMSTO:</code></td><td>電話番号・SMS</td><td>発信画面・送信画面が開く</td></tr>
-          <tr><td><code>MECARD:</code> / <code>BEGIN:VCARD</code></td><td>連絡先</td><td>連絡帳への追加を促す</td></tr>
-          <tr><td>書式なしの文章</td><td>ただのテキスト</td><td>文字として表示するだけ</td></tr>
+          <tr><td>書き出せるか</td><td>いつでも全件を取り出せること。取り出せない道具は乗り換えられません</td></tr>
+          <tr><td>使う場所</td><td>普段使う端末とブラウザに揃っているか。足りないと結局メモに戻ります</td></tr>
+          <tr><td>共有</td><td>家族と共有する予定があるなら、その仕組みがあるか。共有だけ平文になる実装は避けます</td></tr>
+          <tr><td>認証コード</td><td>入れられますが、同じ籠に卵を全部入れる形になります。後述します</td></tr>
+          <tr><td>監査の有無</td><td>外部の検査を受けて結果を公開しているか。実装の中身は利用者に見えないので、ここが手がかりです</td></tr>
+          <tr><td>不具合への対応</td><td>過去に問題が起きたとき、何を、いつ、どこまで公表したか。事故の有無より対応のほうが情報量があります</td></tr>
         </tbody>
       </table>
     </div>
+
+    <h2>ブラウザ内蔵のもので足りるか</h2>
     <p>
-      ここで押さえておきたいのは、この一覧のどこにも<strong>「誰が作ったか」が無い</strong>ことです。
-      QRコードには署名も証明書も入りません。規格にそういう欄が存在しないからです。
-      紙に印刷された文字列と同じで、<strong>誰でも作れて、誰でも刷れて、誰にも出所は分かりません</strong>。
+      結論として、<strong>何も使っていない状態から比べれば、内蔵のもので十分な前進です。</strong>
+      無料で、既に入っていて、自動入力も効きます。
+      「完璧でないならやらない」がいちばん損をする選択です。
+    </p>
+    <p>
+      独立した道具に移る理由があるとすれば、次のあたりです。
+    </p>
+    <ul>
+      <li>複数のブラウザや、別の会社の端末をまたいで使う</li>
+      <li>保管庫の鍵を、ブラウザのアカウントとは<strong>別に</strong>持ちたい</li>
+      <li>パスワード以外（控えの番号、書類の写しなど）も同じ場所に置きたい</li>
+      <li>家族と一部だけ共有したい</li>
+    </ul>
+    <p>
+      逆に、ブラウザのアカウントさえ固めれば足りる使い方なら、無理に移る必要はありません。
+      <strong>その場合、守るべきものはブラウザのアカウント1つに集約されます。</strong>
+      ここを二段階認証で固めるのが、実質的な保管庫の鍵になります。
     </p>
     <div class="note">
-      「QRコード」はデンソーウェーブの登録商標ですが、規格そのもの（ISO/IEC 18004）は公開されていて、
-      誰でも自由に生成できます。<strong>この開放性が普及の理由であり、同時に発行元を保証する仕組みが無い理由でもあります。</strong>
-      悪用しやすいから欠陥だ、という話ではなく、そもそも身元証明を担当していない部品だということです。
+      拡張機能として動くマネージャーは、性質上<strong>ページの中身に触れる権限</strong>を持ちます。
+      だからこそ入力欄を見つけて埋められるわけですが、
+      同じ権限を持つ拡張機能が他にもいくつ入っているかは、別の話として気にする価値があります。
+      権限の意味は<a href="/blog/extension">拡張機能の権限の見かた</a>に書きました。
     </div>
 
-    <h2>人が中身を検証できない、唯一のリンク</h2>
+    <h2>認証コードを同居させるか</h2>
     <p>
-      ウェブのリンクはマウスを重ねれば宛先が出ます。メールのリンクも長押しすれば読めます。
-      怪しいリンクを見分けろ、という助言が成り立つのは、<strong>見分ける材料が目の前にあるから</strong>です。
+      多くのマネージャーは、二段階認証のコードも作れます。便利です。
+      ただし<strong>パスワードとコードが同じ保管庫に入る</strong>ので、
+      保管庫が破られたときに二段階の意味が消えます。
     </p>
     <p>
-      QRコードにはそれがありません。確認は必ず「読み取ったあと」になります。
-      判断の順番が逆になっている、と考えると分かりやすいと思います。
-    </p>
-
-    <h3>誤り訂正という、もうひとつの性質</h3>
-    <p>
-      QRコードには誤り訂正が組み込まれていて、強さは L・M・Q・H の4段階です。
-      いちばん強い H なら、<strong>コード全体のおよそ30%が失われても復元できます</strong>。
-      真ん中にロゴを載せたコードが読めるのは、この余裕を使っているからです。
+      現実的な線引きとして、<strong>失って困る度合いが高いものだけ別にする</strong>のが扱いやすいと思います。
+      メール、銀行、それに保管庫自身。この3つは別の場所に置き、残りは同居させる。
+      全部を別にすると運用が続かず、全部を同居させると一点で崩れます。
     </p>
     <p>
-      汚れや折れに強いのは長所です。ただし裏返すと、
-      <strong>一部を隠しても読めてしまう</strong>ということでもあります。
-      これは最後の「写り込み」の話でもう一度出てきます。
+      対応しているサービスなら、コードよりパスキーのほうが強くなります。
+      人が読んで入力できる情報が存在しないので、そもそも渡せません。
+      方式ごとの違いは<a href="/blog/passkey">二段階認証はどれを選ぶか</a>に整理しています。
     </p>
 
-    <h2>実際に起きている手口</h2>
-
-    <h3>貼り替え</h3>
+    <h2>移すときの実務</h2>
     <p>
-      いちばん多いのがこれです。既存のQRの上に、別のQRのシールを貼る。それだけです。
-      駐車場の精算機、飲食店のメニュー、街頭のポスター、郵送されてきた請求書。
-      米国では FBI が2022年に、FTC が2023年に、
-      貼り替えられたQRコードについて注意喚起を出しています。
+      乗り換えや導入のとき、まとめて片付けたほうが後が楽になります。
     </p>
-    <p>
-      手口として厄介なのは、<strong>改ざんされたことが目で分からない</strong>点です。
-      文字なら書き換えれば違和感が出ますが、模様はもともと読めないので、
-      <strong>元がどんな模様だったかを誰も覚えていません</strong>。
-      比較対象が無い改ざんなので、注意深く見ても気づけないのです。
-    </p>
-
-    <h3>メールに画像として入れる</h3>
-    <p>
-      メールのセキュリティ対策は、本文に含まれる URL を調べて判定します。
-      QRは画像なので、<strong>URL の文字列がメールの中に存在しません</strong>。
-      検査をすり抜けたうえで、会社の管理下にないスマートフォンへ利用者を移動させられます。
-    </p>
-    <p>
-      「多要素認証の再設定が必要です」「配送の再手配はこちらから」といった文面と組み合わせるのが定番です。
-      パソコンで受け取ったメールを、スマートフォンで開かせる。この乗り換えが目的です。
-    </p>
-
-    <h3>Wi-Fi 設定のQR</h3>
-    <p>
-      店内に掲示された接続用のQRを差し替えれば、利用者は自分から偽のアクセスポイントにつなぎます。
-      パスワードを打つ手間すら要りません。<strong>親切な掲示ほど、疑われずに置き換えられます。</strong>
-    </p>
-
-    <h3>決済コードの取り違え</h3>
-    <p>
-      コード決済には向きが2つあります。店が掲示したコードを利用者が読む方式と、
-      利用者が画面に出したコードを店が読む方式です。
-      掲示物を差し替えられるのは前者だけなので、リスクの形も違います。
-    </p>
-    <p>
-      金額を自分で入力する方式のとき、確認すべきは金額よりも<strong>送金先として表示された名前</strong>です。
-      ここが店名と一致しているかを見る。読み取った直後の画面に、必ず出ています。
-    </p>
-    <div class="note warn">
-      <strong>読み取った時点では、まだ何も起きていません。</strong>
-      被害が確定するのは、開いた先で入力したときと、送金を確定したときです。
-      読み取りそのものを怖がるより、<strong>そのあとの2つの操作で止める</strong>ほうが現実的で、確実です。
-    </div>
-
-    <h2>タップする前にできる確認</h2>
     <ol class="steps">
       <li>
-        <b>カメラに出る宛先を読んでからタップする</b>
-        <span>iPhone も Android も、開く前にバナーやラベルで URL を出します。反射でタップしているなら、まずここを見る習慣に変えるだけで大きく違います。</span>
+        <b>書き出して中身を見る</b>
+        <span>CSVなどで書き出したファイルは<strong>平文</strong>の場合があります。暗号化エクスポートとの違いを確認します。作業が終わったら確実に消してください。ごみ箱に入れただけでは残ります。</span>
       </li>
       <li>
-        <b>ドメインは右から読む</b>
-        <span><code>mdf.works.example.com</code> の正体は <code>example.com</code> です。判断に使うのは、いちばん右のドットの前後だけ。左側は誰でも好きに名乗れます。</span>
+        <b>重複と死んだ登録を消す</b>
+        <span>同じサービスの登録が複数あったり、もう使っていないものが残っていたりします。件数が減ると、以降の棚卸しが軽くなります。</span>
       </li>
       <li>
-        <b>短縮URLなら、その場で判断しない</b>
-        <span>短縮URLは宛先を隠す道具でもあります。掲示物や請求書のQRが短縮URLを返してきたら、そこで一度止めるだけの理由になります。</span>
+        <b>使い回しているものを洗い出す</b>
+        <span>多くの製品に、使い回しと流出済みを検出する機能があります。<strong>全部を一度に替える必要はありません。</strong>メールと銀行から順に、重要なものだけ替えます。</span>
       </li>
       <li>
-        <b>ログイン画面が出たら、そこでは入力しない</b>
-        <span>閉じて、自分のブックマークかアプリから入り直します。本物なら同じ手続きがそこからできます。できないなら、それが答えです。</span>
-      </li>
-      <li>
-        <b>印刷物に URL が併記されているか見る</b>
-        <span>きちんとした発行元は、QRの近くに URL を文字でも書いています。QRしか無い掲示は、それ自体が小さな手がかりです。</span>
+        <b>古い保管庫を空にする</b>
+        <span>移し終えたら、元の場所からは消します。両方に残っていると、片方だけ更新されて食い違います。</span>
       </li>
     </ol>
-    <div class="note good">
-      <a href="/blog/passkey">パスキー</a>を設定していれば、この場面はもう一段強くなります。
-      ブラウザは<strong>登録したドメイン以外では鍵を出さない</strong>ので、
-      偽サイトを開いてしまっても、そもそも渡せるものがありません。
-      注意力に頼らずに済む、数少ない対策です。
+
+    <h2>本体より、復旧経路のほうが壊れやすい</h2>
+    <p>
+      ここが最も見落とされます。保管庫をどれだけ固めても、
+      <strong>そこに入れなくなったら自分も締め出されます。</strong>
+      しかも困るのは、端末を失った日など、いちばん余裕のないときです。
+    </p>
+    <ol class="steps">
+      <li>
+        <b>復旧用の控えを発行して、印刷する</b>
+        <span>画面の写真ではなく紙で。端末が壊れた状況を想定するので、その端末の中に置いても意味がありません。</span>
+      </li>
+      <li>
+        <b>置き場所を2か所に分ける</b>
+        <span>自宅と、それ以外の安全な場所。火事や盗難で両方同時に失われない配置にします。</span>
+      </li>
+      <li>
+        <b>実際に復旧をやってみる</b>
+        <span>やったことのない手順は、必要な日にできません。別の端末で一度だけ試しておきます。<strong>この一回が、いちばん費用対効果が高い作業</strong>だと思います。</span>
+      </li>
+      <li>
+        <b>緊急時に渡す相手を決める</b>
+        <span>その機能がある製品なら設定します。無いなら、控えの在り処だけでも家族に伝えておきます。</span>
+      </li>
+    </ol>
+    <div class="note warn">
+      マスターパスワードは<strong>長さで作ってください</strong>。
+      記号を混ぜた短いものより、意味のつながらない単語をいくつか並べたほうが強く、しかも覚えられます。
+      これは唯一、自分で覚える必要があるものです。
+      そして<strong>他のどこにも使わない</strong>こと。使い回しをやめるための道具の鍵を使い回すと、話が振り出しに戻ります。
     </div>
 
-    <h2>自分がQRを出す側になるとき</h2>
-    <ul>
-      <li><strong>短縮URLを使わない。</strong>自分のドメインのまま出せば、読み手が確認できます。確認できる形で配るのは、発行側の責任のうちです</li>
-      <li><strong>QRの近くに URL を文字でも書く。</strong>読み取れない人への配慮であると同時に、貼り替えへの牽制にもなります</li>
-      <li><strong>店頭や屋外の掲示は、ラミネートするか改ざん防止シールを使う。</strong>そして定期的に自分で読み取って確認する</li>
-      <li><strong>印刷前に必ず実機で読む。</strong>刷り直しがきかない媒体ほど、ここを飛ばした代償が大きくなります</li>
-    </ul>
+    <h2>入れたあとの運用</h2>
+    <p>
+      導入して終わりにすると、数年後には「登録はされているが古い」状態になります。
+      年に一度くらい、次を見ておくと形が保てます。
+    </p>
+    <ol class="steps">
+      <li>
+        <b>流出の通知を有効にする</b>
+        <span>登録しているアドレスが流出リストに含まれたとき知らせる機能が、多くの製品にあります。<strong>知らないまま使い続けるのがいちばん危ない</strong>ので、通知は受け取れるようにしておきます。</span>
+      </li>
+      <li>
+        <b>使い回しの残りを減らす</b>
+        <span>導入時に全部は替えられないので、残っているはずです。年に一度、重要な順に十数件ずつ替えていけば、数年で片付きます。</span>
+      </li>
+      <li>
+        <b>パスキーに置き換えられるものを移す</b>
+        <span>対応するサービスが増えています。移せたものは、パスワードそのものを無効化できる場合もあります。<strong>登録件数が減ること自体が、管理の負担を下げます。</strong></span>
+      </li>
+      <li>
+        <b>使っていない登録を消す</b>
+        <span>退会したサービス、統合されて無くなったサービス。残っていると棚卸しのたびに邪魔になります。</span>
+      </li>
+    </ol>
 
-    <h2>スクリーンショットに写り込んだQR</h2>
+    <h2>家族と使う</h2>
     <p>
-      最後に、このサイトの本題に近い話をひとつ。
-      画面に写ったQRは、<strong>そのまま鍵として使えることがあります</strong>。
-    </p>
-    <ul>
-      <li><strong>Wi-Fi の接続用QR</strong> — SSID とパスワードがそのまま入っています</li>
-      <li><strong>チケットや搭乗券のQR</strong> — 入場そのもの。氏名や便名が読めることもあります</li>
-      <li><strong>決済アプリのコード</strong> — 表示中のものは有効期限内なら機能します</li>
-      <li><strong>グループやチームの招待リンク</strong> — 期限内なら、誰でも入れます</li>
-    </ul>
-    <p>
-      そして注意点がひとつあります。
-      前に書いた誤り訂正のせいで、<strong>モザイクやぼかしでは足りないことがあります</strong>。
-      一部が潰れていても、残りから復元して読めてしまうからです。
-      QRを隠すときは、ぼかしではなく<strong>輪郭ごと不透明に塗りつぶす</strong>のが確実です。
+      家庭内で共有したいものは、意外にあります。
+      動画配信、宅配、公共料金、Wi-Fi のパスワード。
+      <strong>これらを口頭やメッセージで回すのが、いちばん漏れやすい経路</strong>です。
     </p>
     <p>
-      隠しかたの選び分けは<a href="/blog/mosaic">モザイク・ぼかし・塗りつぶし</a>に、
-      公開前に見るべき箇所は<a href="/blog/checklist">公開前のチェックリスト</a>にまとめています。
-      塗りつぶす作業そのものは <a href="/kuroko/tool">Kuroko</a> でもできます。
+      共有機能を使うと、共有した相手にだけ見える保管庫を作れます。
+      片方が変更すれば、もう片方にも反映されます。
+      紙に書いて冷蔵庫に貼るより安全で、更新の食い違いも起きません。
     </p>
+    <div class="note">
+      共有で確認したいのは、<strong>共有部分も端末内で暗号化されているか</strong>です。
+      共有先に鍵を渡す方法、共有を解除した後の扱い、相手が既に保存した内容は取り消せないことまで確認します。
+      「共有できる」という機能名だけでは、暗号化の範囲は判断できません。
+    </div>
 
+    <h2>参考資料と確認範囲</h2>
+    <p>製品の鍵管理と復旧方式の具体例は、<a href="https://bitwarden.com/help/account-recovery/">Bitwarden：アカウント復旧</a>と<a href="https://bitwarden.com/help/bitwarden-security-white-paper/">セキュリティホワイトペーパー</a>を参照しました（2026年9月17日確認）。他の製品も同じ方式とは限りません。導入前には利用するプランの復旧・共有・書き出しの仕様を確認してください。</p>
     <h2>まとめ</h2>
     <ul>
-      <li>QRコードが運ぶのは<strong>ただの文字列</strong>で、発行元を示す情報は入っていない</li>
-      <li>宛先を目で確かめられない唯一のリンクなので、<strong>確認は必ず読み取ったあと</strong>になる</li>
-      <li>貼り替えが有効なのは、<strong>元の模様を誰も覚えていない</strong>から</li>
-      <li>止めどころは読み取りではなく、<strong>入力するときと、送金を確定するとき</strong></li>
-      <li>写り込んだQRは鍵になる。誤り訂正があるので<strong>ぼかしでは消えない</strong></li>
+      <li>集めるのが目的ではなく、<strong>使い回しをやめる</strong>のが目的</li>
+      <li>見るのは機能表ではなく<strong>鍵がどこで作られ、どこまで運ばれるか</strong></li>
+      <li>復旧機能は<strong>誰の鍵と承認を使うか</strong>で判断する</li>
+      <li>盗まれた日に効くのは<strong>マスターパスワードの長さ</strong>と、鍵を導く手間</li>
+      <li>書き出せない道具は選ばない。<strong>乗り換えられることが安全のうち</strong></li>
+      <li>本体より<strong>復旧経路</strong>が壊れやすい。控えは紙で2か所、一度は試す</li>
     </ul>
 
     </div><!-- postbody:end -->
@@ -822,7 +900,7 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
     <div class="postnav">
       <div class="share">
         <span class="label">この記事を共有</span>
-        <a href="https://x.com/intent/post?text=QRコードは中身が見えない — 貼り替え詐欺と、読み取る前の確認&amp;url=https://mdf.works/blog/qr" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/intent/post?text=パスワードマネージャーの選び方 - 何を預けることになるのか&amp;url=https://mdf.works/blog/manager" target="_blank" rel="noopener noreferrer">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.2-5.8 6.2H1.5l7.5-8.6L1 3h6.7l4.6 5.8L17.5 3zm-1.1 16.2h1.8L7.7 4.7H5.8l10.6 14.5z"/></svg>
           X で共有
         </a>
@@ -830,18 +908,18 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       </div>
 
       <nav class="pager" aria-label="記事の移動">
-        <a class="prev" href="/blog/circle"><span class="dir">← 前の記事</span><span class="t">画像から円を検出する — ハフ変換だけでは足りなかった話</span></a><a class="next" href="/blog/exif"><span class="dir">次の記事 →</span><span class="t">スマホの写真から何が分かるか — Exif と、消しても残るもの</span></a>
+        <a class="prev" href="/blog/framerate"><span class="dir">← 前の記事</span><span class="t">144Hzで何が変わるのか — 遅延はどこで積まれているか</span></a>
       </nav>
 
       <h2>ほかの記事</h2>
       <div class="grid cols-2">
       <div class="card">
-        <h3><a href="/blog/manager" style="text-decoration:none">パスワードマネージャーの選び方 - 何を預けることになるのか</a></h3>
-        <p>全部のパスワードを1か所に置くのは怖い、という感覚は正しいです。そのうえで使ったほうが安全になるのはなぜか。鍵がどこで作られ、どこまで運ばれるのか。保管庫ご…</p>
-      </div>
-      <div class="card">
         <h3><a href="/blog/wifi" style="text-decoration:none">公衆Wi-Fiは危険か — HTTPSが片付けたことと、残っているもの</a></h3>
         <p>10年前の危なさと、いまの危なさは中身が違います。正しく検証された HTTPS は経路上の盗聴から通信内容を守り、代わりに「つなぐ相手を間違えさせる」経路が…</p>
+      </div>
+      <div class="card">
+        <h3><a href="/blog/qr" style="text-decoration:none">QRコードは中身が見えない — 貼り替え詐欺と、読み取る前の確認</a></h3>
+        <p>四角い模様を見て URL を読める人はいません。QR コードには発行元の証明も署名も無く、上から貼り替えるだけで宛先を差し替えられます。実際に起きている手口…</p>
       </div>
       </div>
       <div class="btnrow">

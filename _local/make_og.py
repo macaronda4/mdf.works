@@ -155,7 +155,7 @@ card(o("koma.png"), "Koma",
      "背景を抜いて APNG・WebP へ／画像は端末から出ません")
 
 card(o("cors.png"), "Browser",
-     "ブラウザだけでは\n動画を保存できない",
+     "ブラウザで見えるのに\nfetch で読めない",
      "要求は送れる。けれど中身が読めない")
 
 card(o("wifi.png"), "Security",

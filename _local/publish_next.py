@@ -10,7 +10,11 @@ blog/ に置き、POSTS・更新履歴・OGP・sitemap に登録し、生成ス�
 
 下書きの書きかたは _local/drafts/README.md を参照。
 """
+import hashlib
 import glob
+import ast
+from pathlib import Path
+import datetime
 import html
 import json
 import os
@@ -18,6 +22,12 @@ import re
 import subprocess
 import sys
 from html.parser import HTMLParser
+
+os.environ['PYTHONIOENCODING'] = 'utf-8'
+os.environ['PYTHONUTF8'] = '1'
+for stream in (sys.stdout, sys.stderr):
+    if hasattr(stream, 'reconfigure'):
+        stream.reconfigure(encoding='utf-8', errors='backslashreplace')
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 DRAFTS = os.path.join(ROOT, '_local', 'drafts')
@@ -29,7 +39,7 @@ FIELDS = ('slug cat eyebrow title crumb h1a h1b lead pagelead desc ogdesc '
 
 # ------------------------------------------------------------------ 下書き
 def parse_draft(path):
-    src = open(path, encoding='utf-8').read()
+    src = Path(path).read_text(encoding='utf-8')
     m = re.match(r'\s*<!--(.*?)-->\s*(.*)', src, re.S)
     if not m:
         sys.exit('%s: 先頭の <!-- ... --> が見つかりません' % path)
@@ -213,10 +223,35 @@ def wrap_lead(lead, indent=14):
     return ('\n' + pad).join(q(x) for x in out)
 
 
+def remove_registration(slug, title):
+    # Remove an existing entry before inserting it, including partial prior runs.
+    for filename, variable in [('build_blog.py', 'POSTS'), ('build_log.py', 'ENTRIES')]:
+        p = Path(ROOT) / '_local' / filename
+        source = p.read_text(encoding='utf-8')
+        tree = ast.parse(source)
+        lines = source.splitlines(keepends=True)
+        for node in tree.body:
+            if not isinstance(node, ast.Assign) or not any(isinstance(t, ast.Name) and t.id == variable for t in node.targets):
+                continue
+            for item in reversed(node.value.elts):
+                if variable == 'POSTS':
+                    match = any(k.arg == 'slug' and ast.literal_eval(k.value) == slug for k in item.keywords)
+                else:
+                    match = title in ast.literal_eval(item)[2]
+                if match:
+                    del lines[item.lineno - 1:item.end_lineno]
+        p.write_text(''.join(lines), encoding='utf-8', newline='')
+    p = Path(ROOT) / 'sitemap.xml'
+    source = p.read_text(encoding='utf-8')
+    source = re.sub(r'  <url><loc>' + re.escape(D + '/blog/' + slug) + r'</loc>.*?</url>\n?', '', source)
+    p.write_text(source, encoding='utf-8', newline='')
+
+
 def register(m, date):
+    remove_registration(m['slug'], m['title'])
     # POSTS
     p = os.path.join(ROOT, '_local', 'build_blog.py')
-    s = open(p, encoding='utf-8', errors='replace').read()
+    s = Path(p).read_text(encoding='utf-8')
     icon = "\n              ".join(q(x) for x in re.findall(r'<[^>]+/>', m['icon']))
     entry = (
         "    dict(slug=%s, cat=%s, date=%s,\n"
@@ -230,28 +265,28 @@ def register(m, date):
     )
     anchor = 'POSTS = [\n'
     assert s.count(anchor) == 1
-    open(p, 'w', encoding='utf-8', newline='').write(s.replace(anchor, anchor + entry, 1))
+    Path(p).write_text(s.replace(anchor, anchor + entry, 1), encoding='utf-8', newline='')
 
     # 更新履歴
     p = os.path.join(ROOT, '_local', 'build_log.py')
-    s = open(p, encoding='utf-8', errors='replace').read()
+    s = Path(p).read_text(encoding='utf-8')
     line = "    (%s, 'ブログ', %s),\n" % (
         q(date), q('記事「%s」を公開しました。' % m['title']))
     anchor = 'ENTRIES = [\n'
     assert s.count(anchor) == 1
-    open(p, 'w', encoding='utf-8', newline='').write(s.replace(anchor, anchor + line, 1))
+    Path(p).write_text(s.replace(anchor, anchor + line, 1), encoding='utf-8', newline='')
 
     # OGP
     p = os.path.join(ROOT, '_local', 'make_og.py')
-    s = open(p, encoding='utf-8', errors='replace').read()
+    s = Path(p).read_text(encoding='utf-8')
     if 'o("%s.png")' % m['slug'] not in s:
         card = ('\ncard(o("%s.png"), "%s",\n     "%s\\n%s",\n     "%s")\n'
                 % (m['slug'], m['eyebrow'], m['ogl1'], m['ogl2'], m['ogsub']))
-        open(p, 'w', encoding='utf-8', newline='').write(s.rstrip('\n') + '\n' + card)
+        Path(p).write_text(s.rstrip('\n') + '\n' + card, encoding='utf-8', newline='')
 
     # sitemap
     p = os.path.join(ROOT, 'sitemap.xml')
-    s = open(p, encoding='utf-8', errors='replace').read()
+    s = Path(p).read_text(encoding='utf-8')
     row = ('  <url><loc>%s/blog/%s</loc><lastmod>%s</lastmod>'
            '<changefreq>monthly</changefreq><priority>0.7</priority></url>\n'
            % (D, m['slug'], date))
@@ -261,7 +296,7 @@ def register(m, date):
     for loc in (D + '/', D + '/blog/', D + '/changelog'):
         s = re.sub(r'(<loc>%s</loc><lastmod>)[\d-]+(</lastmod>)' % re.escape(loc),
                    r'\g<1>%s\g<2>' % date, s)
-    open(p, 'w', encoding='utf-8', newline='').write(s)
+    Path(p).write_text(s, encoding='utf-8', newline='')
 
 
 # ------------------------------------------------------------------ 検証
@@ -296,7 +331,7 @@ def verify(slug):
                    + glob.glob(os.path.join(ROOT, 'koma', '*.html'))
                    + glob.glob(os.path.join(ROOT, 'blog', '*.html')))
     for f in pages:
-        s = open(f, encoding='utf-8', errors='replace').read()
+        s = Path(f).read_text(encoding='utf-8')
         b = Balance()
         b.feed(s)
         if b.stack or b.errors:
@@ -311,11 +346,11 @@ def verify(slug):
     if not os.path.exists(art):
         problems.append('記事ファイルができていません')
     else:
-        s = open(art, encoding='utf-8', errors='replace').read()
+        s = Path(art).read_text(encoding='utf-8')
         for need in ('postnav:start', 'postbody:start', 'class="postmeta"', 'adsbygoogle'):
             if need not in s:
                 problems.append('記事に %s が入っていません' % need)
-    idx = open(os.path.join(ROOT, 'blog', 'index.html'), encoding='utf-8', errors='replace').read()
+    idx = open(os.path.join(ROOT, 'blog', 'index.html'), encoding='utf-8').read()
     if '/blog/' + slug in idx:
         pass
     else:
@@ -324,7 +359,7 @@ def verify(slug):
 
 
 def run(script):
-    r = subprocess.run([sys.executable, os.path.join(ROOT, '_local', script)],
+    r = subprocess.run([sys.executable, '-X', 'utf8', os.path.join(ROOT, '_local', script)],
                        cwd=ROOT, capture_output=True, text=True,
                        encoding='utf-8', errors='replace')
     if r.returncode != 0:
@@ -336,114 +371,157 @@ def run(script):
 
 def git(*args, check=True):
     r = subprocess.run(['git'] + list(args), cwd=ROOT, capture_output=True,
-                       text=True, encoding='utf-8', errors='replace')
+                       text=True, encoding='utf-8', errors='replace', timeout=180)
     if check and r.returncode != 0:
         sys.exit('git %s に失敗しました:\n%s%s' % (' '.join(args), r.stdout, r.stderr))
     return r.stdout.strip()
 
 
-def dgit(*args):
-    """下書き置き場は別リポジトリ。失敗しても公開作業は止めない。
 
-    リモートを設定していない段階でも動くようにしてある。
-    """
-    if not os.path.isdir(os.path.join(DRAFTS, '.git')):
-        return None
-    r = subprocess.run(['git'] + list(args), cwd=DRAFTS, capture_output=True,
-                       text=True, encoding='utf-8', errors='replace')
-    if r.returncode != 0:
-        print('  （下書き側の git %s は失敗しました。公開自体には影響しません）'
-              % ' '.join(args[:2]))
-        return None
-    return r.stdout.strip()
+# ------------------------------------------------------------------ resumable publication
+STATE = Path(ROOT) / '_local' / 'publish-state.json'
+RECEIPT = Path(ROOT) / '_local' / 'publish-receipt.json'
 
 
-# ------------------------------------------------------------------ main
+def save_state(value):
+    temporary = STATE.with_suffix('.tmp')
+    temporary.write_text(json.dumps(value, ensure_ascii=False), encoding='utf-8')
+    os.replace(temporary, STATE)
+
+
+def sync_site():
+    git('fetch', 'origin')
+    behind = int(git('rev-list', '--count', 'HEAD..origin/main'))
+    if behind:
+        git('merge', '--ff-only', 'origin/main')
+
+
+def draft_git(*args):
+    result = subprocess.run(['git', *args], cwd=DRAFTS, capture_output=True,
+                            text=True, encoding='utf-8', timeout=120)
+    if result.returncode:
+        raise RuntimeError('Draft repository: ' + result.stderr)
+    return result.stdout.strip()
+
+
 def main():
     write = '--write' in sys.argv
-    # 公開したら push まで済ませる。手元にだけ残したいときは --no-push を付ける。
-    # （--push は以前の書き方。付いていても同じ動きになる）
-    push = write and '--no-push' not in sys.argv
-    import datetime
-    date = datetime.date.today().isoformat()
-    for a in sys.argv[1:]:
-        if a.startswith('--date='):
-            date = a.split('=', 1)[1]
-
-    path = next_draft()
-    if not path:
-        print('下書きがありません。_local/drafts/ に足してください。')
-        return 0
-
-    m = parse_draft(path)
-    n_left = len(glob.glob(os.path.join(DRAFTS, '[0-9]*.html'))) - 1
-    print('次に公開する下書き : %s' % os.path.basename(path))
-    print('  slug   : %s' % m['slug'])
-    print('  日付   : %s' % date)
-    print('  区分   : %s' % m['cat'])
-    print('  題名   : %s' % m['title'])
-    print('  タグ   : %s' % ' / '.join(m['tags']))
-    print('  本文   : 約%d文字' % len(re.sub(r'\s+|<[^>]+>', '', html.unescape(m['body']))))
-    print('  残り   : %d本' % n_left)
-
-    if os.path.exists(os.path.join(ROOT, 'blog', m['slug'] + '.html')):
-        sys.exit('blog/%s.html は既にあります' % m['slug'])
-
+    push = '--no-push' not in sys.argv
+    date = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).date().isoformat()
+    for arg in sys.argv[1:]:
+        if arg.startswith('--date='):
+            date = datetime.date.fromisoformat(arg.split('=', 1)[1]).isoformat()
+    pending = json.loads(STATE.read_text(encoding='utf-8')) if STATE.exists() else None
+    path = str(Path(DRAFTS) / pending['draft']) if pending else next_draft()
     if not write:
-        print('\n（確認のみ。実際に公開するには --write を付けてください）')
+        print('Pending:', pending or 'none')
+        print('Next draft:', Path(path).name if path else 'none')
         return 0
-
-    dirty = git('status', '--porcelain')
-    if dirty:
-        sys.exit('作業ツリーに未コミットの変更があります。先に片付けてください:\n' + dirty)
-
-    # 組み立てに失敗したときに空ファイルが残らないよう、先に文字列を作る
-    page = render_page(m, date)
-    open(os.path.join(ROOT, 'blog', m['slug'] + '.html'), 'w',
-         encoding='utf-8', newline='', errors='replace').write(page)
-    register(m, date)
-
-    print()
-    for s in ('make_og.py', 'build_log.py', 'build_blog.py', 'cleanurls.py', 'chrome.py'):
-        print('  %-14s %s' % (s, run(s)))
-
-    problems = verify(m['slug'])
-    if problems:
-        print('\n検証で問題が見つかりました。コミットしません:')
-        for x in problems:
-            print('  - ' + x)
-        return 1
-    print('\n検証: 問題なし')
-
-    os.remove(path)
-    git('add', '-A')
-    msg = ('記事「%s」を公開\n\n下書き %s から自動公開。残り %d 本。\n'
-           % (m['title'], os.path.basename(path), n_left))
-    git('commit', '-m', msg)
-    print('コミットしました:', git('log', '--oneline', '-1'))
-
-    # 下書きは別リポジトリなので、取り出したことをそちらにも記録する
-    dgit('add', '-A')
-    dgit('commit', '-m', '公開したので下書きを外す: %s（残り %d 本）'
-         % (os.path.basename(path), n_left))
-
+    if git('branch', '--show-current') != 'main':
+        raise RuntimeError('Publish only from main.')
+    if not pending:
+        if git('status', '--porcelain'):
+            raise RuntimeError('Uncommitted changes: publish stopped without altering them.')
+        if push:
+            sync_site()
+            # Retry any earlier locally committed work before selecting another draft.
+            git('push', 'origin', 'main')
+        if RECEIPT.exists() and json.loads(RECEIPT.read_text(encoding='utf-8'))['date'] == date:
+            print('Already published today.')
+            return 0
+        namespace = {}
+        exec(compile((Path(ROOT) / '_local/build_blog.py').read_text(encoding='utf-8'), 'build_blog.py', 'exec'), namespace)
+        if any(post['date'] == date for post in namespace['POSTS']):
+            print("An article already has today's publication date.")
+            return 0
+        if not path:
+            print('No drafts left.')
+            return 0
+        m = parse_draft(path)
+        if (Path(ROOT) / 'blog' / (m['slug'] + '.html')).exists():
+            raise RuntimeError('Existing article without recovery state: inspect before publishing.')
+        pending = dict(draft=Path(path).name, slug=m['slug'], date=date, phase='build',
+                       draft_hash=hashlib.sha256(Path(path).read_bytes()).hexdigest())
+        save_state(pending)
+    if pending['phase'] == 'build':
+        if pending.get('draft_hash') and hashlib.sha256(Path(path).read_bytes()).hexdigest() != pending['draft_hash']:
+            raise RuntimeError('Draft edited after publication began; review required.')
+        m = parse_draft(path)
+        if m['slug'] != pending['slug']:
+            raise RuntimeError('Draft changed since publication began.')
+        page = render_page(m, pending['date'])
+        (Path(ROOT) / 'blog' / (m['slug'] + '.html')).write_text(page, encoding='utf-8', newline='')
+        register(m, pending['date'])
+        for script in ('make_og.py', 'build_log.py', 'build_blog.py', 'cleanurls.py', 'chrome.py'):
+            print(script, run(script))
+        problems = verify(m['slug'])
+        if problems:
+            raise RuntimeError('Validation failed: ' + repr(problems))
+        if git('diff', '--cached', '--name-only'):
+            raise RuntimeError('Staged changes exist; refusing to include them.')
+        changed = set(git('diff', '--name-only').splitlines())
+        changed.update(git('ls-files', '--others', '--exclude-standard').splitlines())
+        allowed = {'index.html', 'changelog.html', 'sitemap.xml',
+                   '_local/build_blog.py', '_local/build_log.py', '_local/make_og.py'}
+        if any(not (f in allowed or f.startswith(('blog/', 'assets/og/'))) for f in changed):
+            raise RuntimeError('Unrelated changes during publication; review required.')
+        pending['files'] = {f: hashlib.sha256((Path(ROOT) / f).read_bytes()).hexdigest()
+                            for f in sorted(changed)}
+        pending['title'] = m['title']
+        pending['phase'] = 'commit'
+        save_state(pending)
+    if pending['phase'] == 'commit':
+        # Persist exact output before staging, so commit failures can be retried safely.
+        for name, expected in pending['files'].items():
+            if hashlib.sha256((Path(ROOT) / name).read_bytes()).hexdigest() != expected:
+                raise RuntimeError('Generated file changed before commit: ' + name)
+        staged = set(git('diff', '--cached', '--name-only').splitlines())
+        if staged - set(pending['files']):
+            raise RuntimeError('Unrelated staged changes; review required.')
+        if pending['files']:
+            git('add', '--', *pending['files'])
+        if git('diff', '--cached', '--name-only'):
+            git('commit', '-m', 'Publish article: ' + pending['title'])
+        pending['phase'] = 'push'
+        save_state(pending)
     if not push:
-        print('（--no-push が付いているので、手元に留めました）')
+        print('Committed locally; next --write retries the push. Draft retained.')
         return 0
-
-    git('fetch', 'origin')
-    behind = git('rev-list', '--count', 'HEAD..origin/main')
-    if behind != '0':
-        print('リモートが %s コミット進んでいます。載せ直します。' % behind)
-        git('rebase', 'origin/main')
-    git('push', 'origin', 'main')
-    print('サイトを push しました:', git('rev-parse', '--short', 'HEAD'))
-
-    # 下書き側はリモート未設定でも止まらないようにしてある
-    if dgit('push', 'origin', 'main') is not None:
-        print('下書きを push しました:', dgit('rev-parse', '--short', 'HEAD'))
+    if pending['phase'] == 'push':
+        sync_site()
+        git('push', 'origin', 'main')
+        if git('rev-parse', 'HEAD') != git('rev-parse', 'origin/main'):
+            raise RuntimeError('Remote confirmation failed.')
+        pending['phase'] = 'archive'
+        save_state(pending)
+    # Only remove the original after the public repository has confirmed the push.
+    if Path(path).exists():
+        # Preserve reviewed source (including edits) in private history before retiring it.
+        draft_git('add', '--', pending['draft'])
+        if draft_git('diff', '--cached', '--name-only', '--', pending['draft']):
+            draft_git('commit', '-m', 'Archive published source: ' + pending['draft'], '--', pending['draft'])
+    Path(path).unlink(missing_ok=True)
+    if draft_git('ls-files', '--', pending['draft']):
+        draft_git('add', '--', pending['draft'])
+    if draft_git('diff', '--cached', '--name-only', '--', pending['draft']):
+        draft_git('commit', '-m', 'Published: ' + pending['draft'], '--', pending['draft'])
+    draft_git('push', 'origin', 'main')
+    RECEIPT.write_text(json.dumps({'date': date, 'slug': pending['slug']}), encoding='utf-8')
+    STATE.unlink()
+    print('Published and backed up:', pending['slug'])
     return 0
 
 
 if __name__ == '__main__':
-    sys.exit(main())
+    # OS lock releases even after a crash. Concurrent manual/scheduled runs cannot publish twice.
+    import msvcrt
+    with open(Path(ROOT) / '_local' / 'publish.lock', 'a+b') as lock:
+        lock.seek(0)
+        lock.write(b'0')
+        lock.flush()
+        lock.seek(0)
+        try:
+            msvcrt.locking(lock.fileno(), msvcrt.LK_NBLCK, 1)
+        except OSError:
+            sys.exit('Another publisher is running.')
+        sys.exit(main())

@@ -136,8 +136,8 @@ if __name__ == '__main__':
         s = open(p, encoding='utf-8').read()
         # ツール本体は全画面レイアウトで、CSS もテーマ切替も自前で持っている
         tool = p.replace('\\', '/').endswith('/tool.html')
-        # 広告は読み物のページにだけ置く。全画面のツールと 404 には出さない。
-        ads = not tool and p.replace('\\', '/') != '404.html'
+        # 広告は読み物のページにだけ置く。全画面のツール・案内だけのページ・404 には出さない。
+        ads = not tool and p.replace('\\', '/') not in {'404.html', 'contact.html', 'privacy.html', 'terms.html', 'changelog.html'}
         s = strip_old(s)
 
         m = re.search(r'<meta name="viewport"[^>]*>', s)
@@ -165,4 +165,4 @@ if __name__ == '__main__':
         open(p, 'w', encoding='utf-8', newline='').write(s)
 
     print('テーマ切替と CSS 埋め込み:', n, 'ページ（ツールは自前のCSS/テーマを保持）')
-    print('広告タグを配置:', n_ads, 'ページ（ツール本体と 404 は対象外）')
+    print('広告タグを配置:', n_ads, 'ページ（ツール・事務ページ・404 は対象外）')

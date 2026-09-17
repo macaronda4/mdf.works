@@ -8,17 +8,7 @@ import json, os, re, html
 D = 'https://mdf.works'
 
 POSTS = [
-    dict(slug='manager', cat='セキュリティ', date='2026-09-11',
-         title='パスワードマネージャーの選び方 - 何を預けることになるのか',
-         name='パスワードマネージャーの選び方 - 何を預けることになるのか',
-         lead='全部のパスワードを1か所に置くのは怖い、という感覚は正しいです。そのうえで使ったほうが安全になるのはなぜか。'
-              '鍵がどこで作られ、どこまで運ばれるのか。保管庫ごと盗まれたときに何が最後の砦になるのか。'
-              '乗り換えられるか。そして本体より壊れやすい復旧経路の話。',
-         tags=['パスワード', 'パスワードマネージャー', 'セキュリティ', '二段階認証', '選び方'],
-         icon='<rect x="3.4" y="9.8" width="17.2" height="10.8" rx="2.2"/>'
-              '<path d="M7.4 9.8V6.6a4.6 4.6 0 0 1 9.2 0v3.2"/>'
-              '<path d="M12 14v3"/>'),
-    dict(slug='manager', cat='セキュリティ', date='2026-09-11',
+    dict(slug='manager', cat='セキュリティ', date='2026-09-17',
          title='パスワードマネージャーの選び方 - 何を預けることになるのか',
          name='パスワードマネージャーの選び方 - 何を預けることになるのか',
          lead='全部のパスワードを1か所に置くのは怖い、という感覚は正しいです。そのうえで使ったほうが安全になるのはなぜか。'
@@ -48,10 +38,10 @@ POSTS = [
          tags=['CSS', 'ダークモード', 'アクセシビリティ', '配色', '個人開発'],
          icon='<circle cx="12" cy="12" r="4.4"/>'
               '<path d="M12 2.6v2.3M12 19.1v2.3M2.6 12h2.3M19.1 12h2.3M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/>'),
-    dict(slug='wifi', cat='セキュリティ', date='2026-08-30',
+    dict(slug='wifi', cat='セキュリティ', date='2026-08-30', modified='2026-09-17',
          title='公衆Wi-Fiは危険か — HTTPSが片付けたことと、残っているもの',
          name='公衆Wi-Fiは危険か — HTTPSが片付けたことと、残っているもの',
-         lead='10年前の危なさと、いまの危なさは中身が違います。通信を覗かれる問題はほぼ解決し、'
+         lead='10年前の危なさと、いまの危なさは中身が違います。正しく検証された HTTPS は経路上の盗聴から通信内容を守り、'
               '代わりに「つなぐ相手を間違えさせる」経路が残りました。'
               '偽アクセスポイント、同意画面、証明書の警告、そして VPN が効く範囲。',
          tags=['Wi-Fi', 'HTTPS', 'VPN', 'セキュリティ', '公衆無線LAN'],
@@ -59,12 +49,10 @@ POSTS = [
               '<path d="M6.2 12.9a8.7 8.7 0 0 1 11.6 0"/>'
               '<rect x="8.8" y="16.2" width="6.4" height="5" rx="1.2"/>'
               '<path d="M10.4 16.2v-1.1a1.6 1.6 0 0 1 3.2 0v1.1"/>'),
-    dict(slug='cors', cat='ブラウザ', date='2026-08-27',
-         title='ブラウザだけでは動画を保存できない — CORS を実測して確かめる',
-         name='ブラウザだけでは動画を保存できない — CORS を実測して確かめる',
-         lead='要求は送れるのに、返ってきた中身が読めない。その境目を実際に測りました。'
-              'no-cors が返す0文字の応答、指定しても必ず書き換えられる4つのヘッダー、'
-              'そして「読めないのが既定」であることが何を守っているのか。',
+    dict(slug='cors', cat='ブラウザ', date='2026-08-27', modified='2026-09-17',
+         title='ブラウザで見えるのに fetch で読めない — CORS の制約と確認方法',
+         name='ブラウザで見えるのに fetch で読めない — CORS の制約と確認方法',
+         lead='表示できるデータを別サイトの JavaScript から読めない理由。CORS、no-cors、プリフライト、ヘッダーの制約を整理し、通信エラーを切り分ける確認手順を紹介します。',
          tags=['CORS', 'fetch', 'JavaScript', 'セキュリティ', 'ブラウザ'],
          icon='<path d="M2.5 12h9.6"/>'
               '<path d="M8.9 8.8L12.1 12l-3.2 3.2"/>'
@@ -230,8 +218,15 @@ def jp_date(d):
 def reading_minutes(path):
     """本文の文字数からおおよその読了時間を出す（日本語 500 字/分）。"""
     s = open(path, encoding='utf-8').read()
-    m = re.search(r'<main id="main">(.*?)</main>', s, re.S)
+    m = re.search(r'<!-- postbody:start -->(.*?)<!-- postbody:end -->', s, re.S)
+    if not m:
+        m = re.search(r'<main id="main">(.*?)</main>', s, re.S)
     body = m.group(1) if m else s
+    if not '<!-- postbody:start -->' in s:
+        # First publication has no generated wrapper yet; omit its header.
+        first = re.search(r'<h2[ >]', body)
+        if first:
+            body = body[first.start():]
     body = re.sub(r'<script.*?</script>', '', body, flags=re.S)
     body = re.sub(r'<[^>]+>', '', body)
     body = html.unescape(body)
@@ -700,7 +695,7 @@ def set_page_head(s, block):
     return s[:m.start()] + h + '\n' + block + '\n' + m.group(2) + '</div>\n' + s[m.end():]
 
 
-def sync_jsonld_dates(s, date):
+def sync_jsonld_dates(s, date, modified=None):
     """記事 head の JSON-LD は手書きなので、日付だけ POSTS を正とする。
 
     本文に表示される日付は POSTS から生成されるため、放っておくと
@@ -708,7 +703,8 @@ def sync_jsonld_dates(s, date):
     """
     n = 0
     for key in ('datePublished', 'dateModified'):
-        s, k = re.subn(r'("%s": ")[\d-]+(")' % key, r'\g<1>%s\g<2>' % date, s)
+        value = (modified or date) if key == 'dateModified' else date
+        s, k = re.subn(r'("%s": ")[\d-]+(")' % key, r'\g<1>%s\g<2>' % value, s)
         n += k
     assert n == 2, '%s: JSON-LD の日付が %d 箇所（2 のはず）' % (date, n)
     return s
@@ -720,7 +716,7 @@ def inject(i, p):
     mins = reading_minutes(path)
 
     s = set_page_head(s, post_head(p, mins))
-    s = sync_jsonld_dates(s, p['date'])
+    s = sync_jsonld_dates(s, p['date'], p.get('modified'))
 
     toc = ('    <nav class="toc" id="toc" hidden aria-label="目次">\n'
            '      <p class="toctitle">目次</p>\n      <ol></ol>\n    </nav>\n\n')

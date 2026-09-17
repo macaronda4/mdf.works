@@ -31,7 +31,7 @@
 <script async fetchpriority="low" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8613999974980382"
      crossorigin="anonymous"></script>
 <title>公衆Wi-Fiは危険か｜HTTPSが片付けたことと、残っているもの</title>
-<meta name="description" content="「公衆Wi-Fiは危ない」は10年前と今で中身が違います。HTTPSの普及で通信の盗み見はほぼ解決した一方、偽アクセスポイント、同意画面の悪用、証明書警告、端末の共有設定は残っています。VPNが効く範囲と効かない範囲も整理しました。">
+<meta name="description" content="「公衆Wi-Fiは危ない」は10年前と今で中身が違います。HTTPSの普及で通信経路上の盗聴は防ぎやすくなった一方、偽アクセスポイント、同意画面の悪用、証明書警告、端末の共有設定は残っています。VPNが効く範囲と効かない範囲も整理しました。">
 <link rel="canonical" href="https://mdf.works/blog/wifi">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="theme-color" content="#131720">
@@ -40,14 +40,14 @@
 <meta property="og:site_name" content="mdf.works">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:title" content="公衆Wi-Fiは危険か｜HTTPSが片付けたことと、残っているもの">
-<meta property="og:description" content="盗み見はほぼ解決した。残っているのは、つなぐ相手を間違える経路のほうです。">
+<meta property="og:description" content="HTTPS は通信経路上の盗聴から内容を守ります。残っているのは、つなぐ相手を間違える経路のほうです。">
 <meta property="og:url" content="https://mdf.works/blog/wifi">
 <meta property="og:image" content="https://mdf.works/assets/og/wifi.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="公衆Wi-Fiは危険か｜HTTPSが片付けたことと、残っているもの">
-<meta name="twitter:description" content="盗み見はほぼ解決した。残っているのは、つなぐ相手を間違える経路のほうです。">
+<meta name="twitter:description" content="HTTPS は通信経路上の盗聴から内容を守ります。残っているのは、つなぐ相手を間違える経路のほうです。">
 <meta name="twitter:image" content="https://mdf.works/assets/og/wifi.png">
 <meta name="twitter:creator" content="@sugerslp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
@@ -58,10 +58,10 @@
     {
       "@type": "Article",
       "headline": "公衆Wi-Fiは危険か — HTTPSが片付けたことと、残っているもの",
-      "description": "HTTPSの普及で通信の盗み見はほぼ解決した。残っている偽アクセスポイント・同意画面・証明書警告・共有設定と、VPNが効く範囲の整理。",
+      "description": "HTTPSの普及で通信経路上の盗聴は防ぎやすくなった。残っている偽アクセスポイント・同意画面・証明書警告・共有設定と、VPNが効く範囲の整理。",
       "image": "https://mdf.works/assets/og/wifi.png",
       "datePublished": "2026-08-30",
-      "dateModified": "2026-08-30",
+      "dateModified": "2026-09-17",
       "inLanguage": "ja",
       "articleSection": "セキュリティ",
       "author": { "@id": "https://mdf.works/#person" },
@@ -631,7 +631,7 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       <p class="lead">
         「カフェの Wi-Fi は危ない」という話は昔から言われますが、
         <strong>10年前の危なさと、いまの危なさは中身が違います</strong>。
-        通信を覗かれる問題はほぼ解決しました。
+        正しく検証された HTTPS は、経路上の盗聴から通信内容を守ります。
         代わりに残っているのは、<strong>つなぐ相手を間違えさせる</strong>ほうの経路です。
       </p>
       <div class="postmeta">
@@ -654,22 +654,22 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       特別な技術は要りませんでした。<strong>当時は多くのサイトが暗号化されていなかった</strong>からです。
     </p>
     <p>
-      暗号化されていない通信は、同じネットワーク上では読めます。
+      暗号化されていない通信は、ネットワークの構成や攻撃者の位置によっては盗み見られます。
       ログイン後の身分証にあたる情報がそのまま流れていれば、それを拾って使い回せます。
       「公衆Wi-Fiは危ない」という言い方は、この時代に定着したものです。
     </p>
 
     <h2>HTTPS が片付けたこと</h2>
     <p>
-      いまは主要なブラウザで読み込まれるページの9割以上が HTTPS です。
+      現在は多くのウェブサイトが HTTPS を使っています。
       暗号化されていないページを開こうとすると、ブラウザ側が警告を出すようになりました。
       サイト側も、一度アクセスしたら次からは必ず暗号化された経路を使うよう
       ブラウザに指示できる仕組み（HSTS）を持っています。
     </p>
     <div class="note good">
-      <strong>結論から言うと、「隣の席の人に通信の中身を読まれる」はほぼ解決しました。</strong>
-      暗号化された通信は、同じネットワークにいても中身が読めません。
-      これは公衆Wi-Fiに限った話ではなく、経路のどこにいる誰に対しても同じです。
+      <strong>正しい接続先と有効な証明書を確認できた HTTPS は、通信経路上の盗聴を防ぎます。</strong>
+      同じ Wi-Fi にいるという理由だけで、その通信内容が読めるわけではありません。
+      ただし端末や接続先が侵害されている場合や、偽サイトに自分で入力した情報は別です。
     </div>
     <p>
       なので、いま「公衆Wi-Fiでは何も見てはいけない」という言い方をすると、
@@ -693,51 +693,51 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
 
     <h3>2. 偽アクセスポイント</h3>
     <p>
-      これがいちばん現実的な脅威です。仕組みは単純で、
+      注意したい例の一つです。
       <strong>よくある名前のアクセスポイントを、自分で立てるだけ</strong>です。
       店名を模した名前や、大手キャリアの公衆Wi-Fi と同じ名前が使われます。
     </p>
     <p>
       厄介なのは、<strong>端末が過去につないだ名前を覚えていて、自動でつなぎに行く</strong>点です。
-      一度どこかで同じ名前に接続していれば、利用者が何も操作しなくても接続が成立します。
+      自動接続の可否は、名前だけでなく暗号化方式・認証情報・端末の設定にも左右されます。特に認証のないネットワークでは、名前を信用しすぎないようにします。
       つないだ先が攻撃者のものなら、そこから先の経路はすべて相手の手の中です。
     </p>
 
     <h3>3. 同意画面（キャプティブポータル）の悪用</h3>
     <p>
       公衆Wi-Fi につなぐと出てくる「利用規約に同意」の画面です。
-      あれは接続を許可するための画面で、<strong>本来アカウント情報を要求しません</strong>。
+      接続を許可するための画面で、<strong>正規のサービスでも専用アカウントやメールアドレスを求める場合があります</strong>。
     </p>
     <p>
       偽のアクセスポイントは、ここに偽のログイン画面を出せます。
       「SNS アカウントでログインしてください」「メールアドレスの確認が必要です」。
       利用者から見れば、Wi-Fi につなぐ手続きの一部に見えます。
-      <strong>同意画面で ID とパスワードを求められたら、そこで手を止めてください。</strong>
+      <strong>入力前に、施設の案内と接続先のドメインを確認してください。</strong>無関係なメールや銀行のパスワード、証明書の追加を求められた場合は入力せず、施設に確認します。
     </p>
 
     <h3>4. 証明書の警告</h3>
     <p>
-      唯一、暗号化された通信の中身が読まれうる経路がここです。
-      間に入ろうとすると証明書が一致しなくなるので、ブラウザが警告を出します。
-      <strong>この警告を利用者が押し通したときだけ、成立します。</strong>
+      接続先の証明書を検証できないと、ブラウザは警告を出します。
+      <strong>警告を無視して進むと、接続先の正しさを確認できないまま通信するおそれがあります。</strong>
+      ただし警告の無視が唯一の危険ではありません。端末への不正な証明書の追加やマルウェアなど、別の問題もありえます。
     </p>
     <div class="note warn">
-      裏返すと、<strong>警告を無視しない限り、この経路は塞がっています。</strong>
+      <strong>証明書の警告を無視しないことは、基本的な対策です。</strong>
       公衆Wi-Fiでの対策として、これがいちばん費用対効果が高いところです。
       「このサイトは安全ではありません」が出たら、<strong>続行を押さずに閉じる</strong>。それだけです。
     </div>
 
     <h3>5. 端末側の共有設定</h3>
     <p>
-      同じネットワークにいる端末どうしは、互いに見えます。
+      同じネットワークの端末どうしが通信できるかは、利用者間を分離する設定などによって異なります。
       ファイル共有やネットワーク探索が有効なままだと、
       <strong>そこに置いてあるものが他の利用者から見える</strong>ことがあります。
-      Windows で接続時に「パブリック ネットワーク」を選ぶと、このあたりが自動的に閉じます。
+      Windows では「パブリック ネットワーク」を選び、ネットワーク探索と不要な共有が無効になっていることも確認します。個別のファイアウォール設定によって動作は変わります。
     </p>
 
     <h3>6. 画面を覗かれる</h3>
     <p>
-      技術の話ではありませんが、<strong>実際にいちばん起きているのはこれ</strong>だと思います。
+      技術の話ではありませんが、<strong>画面の覗き見も忘れたくない問題</strong>です。
       背後や隣から画面が見えます。撮られることもあります。
       暗号化はここには効きません。
       画面を人に見せる場合の注意は<a href="/blog/checklist">公開前のチェックリスト</a>に別途まとめています。
@@ -751,8 +751,8 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       <table>
         <thead><tr><th scope="col">項目</th><th scope="col">VPN で解決するか</th></tr></thead>
         <tbody>
-          <tr><td>同じネットワークからの宛先の推測</td><td><strong>する</strong>（上の1に効きます）</td></tr>
-          <tr><td>端末どうしの見え方</td><td>する（上の5を緩和します）</td></tr>
+          <tr><td>同じネットワークからの宛先の推測</td><td>VPN を通る通信では緩和します。DNS の経路や分割トンネル設定にも依存します</td></tr>
+          <tr><td>端末どうしの見え方</td><td>VPN だけでは防げません。共有設定やファイアウォールを確認します</td></tr>
           <tr><td>偽アクセスポイント</td><td>つないだ後の経路は守られますが、接続自体は防げません</td></tr>
           <tr><td>偽の同意画面</td><td><strong>しない</strong></td></tr>
           <tr><td>フィッシング全般</td><td><strong>しない</strong></td></tr>
@@ -776,23 +776,23 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       </li>
       <li>
         <b>証明書の警告を絶対に無視しない</b>
-        <span>中身を読まれうる唯一の経路がここです。急いでいるときほど押してしまうので、あらかじめ決めておきます。</span>
+        <span>接続先を確認できない状態で通信しないためです。急いでいるときほど押してしまうので、あらかじめ決めておきます。</span>
       </li>
       <li>
         <b>パブリックネットワークとして扱う</b>
-        <span>接続時に聞かれたら「パブリック」を選びます。共有とネットワーク探索が閉じます。</span>
+        <span>接続時に聞かれたら「パブリック」を選びます。不要な共有とネットワーク探索が無効かも確認します。</span>
       </li>
       <li>
-        <b>同意画面でアカウント情報を入れない</b>
-        <span>本物の同意画面は求めません。求められた時点で疑う理由になります。</span>
+        <b>同意画面の提供元と要求内容を確かめる</b>
+        <span>正規の認証画面もあります。施設の案内と照合し、不明な画面には無関係なサービスのパスワードを入力しません。</span>
       </li>
       <li>
         <b>パスキーや認証アプリを設定しておく</b>
-        <span>仮にどこかで入力させられても、それだけでは入られません。とくにパスキーは、偽サイトではブラウザが鍵を出さないので仕組みとして効きます（<a href="/blog/passkey">二段階認証はどれを選ぶか</a>）。</span>
+        <span>追加の認証は被害を減らす手段になりますが、認証アプリのコードも偽サイトに入力すると悪用されえます。とくにパスキーは、偽サイトではブラウザが鍵を出さないので仕組みとして効きます（<a href="/blog/passkey">二段階認証はどれを選ぶか</a>）。</span>
       </li>
       <li>
         <b>重要な操作はテザリングで</b>
-        <span>ネットワークを丸ごと自分のものにできます。銀行や引っ越し手続きのような場面では、これがいちばん簡単で確実です。</span>
+        <span>公衆 Wi-Fi を経由しない通信に切り替えられます。偽サイトや端末の侵害まで解決するものではありません。銀行や引っ越し手続きのような場面では、これがいちばん簡単で確実です。</span>
       </li>
     </ol>
     <div class="note">
@@ -801,11 +801,13 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       QR コードそのものに発行元の情報が無いことは<a href="/blog/qr">QRコードは中身が見えない</a>に書きました。
     </div>
 
-    <h2>まとめ</h2>
+    <h2>参考資料と更新</h2>
+<p><a href="https://consumer.ftc.gov/articles/are-public-wi-fi-networks-safe-what-you-need-know">FTC：公衆 Wi-Fi と HTTPS</a>、<a href="https://support.apple.com/en-la/102554">Apple：キャプティブ Wi-Fi ネットワークの利用</a>を参照（2026年9月17日確認）。同日、認証画面・証明書の警告・VPN の説明を修正しました。</p>
+<h2>まとめ</h2>
     <ul>
-      <li>HTTPS の普及で<strong>「通信を覗かれる」はほぼ解決した</strong>。危険の中身が移動している</li>
+      <li>正しく検証された HTTPS は<strong>経路上の盗聴から通信内容を守る</strong></li>
       <li>残っているのは<strong>つなぐ相手を間違えさせる</strong>経路。偽アクセスポイントと偽の同意画面</li>
-      <li>暗号化を破る経路は実質ひとつだけ。<strong>証明書の警告を押し通したとき</strong></li>
+      <li><strong>証明書の警告を無視しない</strong>。警告がなくても偽サイトや端末の問題には注意する</li>
       <li>いちばん効く対策は<strong>自動接続を切ること</strong>。次に警告を無視しないこと</li>
       <li>VPN は宛先を隠すが、<strong>預け先を変えるだけ</strong>で、フィッシングには効かない</li>
     </ul>
@@ -823,18 +825,18 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       </div>
 
       <nav class="pager" aria-label="記事の移動">
-        <a class="prev" href="/blog/cors"><span class="dir">← 前の記事</span><span class="t">ブラウザだけでは動画を保存できない — CORS を実測して確かめる</span></a><a class="next" href="/blog/theme"><span class="dir">次の記事 →</span><span class="t">ダークモードは色を反転するのではない — 実装して分かったこと</span></a>
+        <a class="prev" href="/blog/cors"><span class="dir">← 前の記事</span><span class="t">ブラウザで見えるのに fetch で読めない — CORS の制約と確認方法</span></a><a class="next" href="/blog/theme"><span class="dir">次の記事 →</span><span class="t">ダークモードは色を反転するのではない — 実装して分かったこと</span></a>
       </nav>
 
       <h2>ほかの記事</h2>
       <div class="grid cols-2">
       <div class="card">
-        <h3><a href="/blog/qr" style="text-decoration:none">QRコードは中身が見えない — 貼り替え詐欺と、読み取る前の確認</a></h3>
-        <p>四角い模様を見て URL を読める人はいません。QR コードには発行元の証明も署名も無く、上から貼り替えるだけで宛先を差し替えられます。実際に起きている手口…</p>
+        <h3><a href="/blog/manager" style="text-decoration:none">パスワードマネージャーの選び方 - 何を預けることになるのか</a></h3>
+        <p>全部のパスワードを1か所に置くのは怖い、という感覚は正しいです。そのうえで使ったほうが安全になるのはなぜか。鍵がどこで作られ、どこまで運ばれるのか。保管庫ご…</p>
       </div>
       <div class="card">
-        <h3><a href="/blog/passkey" style="text-decoration:none">二段階認証はどれを選ぶか — SMS・認証アプリ・パスキーの違い</a></h3>
-        <p>二段階認証を有効にしていても乗っ取られることはあります。方式によって防げる攻撃が違うからです。分かれ目は「人がコードを入力するかどうか」。パスキーが仕組みと…</p>
+        <h3><a href="/blog/qr" style="text-decoration:none">QRコードは中身が見えない — 貼り替え詐欺と、読み取る前の確認</a></h3>
+        <p>四角い模様を見て URL を読める人はいません。QR コードには発行元の証明も署名も無く、上から貼り替えるだけで宛先を差し替えられます。実際に起きている手口…</p>
       </div>
       </div>
       <div class="btnrow">

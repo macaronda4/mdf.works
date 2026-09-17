@@ -10,3 +10,7 @@
 
 /assets/og/*
   Cache-Control: public, max-age=2592000, immutable
+
+# Maintenance scripts are backed up, but are not editorial content.
+/_local/*
+  X-Robots-Tag: noindex, nofollow
