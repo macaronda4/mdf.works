@@ -1,0 +1,4 @@
+# Directory URLs have permanent canonical locations.
+/blog /blog/ 301
+/kuroko /kuroko/ 301
+/koma /koma/ 301

@@ -732,12 +732,52 @@ def inject(i, p):
     return mins
 
 
+
+def update_home():
+    """Keep directly crawlable homepage article links in step with daily publishing."""
+    path = 'index.html'
+    with open(path, encoding='utf-8') as f:
+        source = f.read()
+    rows = []
+    for post in sorted(POSTS, key=lambda p: p['date'], reverse=True)[:3]:
+        rows.append(
+            '      <article class="card">\n'
+            '        <p class="muted"><time datetime="%s">%s</time> · %s</p>\n'
+            '        <h3><a href="/blog/%s">%s</a></h3>\n'
+            '        <p>%s</p>\n'
+            '      </article>' % (
+                html.escape(post['date']), jp_date(post['date']), html.escape(post['cat']),
+                html.escape(post['slug'], quote=True), html.escape(post['title']),
+                html.escape(post['lead'])))
+    block = ('    <!-- latest-articles:start -->\n'
+             '    <section aria-labelledby="latest-articles">\n'
+             '      <h2 id="latest-articles">最近の記事</h2>\n'
+             '      <div class="grid cols-3">\n' + '\n'.join(rows) + '\n'
+             '      </div>\n'
+             '      <p><a href="/blog/">すべての記事を見る</a></p>\n'
+             '    </section>\n'
+             '    <!-- latest-articles:end -->')
+    pattern = r'    <!-- latest-articles:start -->.*?    <!-- latest-articles:end -->'
+    if '<!-- latest-articles:start -->' in source:
+        source, count = re.subn(pattern, lambda _: block, source, flags=re.S)
+        assert count == 1, 'Homepage article markers must occur exactly once.'
+    else:
+        anchor = '    <h2>作るときに決めていること</h2>'
+        assert source.count(anchor) == 1
+        source = source.replace(anchor, block + '\n\n' + anchor)
+    source = re.sub(r'<span class="tag">[0-9]+本</span>',
+                    '<span class="tag">%d本</span>' % len(POSTS), source)
+    with open(path, 'w', encoding='utf-8', newline='') as f:
+        f.write(source)
+
+
 if __name__ == '__main__':
     os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
     mins = {}
     for i, post in enumerate(POSTS):
         mins[post['slug']] = inject(i, post)
         print('  記事を更新: blog/%s.html（約%d分）' % (post['slug'], mins[post['slug']]))
+    update_home()
     page = build_index(mins)
     open('blog/index.html', 'w', encoding='utf-8', newline='').write(page)
     json.loads(re.search(r'<script type="application/ld\+json">\n(.*?)\n</script>', page, re.S).group(1))
