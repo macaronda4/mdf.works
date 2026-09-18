@@ -173,3 +173,7 @@ card(o("framerate.png"), "Game",
 card(o("manager.png"), "Security",
      "パスワードは\n1か所に置いていい",
      "鍵がどこで作られるかを見る")
+
+card(o("usbc.png"), "Gadget",
+     "USB-Cは\n見た目で選べない",
+     "充電・映像・転送は別の条件")

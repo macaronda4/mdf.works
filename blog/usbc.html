@@ -30,25 +30,25 @@
 <!-- Google AdSense -->
 <script async fetchpriority="low" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8613999974980382"
      crossorigin="anonymous"></script>
-<title>画像形式の選び方｜スクショはPNG、写真はJPEGの理由</title>
-<meta name="description" content="スクリーンショットをJPEGで保存すると文字がにじみます。原因は8×8ブロック単位の圧縮と、色を間引く仕組みです。PNG・JPEG・WebP・AVIFがそれぞれ何に強いのかを、劣化の起きかたから説明します。">
-<link rel="canonical" href="https://mdf.works/blog/imageformat">
+<title>USB-Cケーブルは見た目で選べない｜端子が同じでも中身が違う</title>
+<meta name="description" content="同じ形のUSB-Cケーブルでも中身は違います。充電の上限を決める識別部品、電圧を切り替える仕組み、映像が出る条件、転送の世代差を分けて説明し、手持ちの仕分け方と買うときに見る数字をまとめました。">
+<link rel="canonical" href="https://mdf.works/blog/usbc">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="theme-color" content="#131720">
 <meta name="author" content="マカロン大福">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="mdf.works">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="画像形式の選び方｜スクショはPNG、写真はJPEGの理由">
-<meta property="og:description" content="文字がにじむ原因は圧縮の仕組みにあります。PNG・JPEG・WebP・AVIFの使い分け。">
-<meta property="og:url" content="https://mdf.works/blog/imageformat">
-<meta property="og:image" content="https://mdf.works/assets/og/imageformat.png">
+<meta property="og:title" content="USB-Cケーブルは見た目で選べない｜端子が同じでも中身が違う">
+<meta property="og:description" content="形が同じでも中身は違います。充電・映像・転送は別々の条件で決まります。">
+<meta property="og:url" content="https://mdf.works/blog/usbc">
+<meta property="og:image" content="https://mdf.works/assets/og/usbc.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="画像形式の選び方｜スクショはPNG、写真はJPEGの理由">
-<meta name="twitter:description" content="文字がにじむ原因は圧縮の仕組みにあります。PNG・JPEG・WebP・AVIFの使い分け。">
-<meta name="twitter:image" content="https://mdf.works/assets/og/imageformat.png">
+<meta name="twitter:title" content="USB-Cケーブルは見た目で選べない｜端子が同じでも中身が違う">
+<meta name="twitter:description" content="形が同じでも中身は違います。充電・映像・転送は別々の条件で決まります。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/usbc.png">
 <meta name="twitter:creator" content="@sugerslp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
 <script type="application/ld+json">
@@ -57,30 +57,51 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "スクリーンショットはPNG、写真はJPEG — 画像形式の選び方",
-      "description": "劣化の起きかたから、PNG・JPEG・WebP・AVIF がそれぞれ何に強いのかを説明する。",
-      "image": "https://mdf.works/assets/og/imageformat.png",
-      "datePublished": "2026-08-19",
-      "dateModified": "2026-08-19",
+      "headline": "USB-Cケーブルは見た目で選べない — 端子が同じでも中身が違う",
+      "description": "USB-Cケーブルの仕様差を充電・映像・転送に分けて説明し、識別部品や帯域の分け合い、選び方と手持ちの仕分け方をまとめた記事。",
+      "image": "https://mdf.works/assets/og/usbc.png",
+      "datePublished": "2026-09-18",
+      "dateModified": "2026-09-18",
       "inLanguage": "ja",
-      "articleSection": "基本",
-      "author": { "@id": "https://mdf.works/#person" },
-      "publisher": { "@id": "https://mdf.works/#person" },
-      "mainEntityOfPage": "https://mdf.works/blog/imageformat"
+      "articleSection": "ガジェット",
+      "author": {
+        "@id": "https://mdf.works/#person"
+      },
+      "publisher": {
+        "@id": "https://mdf.works/#person"
+      },
+      "mainEntityOfPage": "https://mdf.works/blog/usbc"
     },
     {
       "@type": "Person",
       "@id": "https://mdf.works/#person",
       "name": "マカロン大福",
       "url": "https://mdf.works/about",
-      "sameAs": ["https://x.com/sugerslp"]
+      "sameAs": [
+        "https://x.com/sugerslp"
+      ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mdf.works/" },
-        { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mdf.works/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "画像形式の選び方", "item": "https://mdf.works/blog/imageformat" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://mdf.works/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "ブログ",
+          "item": "https://mdf.works/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "USB-Cケーブルは見た目で選べない",
+          "item": "https://mdf.works/blog/usbc"
+        }
       ]
     }
   ]
@@ -623,21 +644,18 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
 <main id="main">
   <div class="wrap prose">
 
-    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>画像形式の選び方</p>
+    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>USB-Cケーブルは見た目で選べない</p>
 
     <div class="page-head">
-      <p class="eyebrow">Basics</p>
-      <h1>スクリーンショットはPNG、写真はJPEG<br>画像形式の選び方</h1>
+      <p class="eyebrow">Gadget</p>
+      <h1>USB-Cケーブルは見た目で選べない<br>端子が同じでも中身が違う</h1>
       <p class="lead">
-        スクリーンショットを JPEG で保存すると、文字のまわりが薄く汚れます。
-        設定を最高画質にしても、完全には消えません。
-        画質の良し悪しではなく、<strong>JPEG が想定していない絵を渡している</strong>からです。
-        何がどう捨てられているのかを見ると、使い分けの基準がはっきりします。
+        両端が同じ形なので、どれを挿しても同じだと思ってしまいます。実際には<strong>端子の内側で通っている線が違い、中に入っている部品も違います</strong>。充電の速さ、映像が出るかどうか、転送の速さは、それぞれ別の条件で決まります。ここを分けて見ると、迷いがかなり減ります。
       </p>
       <div class="postmeta">
-        <span class="cat">基本</span>
-        <time datetime="2026-08-19">2026年8月19日</time>
-        <span class="read">約5分で読めます</span>
+        <span class="cat">ガジェット</span>
+        <time datetime="2026-09-18">2026年9月18日</time>
+        <span class="read">約8分で読めます</span>
       </div>
     </div>
 
@@ -647,169 +665,239 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
     </nav>
 
     <!-- postbody:start --><div class="postbody">
-    <h2>まず結論</h2>
+    <h2>1本のケーブルで、3つの別々の話をしている</h2>
+    <p>
+      混乱の元はここです。同じ形の端子で<strong>性質の違う3つ</strong>を扱っているのに、
+      外から見てどれに対応しているか分かりません。
+    </p>
     <div class="tablewrap">
       <table>
-        <thead><tr><th scope="col">中身</th><th scope="col">選ぶもの</th><th scope="col">理由</th></tr></thead>
+        <thead><tr><th scope="col">用途</th><th scope="col">決めているもの</th><th scope="col">できないと何が起きる</th></tr></thead>
         <tbody>
-          <tr><td>スクリーンショット、文字、図、線画</td><td><strong>PNG</strong></td><td>1ピクセルも変えずに保存できる</td></tr>
-          <tr><td>写真</td><td><strong>JPEG</strong>（Web なら WebP / AVIF）</td><td>見て分からない情報を捨てて小さくできる</td></tr>
-          <tr><td>透過が必要</td><td><strong>PNG</strong> / WebP / AVIF</td><td>JPEG には透過が無い</td></tr>
-          <tr><td>ロゴ、アイコン、グラフ</td><td><strong>SVG</strong></td><td>拡大しても粗くならない</td></tr>
+          <tr><td>充電</td><td>流せる電流の上限と、識別用の部品</td><td>遅い、あるいは大きい機器が充電できない</td></tr>
+          <tr><td>映像出力</td><td>高速用の線が入っているか</td><td>画面が映らない</td></tr>
+          <tr><td>データ転送</td><td>同上と、対応している世代</td><td>転送が桁違いに遅い</td></tr>
         </tbody>
       </table>
     </div>
     <p>
-      以下はこの表の理由の説明です。「なぜそうなるのか」が分かると、
-      迷ったときに自分で判断できるようになります。
+      つまり<strong>「充電は速いのに映像が出ない」ケーブルは、不良品ではなく仕様どおり</strong>です。
+      機器に付属してくるものの多くが、充電と低速のデータだけに対応しています。
+      安いものが悪いという話でもなく、<strong>用途が違うだけ</strong>です。
     </p>
 
-    <h2>可逆と非可逆 — この区別がすべての土台</h2>
+    <h2>充電：電圧を切り替えている</h2>
     <p>
-      画像の圧縮方式は、大きく2種類に分かれます。
-    </p>
-    <ul>
-      <li><strong>可逆圧縮</strong>（PNG など）：復元すると<strong>元と完全に一致します</strong>。「同じ色が続く部分をまとめる」といった、情報を捨てない工夫で縮めます。</li>
-      <li><strong>非可逆圧縮</strong>（JPEG など）：<strong>情報を捨てて</strong>縮めます。捨てた分は永久に戻りません。かわりに、はるかに小さくなります。</li>
-    </ul>
-    <p>
-      非可逆が乱暴に思えるかもしれませんが、写真では非常に理にかなっています。
-      人間の目は<strong>明るさの変化に敏感で、色の細かい変化には鈍い</strong>。
-      その性質を利用して、気づかれない情報から優先的に捨てているわけです。
+      昔の USB は5Vで固定でした。いまは機器と充電器が会話して、
+      <strong>その機器に合った電圧に切り替えます</strong>。9V、15V、20V といった段階が用意されていて、
+      必要な電力に応じて選ばれます。
     </p>
     <p>
-      問題は、<strong>その「気づかれない」という前提が、文字では崩れる</strong>ことです。
-    </p>
-
-    <h2>JPEG が文字に弱い、2つの理由</h2>
-
-    <h3>1. 8×8のブロックごとに処理している</h3>
-    <p>
-      JPEG は画像を 8×8 ピクセルの区画に分け、区画ごとに
-      「なだらかな変化」と「細かい変化」に分解して、細かいほうを削ります。
+      電力は電圧と電流の掛け算です。同じ100Wでも、
+      20V×5A と 9V×11A では必要なケーブルがまったく違います。
+      <strong>電圧を上げて電流を抑えるほうが、細いケーブルで済みます。</strong>
+      だから高い電力を扱う組み合わせほど、高い電圧が選ばれます。
     </p>
     <p>
-      写真の中身はたいていなだらかなので、これがよく効きます。
-      ところが文字の輪郭は<strong>白から黒へ1ピクセルで飛ぶ</strong>、極端に細かい変化です。
-      これを少ない情報で表そうとすると、境界の周りに<strong>本来なかった濃淡の波</strong>が出ます。
-      文字のまわりがぼんやり汚れて見えるのは、この波です。
+      さらに、電圧を細かく刻んで調整する仕組みもあります。
+      スマートフォンの電池に合わせて最適な電圧を送り続けることで、
+      変換の無駄を減らし、発熱を抑えられます。
+      対応していると<strong>充電中に本体が熱くなりにくい</strong>という違いが出ます。
     </p>
 
-    <h3>2. 色の情報を間引いている</h3>
+    <h2>識別用の部品が入っている</h2>
     <p>
-      多くの JPEG は、明るさは全ピクセル分保つ一方、
-      <strong>色は縦横それぞれ半分に間引いて</strong>記録します（色の情報量は4分の1）。
-      写真ではまず気づきません。
+      3Aを超える電流を流すケーブルには、内部に識別用の小さな部品が入っています。
+      機器はこれを読んで、<strong>そのケーブルが何アンペアまで耐えられるか</strong>を判断します。
     </p>
     <p>
-      しかし、赤い文字や青いリンクの文字では話が変わります。
-      色の境界が半分の粗さになるため、<strong>文字のふちに違う色がにじみます</strong>。
-      Discord のような濃い背景に載った色つきの名前は、特に目立ちます。
+      この部品が無いケーブルは、規格上3Aまでとして扱われます。
+      20V×3Aで60W。ノートパソコンを充電しようとして遅い、あるいは充電されないときは、
+      たいていここです。<strong>充電器の出力だけ見ても足りません。</strong>
     </p>
     <div class="note">
-      <strong>だから品質を上げても限界があります。</strong>
-      品質設定は「どれだけ細かい変化を残すか」の調整で、
-      ブロック単位で処理することと色を間引くことは、そのままです。
-      文字を含む画像は、<strong>最初から可逆で保存するのが唯一の解</strong>です。
+      <strong>いちばん小さい数字に揃います。</strong>
+      充電器・ケーブル・機器の3つのうち、どれか1つが60Wまでなら、全体が60Wになります。
+      100Wの充電器を買っても、ケーブルが60W用なら60Wのままです。
+      「充電器を買い替えたのに変わらない」の原因は、ほぼこれです。
+      バッテリー側の数字の読みかたは
+      <a href="/blog/battery">モバイルバッテリーは mAh で選ばない</a>にまとめました。
     </div>
 
-    <h2>PNG の得意と不得意</h2>
+    <h2>映像が出る条件</h2>
     <p>
-      PNG は可逆なので、スクリーンショットの文字は保存しても<strong>1ピクセルも変わりません</strong>。
-      透過も扱えます。スクリーンショットの標準的な保存形式になっているのは、この2点が理由です。
+      映像を通すには、高速データ用の線が必要です。充電専用のケーブルには入っていません。
+      <strong>これは長さでも品質でもなく、線が有るか無いかの問題</strong>なので、
+      挿し方を変えても、何度試しても解決しません。
     </p>
     <p>
-      弱点は写真です。写真は隣り合うピクセルがわずかずつ違うので、
-      「同じ色をまとめる」という手が効きません。結果として、
-      <strong>同じ写真が JPEG の5倍から10倍の大きさ</strong>になることも珍しくありません。
+      加えて、機器側が USB-C からの映像出力に対応している必要があります。
+      同じ形の端子でも、充電とデータだけの端子と、映像も出せる端子があります。
+      <strong>対応していない端子は、何を挿しても映りません。</strong>
+      ノートパソコンでは、端子の脇に小さな記号が印刷されていることがあります。
     </p>
-    <div class="note good">
-      <strong>PNG を小さくする方法：</strong>
-      色数が少ない画像（図、単色背景のスクリーンショット）なら、
-      <strong>使う色を256色までに絞る</strong>形式に変換すると大幅に小さくなります。
-      文字はくっきり保たれます。写真が含まれる場合は色が破綻するので使えません。
-    </div>
 
-    <h2>WebP と AVIF は何が違うのか</h2>
+    <h2>映像と転送は、同じ道を分け合う</h2>
     <p>
-      どちらも新しい形式で、<strong>可逆と非可逆の両方に対応し、透過も扱えます</strong>。
-      JPEG と PNG の役割を1つで兼ねられる、という点がまず大きな違いです。
+      あまり知られていない点です。映像を出しているとき、
+      <strong>その帯域はデータ転送と共有されています</strong>。
+    </p>
+    <p>
+      高解像度・高リフレッシュレートの映像を出すと、映像側が多くの線を使います。
+      すると残りが減り、同じケーブルにつないだ外付け記憶装置の転送が落ちます。
+      ドッキングステーション経由で「画面をつないだら転送が遅くなった」という現象は、
+      故障ではなく<strong>取り合いの結果</strong>です。
+    </p>
+    <p>
+      解決するには、より広い帯域を持つ規格に上げるか、
+      <strong>映像と記憶装置を別の端子に分ける</strong>のが確実です。
+    </p>
+
+    <h2>転送：世代の名前が分かりにくい</h2>
+    <p>
+      同じ形で、世代によって数十倍の差があります。
+      しかも規格の呼び名が何度も変わっていて、店頭表示だけでは判別できません。
+      <strong>商品名ではなく、速度の数字を見てください。</strong>
     </p>
     <div class="tablewrap">
       <table>
-        <thead><tr><th scope="col"></th><th scope="col">JPEG</th><th scope="col">PNG</th><th scope="col">WebP</th><th scope="col">AVIF</th></tr></thead>
+        <thead><tr><th scope="col">おおよその速度</th><th scope="col">実際の用途</th></tr></thead>
         <tbody>
-          <tr><td>可逆で保存</td><td>できない</td><td>できる</td><td>できる</td><td>できる</td></tr>
-          <tr><td>透過</td><td>ない</td><td>ある</td><td>ある</td><td>ある</td></tr>
-          <tr><td>アニメーション</td><td>ない</td><td>ない（APNG は可）</td><td>ある</td><td>ある</td></tr>
-          <tr><td>同じ見た目での大きさ</td><td>基準</td><td>写真では大きい</td><td>3割ほど小さい</td><td>さらに小さい</td></tr>
-          <tr><td>変換にかかる時間</td><td>速い</td><td>速い</td><td>やや遅い</td><td>遅い</td></tr>
+          <tr><td>480Mbps</td><td>充電と、キーボードなどの低速機器。付属ケーブルの多くがここ</td></tr>
+          <tr><td>5Gbps / 10Gbps</td><td>外付け記憶装置。多くの用途はここで足ります</td></tr>
+          <tr><td>20Gbps</td><td>高速な外付け、複数画面</td></tr>
+          <tr><td>40Gbps</td><td>ドッキング、高解像度の複数画面、外付けの高速機器</td></tr>
         </tbody>
       </table>
     </div>
     <p>
-      AVIF は特に、<strong>強く圧縮したときの粘りが違います</strong>。
-      JPEG なら破綻するような小さいサイズでも、それなりに見える絵を保ちます。
-      かわりに変換に時間がかかるため、その場で保存する用途より、
-      あらかじめ用意しておく Web 配信向きです。
-    </p>
-    <p>
-      ただし、<strong>新しい形式は「渡した相手が開けるか」が付いて回ります</strong>。
-      主要なブラウザは対応済みですが、古い端末のアプリ、業務用のシステム、
-      印刷所への入稿などでは、いまでも JPEG か PNG が確実です。
-      <strong>人に渡すファイルは保守的に、自分のサイトに置くものは新しい形式で。</strong>
-      これが現実的な線引きだと思います。
+      見分けの手がかりとして、<strong>長さが使えます</strong>。
+      高速な規格は信号が減衰しやすいので、対応品は短めに作られます。
+      2メートルを超える細いケーブルが最高速に対応していることは、まずありません。
+      長距離で高速を出すには、内部に信号を増幅する部品を入れた高価なものが必要になります。
     </p>
 
-    <h2>よくある勘違い</h2>
+    <h2>安全の話</h2>
+    <p>
+      過去に、規格に沿わない部品を使ったケーブルが機器を壊した事例が報告されています。
+      給電の向きや電流の判定を誤らせる作りだと、
+      <strong>本来流れてはいけない電流が流れます</strong>。
+    </p>
+    <p>
+      現在は市場が成熟してきましたが、極端に安いものや出所の分からないものは、
+      <strong>安全に関わる部分でも省略している</strong>可能性があります。
+      数百円の差で機器を失うのは割に合いません。
+      規格の認証を受けていることを明記している製品を選ぶのが、簡単な線引きです。
+    </p>
+    <div class="note warn">
+      <strong>膨らんだ充電器や、熱くなるケーブルは使うのをやめてください。</strong>
+      被覆の中で断線しかけていると、その部分で発熱します。
+      差し込み口がぐらつくもの、特定の角度でしか充電できないものも、
+      内部で線が傷んでいる兆候です。
+    </div>
 
-    <h3>JPEG を PNG に変換すれば画質が戻る</h3>
+    <h2>手持ちを仕分ける</h2>
+    <ol class="steps">
+      <li>
+        <b>用途を書いて貼る</b>
+        <span>結束バンドやマスキングテープに「充電のみ」「映像OK」と書いて留めます。一度調べた結果を残さないと、毎回同じことを試すことになります。</span>
+      </li>
+      <li>
+        <b>映像で分ける</b>
+        <span>外部ディスプレイに挿してみて、映るかどうかを見ます。判定が一瞬で済むので、最初の仕分けに向いています。映れば高速線が入っている証拠なので、転送も期待できます。</span>
+      </li>
+      <li>
+        <b>充電の速さで分ける</b>
+        <span>同じ機器・同じ充電器で、ケーブルだけ替えて比べます。充電中の電力を表示できる機器なら、そこを見ます。数百円の測定器を挟むと、電圧と電流が直接読めます。</span>
+      </li>
+      <li>
+        <b>捨てる本数を決める</b>
+        <span>用途の重ならない良いものが数本あれば足ります。<strong>判別できないものを大量に持っているのが、いちばん時間を失う状態</strong>です。</span>
+      </li>
+    </ol>
+
+    <h2>買うときに見る数字</h2>
+    <ul>
+      <li><strong>電流の上限</strong> — 3A か 5A か。ノートパソコンを充電するなら 5A 対応を選びます</li>
+      <li><strong>転送の世代</strong> — 商品名ではなく、何Gbps かの表記を見ます</li>
+      <li><strong>映像対応の明記</strong> — 書いていないものは、対応していないと考えるほうが当たります</li>
+      <li><strong>長さ</strong> — 高速用途は短く。取り回しのために長くすると、性能を落とします</li>
+      <li><strong>認証の有無</strong> — 安全に関わる部分の担保になります</li>
+    </ul>
+    <div class="note">
+      <strong>「USB-C 対応」だけの表記は、何も保証していません。</strong>
+      形が合うという意味にしかならないからです。
+      数字が書かれていない商品は、書けない理由があると考えるのが安全です。
+      逆に、対応表を細かく載せている製品は、それ自体が信頼の手がかりになります。
+    </div>
+
+    <h2>結局、何本あればいいのか</h2>
     <p>
-      戻りません。<strong>捨てられた情報は、どの形式に変換しても復元されません。</strong>
-      できるのは「これ以上劣化させない」ことだけです。
-      にじんだ文字は、にじんだまま可逆で保存されます。ファイルは無駄に大きくなります。
+      用途が重ならない3本があれば、たいていの場面をまかなえます。
+    </p>
+    <ul>
+      <li><strong>短い高性能な1本</strong> — 5A対応・高速転送・映像対応。据え置きで使う主力</li>
+      <li><strong>長めの充電用1本</strong> — 転送は遅くてよい。ベッド脇やソファ用</li>
+      <li><strong>持ち歩き用の短い1本</strong> — 5A対応。カバンに入れっぱなしにする</li>
+    </ul>
+    <p>
+      これ以上増やすと、また判別できない山ができます。
+      <strong>本数を減らすことが、この問題の実質的な解決策</strong>だと思っています。
     </p>
 
-    <h3>何度保存しても同じ</h3>
+    <h2>充電器の側にも同じ話がある</h2>
     <p>
-      非可逆形式では、<strong>保存するたびに劣化が積み上がります</strong>。
-      JPEG を開いて少し書き込み、また JPEG で保存する。これを繰り返すと、
-      元は綺麗だった画像がじわじわ崩れていきます。
+      ケーブルを整えても、充電器が足りていなければ意味がありません。
+      ここにも見落とされやすい点が2つあります。
+    </p>
+    <h3>複数の口があると、分け合う</h3>
+    <p>
+      「合計100W」と書かれた充電器に2台つなぐと、<strong>100Wずつではありません</strong>。
+      分配のしかたは製品ごとに決まっていて、
+      1台なら100W、2台なら65Wと45Wに分かれる、といった形です。
     </p>
     <p>
-      作業中は可逆形式で持っておき、<strong>非可逆にするのは最後の1回だけ</strong>にするのが基本です。
+      さらに、<strong>途中で機器を挿すと分配が変わります</strong>。
+      ノートパソコンを充電しているところにスマートフォンを挿すと、
+      ノート側への供給が下がり、場合によっては一度給電が切れて挿し直しの扱いになります。
+      作業中に「充電されていない」に変わっていた、というのはこれが原因のことがあります。
     </p>
+    <h3>小さい充電器は熱で絞ることがある</h3>
+    <p>
+      最近の充電器が小型なのは、<strong>発熱の少ない素材</strong>を使っているためです。
+      効率が上がったぶん小さくできています。
+      ただし小さいほど熱を逃がす面積も小さいので、
+      夏場や布団の上など<strong>放熱しにくい状況では出力を落とす</strong>ものがあります。
+    </p>
+    <div class="note">
+      「同じ充電器なのに、日によって充電が遅い」と感じたら、置き場所を変えてみてください。
+      <strong>枕元やソファの隙間は、いちばん条件が悪い場所</strong>です。
+    </div>
 
-    <h3>透過 PNG を JPEG にしても平気</h3>
+    <h2>持ち歩く1本を決める</h2>
     <p>
-      JPEG に透過はないので、透明だった部分は<strong>黒や白で塗られます</strong>。
-      ロゴを配ったら背景が真っ黒になっていた、という事故はこれです。
-    </p>
-
-    <h2>形式の選択は、プライバシーにも関わる</h2>
-    <p>
-      カメラで撮った JPEG には、<strong>Exif</strong> と呼ばれる付随情報が入ります。
-      撮影日時、カメラの機種、設定、そして<strong>撮影場所の位置情報</strong>が含まれることがあります。
-      画像を見ただけでは分かりませんが、ファイルの中には残っています。
+      最後に、実用的な結論をひとつ。<strong>カバンに入れる1本は、性能で選んでください。</strong>
     </p>
     <p>
-      画像を再び保存し直すと、この情報は多くの場合<strong>引き継がれずに消えます</strong>。
-      副作用として都合が良い動きですが、<strong>確実だと思い込むのは危険です</strong>。
-      アプリによっては意図的に引き継ぐものもあります。
+      出先で使うケーブルは、たいてい「充電できればいい」と思って安いものを入れがちです。
+      ところが実際には、出先こそ<strong>急いで充電したい</strong>場面であり、
+      会議室のディスプレイにつなぎたい場面でもあります。
     </p>
     <p>
-      公開するつもりの写真なら、位置情報が残っていないかを一度確認しておくと安全です。
-      スクリーンショットには通常 Exif は入りませんが、
-      <a href="/blog/checklist">画面の中に写り込むもの</a>は別の問題として残ります。
+      逆に、机の上で常時挿しっぱなしにするものは、性能より
+      <strong>取り回しと耐久</strong>のほうが効きます。
+      抜き差ししない場所に高性能な短いケーブルを使い、
+      持ち歩き用に安いものを入れるのは、優先順位が逆になっています。
     </p>
 
     <h2>まとめ</h2>
     <ul>
-      <li>JPEG は<strong>「人が気づかない情報を捨てる」</strong>方式。文字ではその前提が崩れる</li>
-      <li>にじみの正体は<strong>8×8ブロック単位の処理</strong>と<strong>色の間引き</strong>。品質設定では消えない</li>
-      <li>文字が含まれるなら<strong>可逆形式（PNG）</strong>。写真なら非可逆で十分</li>
-      <li>WebP と AVIF は両方できる。<strong>自分のサイトには新形式、人に渡すなら従来形式</strong></li>
-      <li>変換で画質は戻らない。<strong>非可逆にするのは最後の1回だけ</strong></li>
+      <li>同じ形で<strong>充電・映像・転送の3つ</strong>を扱っている。対応はそれぞれ別</li>
+      <li>充電は<strong>充電器・ケーブル・機器のいちばん小さい数字</strong>に揃う</li>
+      <li>3Aを超えるには<strong>識別用の部品</strong>が要る。無ければ60Wで頭打ち</li>
+      <li>映像が出ないのは線が入っていないから。<strong>挿し方では直らない</strong></li>
+      <li>映像と転送は<strong>同じ帯域を分け合う</strong>。つなぐと遅くなるのは取り合いの結果</li>
+      <li>高速対応は短い。<strong>長い細身のケーブルは速くない</strong></li>
     </ul>
 
     </div><!-- postbody:end -->
@@ -817,7 +905,7 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
     <div class="postnav">
       <div class="share">
         <span class="label">この記事を共有</span>
-        <a href="https://x.com/intent/post?text=スクリーンショットはPNG、写真はJPEG — 画像形式の選び方&amp;url=https://mdf.works/blog/imageformat" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/intent/post?text=USB-Cケーブルは見た目で選べない — 端子が同じでも中身が違う&amp;url=https://mdf.works/blog/usbc" target="_blank" rel="noopener noreferrer">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.2-5.8 6.2H1.5l7.5-8.6L1 3h6.7l4.6 5.8L17.5 3zm-1.1 16.2h1.8L7.7 4.7H5.8l10.6 14.5z"/></svg>
           X で共有
         </a>
@@ -825,18 +913,18 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       </div>
 
       <nav class="pager" aria-label="記事の移動">
-        <a class="prev" href="/blog/passkey"><span class="dir">← 前の記事</span><span class="t">二段階認証はどれを選ぶか — SMS・認証アプリ・パスキーの違い</span></a><a class="next" href="/blog/extension"><span class="dir">次の記事 →</span><span class="t">拡張機能の権限の見かた — 「すべてのサイトのデータを読み取る」とは何か</span></a>
+        <a class="prev" href="/blog/manager"><span class="dir">← 前の記事</span><span class="t">パスワードマネージャーの選び方 - 何を預けることになるのか</span></a>
       </nav>
 
       <h2>ほかの記事</h2>
       <div class="grid cols-2">
       <div class="card">
-        <h3><a href="/blog/capture" style="text-decoration:none">スクリーンショットは必要な範囲だけを撮る</a></h3>
-        <p>隠す作業を減らすいちばん確実な方法は、そもそも写さないことです。Windows・macOS・iPhone・Android それぞれの範囲指定の撮り方と、撮る…</p>
+        <h3><a href="/blog/battery" style="text-decoration:none">モバイルバッテリーは mAh で選ばない — 見るべきは Wh と W</a></h3>
+        <p>10000mAh のバッテリーで 5000mAh のスマートフォンは2回充電できません。mAh を Wh に直す計算、速さを決める W、USB PD と P…</p>
       </div>
       <div class="card">
-        <h3><a href="/blog/usbc" style="text-decoration:none">USB-Cケーブルは見た目で選べない — 端子が同じでも中身が違う</a></h3>
-        <p>同じ形なのに、充電が遅い。映像が出ない。転送が異様に遅い。原因はたいていケーブルです。端子の内側で何が違うのか、電圧を切り替える仕組み、識別用の部品の役割、…</p>
+        <h3><a href="/blog/manager" style="text-decoration:none">パスワードマネージャーの選び方 - 何を預けることになるのか</a></h3>
+        <p>全部のパスワードを1か所に置くのは怖い、という感覚は正しいです。そのうえで使ったほうが安全になるのはなぜか。鍵がどこで作られ、どこまで運ばれるのか。保管庫ご…</p>
       </div>
       </div>
       <div class="btnrow">
