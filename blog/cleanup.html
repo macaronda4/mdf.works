@@ -30,25 +30,25 @@
 <!-- Google AdSense -->
 <script async fetchpriority="low" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8613999974980382"
      crossorigin="anonymous"></script>
-<title>画像形式の選び方｜スクショはPNG、写真はJPEGの理由</title>
-<meta name="description" content="スクリーンショットをJPEGで保存すると文字がにじみます。原因は8×8ブロック単位の圧縮と、色を間引く仕組みです。PNG・JPEG・WebP・AVIFがそれぞれ何に強いのかを、劣化の起きかたから説明します。">
-<link rel="canonical" href="https://mdf.works/blog/imageformat">
+<title>タブを閉じても残るもの｜ブラウザに溜まる記録を整理する</title>
+<meta name="description" content="ブラウザに溜まる記録を種類ごとに分けて説明します。Cookie・サイトデータ・キャッシュ・履歴の違い、消すと何が起きるか、掃除より先にやるべき設定、プライベートウィンドウの守備範囲、端末を手放すときの手順。">
+<link rel="canonical" href="https://mdf.works/blog/cleanup">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="theme-color" content="#131720">
 <meta name="author" content="マカロン大福">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="mdf.works">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="画像形式の選び方｜スクショはPNG、写真はJPEGの理由">
-<meta property="og:description" content="文字がにじむ原因は圧縮の仕組みにあります。PNG・JPEG・WebP・AVIFの使い分け。">
-<meta property="og:url" content="https://mdf.works/blog/imageformat">
-<meta property="og:image" content="https://mdf.works/assets/og/imageformat.png">
+<meta property="og:title" content="タブを閉じても残るもの｜ブラウザに溜まる記録を整理する">
+<meta property="og:description" content="履歴を消してもログインが残るのは、置き場所が違うからです。">
+<meta property="og:url" content="https://mdf.works/blog/cleanup">
+<meta property="og:image" content="https://mdf.works/assets/og/cleanup.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="画像形式の選び方｜スクショはPNG、写真はJPEGの理由">
-<meta name="twitter:description" content="文字がにじむ原因は圧縮の仕組みにあります。PNG・JPEG・WebP・AVIFの使い分け。">
-<meta name="twitter:image" content="https://mdf.works/assets/og/imageformat.png">
+<meta name="twitter:title" content="タブを閉じても残るもの｜ブラウザに溜まる記録を整理する">
+<meta name="twitter:description" content="履歴を消してもログインが残るのは、置き場所が違うからです。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/cleanup.png">
 <meta name="twitter:creator" content="@sugerslp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
 <script type="application/ld+json">
@@ -57,30 +57,51 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "スクリーンショットはPNG、写真はJPEG — 画像形式の選び方",
-      "description": "劣化の起きかたから、PNG・JPEG・WebP・AVIF がそれぞれ何に強いのかを説明する。",
-      "image": "https://mdf.works/assets/og/imageformat.png",
-      "datePublished": "2026-08-19",
-      "dateModified": "2026-08-19",
+      "headline": "タブを閉じても残るもの — ブラウザに溜まる記録を整理する",
+      "description": "ブラウザが保持する記録の種類と違い、それぞれを消したときに起きること、追跡防止の設定、端末を手放すときの手順をまとめた記事。",
+      "image": "https://mdf.works/assets/og/cleanup.png",
+      "datePublished": "2026-09-21",
+      "dateModified": "2026-09-21",
       "inLanguage": "ja",
-      "articleSection": "基本",
-      "author": { "@id": "https://mdf.works/#person" },
-      "publisher": { "@id": "https://mdf.works/#person" },
-      "mainEntityOfPage": "https://mdf.works/blog/imageformat"
+      "articleSection": "ブラウザ",
+      "author": {
+        "@id": "https://mdf.works/#person"
+      },
+      "publisher": {
+        "@id": "https://mdf.works/#person"
+      },
+      "mainEntityOfPage": "https://mdf.works/blog/cleanup"
     },
     {
       "@type": "Person",
       "@id": "https://mdf.works/#person",
       "name": "マカロン大福",
       "url": "https://mdf.works/about",
-      "sameAs": ["https://x.com/sugerslp"]
+      "sameAs": [
+        "https://x.com/sugerslp"
+      ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mdf.works/" },
-        { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mdf.works/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "画像形式の選び方", "item": "https://mdf.works/blog/imageformat" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://mdf.works/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "ブログ",
+          "item": "https://mdf.works/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "タブを閉じても残るもの",
+          "item": "https://mdf.works/blog/cleanup"
+        }
       ]
     }
   ]
@@ -623,21 +644,18 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
 <main id="main">
   <div class="wrap prose">
 
-    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>画像形式の選び方</p>
+    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>タブを閉じても残るもの</p>
 
     <div class="page-head">
-      <p class="eyebrow">Basics</p>
-      <h1>スクリーンショットはPNG、写真はJPEG<br>画像形式の選び方</h1>
+      <p class="eyebrow">Browser</p>
+      <h1>タブを閉じても残るもの<br>ブラウザに溜まる記録を整理する</h1>
       <p class="lead">
-        スクリーンショットを JPEG で保存すると、文字のまわりが薄く汚れます。
-        設定を最高画質にしても、完全には消えません。
-        画質の良し悪しではなく、<strong>JPEG が想定していない絵を渡している</strong>からです。
-        何がどう捨てられているのかを見ると、使い分けの基準がはっきりします。
+        「履歴を消す」で全部が消えると思っていると、意図しない結果になります。<strong>ブラウザが持っている記録は1種類ではありません。</strong>消えないものと、消すと困るものが混ざっています。中身を分けたうえで、掃除より効く設定の話に進みます。
       </p>
       <div class="postmeta">
-        <span class="cat">基本</span>
-        <time datetime="2026-08-19">2026年8月19日</time>
-        <span class="read">約5分で読めます</span>
+        <span class="cat">ブラウザ</span>
+        <time datetime="2026-09-21">2026年9月21日</time>
+        <span class="read">約7分で読めます</span>
       </div>
     </div>
 
@@ -647,169 +665,225 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
     </nav>
 
     <!-- postbody:start --><div class="postbody">
-    <h2>まず結論</h2>
+    <h2>引き出しは4つある</h2>
     <div class="tablewrap">
       <table>
-        <thead><tr><th scope="col">中身</th><th scope="col">選ぶもの</th><th scope="col">理由</th></tr></thead>
+        <thead><tr><th scope="col">種類</th><th scope="col">中身</th><th scope="col">消すと</th></tr></thead>
         <tbody>
-          <tr><td>スクリーンショット、文字、図、線画</td><td><strong>PNG</strong></td><td>1ピクセルも変えずに保存できる</td></tr>
-          <tr><td>写真</td><td><strong>JPEG</strong>（Web なら WebP / AVIF）</td><td>見て分からない情報を捨てて小さくできる</td></tr>
-          <tr><td>透過が必要</td><td><strong>PNG</strong> / WebP / AVIF</td><td>JPEG には透過が無い</td></tr>
-          <tr><td>ロゴ、アイコン、グラフ</td><td><strong>SVG</strong></td><td>拡大しても粗くならない</td></tr>
+          <tr><td>Cookie</td><td>ログイン状態、設定の一部、広告用の識別</td><td>全部ログアウトする</td></tr>
+          <tr><td>サイトのデータ</td><td>サイトがブラウザ内に保存した中身そのもの</td><td>下書きや設定が消えることがある</td></tr>
+          <tr><td>キャッシュ</td><td>画像やCSSの控え。表示を速くするため</td><td>次の表示が少し遅くなるだけ</td></tr>
+          <tr><td>履歴</td><td>いつどこを見たかの一覧</td><td>候補が出なくなる。ログインは残る</td></tr>
         </tbody>
       </table>
     </div>
     <p>
-      以下はこの表の理由の説明です。「なぜそうなるのか」が分かると、
-      迷ったときに自分で判断できるようになります。
+      「履歴を消したのにログインしたままだった」は、この表のとおりです。
+      <strong>履歴とログイン状態は別の引き出しに入っています。</strong>
+      逆に「Cookie を消したら、見ていたサイトが全部ログアウトした」も同じ理屈です。
     </p>
 
-    <h2>可逆と非可逆 — この区別がすべての土台</h2>
+    <h2>Cookie は2種類ある</h2>
     <p>
-      画像の圧縮方式は、大きく2種類に分かれます。
+      同じ Cookie でも、役割がまったく違うものが混ざっています。
     </p>
     <ul>
-      <li><strong>可逆圧縮</strong>（PNG など）：復元すると<strong>元と完全に一致します</strong>。「同じ色が続く部分をまとめる」といった、情報を捨てない工夫で縮めます。</li>
-      <li><strong>非可逆圧縮</strong>（JPEG など）：<strong>情報を捨てて</strong>縮めます。捨てた分は永久に戻りません。かわりに、はるかに小さくなります。</li>
+      <li><strong>そのサイト自身のもの</strong> — ログイン状態、言語設定、カートの中身。消すとログアウトします</li>
+      <li><strong>他所のもの</strong> — 埋め込まれた広告や解析が置いていくもの。サイトをまたいで同じ人だと判別するために使われます</li>
     </ul>
     <p>
-      非可逆が乱暴に思えるかもしれませんが、写真では非常に理にかなっています。
-      人間の目は<strong>明るさの変化に敏感で、色の細かい変化には鈍い</strong>。
-      その性質を利用して、気づかれない情報から優先的に捨てているわけです。
+      後者だけを止める設定が、主要なブラウザにあります。
+      <strong>ログイン状態を保ったまま、追跡の材料だけ減らせる</strong>ので、
+      掃除より先にこちらを設定するほうが、手間あたりの効果がはるかに大きいです。
     </p>
     <p>
-      問題は、<strong>その「気づかれない」という前提が、文字では崩れる</strong>ことです。
-    </p>
-
-    <h2>JPEG が文字に弱い、2つの理由</h2>
-
-    <h3>1. 8×8のブロックごとに処理している</h3>
-    <p>
-      JPEG は画像を 8×8 ピクセルの区画に分け、区画ごとに
-      「なだらかな変化」と「細かい変化」に分解して、細かいほうを削ります。
-    </p>
-    <p>
-      写真の中身はたいていなだらかなので、これがよく効きます。
-      ところが文字の輪郭は<strong>白から黒へ1ピクセルで飛ぶ</strong>、極端に細かい変化です。
-      これを少ない情報で表そうとすると、境界の周りに<strong>本来なかった濃淡の波</strong>が出ます。
-      文字のまわりがぼんやり汚れて見えるのは、この波です。
-    </p>
-
-    <h3>2. 色の情報を間引いている</h3>
-    <p>
-      多くの JPEG は、明るさは全ピクセル分保つ一方、
-      <strong>色は縦横それぞれ半分に間引いて</strong>記録します（色の情報量は4分の1）。
-      写真ではまず気づきません。
-    </p>
-    <p>
-      しかし、赤い文字や青いリンクの文字では話が変わります。
-      色の境界が半分の粗さになるため、<strong>文字のふちに違う色がにじみます</strong>。
-      Discord のような濃い背景に載った色つきの名前は、特に目立ちます。
+      ブラウザによって初期状態が違います。他所の Cookie を既定で止めているもの、
+      段階的に制限しているもの、利用者の設定に任せているものがあります。
+      <strong>「入れたままの設定」が同じ意味にならない</strong>ので、一度確認する価値があります。
+      違いは<a href="/blog/browser">ブラウザの選び方</a>にまとめました。
     </p>
     <div class="note">
-      <strong>だから品質を上げても限界があります。</strong>
-      品質設定は「どれだけ細かい変化を残すか」の調整で、
-      ブロック単位で処理することと色を間引くことは、そのままです。
-      文字を含む画像は、<strong>最初から可逆で保存するのが唯一の解</strong>です。
+      Cookie を止めても、追跡がゼロになるわけではありません。
+      画面の大きさ、入っている書体、時刻の設定といった<strong>環境の組み合わせ</strong>から
+      同じ人を推定する方法があります。
+      ただし精度も安定性も Cookie より低いので、<strong>止める価値がなくなるわけではありません</strong>。
+      完全でないことと、無意味であることは違います。
     </div>
 
-    <h2>PNG の得意と不得意</h2>
+    <h2>サイトのデータは、消すと戻らない</h2>
     <p>
-      PNG は可逆なので、スクリーンショットの文字は保存しても<strong>1ピクセルも変わりません</strong>。
-      透過も扱えます。スクリーンショットの標準的な保存形式になっているのは、この2点が理由です。
+      ここがいちばん注意の要る引き出しです。
+      Cookie が小さな覚え書きなのに対して、こちらは<strong>サイトがブラウザ内に置いた本体</strong>です。
     </p>
     <p>
-      弱点は写真です。写真は隣り合うピクセルがわずかずつ違うので、
-      「同じ色をまとめる」という手が効きません。結果として、
-      <strong>同じ写真が JPEG の5倍から10倍の大きさ</strong>になることも珍しくありません。
+      ブラウザの中だけで動く道具は、作業中の内容や設定をここに置いていることがあります。
+      地図の保存データ、メモ、画像加工の設定、ゲームの進行。
+      <strong>サーバーに預けていないぶん、消せばそれで終わりです。</strong>
     </p>
-    <div class="note good">
-      <strong>PNG を小さくする方法：</strong>
-      色数が少ない画像（図、単色背景のスクリーンショット）なら、
-      <strong>使う色を256色までに絞る</strong>形式に変換すると大幅に小さくなります。
-      文字はくっきり保たれます。写真が含まれる場合は色が破綻するので使えません。
+    <p>
+      さらに、オフラインでも動くように作られたサイトは、
+      ページ本体の控えをここに持っています。
+      <strong>キャッシュを消しても、こちらが残っていると古い版が表示され続ける</strong>ことがあります。
+      「何度更新しても直らない」ときは、この引き出しを疑ってください。
+    </p>
+    <div class="note warn">
+      掃除の前に、作りかけのものが無いか確認してください。
+      「Cookie とサイトデータを削除」を選ぶと、両方まとめて消えます。
+      ブラウザ内で完結する道具を使っているなら、
+      <strong>先に書き出してから</strong>掃除してください。
     </div>
 
-    <h2>WebP と AVIF は何が違うのか</h2>
+    <h2>キャッシュは気軽に消してよい</h2>
     <p>
-      どちらも新しい形式で、<strong>可逆と非可逆の両方に対応し、透過も扱えます</strong>。
-      JPEG と PNG の役割を1つで兼ねられる、という点がまず大きな違いです。
+      ここだけは失うものがありません。表示が一時的に遅くなるだけです。
+    </p>
+    <p>
+      むしろ<strong>「更新したはずなのに古いまま表示される」ときの第一手</strong>がここです。
+      ページの中身は新しいのに見た目が崩れている、という症状はキャッシュ由来のことが多く、
+      配信側から見た仕組みの話は
+      <a href="/blog/cache">HTMLは新しいのにCSSだけ古い</a>に書きました。
+    </p>
+    <p>
+      なお、再読み込みには段階があります。
+      <strong>キャッシュを無視して取り直す再読み込み</strong>が用意されていて、
+      多くのブラウザでは Ctrl（Mac は Shift）を押しながら更新すると実行できます。
+      1ページだけ直したいときは、全部消すより先にこちらを試すと早いです。
+    </p>
+
+    <h2>掃除より先にやる設定</h2>
+    <p>
+      定期的に手で消すのは続きません。設定で自動化できる部分があります。
+    </p>
+    <ol class="steps">
+      <li>
+        <b>他所の Cookie を止める</b>
+        <span>一度やれば以降ずっと効きます。ログイン状態は保たれるので、実害がほとんどありません。まずここから。</span>
+      </li>
+      <li>
+        <b>終了時に消す設定にして、例外を登録する</b>
+        <span>ブラウザを閉じるたびに Cookie を消す設定があります。そのうえで、ログインを保ちたいサイトだけ<strong>例外リストに入れます</strong>。全部消すか全部残すかの二択から抜けられます。</span>
+      </li>
+      <li>
+        <b>サイトごとに見る癖をつける</b>
+        <span>アドレスバーの鍵の記号から、そのサイトが保存しているものを一覧できます。全体を消す前に、対象のサイトだけ消せば済むことが多いです。</span>
+      </li>
+      <li>
+        <b>拡張機能を棚卸しする</b>
+        <span>拡張機能も独自にデータを持ちます。ブラウザの掃除では消えません。使っていないものは外すのが確実です（<a href="/blog/extension">拡張機能の権限の見かた</a>）。</span>
+      </li>
+    </ol>
+
+    <h2>プライベートウィンドウが守るもの</h2>
+    <p>
+      誤解が多いところなので、範囲をはっきりさせておきます。
     </p>
     <div class="tablewrap">
       <table>
-        <thead><tr><th scope="col"></th><th scope="col">JPEG</th><th scope="col">PNG</th><th scope="col">WebP</th><th scope="col">AVIF</th></tr></thead>
+        <thead><tr><th scope="col"></th><th scope="col">プライベートウィンドウで</th></tr></thead>
         <tbody>
-          <tr><td>可逆で保存</td><td>できない</td><td>できる</td><td>できる</td><td>できる</td></tr>
-          <tr><td>透過</td><td>ない</td><td>ある</td><td>ある</td><td>ある</td></tr>
-          <tr><td>アニメーション</td><td>ない</td><td>ない（APNG は可）</td><td>ある</td><td>ある</td></tr>
-          <tr><td>同じ見た目での大きさ</td><td>基準</td><td>写真では大きい</td><td>3割ほど小さい</td><td>さらに小さい</td></tr>
-          <tr><td>変換にかかる時間</td><td>速い</td><td>速い</td><td>やや遅い</td><td>遅い</td></tr>
+          <tr><td>その端末に履歴が残る</td><td><strong>残らない</strong></td></tr>
+          <tr><td>Cookie が残る</td><td><strong>閉じれば消える</strong></td></tr>
+          <tr><td>ダウンロードしたファイル</td><td>残る（履歴の記録は残らない）</td></tr>
+          <tr><td>ブックマークに入れたもの</td><td>残る</td></tr>
+          <tr><td>接続先に自分が見える</td><td>見える</td></tr>
+          <tr><td>職場や学校の管理者に見える</td><td>見える</td></tr>
+          <tr><td>ログインしたサービスに記録が残る</td><td>残る</td></tr>
         </tbody>
       </table>
     </div>
     <p>
-      AVIF は特に、<strong>強く圧縮したときの粘りが違います</strong>。
-      JPEG なら破綻するような小さいサイズでも、それなりに見える絵を保ちます。
-      かわりに変換に時間がかかるため、その場で保存する用途より、
-      あらかじめ用意しておく Web 配信向きです。
-    </p>
-    <p>
-      ただし、<strong>新しい形式は「渡した相手が開けるか」が付いて回ります</strong>。
-      主要なブラウザは対応済みですが、古い端末のアプリ、業務用のシステム、
-      印刷所への入稿などでは、いまでも JPEG か PNG が確実です。
-      <strong>人に渡すファイルは保守的に、自分のサイトに置くものは新しい形式で。</strong>
-      これが現実的な線引きだと思います。
+      <strong>守っているのは「その端末に残るかどうか」だけ</strong>です。
+      同じ端末を家族と使うときや、他人の端末を一時的に借りるときには有効で、
+      通信の相手から隠す用途にはまったく効きません。
     </p>
 
-    <h2>よくある勘違い</h2>
+    <h2>端末を手放すとき</h2>
+    <p>
+      売却や返却の前は、掃除では足りません。
+      <strong>プロファイルごと消して、アカウントの紐づけを切る</strong>必要があります。
+    </p>
+    <ol class="steps">
+      <li>
+        <b>同期を解除する</b>
+        <span>ブラウザのアカウントからサインアウトし、「この端末のデータも削除」を選びます。サインアウトだけでは端末側に残ります。</span>
+      </li>
+      <li>
+        <b>ほかの端末から、その端末を切り離す</b>
+        <span>アカウントの管理画面に、ログイン中の端末の一覧があります。手放した端末が残っていないか確認します。</span>
+      </li>
+      <li>
+        <b>プロファイルを削除する</b>
+        <span>ブラウザ側で利用者プロファイルごと消します。個別の掃除より確実です。</span>
+      </li>
+      <li>
+        <b>最後に端末そのものを初期化する</b>
+        <span>ブラウザだけ消しても、他のアプリに残ります。手放すなら端末の初期化まで行います。</span>
+      </li>
+    </ol>
 
-    <h3>JPEG を PNG に変換すれば画質が戻る</h3>
+    <h2>なぜ「追いかけてくる」のか</h2>
     <p>
-      戻りません。<strong>捨てられた情報は、どの形式に変換しても復元されません。</strong>
-      できるのは「これ以上劣化させない」ことだけです。
-      にじんだ文字は、にじんだまま可逆で保存されます。ファイルは無駄に大きくなります。
+      一度見た商品が、しばらく別のサイトでも出てくる。
+      あれが起きる仕組みを知っておくと、どの設定が効くかが分かります。
+    </p>
+    <p>
+      商品ページには、そのサイト以外の会社の部品が埋め込まれていることがあります。
+      その部品は<strong>自分の会社の名前で Cookie を置きます</strong>。
+      別のサイトにも同じ会社の部品が入っていれば、同じ Cookie が読まれ、
+      <strong>両方のサイトを見た同じ人だ</strong>と分かります。
+    </p>
+    <p>
+      つまり、追跡しているのはサイトどうしではなく、
+      <strong>複数のサイトに同居している第三者</strong>です。
+      だから「他所の Cookie を止める」設定が直接効きます。
+      サイト自身の Cookie を消す必要はなく、そこを消すとログアウトするだけ損をします。
+    </p>
+    <div class="note">
+      止めると広告が消えるわけではありません。
+      <strong>関連性の低い広告が出るようになる</strong>だけです。
+      この違いは知っておく価値があります。
+      「広告を減らしたい」と「追跡を減らしたい」は別の要望で、効く手段も違います。
+    </div>
+
+    <h2>掃除で速くなることは、ほとんどない</h2>
+    <p>
+      「重いから掃除する」という動機をよく聞きますが、
+      <strong>キャッシュを消すと、むしろ一時的に遅くなります</strong>。
+      控えを捨てて取り直すことになるからです。
+    </p>
+    <p>
+      ブラウザが重い原因は、たいてい別のところにあります。
+      開きっぱなしのタブ、常駐している拡張機能、
+      そして<strong>更新されずに古いままのブラウザ本体</strong>。
+      掃除は目に見える作業なので達成感がありますが、
+      速度への効果はほぼありません。
+      速さが目的なら、拡張機能を1つ外すほうが確実です。
     </p>
 
-    <h3>何度保存しても同じ</h3>
+    <h2>それでも残る記録</h2>
     <p>
-      非可逆形式では、<strong>保存するたびに劣化が積み上がります</strong>。
-      JPEG を開いて少し書き込み、また JPEG で保存する。これを繰り返すと、
-      元は綺麗だった画像がじわじわ崩れていきます。
+      ブラウザの掃除では届かない場所があります。すべてを消したつもりでも、次は残ります。
     </p>
+    <ul>
+      <li><strong>サービス側の記録</strong> — ログインして使った履歴は、相手のサーバーにあります。手元をどれだけ消しても消えません。多くのサービスには、自分の履歴を確認・削除する画面があります</li>
+      <li><strong>回線の提供者から見える宛先</strong> — どのサイトにつないだかは、経路上から見えます。手元の掃除とは無関係です</li>
+      <li><strong>OS が覚えている名前解決の結果</strong> — ブラウザとは別に、システム側にも短期の控えがあります</li>
+      <li><strong>ダウンロードしたファイル</strong> — 履歴を消しても、ファイル自体は残ります</li>
+    </ul>
     <p>
-      作業中は可逆形式で持っておき、<strong>非可逆にするのは最後の1回だけ</strong>にするのが基本です。
-    </p>
-
-    <h3>透過 PNG を JPEG にしても平気</h3>
-    <p>
-      JPEG に透過はないので、透明だった部分は<strong>黒や白で塗られます</strong>。
-      ロゴを配ったら背景が真っ黒になっていた、という事故はこれです。
-    </p>
-
-    <h2>形式の選択は、プライバシーにも関わる</h2>
-    <p>
-      カメラで撮った JPEG には、<strong>Exif</strong> と呼ばれる付随情報が入ります。
-      撮影日時、カメラの機種、設定、そして<strong>撮影場所の位置情報</strong>が含まれることがあります。
-      画像を見ただけでは分かりませんが、ファイルの中には残っています。
-    </p>
-    <p>
-      画像を再び保存し直すと、この情報は多くの場合<strong>引き継がれずに消えます</strong>。
-      副作用として都合が良い動きですが、<strong>確実だと思い込むのは危険です</strong>。
-      アプリによっては意図的に引き継ぐものもあります。
-    </p>
-    <p>
-      公開するつもりの写真なら、位置情報が残っていないかを一度確認しておくと安全です。
-      スクリーンショットには通常 Exif は入りませんが、
-      <a href="/blog/checklist">画面の中に写り込むもの</a>は別の問題として残ります。
+      ここを混同すると、<strong>手元を消したことで安心してしまう</strong>という逆効果になります。
+      掃除が効くのは「この端末を使う別の人から見えるか」であって、
+      「サービスや経路から見えるか」ではありません。
     </p>
 
     <h2>まとめ</h2>
     <ul>
-      <li>JPEG は<strong>「人が気づかない情報を捨てる」</strong>方式。文字ではその前提が崩れる</li>
-      <li>にじみの正体は<strong>8×8ブロック単位の処理</strong>と<strong>色の間引き</strong>。品質設定では消えない</li>
-      <li>文字が含まれるなら<strong>可逆形式（PNG）</strong>。写真なら非可逆で十分</li>
-      <li>WebP と AVIF は両方できる。<strong>自分のサイトには新形式、人に渡すなら従来形式</strong></li>
-      <li>変換で画質は戻らない。<strong>非可逆にするのは最後の1回だけ</strong></li>
+      <li>記録は<strong>4つの引き出しに分かれている</strong>。履歴を消してもログインは残る</li>
+      <li>Cookie は<strong>そのサイト自身のものと、他所のもの</strong>で役割が違う</li>
+      <li>掃除より先に<strong>他所の Cookie を止め、終了時削除と例外リスト</strong>を組む</li>
+      <li>サイトのデータは<strong>消すと戻らない</strong>。ブラウザ内で動く道具に注意</li>
+      <li>キャッシュは失うものが無い。<strong>表示の不調では最初に試す</strong></li>
+      <li>プライベートウィンドウが守るのは<strong>端末に残るかどうかだけ</strong></li>
     </ul>
 
     </div><!-- postbody:end -->
@@ -817,7 +891,7 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
     <div class="postnav">
       <div class="share">
         <span class="label">この記事を共有</span>
-        <a href="https://x.com/intent/post?text=スクリーンショットはPNG、写真はJPEG — 画像形式の選び方&amp;url=https://mdf.works/blog/imageformat" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/intent/post?text=タブを閉じても残るもの — ブラウザに溜まる記録を整理する&amp;url=https://mdf.works/blog/cleanup" target="_blank" rel="noopener noreferrer">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.2-5.8 6.2H1.5l7.5-8.6L1 3h6.7l4.6 5.8L17.5 3zm-1.1 16.2h1.8L7.7 4.7H5.8l10.6 14.5z"/></svg>
           X で共有
         </a>
@@ -825,18 +899,18 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       </div>
 
       <nav class="pager" aria-label="記事の移動">
-        <a class="prev" href="/blog/passkey"><span class="dir">← 前の記事</span><span class="t">二段階認証はどれを選ぶか — SMS・認証アプリ・パスキーの違い</span></a><a class="next" href="/blog/extension"><span class="dir">次の記事 →</span><span class="t">拡張機能の権限の見かた — 「すべてのサイトのデータを読み取る」とは何か</span></a>
+        <a class="prev" href="/blog/usbc"><span class="dir">← 前の記事</span><span class="t">USB-Cケーブルは見た目で選べない — 端子が同じでも中身が違う</span></a>
       </nav>
 
       <h2>ほかの記事</h2>
       <div class="grid cols-2">
       <div class="card">
-        <h3><a href="/blog/capture" style="text-decoration:none">スクリーンショットは必要な範囲だけを撮る</a></h3>
-        <p>隠す作業を減らすいちばん確実な方法は、そもそも写さないことです。Windows・macOS・iPhone・Android それぞれの範囲指定の撮り方と、撮る…</p>
+        <h3><a href="/blog/cors" style="text-decoration:none">ブラウザで見えるのに fetch で読めない — CORS の制約と確認方法</a></h3>
+        <p>表示できるデータを別サイトの JavaScript から読めない理由。CORS、no-cors、プリフライト、ヘッダーの制約を整理し、通信エラーを切り分ける…</p>
       </div>
       <div class="card">
-        <h3><a href="/blog/cleanup" style="text-decoration:none">タブを閉じても残るもの — ブラウザに溜まる記録を整理する</a></h3>
-        <p>履歴を消したのに、開いたらログインしたままだった。閲覧履歴とログイン状態と保存データは、別々の引き出しにあるからです。それぞれ何が入っていて、消すと何が起き…</p>
+        <h3><a href="/blog/extension" style="text-decoration:none">拡張機能の権限の見かた — 「すべてのサイトのデータを読み取る」とは何か</a></h3>
+        <p>あの確認画面は具体的に何を許しているのか。入力中の文字も表示内容も読めます。そして本当の危険は入れた瞬間ではなく、通知なく届く自動更新のほうにあります。権限…</p>
       </div>
       </div>
       <div class="btnrow">

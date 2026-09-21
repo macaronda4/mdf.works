@@ -177,3 +177,7 @@ card(o("manager.png"), "Security",
 card(o("usbc.png"), "Gadget",
      "USB-Cは\n見た目で選べない",
      "充電・映像・転送は別の条件")
+
+card(o("cleanup.png"), "Browser",
+     "タブを閉じても\n残るもの",
+     "引き出しは1つではありません")
