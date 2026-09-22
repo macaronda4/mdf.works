@@ -181,3 +181,7 @@ card(o("usbc.png"), "Gadget",
 card(o("cleanup.png"), "Browser",
      "タブを閉じても\n残るもの",
      "引き出しは1つではありません")
+
+card(o("ssd.png"), "Gadget",
+     "SSDは容量だけで\n選ばない",
+     "カタログの速度が続かない理由")

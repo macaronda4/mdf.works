@@ -30,25 +30,25 @@
 <!-- Google AdSense -->
 <script async fetchpriority="low" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8613999974980382"
      crossorigin="anonymous"></script>
-<title>モバイルバッテリーの選び方｜mAhではなくWhとWを見る</title>
-<meta name="description" content="10000mAhのバッテリーで5000mAhのスマホを2回充電できない理由。mAhをWhに直す計算、出力のW、USB PDとPPSの違い、飛行機の100Wh制限、日本のPSEマークまで、選ぶときに実際に見るべき数字を整理します。">
-<link rel="canonical" href="https://mdf.works/blog/battery">
+<title>SSDは容量だけで選ばない｜カタログの速度が出ない理由</title>
+<meta name="description" content="SSDのカタログ速度が途中で落ちる仕組みと、容量が寿命と速度に効く理由を説明します。体感を決めているのはランダムアクセスであること、DRAMの有無、熱による速度低下、そして買う前に見るべき4つの数字。">
+<link rel="canonical" href="https://mdf.works/blog/ssd">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="theme-color" content="#131720">
 <meta name="author" content="マカロン大福">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="mdf.works">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="モバイルバッテリーの選び方｜mAhではなくWhとWを見る">
-<meta property="og:description" content="10000mAhで5000mAhのスマホを2回充電できない理由。選ぶときに実際に見るべき数字。">
-<meta property="og:url" content="https://mdf.works/blog/battery">
-<meta property="og:image" content="https://mdf.works/assets/og/battery.png">
+<meta property="og:title" content="SSDは容量だけで選ばない｜カタログの速度が出ない理由">
+<meta property="og:description" content="表示された速度が出るのは最初だけ。落ちるのは不良ではなく設計です。">
+<meta property="og:url" content="https://mdf.works/blog/ssd">
+<meta property="og:image" content="https://mdf.works/assets/og/ssd.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="モバイルバッテリーの選び方｜mAhではなくWhとWを見る">
-<meta name="twitter:description" content="10000mAhで5000mAhのスマホを2回充電できない理由。選ぶときに実際に見るべき数字。">
-<meta name="twitter:image" content="https://mdf.works/assets/og/battery.png">
+<meta name="twitter:title" content="SSDは容量だけで選ばない｜カタログの速度が出ない理由">
+<meta name="twitter:description" content="表示された速度が出るのは最初だけ。落ちるのは不良ではなく設計です。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/ssd.png">
 <meta name="twitter:creator" content="@sugerslp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
 <script type="application/ld+json">
@@ -57,30 +57,51 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "モバイルバッテリーは mAh で選ばない — 見るべきは Wh と W",
-      "description": "mAh を Wh に直す計算、出力のワット数、USB PD と PPS の違い、飛行機の 100Wh 制限、日本の PSE マークまで。",
-      "image": "https://mdf.works/assets/og/battery.png",
-      "datePublished": "2026-08-17",
-      "dateModified": "2026-08-17",
+      "headline": "SSDは容量だけで選ばない — カタログの速度が出ない理由",
+      "description": "SSDのキャッシュによる速度低下の仕組み、容量と寿命の関係、DRAMの有無や発熱の影響、実際の体感を決める指標と選定基準をまとめた記事。",
+      "image": "https://mdf.works/assets/og/ssd.png",
+      "datePublished": "2026-09-22",
+      "dateModified": "2026-09-22",
       "inLanguage": "ja",
       "articleSection": "ガジェット",
-      "author": { "@id": "https://mdf.works/#person" },
-      "publisher": { "@id": "https://mdf.works/#person" },
-      "mainEntityOfPage": "https://mdf.works/blog/battery"
+      "author": {
+        "@id": "https://mdf.works/#person"
+      },
+      "publisher": {
+        "@id": "https://mdf.works/#person"
+      },
+      "mainEntityOfPage": "https://mdf.works/blog/ssd"
     },
     {
       "@type": "Person",
       "@id": "https://mdf.works/#person",
       "name": "マカロン大福",
       "url": "https://mdf.works/about",
-      "sameAs": ["https://x.com/sugerslp"]
+      "sameAs": [
+        "https://x.com/sugerslp"
+      ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mdf.works/" },
-        { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mdf.works/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "モバイルバッテリーの選び方", "item": "https://mdf.works/blog/battery" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://mdf.works/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "ブログ",
+          "item": "https://mdf.works/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "SSDは容量だけで選ばない",
+          "item": "https://mdf.works/blog/ssd"
+        }
       ]
     }
   ]
@@ -623,20 +644,17 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
 <main id="main">
   <div class="wrap prose">
 
-    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>モバイルバッテリーの選び方</p>
+    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>SSDは容量だけで選ばない</p>
 
     <div class="page-head">
       <p class="eyebrow">Gadget</p>
-      <h1>モバイルバッテリーは mAh で選ばない<br>見るべきは Wh と W</h1>
+      <h1>SSDは容量だけで選ばない<br>カタログの速度が出ない理由</h1>
       <p class="lead">
-        10000mAh のバッテリーで、5000mAh のスマートフォンは2回充電できません。
-        1.5回くらいです。数字が誇張されているわけではなく、
-        <strong>mAh という単位の意味を取り違えている</strong>だけです。
-        店頭でいちばん大きく書かれている数字が、いちばん役に立たない理由から始めます。
+        大きな数字が並んでいますが、<strong>その速度が続くとは書いていません</strong>。書き込みが進むと途中で失速する製品があり、しかもそれは不良ではなく設計どおりです。何が起きているのかと、<strong>実際の体感を決めているのは別の数字だ</strong>という話をします。
       </p>
       <div class="postmeta">
         <span class="cat">ガジェット</span>
-        <time datetime="2026-08-17">2026年8月17日</time>
+        <time datetime="2026-09-22">2026年9月22日</time>
         <span class="read">約7分で読めます</span>
       </div>
     </div>
@@ -647,232 +665,220 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
     </nav>
 
     <!-- postbody:start --><div class="postbody">
-    <h2>mAh は「容量」ではない</h2>
+    <h2>途中で遅くなるのは、故障ではない</h2>
     <p>
-      mAh（ミリアンペアアワー）は、電流 × 時間です。
-      1000mAh なら「1000mA を1時間流せる」という意味になります。
-      ここで抜けているものが、<strong>電圧</strong>です。
+      大きなファイルを書き込んでいくと、途中から速度が落ちる。
+      これは多くの製品で<strong>設計どおりの動き</strong>です。
     </p>
     <p>
-      電気の量、つまり本当に比べたい「エネルギー」は、電圧をかけないと出てきません。
+      中の記憶素子には、1つの区画に何段階の状態を詰め込むかという違いがあります。
+      1区画に1ビットだけ入れる方式は速くて丈夫ですが、容量あたりの値段が高い。
+      3ビット、4ビットと詰め込むほど安くなりますが、
+      <strong>書き込みが遅くなり、書き換えられる回数も減ります</strong>。
+      いま売られているものの多くは3ビット、大容量の廉価品は4ビットです。
+    </p>
+    <p>
+      そこで各社は、<strong>空き領域の一部を1ビットだけ使う速い書き方に切り替えて、受け皿にします</strong>。
+      書き込みはまずここに入り、あとから空いた時間に本来の形へ詰め直されます。
+      受け皿がある間は速い。使い切ると、本来の遅い書き方に落ちます。
+    </p>
+    <p>
+      カタログの数字は受け皿が効いている間のものです。したがって
+      <strong>大きなファイルを続けて書くと、必ずどこかで落ちます。</strong>
+      落ちたあとの速度は、製品によっては10分の1以下になります。
     </p>
     <div class="note">
-      <strong>Wh（ワットアワー）＝ mAh ÷ 1000 × 電圧(V)</strong>
+      受け皿の大きさは<strong>空き容量に比例する</strong>製品が多いです。
+      つまり、ぎりぎりまで詰めた状態では受け皿が小さくなり、早い段階で失速します。
+      同じ製品でも、空いているときと埋まっているときで別物の速さになります。
+      <strong>2割程度は空けておく</strong>のが、速度と寿命の両面で効きます。
     </div>
+
+    <h2>体感を決めているのは、その数字ではない</h2>
     <p>
-      問題は、モバイルバッテリーの mAh が<strong>内部のリチウムイオン電池の電圧で数えられている</strong>ことです。
-      この電圧は約 3.7V です。ところが USB から出てくるのは 5V 以上。
-      つまり<strong>数えている場所と、出てくる場所で電圧が違います</strong>。
+      カタログの先頭にある数千MB/秒は、<strong>連続した大きな塊</strong>を読み書きする速さです。
+      動画素材の移動やバックアップの復元には効きますが、日常の操作では出番が多くありません。
     </p>
     <p>
-      10000mAh のバッテリーを Wh に直すと、10 × 3.7 = <strong>37Wh</strong>。
-      これを 5V で取り出すと 37 ÷ 5 = 7400mAh 相当です。
-      パッケージの数字より、はじめから 26% 少ないことになります。
+      実際の体感、つまりアプリの起動、ファイルを開く、起動時間を決めているのは、
+      <strong>小さな読み書きを大量にさばく速さ</strong>のほうです。
+      ソフトの起動は、数千個の小さなファイルを順不同で読む作業に近い。
+      ここは製品ごとの差が、連続の速さほど大きくありません。
+    </p>
+    <p>
+      結果として、最新世代の高速な製品と一世代前を比べても、
+      <strong>普段の操作では違いが分からないことがよくあります</strong>。
+      差がはっきり出るのは、大量のファイルをまとめて動かす作業のときです。
+      自分の使い方がどちらに寄っているかで、投資先が変わります。
     </p>
 
-    <h2>さらに、変換で目減りする</h2>
+    <h2>中に地図を持っているかどうか</h2>
     <p>
-      3.7V を 5V や 9V に持ち上げる回路（昇圧）は、必ず熱を出します。
-      充電中にバッテリーが温かくなるのは、そこで失われた分です。
-      加えて、受け取ったスマートフォン側にも同じ変換があり、そこでも少し失われます。
+      SSD は、どのデータがどの区画にあるかの対応表を持っています。
+      この表を専用の高速メモリに置く製品と、置かない製品があります。
     </p>
     <p>
-      製品や条件によりますが、<strong>実際に相手のバッテリーに入るのは、表示の 7 割前後</strong>が目安になります。
+      置かない製品は安く、消費電力も小さくなります。
+      代わりに、<strong>表を読む手間が増えるぶん、細かい読み書きが遅くなる</strong>ことがあります。
+      接続先の主記憶の一部を借りて表を置く仕組みもあり、これが使えると差はかなり縮まります。
+    </p>
+    <p>
+      実用上の目安として、<strong>常時使うシステム用なら表を内蔵しているものを選ぶ</strong>、
+      データの置き場なら無くても構わない、という分け方で足ります。
+      外付けケースに入れて持ち歩く用途では、借りる仕組みが働かないことがあるので、
+      内蔵しているほうが安定します。
     </p>
 
-    <h3>何回充電できるかを計算する</h3>
+    <h2>容量は、寿命と速度の両方に効く</h2>
     <p>
-      これで計算できるようになりました。手順は3つです。
+      記憶素子は書き換え回数に限りがあります。総書き込み量の目安が仕様に書かれていて、
+      保証もその範囲と期間の早いほうまで、という形が一般的です。
+    </p>
+    <p>
+      ここで効いてくるのが容量です。
+      <strong>同じ量を書いても、容量が大きいほど1区画あたりの負担が減ります。</strong>
+      容量が倍になると、書き込みの余力もおおよそ倍になります。
+      さらに前述のとおり、空き容量が大きいほど受け皿も大きい。
+    </p>
+    <p>
+      もうひとつ、内部では<strong>書いた量より多くの書き込みが実際には起きています</strong>。
+      小さな更新のために、まとまった単位で消して書き直す必要があるからです。
+      空きが少ないほど、この無駄が増えます。容量に余裕があると、ここも軽くなります。
+    </p>
+    <div class="note good">
+      <strong>迷ったら、必要な容量の1段上を選ぶ</strong>のが扱いやすい判断です。
+      寿命の余力が増え、失速しにくくなり、空きを気にせず使えます。
+      容量あたりの単価も、たいてい大きいほうが安くなります。
+      <strong>速度の等級を上げるより、容量を上げるほうが体感に効く</strong>ことが多いと感じています。
+    </div>
+
+    <h2>熱と、それを冷ますもの</h2>
+    <p>
+      高速な製品ほど発熱します。温度が上がると、壊れないように自分で速度を落とします。
+      <strong>「最初は速いが、しばらくすると遅い」がここでも起きます。</strong>
+      受け皿の枯渇と症状が似ているので、切り分けには温度の確認が要ります。
+    </p>
+    <p>
+      対策は放熱板を付けることですが、
+      <strong>取り付ける場所に収まるかを先に確認してください</strong>。
+      厚みのある放熱板は、ノートパソコンや薄型の機器、ゲーム機の拡張スロットには入りません。
+      基板の片面だけに部品が載っているものと両面のものがあり、
+      <strong>薄い機器では片面のものしか入らない</strong>ことがあります。
+    </p>
+    <p>
+      外付けで使う場合は、金属の筐体を選ぶと素直に冷えます。
+      樹脂の筐体に高速な中身を入れると、数分で速度が落ちます。
+    </p>
+
+    <h2>壊れかたと、その前兆</h2>
+    <p>
+      SSD は<strong>予兆なく壊れることがあります</strong>。
+      磁気ディスクのように異音で気づく、という猶予が無い場合があります。
+      一方で、状態を自己申告する仕組みを持っているので、そこは読めます。
+    </p>
+    <ul>
+      <li><strong>使用率・寿命の残り</strong> — 総書き込み量に対する消費の割合。専用ソフトで読めます</li>
+      <li><strong>代替された区画の数</strong> — 増え続けているなら、交換を考える時期です</li>
+      <li><strong>異常終了の回数</strong> — 電源が正しく切れていないと、内部の表が壊れる原因になります</li>
+    </ul>
+    <p>
+      半年に一度でも見ておくと、突然の停止に当たる確率が下がります。
+      そして当然ですが、<strong>速い保存先を用意することと、失わない備えをすることは別の話</strong>です。
+      大事なものは別の場所にもう1つ置いてください。
+    </p>
+
+    <h2>買う前に見る4つ</h2>
+    <ol class="steps">
+      <li>
+        <b>容量</b>
+        <span>必要量の1段上。寿命・速度・空き容量の余裕がまとめて手に入ります。いちばん外しにくい投資先です。</span>
+      </li>
+      <li>
+        <b>受け皿を使い切ったあとの速度</b>
+        <span>カタログに載らないことが多い数字です。大きなファイルを日常的に扱うなら、ここを調べる価値があります。載せている製品は、それ自体が自信の表れです。</span>
+      </li>
+      <li>
+        <b>総書き込み量の目安と保証期間</b>
+        <span>仕様に書かれています。書く量が多い使い方なら、ここが実質的な寿命です。同容量でも製品差が数倍あります。</span>
+      </li>
+      <li>
+        <b>取り付け場所の制約</b>
+        <span>長さ、厚み、片面か両面か。放熱板を付ける余地があるかも含めて確認します。買ってから入らない、がいちばんもったいない失敗です。</span>
+      </li>
+    </ol>
+
+    <h2>用途別のざっくりした指針</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">使い方</th><th scope="col">優先するもの</th></tr></thead>
+        <tbody>
+          <tr><td>普段使いのシステム用</td><td>容量と、表を内蔵していること。最高速は不要</td></tr>
+          <tr><td>ゲームの置き場</td><td>容量。読み込みが主なので、書き込み速度の等級は効きにくい</td></tr>
+          <tr><td>動画や写真の編集</td><td>受け皿を使い切ったあとの速度と、放熱</td></tr>
+          <tr><td>持ち歩く外付け</td><td>金属筐体と、表を内蔵していること</td></tr>
+          <tr><td>保存用</td><td>容量単価。速度はほとんど問われない</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>載せ替えるときの実務</h2>
+    <p>
+      買ったあとで詰まりやすいところを並べます。
+      性能が出ない原因の多くは、製品ではなく取り付け側にあります。
     </p>
     <ol class="steps">
       <li>
-        <b>バッテリーを Wh に直す</b>
-        <span>表示の mAh ÷ 1000 × 3.7。10000mAh なら 37Wh。</span>
+        <b>差した口の世代を確認する</b>
+        <span>基板上の差込口は、見た目が同じでも世代が違うことがあります。速い口は限られていて、<strong>別の拡張カードと帯域を共有している</strong>場合もあります。共有していると、そちらを使った瞬間に半分の速度になります。説明書の該当表を一度見ておくと確実です。</span>
       </li>
       <li>
-        <b>7 割をかける</b>
-        <span>37 × 0.7 ＝ 約 26Wh。これが実際に使える分です。</span>
+        <b>丸ごと複製するなら、容量の関係に注意する</b>
+        <span>小さい方から大きい方へは素直に移せますが、逆は使用量が収まっていても失敗することがあります。移したあとは<strong>余った領域を割り当てる</strong>のを忘れずに。ここを忘れると、大きいものを買った意味が半分消えます。</span>
       </li>
       <li>
-        <b>端末のバッテリー容量（Wh）で割る</b>
-        <span>スマートフォンの容量は 3.85V 前後で数えられています。5000mAh なら約 19Wh。26 ÷ 19 ＝ <strong>約1.4回</strong>。</span>
+        <b>不要な領域を返す仕組みが働いているか見る</b>
+        <span>消したデータの区画を「もう使わない」と伝える仕組みがあります。これが動いていないと、書き込みのたびに余計な処理が増えて遅くなります。通常は自動ですが、外付けケース経由では働かないことがあります。</span>
+      </li>
+      <li>
+        <b>実際に測って、想定と合うか見る</b>
+        <span>計測ソフトで一度測ります。カタログの半分しか出ていないなら、差した口か、動作モードの設定を疑います。<strong>買った直後に測っておくと、あとで遅くなったときの比較対象になります。</strong></span>
       </li>
     </ol>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th scope="col">バッテリーの表示</th><th scope="col">Wh</th><th scope="col">実際に使える分</th><th scope="col">5000mAh のスマホ</th></tr></thead>
-        <tbody>
-          <tr><td>5000mAh</td><td>18.5Wh</td><td>約 13Wh</td><td>約 0.7 回</td></tr>
-          <tr><td>10000mAh</td><td>37Wh</td><td>約 26Wh</td><td>約 1.4 回</td></tr>
-          <tr><td>20000mAh</td><td>74Wh</td><td>約 52Wh</td><td>約 2.7 回</td></tr>
-          <tr><td>27000mAh</td><td>100Wh</td><td>約 70Wh</td><td>約 3.6 回</td></tr>
-        </tbody>
-      </table>
-    </div>
+
+    <h2>古いほうを手放す前に</h2>
     <p>
-      5000mAh のバッテリーで 5000mAh のスマートフォンが満充電にならない、というのが直感に反するところですが、
-      単位の意味を踏まえれば当然の結果です。<strong>「同じ数字だから1回分」ではありません。</strong>
+      外した SSD を売る、譲る、捨てる場合、<strong>ファイルを消しただけでは足りません</strong>。
+      消去は多くの場合、目次から消しているだけで、実体は残っています。
+    </p>
+    <p>
+      さらに厄介なのが、SSD には<strong>利用者から見えない予備の領域</strong>があることです。
+      上書きで消そうとしても、その領域には届きません。
+      磁気ディスクの時代の「全体を上書きする」方法が、そのままでは通用しないのはこのためです。
     </p>
     <div class="note good">
-      <strong>Wh はほぼ必ずどこかに書かれています。</strong>
-      本体の底面や側面の小さな印字、あるいは仕様表です。
-      飛行機の規則が Wh で決まっているため、書かないわけにいかないからです。
-      比較するなら、大きく書かれた mAh ではなく、この小さい数字を見るほうが正確です。
+      確実なのは2つです。ひとつは、製品や規格が用意している
+      <strong>内部の消去命令</strong>を使うこと。予備領域も含めて初期化されます。
+      もうひとつは、最初から<strong>暗号化して使っておく</strong>ことです。
+      鍵を捨てれば、残っているデータは読めない塊になります。
+      後者は普段の運用に組み込めるので、手放すときになって慌てずに済みます。
     </div>
 
-    <h2>速さを決めるのは W（ワット）</h2>
-    <p>
-      容量とは別に、<strong>どれだけ速く充電できるか</strong>があります。こちらの単位はワットです。
-    </p>
-    <div class="note">
-      <strong>W ＝ 電圧(V) × 電流(A)</strong>
-    </div>
-    <p>
-      ここで注意したいのが、<strong>「最大3A」という書き方だけでは何も分からない</strong>ことです。
-      5V で 3A なら 15W ですが、9V で 3A なら 27W。同じ 3A でも倍近く違います。
-      アンペアだけの表記を見たら、電圧を探してください。
-    </p>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th scope="col">出力</th><th scope="col">用途の目安</th></tr></thead>
-        <tbody>
-          <tr><td>5W〜12W</td><td>イヤホン、時計、ゆっくりでよい場面</td></tr>
-          <tr><td>18W〜30W</td><td>スマートフォンの急速充電。多くの機種はこの範囲で上限に達します</td></tr>
-          <tr><td>45W〜65W</td><td>タブレット、薄型ノートパソコン</td></tr>
-          <tr><td>100W 以上</td><td>性能の高いノートパソコン</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3>規格の名前も見る</h3>
-    <p>
-      ワット数が足りていても、<strong>規格が合っていないと速くなりません</strong>。
-      現在の主役は <strong>USB PD（Power Delivery）</strong>で、USB-C 端子で使われる共通の仕組みです。
-      機器同士が話し合って、5V・9V・15V・20V といった段階から適切なものを選びます。
-    </p>
-    <p>
-      その拡張として <strong>PPS</strong> があります。電圧を細かく刻んで調整できる仕組みで、
-      一部のメーカーの端末は<strong>PPS に対応した相手でないと最高速度が出ません</strong>。
-      製品の仕様に PPS と書いてあるかどうかは、対応機種を使っている場合は確認する価値があります。
-    </p>
-    <p>
-      古い <strong>Quick Charge</strong> は主に USB-A 側で使われてきた別系統です。
-      これから買うなら、USB-C と USB PD を軸に選ぶのが素直だと思います。
-    </p>
-
-    <h2>見落としやすい3つの落とし穴</h2>
-
-    <h3>1. ケーブルが上限を決める</h3>
-    <p>
-      USB-C のケーブルは、見た目が同じでも通せる電流が違います。
-      標準では 3A まで。<strong>5A を通すには、ケーブル内部に識別用のチップ（E-Marker）が必要</strong>です。
-      20V × 3A ＝ 60W が、普通のケーブルの実質的な上限になります。
-    </p>
-    <p>
-      65W や 100W の製品を買っても、付属品でないケーブルを使うと 60W で止まることがあります。
-      「対応しているはずなのに速くならない」ときは、まずケーブルを疑うのが早いです。
-    </p>
-
-    <h3>2. 合計出力と、ポートごとの出力は違う</h3>
-    <p>
-      「最大 65W・2ポート」という表記の多くは、<strong>2つ合わせて 65W</strong>という意味です。
-      2台つなぐと 45W + 20W のように分かれ、片方は遅くなります。
-      同時に使う前提なら、分配後の数字が仕様に書かれているかを確認してください。
-    </p>
-
-    <h3>3. 端末側の上限のほうが低いことが多い</h3>
-    <p>
-      充電速度は、<strong>バッテリー・ケーブル・端末のうち、いちばん低いところで決まります</strong>。
-      スマートフォンの多くは 20W〜30W 程度で上限に達し、
-      さらに<strong>バッテリー残量が増えるにつれて自分から速度を落とします</strong>。
-      リチウムイオン電池を保護するための仕組みです。
-    </p>
-    <p>
-      なので、スマートフォンだけが目的なら 100W の製品を買っても速くなりません。
-      大きい数字が効いてくるのは、ノートパソコンをつなぐ場合です。
-    </p>
-
-    <h2>日本で買うなら PSE マーク</h2>
-    <p>
-      2019年2月以降、リチウムイオン蓄電池を使ったモバイルバッテリーは
-      日本の<strong>電気用品安全法（電安法）の対象</strong>になりました。
-      国内で販売するには技術基準を満たし、<strong>丸型の PSE マーク</strong>を表示する義務があります。
-    </p>
-    <p>
-      裏を返すと、<strong>PSE マークのない製品は国内で適法に販売できません</strong>。
-      通販で見かける極端に安い製品や、輸入品をそのまま売っているような出品では、
-      本体の表示を確認する価値があります。発火の危険がある製品なので、ここは値段より優先したいところです。
-    </p>
-
-    <h2>飛行機に持ち込める大きさ</h2>
-    <p>
-      国際的な航空規則では、リチウム電池の扱いが Wh で決まっています。
-      mAh ではなく Wh なのは、危険性がエネルギー量で決まるからです。
-    </p>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th scope="col">容量</th><th scope="col">扱い</th><th scope="col">mAh のおよその換算</th></tr></thead>
-        <tbody>
-          <tr><td>100Wh 以下</td><td>手荷物として持ち込み可</td><td>約 27000mAh まで</td></tr>
-          <tr><td>100Wh 超 160Wh 以下</td><td>航空会社の承認が必要</td><td>約 43000mAh まで</td></tr>
-          <tr><td>160Wh 超</td><td>旅客機では持ち込めません</td><td>—</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p>
-      加えて重要なのが、<strong>預け入れ荷物に入れられない</strong>という点です。
-      貨物室で発火しても気づけないためで、必ず機内に持ち込む手荷物に入れます。
-      細かい条件は航空会社ごとに異なるので、大容量のものを持って行くなら事前に確認してください。
-    </p>
-    <div class="note">
-      よく売られている 20000mAh は 74Wh なので、この規則にはまず引っかかりません。
-      迷うのは 25000mAh を超えたあたりからです。
-    </div>
-
-    <h2>長く使うために、そして捨てるとき</h2>
-    <p>
-      リチウムイオン電池が劣化する主な要因は、<strong>熱</strong>と<strong>満充電のまま置くこと</strong>です。
-    </p>
+    <h2>まとめ</h2>
     <ul>
-      <li><strong>充電しながらの使用は熱くなります</strong>。急ぐとき以外は避けたほうが電池には優しいです。</li>
-      <li><strong>車内や直射日光の当たる場所に放置しない</strong>。高温は劣化を早め、危険でもあります。</li>
-      <li><strong>長期保管は半分くらいの残量で</strong>。満充電も空も、どちらも負担になります。</li>
-      <li><strong>数か月に一度は充電する</strong>。自然に放電し、空のまま放置すると回復しなくなることがあります。</li>
+      <li>途中で遅くなるのは<strong>受け皿を使い切ったから</strong>で、故障ではない</li>
+      <li>受け皿は<strong>空き容量に比例する</strong>。詰めるほど早く失速する</li>
+      <li>体感を決めるのは連続の速さではなく<strong>小さな読み書きの速さ</strong></li>
+      <li>容量は<strong>寿命と速度の両方</strong>に効く。迷ったら1段上</li>
+      <li>速い製品ほど熱で自分から遅くなる。<strong>放熱の余地を先に確認する</strong></li>
+      <li>予兆なく壊れることがある。<strong>状態は読めるので、たまに見る</strong></li>
     </ul>
-    <p>
-      そして、<strong>膨らんだら使用をやめてください</strong>。内部でガスが発生している状態で、
-      押したり穴を開けたりすると発火します。
-    </p>
-    <p>
-      捨てるときは、<strong>家庭ごみに出してはいけません</strong>。
-      収集車やごみ処理施設での火災は実際に起きています。
-      家電量販店などに設置された回収ボックス、または自治体の指定する方法に従ってください。
-    </p>
-
-    <h2>結論：用途から選ぶ</h2>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th scope="col">使い方</th><th scope="col">目安</th><th scope="col">出力</th></tr></thead>
-        <tbody>
-          <tr><td>通勤・外出中の保険</td><td>5000mAh 前後（軽さ優先）</td><td>18W 以上</td></tr>
-          <tr><td>一日出歩く、スマホ中心</td><td>10000mAh</td><td>20W〜30W</td></tr>
-          <tr><td>泊まりの移動、複数台</td><td>20000mAh</td><td>45W 以上・ポートごとの数字を確認</td></tr>
-          <tr><td>ノートパソコンも充電</td><td>20000mAh 以上</td><td>65W 以上・USB PD 必須</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p>
-      並べてみると、選ぶときに見る数字は多くありません。
-      <strong>Wh（本当の容量）、W（速さ）、USB PD かどうか、PSE マーク</strong>。この4つです。
-      パッケージでいちばん目立つ mAh は、<strong>同じメーカーの製品同士を比べるとき以外は役に立ちません</strong>。
-    </p>
 
     </div><!-- postbody:end -->
     <!-- postnav:start -->
     <div class="postnav">
       <div class="share">
         <span class="label">この記事を共有</span>
-        <a href="https://x.com/intent/post?text=モバイルバッテリーは mAh で選ばない — 見るべきは Wh と W&amp;url=https://mdf.works/blog/battery" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/intent/post?text=SSDは容量だけで選ばない — カタログの速度が出ない理由&amp;url=https://mdf.works/blog/ssd" target="_blank" rel="noopener noreferrer">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.2-5.8 6.2H1.5l7.5-8.6L1 3h6.7l4.6 5.8L17.5 3zm-1.1 16.2h1.8L7.7 4.7H5.8l10.6 14.5z"/></svg>
           X で共有
         </a>
@@ -880,18 +886,18 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       </div>
 
       <nav class="pager" aria-label="記事の移動">
-        <a class="prev" href="/blog/ping"><span class="dir">← 前の記事</span><span class="t">Ping はどこで生まれるのか — 回線を速くしても下がらない理由</span></a><a class="next" href="/blog/passkey"><span class="dir">次の記事 →</span><span class="t">二段階認証はどれを選ぶか — SMS・認証アプリ・パスキーの違い</span></a>
+        <a class="prev" href="/blog/cleanup"><span class="dir">← 前の記事</span><span class="t">タブを閉じても残るもの — ブラウザに溜まる記録を整理する</span></a>
       </nav>
 
       <h2>ほかの記事</h2>
       <div class="grid cols-2">
       <div class="card">
-        <h3><a href="/blog/ssd" style="text-decoration:none">SSDは容量だけで選ばない — カタログの速度が出ない理由</a></h3>
-        <p>表示された速度が出るのは最初の数十秒だけ、ということがあります。速い領域を使い切ったあとの落ち込み、容量が寿命と速度の両方に効く理由、体感を決めているのは連…</p>
-      </div>
-      <div class="card">
         <h3><a href="/blog/usbc" style="text-decoration:none">USB-Cケーブルは見た目で選べない — 端子が同じでも中身が違う</a></h3>
         <p>同じ形なのに、充電が遅い。映像が出ない。転送が異様に遅い。原因はたいていケーブルです。端子の内側で何が違うのか、電圧を切り替える仕組み、識別用の部品の役割、…</p>
+      </div>
+      <div class="card">
+        <h3><a href="/blog/battery" style="text-decoration:none">モバイルバッテリーは mAh で選ばない — 見るべきは Wh と W</a></h3>
+        <p>10000mAh のバッテリーで 5000mAh のスマートフォンは2回充電できません。mAh を Wh に直す計算、速さを決める W、USB PD と P…</p>
       </div>
       </div>
       <div class="btnrow">
