@@ -185,3 +185,7 @@ card(o("cleanup.png"), "Browser",
 card(o("ssd.png"), "Gadget",
      "SSDは容量だけで\n選ばない",
      "カタログの速度が続かない理由")
+
+card(o("backup.png"), "Basics",
+     "バックアップに\n入らないもの",
+     "復元してから気づく前に")
