@@ -30,25 +30,25 @@
 <!-- Google AdSense -->
 <script async fetchpriority="low" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8613999974980382"
      crossorigin="anonymous"></script>
-<title>HTMLは新しいのにCSSだけ古い｜静的サイトのキャッシュの罠</title>
-<meta name="description" content="スマホだけレイアウトが崩れる。原因はHTMLとCSSでキャッシュの寿命が違うことでした。切り分けの手順と、内容ハッシュ・埋め込みという2つの対処、どちらを選ぶべきかを整理します。">
-<link rel="canonical" href="https://mdf.works/blog/cache">
+<title>文字が一瞬あとから出る｜ウェブフォントをやめた話</title>
+<meta name="description" content="ウェブフォント読み込み時に文字が消える・入れ替わる仕組みと、表示戦略の4つの選択肢を説明します。日本語で容量が問題になる理由、分割配信の代償、代替書体の字幅を合わせる方法、システムフォントを選んだ判断の過程。">
+<link rel="canonical" href="https://mdf.works/blog/webfont">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="theme-color" content="#131720">
 <meta name="author" content="マカロン大福">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="mdf.works">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="HTMLは新しいのにCSSだけ古い｜静的サイトのキャッシュの罠">
-<meta property="og:description" content="スマホだけレイアウトが崩れる。原因はHTMLとCSSでキャッシュの寿命が違うことでした。切り分けの手順と2つの対処。">
-<meta property="og:url" content="https://mdf.works/blog/cache">
-<meta property="og:image" content="https://mdf.works/assets/og/cache.png">
+<meta property="og:title" content="文字が一瞬あとから出る｜ウェブフォントをやめた話">
+<meta property="og:description" content="文字が消えるのも入れ替わるのも、不具合ではなく設定された動作です。">
+<meta property="og:url" content="https://mdf.works/blog/webfont">
+<meta property="og:image" content="https://mdf.works/assets/og/webfont.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="HTMLは新しいのにCSSだけ古い｜静的サイトのキャッシュの罠">
-<meta name="twitter:description" content="スマホだけレイアウトが崩れる。原因はHTMLとCSSでキャッシュの寿命が違うことでした。">
-<meta name="twitter:image" content="https://mdf.works/assets/og/cache.png">
+<meta name="twitter:title" content="文字が一瞬あとから出る｜ウェブフォントをやめた話">
+<meta name="twitter:description" content="文字が消えるのも入れ替わるのも、不具合ではなく設定された動作です。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/webfont.png">
 <meta name="twitter:creator" content="@sugerslp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
 <script type="application/ld+json">
@@ -57,30 +57,51 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "HTMLは新しいのにCSSだけ古い — 静的サイトのキャッシュの罠",
-      "description": "HTMLとサブリソースでキャッシュの寿命が違うと、新しいマークアップに古いCSSが当たる。切り分けと対処。",
-      "image": "https://mdf.works/assets/og/cache.png",
-      "datePublished": "2026-08-16",
-      "dateModified": "2026-08-16",
+      "headline": "文字が一瞬あとから出る — ウェブフォントをやめた話",
+      "description": "ウェブフォントの読み込み挙動と表示戦略、日本語特有の容量問題、代替書体との字幅合わせ、システムフォントを採用した判断をまとめた記事。",
+      "image": "https://mdf.works/assets/og/webfont.png",
+      "datePublished": "2026-09-26",
+      "dateModified": "2026-09-26",
       "inLanguage": "ja",
       "articleSection": "開発",
-      "author": { "@id": "https://mdf.works/#person" },
-      "publisher": { "@id": "https://mdf.works/#person" },
-      "mainEntityOfPage": "https://mdf.works/blog/cache"
+      "author": {
+        "@id": "https://mdf.works/#person"
+      },
+      "publisher": {
+        "@id": "https://mdf.works/#person"
+      },
+      "mainEntityOfPage": "https://mdf.works/blog/webfont"
     },
     {
       "@type": "Person",
       "@id": "https://mdf.works/#person",
       "name": "マカロン大福",
       "url": "https://mdf.works/about",
-      "sameAs": ["https://x.com/sugerslp"]
+      "sameAs": [
+        "https://x.com/sugerslp"
+      ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mdf.works/" },
-        { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mdf.works/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "キャッシュの罠", "item": "https://mdf.works/blog/cache" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://mdf.works/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "ブログ",
+          "item": "https://mdf.works/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "文字が一瞬あとから出る",
+          "item": "https://mdf.works/blog/webfont"
+        }
       ]
     }
   ]
@@ -623,20 +644,18 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
 <main id="main">
   <div class="wrap prose">
 
-    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>キャッシュの罠</p>
+    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>文字が一瞬あとから出る</p>
 
     <div class="page-head">
       <p class="eyebrow">Development</p>
-      <h1>HTMLは新しいのにCSSだけ古い<br>静的サイトのキャッシュの罠</h1>
+      <h1>文字が一瞬あとから出る<br>ウェブフォントをやめた話</h1>
       <p class="lead">
-        パソコンでは問題なく、スマートフォンでだけレイアウトが崩れる。
-        アイコンが画面いっぱいに膨らみ、ボタンが未装飾になる。
-        原因は CSS の中身ではなく、<strong>HTML と CSS で「寿命」が違っていたこと</strong>でした。
+        ページを開いた瞬間、文字が無い。あるいは出たあとで書体が入れ替わって、行の折り返しまで動く。どちらも不具合ではなく<strong>設定された動作</strong>です。選べる選択肢と、日本語で事情が変わる理由、揺れを抑える手当て、そしてこのサイトが使うのをやめた理由を順に書きます。
       </p>
       <div class="postmeta">
         <span class="cat">開発</span>
-        <time datetime="2026-08-16">2026年8月16日</time>
-        <span class="read">約6分で読めます</span>
+        <time datetime="2026-09-26">2026年9月26日</time>
+        <span class="read">約7分で読めます</span>
       </div>
     </div>
 
@@ -646,182 +665,228 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
     </nav>
 
     <!-- postbody:start --><div class="postbody">
-    <h2>起きたこと</h2>
+    <h2>何が起きているのか</h2>
     <p>
-      このサイトのブログ一覧に、検索窓とタグの絞り込みを追加した直後の話です。
-      パソコンでは意図どおりに表示されるのに、スマートフォンで開くと崩れていました。
+      ブラウザは、指定された書体のファイルを取りに行きます。届くまでの間、
+      <strong>その書体で表示すべき文字をどう扱うか</strong>を決めなければなりません。
+      取りうる態度は2つしかありません。
     </p>
     <ul>
-      <li>検索窓の虫眼鏡アイコンが、画面の横幅いっぱいに拡大されている</li>
-      <li>カテゴリのボタンが、装飾のない素のボタンに見える</li>
-      <li>共有ボタンの X のロゴが、これも画面いっぱい</li>
+      <li><strong>何も出さずに待つ</strong> — 届いたら正しい書体で出ます。待っている間、その部分は空白です</li>
+      <li><strong>手元の書体で先に出す</strong> — 読めますが、届いた瞬間に書体が入れ替わります</li>
     </ul>
     <p>
-      アイコンが巨大化するのは、SVG に寸法指定がなく、CSS も当たっていないときの典型的な見た目です。
-      つまり<strong>スタイルが適用されていない</strong>。ここまでは分かります。
-      分からないのは、なぜパソコンでは正常なのか、です。
+      前者が「文字が消えている」、後者が「あとから入れ替わる」の正体です。
+      <strong>どちらを選んでも代償があります。</strong>
+      空白は読めず、入れ替わりは目に付く。中間はありません。
+    </p>
+    <p>
+      厄介なのは、入れ替わりで嫌われるのが書体そのものではなく、
+      <strong>行の折り返し位置が変わること</strong>だという点です。
+      字幅が違えば、1行に入る文字数が変わり、以降の行が全部ずれます。
+      読んでいる最中に文章が動くので、読み手は現在位置を見失います。
     </p>
 
-    <h2>最初に疑ったこと（と、外れた理由）</h2>
+    <h2>指定できる4つの振る舞い</h2>
     <p>
-      真っ先に疑うのは CSS の書き間違いです。どこかに閉じ忘れの波括弧があると、
-      そこから後ろのルールがまとめて無効になります。実際そういう壊れ方は珍しくありません。
-    </p>
-    <p>
-      ただ、それなら<strong>パソコンでも同じように崩れるはず</strong>です。
-      端末によって CSS の解釈が変わるわけではありません。
-      仮説が症状を説明できていないので、これは違います。
-    </p>
-    <p>
-      次に疑ったのはデプロイ漏れ。ファイルは書き換えたが、公開されているものは古いまま、という筋です。
-      これは症状と噛み合います。確かめるには、<strong>手元のファイルではなく、実際に配信されているものを見る</strong>のがいちばん早い。
-    </p>
-
-    <h2>配信物を直接見る</h2>
-    <p>
-      ブラウザの開発者ツールでも確認できますが、コマンドで取ってしまうほうが確実です。
-      ブラウザ自身のキャッシュが介在しないので、素の配信内容が分かります。
+      CSS 側で、この待ち方を指定できます。おおまかに4通りです。
     </p>
     <div class="tablewrap">
       <table>
-        <thead><tr><th scope="col">見たいこと</th><th scope="col">やること</th></tr></thead>
+        <thead><tr><th scope="col">方針</th><th scope="col">動き</th><th scope="col">向いている場面</th></tr></thead>
         <tbody>
-          <tr><td>配信中の CSS に、目的のルールが入っているか</td><td>CSS を取得して、セレクタ名で検索する</td></tr>
-          <tr><td>いつまでキャッシュされる設定か</td><td>レスポンスヘッダの <code>Cache-Control</code> を見る</td></tr>
-          <tr><td>圧縮が効いているか</td><td><code>Content-Encoding</code> を見る</td></tr>
+          <tr><td>既定にまかせる</td><td>短い間だけ空白にして待ち、来なければ手元の書体。届いたら入れ替える</td><td>特に決めていないとき</td></tr>
+          <tr><td>待つ寄り</td><td>空白の時間を長めに取る</td><td>書体がデザインの核心のとき</td></tr>
+          <tr><td>すぐ出す</td><td>最初から手元の書体で表示し、届いたら入れ替える</td><td>読めることを最優先するとき</td></tr>
+          <tr><td>間に合えば使う</td><td>ごく短い間に届かなければ、その回は使わない</td><td>装飾的な用途、本文以外</td></tr>
         </tbody>
       </table>
     </div>
     <p>
-      結果は<strong>拍子抜けするもの</strong>でした。配信されている CSS には、追加したはずのルールが
-      すべて含まれていたのです。デプロイは成功していました。
+      本文には「すぐ出す」が向いています。読めない時間が生まれないからです。
+      見出しだけに使う装飾的な書体なら「間に合えば使う」が扱いやすく、
+      <strong>遅れて入れ替わって驚かせる</strong>ことがなくなります。
     </p>
 
-    <h2>原因：寿命の違う2つのファイル</h2>
+    <h2>入れ替わりの揺れを抑える</h2>
     <p>
-      答えはレスポンスヘッダにありました。HTML と CSS で、キャッシュの設定がまったく違っていたのです。
-    </p>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th scope="col">ファイル</th><th scope="col">Cache-Control</th><th scope="col">意味</th></tr></thead>
-        <tbody>
-          <tr><td>HTML</td><td><code>max-age=0, must-revalidate</code></td><td>毎回サーバーに確認する。つまり常に最新</td></tr>
-          <tr><td>CSS</td><td><code>max-age=86400</code></td><td>24時間は確認せず、手元のものを使う</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p>
-      前日にサイトを見ていた端末は、CSS を24時間ぶん抱えています。
-      そこへ翌日アクセスすると、<strong>HTML だけが新しくなり、CSS は昨日のまま</strong>になる。
-      新しいマークアップに、そのマークアップを知らないスタイルシートが当たっていたわけです。
+      「すぐ出す」を選ぶなら、代替の書体をどう選ぶかが本題になります。
+      <strong>字幅と字面の大きさが近いものを指定しておく</strong>と、入れ替わりが目立ちません。
     </p>
     <p>
-      パソコンで正常だったのは、単に「その端末では初めて開いたから」でした。
-      環境の違いではなく、<strong>訪問履歴の違い</strong>だったのです。
-      これに気づくまで、ブラウザの差異を疑って時間を使いました。
-    </p>
-
-    <div class="note warn">
-      <strong>この不具合のたちが悪いところ：</strong>
-      開発している本人はスーパーリロードを習慣的に使うので、まず遭遇しません。
-      遭遇するのは「前にも来たことがある訪問者」だけです。
-      しかもその人たちは、わざわざ報告してくれません。黙って離脱します。
-    </div>
-
-    <h2>「キャッシュを消してください」は解決ではない</h2>
-    <p>
-      その場しのぎとしては有効ですが、対処としては失格です。
-      訪問者にキャッシュ操作を求めるのは、こちらの設計不備を相手に押し付けているだけですし、
-      そもそも大半の人はやり方を知りません。
-    </p>
-    <p>
-      直すべきは<strong>仕組みのほう</strong>です。方法は3つあります。
-    </p>
-
-    <h3>案1：CSS のキャッシュ期間を短くする</h3>
-    <p>
-      いちばん素直ですが、あまり良くありません。
-      期間を短くするほど問い合わせが増え、キャッシュの意味が薄れます。
-      かといって長くすれば同じ問題が起きる。<strong>どこに設定しても、どちらかが犠牲になります</strong>。
-      根本的には「同じ URL で中身が変わりうる」ことが問題なので、そこに手を入れないと解決しません。
-    </p>
-
-    <h3>案2：URL に内容のハッシュを入れる</h3>
-    <p>
-      <code>/assets/site.css?v=94eb1160</code> のように、ファイルの中身から計算した値を URL に付けます。
-      中身を1文字でも変えればハッシュが変わり、<strong>別の URL になる</strong>。
-      古いキャッシュは参照されなくなり、確実に新しいものが読まれます。
-    </p>
-    <p>
-      そのうえ、URL が変われば内容も必ず変わるので、
-      キャッシュ期間は逆に<strong>思い切り長くできます</strong>。1年でも構いません。
-      「短くする」のではなく「長くしても壊れないようにする」という発想の転換です。
-    </p>
-    <p>
-      ビルドの手順にハッシュ計算を組み込む必要はありますが、
-      静的サイトなら小さなスクリプト1本で足ります。
-    </p>
-
-    <h3>案3：CSS を HTML に埋め込む</h3>
-    <p>
-      別ファイルにするのをやめて、<code>&lt;style&gt;</code> としてページに直接書いてしまう方法です。
-      HTML は毎回最新が配信されるので、<strong>CSS が HTML より古くなること自体が起こらなくなります</strong>。
-    </p>
-    <p>
-      副次的に、描画をブロックする往復が1つ減るので表示も少し速くなります。
-      代わりに、ページ間で CSS を使い回せなくなり、各ページが少し重くなります。
-    </p>
-
-    <h2>どれを選ぶか</h2>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th scope="col">状況</th><th scope="col">向いている案</th></tr></thead>
-        <tbody>
-          <tr><td>CSS が数十 KB 以上ある／ページ数が多い</td><td><strong>案2</strong>（内容ハッシュ）</td></tr>
-          <tr><td>CSS が数 KB 程度／ページ数が少ない</td><td><strong>案3</strong>（埋め込み）</td></tr>
-          <tr><td>ビルド工程を持てない</td><td>案1でしのぐ（期間を数分に）</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p>
-      このサイトは最終的に<strong>案3</strong>にしました。
-      スタイルシートが圧縮後 6KB 程度と小さく、ページも十数枚しかないので、
-      使い回せない不利より、事故が構造的に起きなくなる利点が勝ると判断したためです。
-      表示速度の面でも、外部ファイルへの往復が1つ減ります。
-    </p>
-    <p>
-      元のスタイルシートは1枚のまま残し、
-      公開用のファイルを作るときにコメントを落として各ページへ流し込む形にしました。
-      編集するのは従来どおり1枚なので、手間は増えていません。
-    </p>
-
-    <h2>一般化すると</h2>
-    <p>
-      今回の教訓は、CSS に限った話ではありません。
+      さらに、代替書体の側を微調整する指定が用意されています。
+      代替書体に対して、<strong>大きさや行の基準線を補正して、本命の書体に寄せる</strong>ことができます。
+      これを使うと、入れ替わっても行の折り返しがほとんど動かなくなります。
+      手間はかかりますが、効果は分かりやすく出ます。
     </p>
     <div class="note">
-      <strong>HTML と、そこから読むファイルの寿命が違うと、いつか噛み合わなくなる。</strong>
-      HTML を常に最新にするなら、そこから参照するファイルは
-      「URL が変われば中身も変わる」状態にしておく。
+      ここは<strong>数値の指標としても現れます</strong>。
+      表示が確定したあとに要素が動いた量は、ページの品質指標のひとつとして測られています。
+      書体の入れ替わりで文章全体がずれると、その値が悪化します。
+      見た目の好みの問題に見えて、測られている部分でもある、ということです。
+    </div>
+
+    <h2>日本語で事情が変わる</h2>
+    <p>
+      ここが判断の分かれ目でした。<strong>収録する文字数が桁で違います。</strong>
+    </p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col"></th><th scope="col">おおよその文字数</th><th scope="col">ファイルの大きさ</th></tr></thead>
+        <tbody>
+          <tr><td>英字のみ</td><td>数百</td><td>数十KB</td></tr>
+          <tr><td>日本語（常用漢字を含む）</td><td>数千</td><td>数MB</td></tr>
+        </tbody>
+      </table>
     </div>
     <p>
-      JavaScript でも同じことが起きます。むしろ JS のほうが深刻で、
-      新しい HTML の要素を古いスクリプトが探しにいって、
-      エラーも出さずに<strong>ただ動かない</strong>という壊れ方をします。
-      画面が崩れる CSS のほうが、まだ気づきやすいくらいです。
+      ページ本体が数十KBなのに、書体だけで数MB。
+      <strong>本文より書体のほうが何十倍も重い</strong>という逆転が起きます。
+      しかも太さの種類ごとにファイルが増えるので、標準と太字で2倍になります。
+    </p>
+
+    <h3>使う字だけを抜き出す</h3>
+    <p>
+      実際に出てくる文字だけを含めたファイルを作る方法です。
+      見出しにしか使わないなら、そこに現れる数十文字で足ります。
+      <strong>効果は劇的で、数MBが数十KBになります。</strong>
     </p>
     <p>
-      画像やフォントは中身が変わりにくいので実害は出にくいのですが、
-      差し替えたときに同じ罠にはまります。ロゴを新しくしたのに古いロゴが出続ける、というやつです。
+      代償は、<strong>その文字しか出せない</strong>ことです。
+      あとから記事を足して新しい漢字が出てくると、その字だけ別の書体になります。
+      内容が固定された部分（サイト名、共通の見出し）には向き、本文には向きません。
     </p>
+
+    <h3>細かく分割して、必要な範囲だけ取りに行く</h3>
+    <p>
+      文字コードの範囲ごとにファイルを分け、
+      <strong>ページに現れた文字を含む範囲だけを取得する</strong>方法です。
+      日本語のウェブフォント配信で広く使われています。
+    </p>
+    <p>
+      よくできた仕組みですが、代償が2つあります。
+      ひとつは<strong>取りに行く回数が増える</strong>こと。数十個の断片を並行して取得します。
+      もうひとつは、<strong>配信元との接続が1つ増える</strong>ことです。
+      最初の接続を確立する往復は、ファイルの大きさとは別にかかります。
+    </p>
+
+    <h2>このサイトがやめた理由</h2>
+    <p>
+      試したうえで、使わない判断をしました。理由は3つです。
+    </p>
+    <ol class="steps">
+      <li>
+        <b>得られるものが、払うものに見合わなかった</b>
+        <span>このサイトの中身は説明文と表と手順です。書体で伝わり方が変わる種類の内容ではありませんでした。読みやすければ十分だ、と判断しました。<strong>ここは内容の性質による</strong>ので、他所にそのまま当てはまる結論ではありません。</span>
+      </li>
+      <li>
+        <b>読み込みの経路を1つ減らせる</b>
+        <span>外部から書体を取りに行くのをやめると、そのぶん描画を待つ理由が消えます。CSS もページに直接埋め込んでいるので、最初の表示までに必要な往復がかなり少なくなりました。</span>
+      </li>
+      <li>
+        <b>閲覧者の情報が外に出る経路も1つ減る</b>
+        <span>外部の配信元から書体を取ると、そこへ接続した記録が残ります。使わなければ、その経路自体がありません。訪問者のファイルを預からないと書いているサイトとして、経路は少ないほうが筋が通ります。</span>
+      </li>
+    </ol>
+    <p>
+      代わりに、各OSに最初から入っている書体を優先順に並べて指定しています。
+      Windows、macOS、iOS、Android のそれぞれで、その環境の標準的な書体が使われます。
+      <strong>環境ごとに見た目は少し違いますが、どこでも即座に表示され、入れ替わりも起きません。</strong>
+    </p>
+    <div class="note good">
+      この判断は、内容の性質によって変わります。
+      <strong>書体そのものが価値の一部である場合は、読み込む価値があります。</strong>
+      やめるべきだという話ではなく、
+      「何を得るために何を払うのか」を数字で見てから決める、という話です。
+      実際、見出しだけ抜き出した数十KBのファイルで使う、という中間案も有効でした。
+    </div>
+
+    <h2>使う場合に効く順番</h2>
+    <ol class="steps">
+      <li>
+        <b>使う字だけに絞る</b>
+        <span>見出しにしか使わないなら、そこに出る文字だけで足ります。効果がいちばん大きいのはここです。桁が変わります。</span>
+      </li>
+      <li>
+        <b>太さの種類を減らす</b>
+        <span>太さごとにファイルが増えます。標準と太字の2つで足りることが多く、中間の太さは削れます。1つのファイルで太さを連続的に変えられる形式なら、まとめられる場合もあります。</span>
+      </li>
+      <li>
+        <b>本文には「すぐ出す」を選ぶ</b>
+        <span>読めない時間を作らないこと。装飾用途なら「間に合えば使う」で、遅れての入れ替わりを避けます。</span>
+      </li>
+      <li>
+        <b>代替書体を寄せる</b>
+        <span>字幅の近いものを指定し、必要なら補正の指定で大きさを合わせます。入れ替わりの揺れが小さくなります。</span>
+      </li>
+      <li>
+        <b>本当に必要な1つだけ、先に取りに行かせる</b>
+        <span>優先して取得する指示を出せますが、全部に付けると優先順位を付けていないのと同じです。最初の画面に出る1つに絞ります。</span>
+      </li>
+      <li>
+        <b>自分の回線で判断しない</b>
+        <span>手元の速い回線では、どの設定でも一瞬で終わります。<strong>回線を絞って試す</strong>と、設定の違いがはじめて見えます。</span>
+      </li>
+    </ol>
+
+    <h2>アイコンを書体で配るのは、もう分が悪い</h2>
+    <p>
+      同じ話の親戚として、<strong>アイコンを書体として読み込む</strong>手法があります。
+      かつては便利でした。1つのファイルで何百個のアイコンが手に入り、
+      色や大きさを文字と同じ指定で変えられるからです。
+    </p>
+    <p>
+      いまは分が悪くなっています。理由は3つあります。
+    </p>
+    <ul>
+      <li><strong>読み込みが終わるまで何も出ない</strong> — 本文と同じ問題が起きます。ボタンの中身が空白のまま、押せるかどうか分からない時間が生まれます</li>
+      <li><strong>使うのは数個なのに、全部を読む</strong> — 何百個のうち5個しか使わなくても、ファイルは丸ごと届きます</li>
+      <li><strong>読み上げに文字として拾われることがある</strong> — 意味のない記号が読み上げられて、内容の理解を妨げます</li>
+    </ul>
+    <p>
+      いまは、必要なものだけを<strong>そのままページに書き込む</strong>ほうが素直です。
+      追加の読み込みが発生せず、最初の表示から出ていて、
+      装飾であることを明示すれば読み上げの対象からも外せます。
+      このサイトのアイコンも、すべてこの形にしています。
+    </p>
+
+    <h2>測りかた</h2>
+    <p>
+      設定の良し悪しは、手元の環境では判別できません。速すぎるからです。
+    </p>
+    <ol class="steps">
+      <li>
+        <b>回線を絞って開く</b>
+        <span>開発者ツールに、回線の速度を落として再現する機能があります。ここではじめて、空白の時間や入れ替わりが目に見えるようになります。<strong>絞らずに判断するのは、測っていないのと同じ</strong>です。</span>
+      </li>
+      <li>
+        <b>読み込みの順番を見る</b>
+        <span>書体のファイルが、いつ、何番目に取得されているかを見ます。CSS を読んでから書体の存在が判明する構造だと、開始が遅れます。先に取りに行かせる指示が効くのはここです。</span>
+      </li>
+      <li>
+        <b>表示が動いた量を見る</b>
+        <span>入れ替わりで文章がずれると、その量が数値として出ます。代替書体を寄せる前後で比べると、手当ての効果がそのまま分かります。</span>
+      </li>
+      <li>
+        <b>2回目の表示も見る</b>
+        <span>一度読み込めば控えが残るので、2回目は速くなります。<strong>初回だけが問題</strong>なのか、毎回遅いのかで対処が変わります。</span>
+      </li>
+    </ol>
+    <div class="note">
+      数字を見ると、判断が「好み」から降りてきます。
+      <strong>本文が読めるまで何ミリ秒か、文章が何ピクセル動くか。</strong>
+      この2つが言えるようになると、書体を使うか使わないかを迷わずに決められます。
+      このサイトで使わないことにしたのも、最終的にはこの2つを見た結果でした。
+    </div>
 
     <h2>まとめ</h2>
     <ul>
-      <li>特定の端末でだけ崩れるときは、環境差ではなく<strong>訪問履歴の差</strong>を疑う</li>
-      <li>手元のファイルではなく、<strong>実際に配信されているもの</strong>を取得して確かめる</li>
-      <li><code>Cache-Control</code> は HTML とサブリソースで別々に設定されている。両方見る</li>
-      <li>直すのは期間ではなく、<strong>同じ URL で中身が変わる状態</strong>のほう</li>
-      <li>小さいサイトなら、埋め込んでしまうのがいちばん確実</li>
+      <li>文字が消えるのも入れ替わるのも<strong>設定された動作</strong>で、選べる</li>
+      <li>嫌われるのは書体そのものより<strong>行の折り返しが動くこと</strong></li>
+      <li>日本語は収録文字数が桁違いで、<strong>本文より書体が重くなる</strong></li>
+      <li>分割配信は効くが、<strong>取得回数と接続が増える</strong>という代償がある</li>
+      <li>使うなら<strong>字を絞る・太さを減らす・代替書体を寄せる</strong>の順で効く</li>
+      <li>内容によっては、<strong>使わないという選択</strong>がいちばん速い</li>
     </ul>
 
     </div><!-- postbody:end -->
@@ -829,7 +894,7 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
     <div class="postnav">
       <div class="share">
         <span class="label">この記事を共有</span>
-        <a href="https://x.com/intent/post?text=HTMLは新しいのにCSSだけ古い — 静的サイトのキャッシュの罠&amp;url=https://mdf.works/blog/cache" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/intent/post?text=文字が一瞬あとから出る — ウェブフォントをやめた話&amp;url=https://mdf.works/blog/webfont" target="_blank" rel="noopener noreferrer">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.2-5.8 6.2H1.5l7.5-8.6L1 3h6.7l4.6 5.8L17.5 3zm-1.1 16.2h1.8L7.7 4.7H5.8l10.6 14.5z"/></svg>
           X で共有
         </a>
@@ -837,18 +902,18 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       </div>
 
       <nav class="pager" aria-label="記事の移動">
-        <a class="prev" href="/blog/browser"><span class="dir">← 前の記事</span><span class="t">ブラウザの選び方 — 結局どれを使えばいいのか</span></a><a class="next" href="/blog/ping"><span class="dir">次の記事 →</span><span class="t">Ping はどこで生まれるのか — 回線を速くしても下がらない理由</span></a>
+        <a class="prev" href="/blog/backup"><span class="dir">← 前の記事</span><span class="t">スマホのバックアップに入らないもの — 復元してから気づく前に</span></a>
       </nav>
 
       <h2>ほかの記事</h2>
       <div class="grid cols-2">
       <div class="card">
-        <h3><a href="/blog/webfont" style="text-decoration:none">文字が一瞬あとから出る — ウェブフォントをやめた話</a></h3>
-        <p>読み込み直後に文字が消えている、あるいは別の書体で出てから入れ替わる。どちらも読み込み方の設定です。選べる4つの振る舞い、日本語で容量が桁違いになる理由、分…</p>
-      </div>
-      <div class="card">
         <h3><a href="/blog/theme" style="text-decoration:none">ダークモードは色を反転するのではない — 実装して分かったこと</a></h3>
         <p>このサイトにテーマ切替を付けたときの記録です。OS の設定に従うだけでは足りず、利用者の上書きを受け付けると CSS が三段構えになります。描画前の一瞬のち…</p>
+      </div>
+      <div class="card">
+        <h3><a href="/blog/circle" style="text-decoration:none">画像から円を検出する — ハフ変換だけでは足りなかった話</a></h3>
+        <p>スクリーンショットの丸いアイコンをブラウザだけで見つける。候補を出すのは教科書どおりで足りましたが、本物かどうかの判定が難所でした。合成画像で16分の1、実…</p>
       </div>
       </div>
       <div class="btnrow">

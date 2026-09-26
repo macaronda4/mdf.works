@@ -189,3 +189,7 @@ card(o("ssd.png"), "Gadget",
 card(o("backup.png"), "Basics",
      "バックアップに\n入らないもの",
      "復元してから気づく前に")
+
+card(o("webfont.png"), "Development",
+     "文字が一瞬\nあとから出る",
+     "ウェブフォントをやめた判断")
