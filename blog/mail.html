@@ -30,25 +30,25 @@
 <!-- Google AdSense -->
 <script async fetchpriority="low" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8613999974980382"
      crossorigin="anonymous"></script>
-<title>144Hzで何が変わるのか｜遅延はどこで積まれているか</title>
-<meta name="description" content="144Hzのモニタで実際に何が変わるのかを、書き換え間隔・入力遅延・フレームタイムの3つに分けて説明します。遅延がどこで何ミリ秒積まれるのか、可変リフレッシュレートと残像対策の副作用、そして効く対策の順番。">
-<link rel="canonical" href="https://mdf.works/blog/framerate">
+<title>メールの送信元は詐称できる｜それでも見分けられる場所</title>
+<meta name="description" content="メールの差出人が詐称できる理由と、SPF・DKIM・DMARCが何を照合しているのかを説明します。それでもすり抜ける手口、本文で見るべき場所、そして注意力に頼らない判定のしかたをまとめました。">
+<link rel="canonical" href="https://mdf.works/blog/mail">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="theme-color" content="#131720">
 <meta name="author" content="マカロン大福">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="mdf.works">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="144Hzで何が変わるのか｜遅延はどこで積まれているか">
-<meta property="og:description" content="滑らかさと反応の速さは別物です。分けて見ないと投資先を間違えます。">
-<meta property="og:url" content="https://mdf.works/blog/framerate">
-<meta property="og:image" content="https://mdf.works/assets/og/framerate.png">
+<meta property="og:title" content="メールの送信元は詐称できる｜それでも見分けられる場所">
+<meta property="og:description" content="差出人欄は誰でも書けます。それでも見分けられる場所があります。">
+<meta property="og:url" content="https://mdf.works/blog/mail">
+<meta property="og:image" content="https://mdf.works/assets/og/mail.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="144Hzで何が変わるのか｜遅延はどこで積まれているか">
-<meta name="twitter:description" content="滑らかさと反応の速さは別物です。分けて見ないと投資先を間違えます。">
-<meta name="twitter:image" content="https://mdf.works/assets/og/framerate.png">
+<meta name="twitter:title" content="メールの送信元は詐称できる｜それでも見分けられる場所">
+<meta name="twitter:description" content="差出人欄は誰でも書けます。それでも見分けられる場所があります。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/mail.png">
 <meta name="twitter:creator" content="@sugerslp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
 <script type="application/ld+json">
@@ -57,20 +57,20 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "144Hzで何が変わるのか — 遅延はどこで積まれているか",
-      "description": "リフレッシュレート・入力遅延・フレームタイムの違いを段階ごとに分解し、可変リフレッシュレートや残像対策の影響と、実際に効く対策の順番を整理した記事。",
-      "image": "https://mdf.works/assets/og/framerate.png",
-      "datePublished": "2026-09-02",
-      "dateModified": "2026-09-02",
+      "headline": "メールの送信元は詐称できる — それでも見分けられる場所",
+      "description": "メールの送信元詐称の仕組みと、送信ドメイン認証が何を照合しているか、すり抜ける手口と受信側の判断基準をまとめた記事。",
+      "image": "https://mdf.works/assets/og/mail.png",
+      "datePublished": "2026-09-27",
+      "dateModified": "2026-09-27",
       "inLanguage": "ja",
-      "articleSection": "ゲーム",
+      "articleSection": "セキュリティ",
       "author": {
         "@id": "https://mdf.works/#person"
       },
       "publisher": {
         "@id": "https://mdf.works/#person"
       },
-      "mainEntityOfPage": "https://mdf.works/blog/framerate"
+      "mainEntityOfPage": "https://mdf.works/blog/mail"
     },
     {
       "@type": "Person",
@@ -99,8 +99,8 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "144Hzで何が変わるのか",
-          "item": "https://mdf.works/blog/framerate"
+          "name": "メールの送信元は詐称できる",
+          "item": "https://mdf.works/blog/mail"
         }
       ]
     }
@@ -644,18 +644,18 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
 <main id="main">
   <div class="wrap prose">
 
-    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>144Hzで何が変わるのか</p>
+    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>メールの送信元は詐称できる</p>
 
     <div class="page-head">
-      <p class="eyebrow">Game</p>
-      <h1>144Hzで何が変わるのか<br>遅延はどこで積まれているか</h1>
+      <p class="eyebrow">Security</p>
+      <h1>メールの送信元は詐称できる<br>それでも見分けられる場所</h1>
       <p class="lead">
-        60Hz から 144Hz にすると、確かに滑らかになります。ただし<strong>「滑らかさ」と「反応の速さ」は別の話</strong>です。前者は画面が書き換わる間隔、後者は操作が絵に出るまでの合計。さらに<strong>平均の枚数では見えない引っかかり</strong>もあります。3つを分けないと、お金をかける場所を間違えます。
+        メールの差出人欄は、<strong>封筒の裏に自分で書く名前</strong>と同じです。誰でも好きに書けます。ところが実際には、大半の偽装は届く前に止まるようになりました。何が止めていて、何がすり抜けるのか。そのうえで、受け取った側が見る場所を絞ります。
       </p>
       <div class="postmeta">
-        <span class="cat">ゲーム</span>
-        <time datetime="2026-09-02">2026年9月2日</time>
-        <span class="read">約8分で読めます</span>
+        <span class="cat">セキュリティ</span>
+        <time datetime="2026-09-27">2026年9月27日</time>
+        <span class="read">約7分で読めます</span>
       </div>
     </div>
 
@@ -665,220 +665,199 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
     </nav>
 
     <!-- postbody:start --><div class="postbody">
-    <h2>まず3つの言葉を分ける</h2>
+    <h2>なぜ好きに書けるのか</h2>
     <p>
-      混ざりやすいものを、先に切り離します。この3つはそれぞれ別の原因で悪くなり、別の対策で良くなります。
+      メールの仕組みが作られた当時、参加していたのは互いに素性の知れた組織だけでした。
+      差出人が嘘をつく前提が要らなかったので、<strong>名乗りをそのまま信じる設計</strong>になっています。
+    </p>
+    <p>
+      しかも、差出人には2種類あります。
+      配送のために使われるものと、<strong>画面に表示されるもの</strong>です。
+      この2つは一致していなくても構いません。
+      表示名に至っては完全に自由で、実在する会社名をそのまま入れられます。
+    </p>
+    <p>
+      つまり<strong>「有名な会社の名前で届いた」ことには、何の保証もありません</strong>。
+      ここが出発点です。名前を見て判断する習慣は、根本的に成り立ちません。
+    </p>
+
+    <h2>それでも大半が止まっている</h2>
+    <p>
+      現在は、受け取る側が3つの照合を行っています。
+      仕組みの名前は覚えなくて構いませんが、<strong>何を照合しているか</strong>は知っておくと役に立ちます。
     </p>
     <div class="tablewrap">
       <table>
-        <thead><tr><th scope="col">呼びかた</th><th scope="col">中身</th><th scope="col">悪いとどう感じるか</th></tr></thead>
+        <thead><tr><th scope="col">照合の種類</th><th scope="col">確かめていること</th></tr></thead>
         <tbody>
-          <tr><td>書き換えの間隔</td><td>画面が1秒に何回描き直されるか</td><td>動くものがカクカクして見える</td></tr>
-          <tr><td>反応までの時間</td><td>操作してから、結果が光になるまで</td><td>照準が遅れてついてくる、ぬるい</td></tr>
-          <tr><td>1枚あたりの揺れ</td><td>絵と絵の間隔がどれだけ揃っているか</td><td>平均は出ているのに時々つっかえる</td></tr>
+          <tr><td>送信元の許可</td><td>そのドメインの持ち主が、送信してきたサーバーを「送ってよい」と公表しているか</td></tr>
+          <tr><td>署名</td><td>本文と一部の項目に、ドメインの持ち主にしか作れない署名が付いているか。<strong>途中で書き換えられていないこと</strong>も同時に分かります</td></tr>
+          <tr><td>表示との一致と、方針</td><td>上の2つの結果が、<strong>画面に表示される差出人</strong>と結び付いているか。合わないメールをどう扱ってほしいかも、持ち主が公表できます</td></tr>
         </tbody>
       </table>
     </div>
     <p>
-      144Hz が直接改善するのは1番目です。約6.9ミリ秒ごとに絵が更新されます。60Hz なら約16.7ミリ秒。
-      <strong>動いているものの見やすさは、ここで決まります</strong>。
-      2番目はいくつもの段階の合計で、3番目は平均の数字にまったく現れません。順に見ていきます。
+      3つ目が要になります。1つ目と2つ目だけでは、
+      <strong>攻撃者が自分のドメインで正しく認証を通したメールに、表示名だけ有名企業を入れる</strong>ことができてしまいます。
+      照合としては合格するのに、利用者には別の会社に見える。
+      3つ目は、この食い違いを検出するための仕組みです。
+    </p>
+    <div class="note good">
+      発信する側にとっても、これは自分を守る設定です。
+      <strong>「うちのドメインを騙ったメールは受け取らないでほしい」と公表できる</strong>のが、
+      3つ目の本来の使いかたです。自分のドメインでメールを出しているなら、
+      設定されているか一度確認する価値があります。
+    </div>
+
+    <h2>それでもすり抜けるもの</h2>
+    <p>
+      照合が通ることと、内容が正しいことは別です。以下は認証を通り得ます。
+    </p>
+    <h3>似たドメインを本当に取得している</h3>
+    <p>
+      詐称ではなく、<strong>本当にそのドメインの持ち主になる</strong>手口です。
+      1文字違い、ハイフンの追加、末尾だけ違うもの。
+      自分のドメインなので、認証はすべて正規に通ります。
+      <strong>照合は「名乗りが本物か」を見ており、「紛らわしくないか」は見ていません。</strong>
+    </p>
+    <h3>本物のアカウントが乗っ取られている</h3>
+    <p>
+      取引先の担当者のメールが乗っ取られると、本物のドメインから本物の署名付きで届きます。
+      技術的には何の問題もありません。過去のやりとりの続きとして送られてくるので、
+      文面の違和感も出にくい。<strong>ここは仕組みでは止まりません。</strong>
+    </p>
+    <h3>表示名だけで押し切る</h3>
+    <p>
+      特にスマートフォンでは、<strong>表示名しか見えないことが多い</strong>です。
+      アドレスを確認するには一手間かかるので、
+      そこを省略させることを前提に組み立てられます。
     </p>
 
-    <h2>反応までの時間を分解する</h2>
+    <h2>受け取った側が見る場所</h2>
+    <ol class="steps">
+      <li>
+        <b>表示名ではなく、アドレスの右側を見る</b>
+        <span>アットマークの後ろ、そのいちばん右のドットの前後だけが本体です。<code>support@example.co.jp.attacker.com</code> の正体は <code>attacker.com</code> です。<strong>左側は誰でも好きに名乗れます。</strong></span>
+      </li>
+      <li>
+        <b>返信先が差出人と違わないか見る</b>
+        <span>返信すると別のアドレスに飛ぶよう設定できます。返信ボタンを押した時点で宛先が変わるので、<strong>送る前に宛先欄を確認</strong>する習慣が効きます。</span>
+      </li>
+      <li>
+        <b>急がせる文面を疑う</b>
+        <span>「24時間以内に」「アカウントが停止されます」。急がせるのは、確認させないためです。本物の通知は、たいてい期限に余裕があります。</span>
+      </li>
+      <li>
+        <b>リンクを踏まず、自分の経路で確認する</b>
+        <span>これが最も効きます。<strong>メール内のリンクを使わず</strong>、ブックマークやアプリから同じ画面に行けるかを見ます。本当に手続きが必要なら、そこにも同じ通知が出ているはずです。</span>
+      </li>
+      <li>
+        <b>添付ファイルの拡張子を見る</b>
+        <span>実行形式や、開くと外部から取ってくる形式のものは、心当たりがあっても一度止まります。画像に見せかけた実行ファイルは、表示上の名前だけでは判別できません。</span>
+      </li>
+    </ol>
+    <div class="note warn">
+      <strong>QRコードが貼られたメールは、特に注意が要ります。</strong>
+      画像なのでリンクの検査をすり抜けやすく、しかもスマートフォンで開かせることになります。
+      仕組みは<a href="/blog/qr">QRコードは中身が見えない</a>に書きました。
+    </div>
+
+    <h2>判定を注意力から降ろす</h2>
     <p>
-      マウスを動かしてから、その結果が目に届くまでに通る場所を並べます。
-      数値は一般的な目安で、環境によって変わります。
+      ここまでの確認は、疲れているときには実行されません。
+      だから<strong>気をつける以外の手当て</strong>を用意しておくほうが確実です。
+    </p>
+    <ul>
+      <li><strong>パスワードマネージャーを使う</strong> — 偽サイトでは自動入力されません。「いつも出るのに出てこない」が合図になります（<a href="/blog/manager">選び方</a>）</li>
+      <li><strong>パスキーにしておく</strong> — ドメインが違えばブラウザが鍵を出しません。騙されても渡すものがありません（<a href="/blog/passkey">二段階認証はどれを選ぶか</a>）</li>
+      <li><strong>重要な通知はアプリで受け取る</strong> — 銀行や決済は、メールではなくアプリの通知を正とする運用にしておくと、メール側を疑う必要が減ります</li>
+      <li><strong>迷ったら送信元に電話する</strong> — ただし<strong>メールに書かれた番号ではなく</strong>、公式サイトや請求書に載っている番号へ</li>
+    </ul>
+
+    <h2>迷惑メールフォルダを信じすぎない</h2>
+    <p>
+      自動の振り分けは優秀ですが、<strong>2方向に間違えます</strong>。
+      そして間違いの向きによって、困り方がまるで違います。
+    </p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">間違いの向き</th><th scope="col">起きること</th></tr></thead>
+        <tbody>
+          <tr><td>危険なものが受信箱に入る</td><td>気づかずに開く。ここまで書いてきた話</td></tr>
+          <tr><td>正当なものが迷惑扱いされる</td><td><strong>届いていないことに、誰も気づかない</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      後者のほうが実害が出やすい、というのが実感です。
+      求人の連絡、役所からの通知、パスワード再設定のメール。
+      <strong>相手は送ったつもりで、こちらは待っている</strong>という状態が続きます。
+    </p>
+    <p>
+      対策は単純で、<strong>迷惑メールフォルダを週に一度は見る</strong>ことです。
+      そして誤って振り分けられたものが見つかったら、
+      「迷惑メールではない」と教えるだけでなく、
+      その差出人を許可する設定に入れておきます。同じことが繰り返されなくなります。
+    </p>
+
+    <h2>送る側として設定しておくこと</h2>
+    <p>
+      自分のドメインでメールを出しているなら、
+      <strong>騙られる側になる可能性</strong>も考えることになります。
+      ここまでに出てきた3つの照合は、送る側が設定するものです。
     </p>
     <ol class="steps">
       <li>
-        <b>マウスが動きを報告する</b>
-        <span>報告の間隔は設定で変わります。1000回/秒なら平均0.5ミリ秒ほど。ここは既に十分小さく、さらに上げても合計にはほとんど効きません。</span>
+        <b>送信を許可するサーバーを公表する</b>
+        <span>自社のメールサーバーだけでなく、<strong>配信サービスや問い合わせフォームの送信元</strong>も忘れずに。ここが抜けていると、自分の正当なメールが弾かれます。</span>
       </li>
       <li>
-        <b>ゲームが操作を受け取り、次の絵を作る</b>
-        <span>いちばん大きく、しかも自分で変えられます。毎秒60枚しか作れていなければ1枚あたり16.7ミリ秒、240枚なら4.2ミリ秒。<strong>モニタが144Hzでも、絵が60枚しか無ければ埋まりません。</strong></span>
+        <b>署名を有効にする</b>
+        <span>利用しているメールサービス側で設定します。鍵を公表し、送信時に署名が付くようにします。</span>
       </li>
       <li>
-        <b>できた絵が順番待ちをする</b>
-        <span>作った絵をすぐ出さず、数枚ためてから出す仕組みがあります。枚数が揺れても表示が途切れない代わりに、ためた枚数ぶん遅れます。3枚ためていれば、それだけで数十ミリ秒になることがあります。</span>
+        <b>まず「様子を見る」から始める</b>
+        <span>合わないメールをどう扱うかは、いきなり「拒否」にしないでください。<strong>まず報告だけ受け取る設定</strong>にして、正当なのに合っていない経路が無いかを確認します。</span>
       </li>
       <li>
-        <b>ケーブルを通って届く</b>
-        <span>1ミリ秒に満たない程度。ここを気にする段階ではありません。</span>
-      </li>
-      <li>
-        <b>モニタが受け取って処理する</b>
-        <span>製品差が大きい部分です。映像を加工する機能が有効だと、ここで数十ミリ秒増えることがあります。テレビをモニタ代わりにすると重くなりやすいのは、主にここです。</span>
-      </li>
-      <li>
-        <b>画素の色が実際に変わる</b>
-        <span>液晶が色を切り替える時間。速いパネルなら数ミリ秒、遅いと十数ミリ秒。ここが遅いと、動くものに尾を引きます。</span>
+        <b>報告を見てから、段階的に厳しくする</b>
+        <span>抜けを潰したうえで、隔離、最後に拒否へ。順番を飛ばすと、自分の請求書や通知が相手に届かなくなります。</span>
       </li>
     </ol>
     <div class="note">
-      合計のうち、<strong>2 と 3 と 5 が大半</strong>です。
-      つまり「絵を何枚作れているか」「ためずに出しているか」「モニタが余計なことをしていないか」。
-      マウスやケーブルを替えても、この3つが直っていなければ体感は変わりません。
-      <strong>いちばん小さい項目から手を付けてしまう</strong>のが、よくある遠回りです。
+      順番を守る理由は、<strong>止まったメールは静かに消える</strong>からです。
+      設定を厳しくした直後は、何も起きていないように見えます。
+      問題に気づくのは、相手から「返事が来ない」と言われたときです。
+      だから<strong>報告を見る期間を先に置く</strong>のが、結局いちばん早い道になります。
     </div>
 
-    <h2>平均の枚数では見えないもの</h2>
-    <p>
-      平均で毎秒120枚出ていても、快適とは限りません。
-      平均は<strong>1秒間の合計を割っただけ</strong>なので、その中の分布を隠します。
-    </p>
-    <p>
-      例えば、ほとんどの絵が8ミリ秒間隔で出ていて、1秒に数回だけ40ミリ秒空くとします。
-      平均は良い数字になりますが、<strong>体感としては数回つっかえた1秒</strong>です。
-      人間は平均ではなく、いちばん悪かった瞬間を覚えています。
-    </p>
-    <p>
-      そこで見るのが、1枚あたりの間隔そのものです。
-      よく使われる指標に「下位1%」があり、
-      <strong>悪いほうから1%の絵がどれだけ待たされたか</strong>を表します。
-      平均が高いのに下位1%が低い構成は、数字ほど快適ではありません。
-    </p>
-    <div class="note good">
-      <strong>測りかた：</strong>
-      多くの計測ソフトに、平均だけでなく間隔の推移をグラフで出す機能があります。
-      平らな線が続いていれば良く、<strong>棘のように跳ね上がる点</strong>があれば、そこが引っかかりです。
-      棘の原因は描画とは限らず、記憶装置の読み込み待ちや、
-      裏で動いている別の処理であることもよくあります。
-    </div>
-
-    <h2>可変リフレッシュレートは何をしているのか</h2>
-    <p>
-      絵の枚数は常に一定ではありません。一方、モニタの書き換えは決まった間隔で来ます。
-      この2つがずれると、<strong>1枚の絵の上下で別々の絵が表示される</strong>裂けが起きます。
-    </p>
-    <p>
-      従来の対策は、モニタの書き換えに合わせて絵を待たせる方法でした。
-      裂けは消えますが、<strong>待つぶん遅くなります</strong>。しかも間に合わなかった場合、
-      次の機会まで丸ごと待つことになるので、枚数が大きく落ちます。
-    </p>
-    <p>
-      可変リフレッシュレートは、逆に<strong>モニタ側が絵の到着に合わせて書き換える</strong>仕組みです。
-      裂けが出ず、待たせる時間も最小限になります。対応していれば、有効にしておく価値があります。
-    </p>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th scope="col">やりかた</th><th scope="col">裂け</th><th scope="col">遅延</th><th scope="col">枚数が落ちたとき</th></tr></thead>
-        <tbody>
-          <tr><td>何もしない</td><td>出る</td><td>いちばん小さい</td><td>そのまま</td></tr>
-          <tr><td>モニタに合わせて待たせる</td><td>出ない</td><td>大きい</td><td>大きく落ち込む</td></tr>
-          <tr><td>可変リフレッシュレート</td><td>出ない</td><td>小さい</td><td>なめらかに追従する</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p>
-      ひとつ注意があります。可変で追従できる範囲には下限と上限があり、
-      <strong>上限を超えるとただ待たされる状態に戻ります</strong>。
-      上限より少しだけ低いところに枚数の上限を設定しておくと、
-      常に可変の範囲に収まって安定します。
-    </p>
-
-    <h2>パネルと、残像対策の副作用</h2>
-    <p>
-      切り替えの速さはパネルの種類でおおよそ決まります。
-      そのうえで、多くのモニタには<strong>切り替えを速めるための補正</strong>が入っています。
-    </p>
-    <p>
-      これは電圧を強めにかけて色の変化を急がせる仕組みで、
-      強くしすぎると<strong>目標を通り越して、逆向きの残像が出ます</strong>。
-      動く物体の後ろに明るい影がついてくる現象がこれです。
-      補正の強さは設定で段階的に選べることが多いので、
-      <strong>いちばん強い設定が最良とは限りません</strong>。中間で止めるのが無難です。
-    </p>
-    <p>
-      もうひとつ、残像を減らすためにバックライトを短く点滅させる機能があります。
-      輪郭ははっきりしますが、<strong>画面が暗くなり、可変リフレッシュレートと同時に使えない</strong>ことが多く、
-      ちらつきが苦手な人には向きません。効果と副作用の差が大きい機能です。
-    </p>
-
-    <h2>効く順番</h2>
+    <h2>もし開いてしまったら</h2>
     <ol class="steps">
       <li>
-        <b>本当に144Hzで動いているか確認する</b>
-        <span>OSの設定画面で、実際のリフレッシュレートを見ます。<strong>挿しただけでは60Hzのままのことがよくあります。</strong>ケーブルの規格が足りない場合も、上限が下がります。ここが最も多い取りこぼしです。</span>
+        <b>何を入力したかを思い出す</b>
+        <span>入力していなければ、リンクを開いただけで直ちに被害になることは多くありません。まず落ち着いて、入力の有無を切り分けます。</span>
       </li>
       <li>
-        <b>モニタ側の映像加工を切る</b>
-        <span>補間・ノイズ低減・映画向けの映像モードは、そのぶん遅らせます。ゲーム向けの表示モードは、これらをまとめて止める設定であることが多いです。</span>
+        <b>入力したなら、そのパスワードを今すぐ替える</b>
+        <span>同じものを他所でも使っていたなら、そちらも全部です。ここで使い回しの有無が効いてきます。</span>
       </li>
       <li>
-        <b>可変リフレッシュレートを有効にする</b>
-        <span>モニタ側とパソコン側の両方で有効にします。片方だけでは効きません。あわせて枚数の上限を、対応範囲の少し下に置きます。</span>
+        <b>ログイン履歴と、送信済みメールを見る</b>
+        <span>身に覚えのない場所からのログインや、自分が出していないメールが無いか。乗っ取られた場合、連絡先に同じものが送られていることがあります。</span>
       </li>
       <li>
-        <b>絵の枚数を上げる</b>
-        <span>画質設定を下げるのがいちばん直接的です。特に影と反射の設定は、見た目の割に負荷が大きい部分です。</span>
-      </li>
-      <li>
-        <b>ためる枚数を減らす</b>
-        <span>ドライバやゲームの設定にあります。減らすと反応が早くなり、代わりに枚数が不安定なときに揺れやすくなります。</span>
-      </li>
-      <li>
-        <b>引っかかりの原因を別に探す</b>
-        <span>平均が足りているのにつっかえる場合、描画以外が原因です。記憶装置の速度、常駐しているソフト、録画や配信の処理などを疑います。</span>
+        <b>二段階認証を設定し直す</b>
+        <span>攻撃者が別の連絡先を追加している場合があります。設定画面で、知らない端末や電話番号が登録されていないか確認します。</span>
       </li>
     </ol>
-
-    <h2>240Hz まで行く意味はあるか</h2>
-    <p>
-      間隔だけを見ると、60Hz から144Hz は約10ミリ秒の短縮、144Hz から240Hz は約2.7ミリ秒の短縮です。
-      <strong>効き目は等間隔ではなく、最初の一段がいちばん大きい</strong>ということになります。
-    </p>
-    <p>
-      そのうえで、240Hz を活かすには絵を毎秒240枚作り続ける必要があります。
-      <strong>先に「いま何枚出ているか」を測ってから決める</strong>のが確実です。
-    </p>
-    <div class="note warn">
-      <strong>回線の速さは、ここには効きません。</strong>
-      対戦での「相手が先に撃っていた」は、手元の遅延と通信の遅延が混ざった結果です。
-      通信のほうは別の場所で積まれているので、
-      <a href="/blog/ping">Ping はどこで生まれるのか</a>のほうを見てください。
-      手元を詰めても、通信で100ミリ秒待っていれば、そちらが支配します。
-    </div>
-
-    <h2>測ってから決める</h2>
-    <p>
-      ここまでの話は、すべて<strong>自分の環境で測れば数字が出ます</strong>。
-      買い替えの前に30分かけるだけで、投資先がはっきりします。
-    </p>
-    <ol class="steps">
-      <li>
-        <b>いま何枚出ているかを、遊びながら見る</b>
-        <span>常時表示できる計測ソフトを入れて、実際に遊ぶ場面で見ます。待機画面ではなく、<strong>いちばん混雑する場面</strong>の数字が重要です。人が多い、爆発が起きる、視界が開ける。そこが最低値になります。</span>
-      </li>
-      <li>
-        <b>平均ではなく、間隔の推移を見る</b>
-        <span>グラフが平らなら良く、棘のように跳ねる点があれば引っかかりです。棘が出る場所を覚えておくと、原因の見当がつきます。特定の場所に入るときだけ跳ねるなら、読み込み待ちの可能性が高い。</span>
-      </li>
-      <li>
-        <b>設定を1つずつ変えて、同じ場面で比べる</b>
-        <span>まとめて変えると、何が効いたか分かりません。影の品質、反射、描画距離あたりから1つずつ。<strong>見た目の変化に対して数字の変化が大きい設定</strong>が、下げる価値のある設定です。</span>
-      </li>
-      <li>
-        <b>反応の速さは、動画で確かめる</b>
-        <span>専用の測定器がなくても、高速で撮影できるカメラがあれば近いことができます。マウスを動かした瞬間と画面が動いた瞬間の差を、コマ数で数えます。設定変更の前後で比べれば、相対的な効果は分かります。</span>
-      </li>
-    </ol>
-    <div class="note good">
-      数字を見ずに機材を替えると、<strong>効かない場所に払う</strong>ことになりがちです。
-      平均が144枚に届いていないなら、モニタより先に描画側です。
-      平均は出ているのに棘が多いなら、記憶装置か常駐ソフトです。
-      反応が鈍く感じるのに数字は良いなら、モニタ側の処理を疑います。
-    </div>
 
     <h2>まとめ</h2>
     <ul>
-      <li>Hz が決めるのは<strong>書き換えの間隔</strong>。反応の速さはいくつもの段階の合計</li>
-      <li>合計の大半は<strong>絵を作る時間・ためる枚数・モニタ側の処理</strong></li>
-      <li>平均の枚数は分布を隠す。<strong>いちばん悪かった瞬間</strong>が体感を決める</li>
-      <li>可変リフレッシュレートは裂けと遅延の両方に効く。<strong>上限の少し下に枚数を止める</strong></li>
-      <li>残像対策の補正は<strong>強すぎると逆向きの残像</strong>が出る。中間で止める</li>
-      <li>効き目は等間隔ではない。<strong>60→144 が最も大きく、その先は伸びが小さい</strong></li>
+      <li>差出人欄は<strong>誰でも好きに書ける</strong>。名前で判断する習慣は成り立たない</li>
+      <li>3つの照合が大半を止めているが、<strong>「紛らわしくないか」は見ていない</strong></li>
+      <li>似たドメインの正規取得と、本物のアカウントの乗っ取りは<strong>仕組みでは止まらない</strong></li>
+      <li>見るのは<strong>アドレスの右側</strong>と返信先。表示名は見ない</li>
+      <li>いちばん効くのは<strong>メールのリンクを使わず、自分の経路で確認する</strong>こと</li>
     </ul>
 
     </div><!-- postbody:end -->
@@ -886,7 +865,7 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
     <div class="postnav">
       <div class="share">
         <span class="label">この記事を共有</span>
-        <a href="https://x.com/intent/post?text=144Hzで何が変わるのか — 遅延はどこで積まれているか&amp;url=https://mdf.works/blog/framerate" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/intent/post?text=メールの送信元は詐称できる — それでも見分けられる場所&amp;url=https://mdf.works/blog/mail" target="_blank" rel="noopener noreferrer">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.2-5.8 6.2H1.5l7.5-8.6L1 3h6.7l4.6 5.8L17.5 3zm-1.1 16.2h1.8L7.7 4.7H5.8l10.6 14.5z"/></svg>
           X で共有
         </a>
@@ -894,18 +873,18 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       </div>
 
       <nav class="pager" aria-label="記事の移動">
-        <a class="prev" href="/blog/theme"><span class="dir">← 前の記事</span><span class="t">ダークモードは色を反転するのではない — 実装して分かったこと</span></a><a class="next" href="/blog/manager"><span class="dir">次の記事 →</span><span class="t">パスワードマネージャーの選び方 - 何を預けることになるのか</span></a>
+        <a class="prev" href="/blog/webfont"><span class="dir">← 前の記事</span><span class="t">文字が一瞬あとから出る — ウェブフォントをやめた話</span></a>
       </nav>
 
       <h2>ほかの記事</h2>
       <div class="grid cols-2">
       <div class="card">
-        <h3><a href="/blog/ping" style="text-decoration:none">Ping はどこで生まれるのか — 回線を速くしても下がらない理由</a></h3>
-        <p>回線を 1Gbps にしても Ping は下がりません。速度と遅延は別のものだからです。光の速度が決める下限から順に、遅延が何ミリ秒ずつどこで積まれているの…</p>
+        <h3><a href="/blog/manager" style="text-decoration:none">パスワードマネージャーの選び方 - 何を預けることになるのか</a></h3>
+        <p>全部のパスワードを1か所に置くのは怖い、という感覚は正しいです。そのうえで使ったほうが安全になるのはなぜか。鍵がどこで作られ、どこまで運ばれるのか。保管庫ご…</p>
       </div>
       <div class="card">
-        <h3><a href="/blog/mail" style="text-decoration:none">メールの送信元は詐称できる — それでも見分けられる場所</a></h3>
-        <p>差出人の欄は、封筒の裏に自分で書く名前と同じで、好きに書けます。それでも大半の偽装は止められるようになりました。3つの照合の仕組み、それでもすり抜けるもの、…</p>
+        <h3><a href="/blog/wifi" style="text-decoration:none">公衆Wi-Fiは危険か — HTTPSが片付けたことと、残っているもの</a></h3>
+        <p>10年前の危なさと、いまの危なさは中身が違います。正しく検証された HTTPS は経路上の盗聴から通信内容を守り、代わりに「つなぐ相手を間違えさせる」経路が…</p>
       </div>
       </div>
       <div class="btnrow">

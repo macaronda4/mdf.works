@@ -193,3 +193,7 @@ card(o("backup.png"), "Basics",
 card(o("webfont.png"), "Development",
      "文字が一瞬\nあとから出る",
      "ウェブフォントをやめた判断")
+
+card(o("mail.png"), "Security",
+     "送信元は\n詐称できる",
+     "それでも見分けられる場所")
