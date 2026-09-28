@@ -197,3 +197,7 @@ card(o("webfont.png"), "Development",
 card(o("mail.png"), "Security",
      "送信元は\n詐称できる",
      "それでも見分けられる場所")
+
+card(o("router.png"), "Gadget",
+     "Wi-Fiが遅いのは\n置き場所かもしれない",
+     "買い替える前に確かめること")
