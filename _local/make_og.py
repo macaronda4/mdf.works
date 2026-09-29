@@ -201,3 +201,7 @@ card(o("mail.png"), "Security",
 card(o("router.png"), "Gadget",
      "Wi-Fiが遅いのは\n置き場所かもしれない",
      "買い替える前に確かめること")
+
+card(o("share.png"), "Privacy",
+     "画面共有の前に\n閉じるもの",
+     "生放送は撮り直せない")
