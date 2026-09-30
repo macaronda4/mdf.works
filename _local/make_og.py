@@ -205,3 +205,7 @@ card(o("router.png"), "Gadget",
 card(o("share.png"), "Privacy",
      "画面共有の前に\n閉じるもの",
      "生放送は撮り直せない")
+
+card(o("download.png"), "Game",
+     "ダウンロードが\n遅いとき",
+     "詰まっているのは回線とは限らない")
