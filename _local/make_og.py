@@ -209,3 +209,7 @@ card(o("share.png"), "Privacy",
 card(o("download.png"), "Game",
      "ダウンロードが\n遅いとき",
      "詰まっているのは回線とは限らない")
+
+card(o("software.png"), "Basics",
+     "危ないのは\nソフトより経路",
+     "同じ名前でも中身が変わる")
