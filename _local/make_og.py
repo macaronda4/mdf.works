@@ -213,3 +213,7 @@ card(o("download.png"), "Game",
 card(o("software.png"), "Basics",
      "危ないのは\nソフトより経路",
      "同じ名前でも中身が変わる")
+
+card(o("a11y.png"), "Development",
+     "マウスを外して\n自分のサイトを触る",
+     "詰まった場所が直すべき場所")

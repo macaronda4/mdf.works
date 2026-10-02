@@ -30,25 +30,25 @@
 <!-- Google AdSense -->
 <script async fetchpriority="low" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8613999974980382"
      crossorigin="anonymous"></script>
-<title>ダークモードは色を反転するのではない｜実装して分かったこと</title>
-<meta name="description" content="ダークモードをサイトに実装した記録。prefers-color-scheme と手動切替を両立させる CSS の三段構え、描画前のちらつきを消す方法、localStorage の例外、色を反転させてはいけない理由をまとめました。">
-<link rel="canonical" href="https://mdf.works/blog/theme">
+<title>マウスを外して自分のサイトを触る｜キーボードだけで詰まる場所</title>
+<meta name="description" content="キーボードだけでサイトを操作すると、アクセシビリティの問題がまとめて見つかります。フォーカスが見えない、順番が飛ぶ、閉じられない、たどり着けない。詰まる場所ごとの原因と直しかたをまとめました。">
+<link rel="canonical" href="https://mdf.works/blog/a11y">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="theme-color" content="#131720">
 <meta name="author" content="マカロン大福">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="mdf.works">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="ダークモードは色を反転するのではない｜実装して分かったこと">
-<meta property="og:description" content="OS に従うだけなら一行。上書きを許した瞬間に三段構えになります。">
-<meta property="og:url" content="https://mdf.works/blog/theme">
-<meta property="og:image" content="https://mdf.works/assets/og/theme.png">
+<meta property="og:title" content="マウスを外して自分のサイトを触る｜キーボードだけで詰まる場所">
+<meta property="og:description" content="マウスを外して最後まで操作する。詰まった場所が直すべき場所です。">
+<meta property="og:url" content="https://mdf.works/blog/a11y">
+<meta property="og:image" content="https://mdf.works/assets/og/a11y.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ダークモードは色を反転するのではない｜実装して分かったこと">
-<meta name="twitter:description" content="OS に従うだけなら一行。上書きを許した瞬間に三段構えになります。">
-<meta name="twitter:image" content="https://mdf.works/assets/og/theme.png">
+<meta name="twitter:title" content="マウスを外して自分のサイトを触る｜キーボードだけで詰まる場所">
+<meta name="twitter:description" content="マウスを外して最後まで操作する。詰まった場所が直すべき場所です。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/a11y.png">
 <meta name="twitter:creator" content="@sugerslp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
 <script type="application/ld+json">
@@ -57,11 +57,11 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "ダークモードは色を反転するのではない — 実装して分かったこと",
-      "description": "prefers-color-scheme と手動切替を両立させる CSS の組み立て、描画前のちらつきの消しかた、配色の作り直しについての実装記録。",
-      "image": "https://mdf.works/assets/og/theme.png",
-      "datePublished": "2026-08-30",
-      "dateModified": "2026-08-30",
+      "headline": "マウスを外して自分のサイトを触る — キーボードだけで詰まる場所",
+      "description": "キーボード操作でウェブサイトを検証したときに見つかる典型的な問題と、その原因と修正方法をまとめた記事。",
+      "image": "https://mdf.works/assets/og/a11y.png",
+      "datePublished": "2026-10-02",
+      "dateModified": "2026-10-02",
       "inLanguage": "ja",
       "articleSection": "開発",
       "author": {
@@ -70,7 +70,7 @@
       "publisher": {
         "@id": "https://mdf.works/#person"
       },
-      "mainEntityOfPage": "https://mdf.works/blog/theme"
+      "mainEntityOfPage": "https://mdf.works/blog/a11y"
     },
     {
       "@type": "Person",
@@ -99,8 +99,8 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "ダークモードは色を反転するのではない",
-          "item": "https://mdf.works/blog/theme"
+          "name": "キーボードだけで詰まる場所",
+          "item": "https://mdf.works/blog/a11y"
         }
       ]
     }
@@ -644,18 +644,18 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
 <main id="main">
   <div class="wrap prose">
 
-    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>ダークモードは色を反転するのではない</p>
+    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>キーボードだけで詰まる場所</p>
 
     <div class="page-head">
       <p class="eyebrow">Development</p>
-      <h1>ダークモードは色を反転するのではない<br>実装して分かったこと</h1>
+      <h1>マウスを外して自分のサイトを触る<br>キーボードだけで詰まる場所</h1>
       <p class="lead">
-        OS の設定に合わせるだけなら CSS 一行で済みます。<strong>利用者が上書きできるようにした瞬間に、話が変わりました。</strong>指定の優先順位、描画前のちらつき、そして配色そのものの作り直し。順に踏んだところを書きます。
+        何から手を付ければいいのか分からない、というのがこの話の最大の障害だと思います。<strong>入口はひとつで足ります。マウスを外して、自分のサイトを最後まで操作してみる。</strong>詰まった場所が、そのまま直すべき場所です。順に見ていきます。
       </p>
       <div class="postmeta">
         <span class="cat">開発</span>
-        <time datetime="2026-08-30">2026年8月30日</time>
-        <span class="read">約4分で読めます</span>
+        <time datetime="2026-10-02">2026年10月2日</time>
+        <span class="read">約7分で読めます</span>
       </div>
     </div>
 
@@ -665,138 +665,219 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
     </nav>
 
     <!-- postbody:start --><div class="postbody">
-    <h2>一行で済む版</h2>
+    <h2>やりかたは、これだけ</h2>
     <p>
-      OS の設定にただ従うだけなら、これで終わりです。
-    </p>
-    <p>
-      端末が暗い配色を望んでいるかどうかは <code>prefers-color-scheme</code> で分かります。
-      色を変数に逃がしておいて、その中でだけ値を差し替えれば、全体の見た目が切り替わります。
-      <strong>ここまでは簡単でした。</strong>
-    </p>
-
-    <h2>上書きを許した瞬間に増える面倒</h2>
-    <p>
-      問題は「OS は暗いけれど、このサイトは明るく読みたい」に応えたくなったときです。
-      切替ボタンを置くと、状態が3つになります。
-    </p>
-    <ol class="steps">
-      <li>
-        <b>何も選んでいない</b>
-        <span>OS の設定に従います。初めて来た人はここにいます。</span>
-      </li>
-      <li>
-        <b>明るいほうを選んだ</b>
-        <span>OS が暗くても、明るく表示します。</span>
-      </li>
-      <li>
-        <b>暗いほうを選んだ</b>
-        <span>OS が明るくても、暗く表示します。</span>
-      </li>
-    </ol>
-    <p>
-      選択は <code>&lt;html&gt;</code> の属性として持たせました。
-      何も選んでいなければ属性そのものが無い、という形です。
-      すると CSS はこう並びます。
+      マウスから手を離します。使うのは4つのキーだけです。
     </p>
     <div class="tablewrap">
       <table>
-        <thead><tr><th scope="col">書く場所</th><th scope="col">受け持つ状態</th></tr></thead>
+        <thead><tr><th scope="col">キー</th><th scope="col">動き</th></tr></thead>
         <tbody>
-          <tr><td>素の <code>:root</code></td><td>明るい配色を、すべての既定値として置く</td></tr>
-          <tr><td>OS が暗いとき、かつ<strong>明るいを選んでいない</strong>とき</td><td>暗い配色に差し替える</td></tr>
-          <tr><td><strong>暗いを選んだ</strong>とき</td><td>暗い配色に差し替える</td></tr>
+          <tr><td>Tab</td><td>次の操作できるものへ移る</td></tr>
+          <tr><td>Shift + Tab</td><td>ひとつ前へ戻る</td></tr>
+          <tr><td>Enter / Space</td><td>押す、選ぶ</td></tr>
+          <tr><td>Esc</td><td>閉じる</td></tr>
         </tbody>
       </table>
     </div>
     <p>
-      真ん中の「かつ、明るいを選んでいないとき」が要ります。
-      これを書き忘れると、<strong>OS が暗い人が明るいほうを選んでも暗いまま</strong>になります。
-      自分で切り替えたのに何も起きない、といういちばん困る壊れ方をするので、
-      ここは実際に OS 側を暗くして確かめました。
+      この状態で、トップページから記事を開き、検索して、絞り込んで、
+      問い合わせフォームまで行ってみます。
+      <strong>途中で「いま自分がどこにいるか分からなくなった」時点で、そこが問題です。</strong>
     </p>
     <div class="note">
-      暗い配色の中身を2か所に書くことになります。
-      <strong>片方だけ直して、もう片方が古いままになる</strong>のがこの構成の弱点です。
-      色は必ず変数にして、値の定義を1か所ずつに閉じ込めておくと事故が減ります。
+      これは特別な道具の要らない検査です。読み上げソフトを使った確認はもっと深く見られますが、
+      <strong>キーボードだけで通らないものは、読み上げでも通りません</strong>。
+      順番として、まずここを直すほうが効率がよいと思います。
     </div>
 
-    <h2>一瞬だけ明るくなる</h2>
+    <h2>1. いまどこにいるか分からない</h2>
     <p>
-      切替を入れた直後、暗いテーマを選んでいる人の画面で、
-      <strong>読み込みのたびに一瞬だけ白い画面が出る</strong>ようになりました。
+      いちばん多い問題です。Tab を押しても、画面のどこが選ばれているのか見えない。
     </p>
     <p>
-      原因は順番です。選択は保存領域から読み出す必要がありますが、
-      読み出して属性を付けるコードがページの後ろにあると、
-      ブラウザはその前に一度描画を済ませてしまいます。
-      <strong>属性が付く前の状態、つまり既定の明るい配色が、一瞬だけ見えます。</strong>
+      原因はたいてい、<strong>選択中の枠線を消していること</strong>です。
+      この枠は既定で表示されますが、見た目の都合で消されることがよくあります。
+      消すと、マウスを使わない人は現在地を失います。
     </p>
     <p>
-      直しかたは単純で、<strong>保存された選択を読んで属性を付けるだけの短いコードを、
-      本文より前に、同期的に置く</strong>ことです。
-      ここだけは意図的に描画を止めます。数行なので体感には影響しません。
+      かといって、既定の枠が常に出るのも邪魔に感じるかもしれません。
+      そこで、<strong>キーボードで操作しているときだけ枠を出す</strong>指定が用意されています。
+      マウスで押したときには出ず、Tab で移動したときには出る。
+      これを使えば、見た目と操作性の両方が成立します。
     </p>
     <div class="note warn">
-      この場所のコードは<strong>失敗しても止まらないように書いてください</strong>。
-      保存領域は、設定によっては読もうとしただけで例外を投げます。
-      ここで例外が飛ぶと、後続のスクリプトごと巻き添えになります。
-      読み書きは短く囲って、失敗したら「何も選んでいない」として扱えば十分です。
+      枠を消すなら、<strong>必ず別の見え方を用意してください</strong>。
+      背景色を変える、下線を引く、影を付ける。何でも構いませんが、
+      <strong>周囲との違いがはっきり分かる</strong>ことが条件です。
+      薄い色をわずかに変えるだけでは、見えていないのと同じです。
     </div>
 
-    <h2>アドレスバーの色も変わる</h2>
+    <h2>2. 移動の順番が飛ぶ</h2>
     <p>
-      スマートフォンでは、ブラウザの上下の帯にページ側から色を指定できます。
-      切替のときにここも合わせて更新しないと、
-      <strong>本文だけ暗くなって、帯だけ明るいまま</strong>という半端な見た目になります。
-      最初は完全に見落としていて、手元の端末で気づきました。
+      Tab を押したら、画面の下のほうへ飛び、また上に戻ってくる。
+      これは<strong>見た目の並びと、書かれている順番がずれている</strong>ときに起きます。
+    </p>
+    <p>
+      レイアウトの指定で要素の位置を入れ替えると、
+      見た目は変わっても、キーボードの移動順は元のままです。
+      読む順番と移動の順番が食い違うので、混乱します。
+    </p>
+    <p>
+      直しかたは、<strong>見た目のために順番を入れ替えるのをやめる</strong>のがいちばん確実です。
+      どうしても必要なら、書かれている順番のほうを変えます。
+      移動順を数字で強制する指定もありますが、
+      <strong>後から要素を足すたびに破綻する</strong>ので、避けたほうが無難でした。
     </p>
 
-    <h2>そして本題。色は反転させない</h2>
+    <h2>3. 開いたものが閉じられない</h2>
     <p>
-      明るいほうの配色を作ってから、それを反転させて暗いほうにしようとしました。うまくいきません。
+      メニューや確認画面を開いたあと、Esc で閉じられない。
+      あるいは閉じたのに、選択位置がページの先頭に戻ってしまう。
     </p>
-    <h3>黒地に白は、まぶしい</h3>
+    <ol class="steps">
+      <li>
+        <b>Esc で閉じられるようにする</b>
+        <span>開いている間だけキーの入力を見て、Esc なら閉じます。<strong>閉じる手段がボタンだけ</strong>だと、そのボタンまでたどり着けない場合に詰みます。</span>
+      </li>
+      <li>
+        <b>開いている間、後ろに移動できないようにする</b>
+        <span>そのままだと、Tab を押し続けたときに背後のページへ抜けていきます。見えていない場所を操作している状態になり、何が起きているか分かりません。</span>
+      </li>
+      <li>
+        <b>閉じたら、開く前の場所に戻す</b>
+        <span>開いたボタンの位置へ選択を返します。これが無いと、毎回ページの先頭からやり直しになります。</span>
+      </li>
+    </ol>
+
+    <h2>4. そもそもたどり着けない</h2>
     <p>
-      純粋な黒の上に純粋な白を置くと、コントラストが強すぎて文字が滲んで見えます。
-      暗い部屋では特にきつくなります。
-      実際には<strong>背景を少し持ち上げ、文字を少し落とす</strong>ほうが読みやすくなります。
+      Tab を押しても、その要素に止まらない。押せるはずなのに反応しない。
     </p>
-    <h3>影が効かない</h3>
     <p>
-      明るい配色では、影で要素の浮き沈みを表現できます。
-      暗い配色では<strong>影がほとんど見えません</strong>。
-      代わりに、面の明るさそのものを段階にして、奥行きを作り直す必要があります。
-      背景・面・沈んだ面、というように名前を付けた変数にしておくと、両方の配色で同じ意味を保てます。
-    </p>
-    <h3>同じ色が、同じ強さに見えない</h3>
-    <p>
-      アクセントに使っていた濃いオレンジは、暗い背景の上ではくすんで沈みました。
-      暗いほうでは<strong>明度を上げた別の値</strong>を当てています。
-      同じ色名で管理していても、実際の値は両者で違います。
+      原因はほぼ1つで、<strong>ボタンやリンクとして書かれていない</strong>ことです。
+      見た目だけボタンに見せた飾りに、押したときの処理を付けている。
+      マウスでは動きますが、キーボードからは存在しないのと同じです。
     </p>
     <div class="note good">
-      <strong>確かめかた：</strong>
-      文字と背景の組み合わせを全部書き出して、コントラスト比を測ってください。
-      本文・補助的な文字・リンク・ボタンの中の文字・枠線と、意外に数があります。
-      片方の配色だけ基準を満たしていて、もう片方が足りていない、というのがよく起きます。
-      このサイトも一度そうなっていて、あとから配色をまとめて見直しました。
+      <strong>最初からボタンやリンクとして書けば、この問題は起きません。</strong>
+      枠線、押せること、Enter と Space での反応、読み上げでの扱い。
+      これらが最初から付いてきます。
+      飾りに機能を足していくと、<strong>その全部を自分で書き直すことになります</strong>。
+      見た目は指定で変えられるので、機能のほうを捨てる理由はありません。
     </div>
 
-    <h2>入れてよかったか</h2>
+    <h2>5. ヘッダーを何度も通らされる</h2>
     <p>
-      よかったと思っています。ただし、費用は<strong>CSS ではなく確認の手間</strong>のほうに出ます。
-      色を1つ足すたびに、両方の配色で見え方を確かめることになります。
-      最初から変数で作っておくと、この確認がだいぶ楽になります。
+      記事を読むために、毎回ナビゲーションの項目を全部通過する。
+      項目が5つあれば、Tab を5回押してから本文に着きます。
+      ページを移るたびに繰り返すので、かなりの負担になります。
+    </p>
+    <p>
+      これを解決するのが、<strong>いちばん最初に置く「本文へ移動」のリンク</strong>です。
+      普段は見えず、Tab を最初に押したときだけ現れる。
+      押すと本文の先頭へ飛びます。
+    </p>
+    <p>
+      このサイトにも入れてあります。試しに、記事のページを開いて
+      <strong>いきなり Tab を押してみてください</strong>。左上に現れます。
+      数行で書けて、効果がはっきりしている、費用対効果の高い部分です。
+    </p>
+
+    <h2>6. 画像の説明が無い、あるいは多すぎる</h2>
+    <p>
+      キーボード操作では気づきにくいので、ここだけ別に見ます。
+      代替テキストは<strong>「付ければよい」ものではなく、内容によって正解が変わります</strong>。
+    </p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th scope="col">画像の役割</th><th scope="col">書くこと</th></tr></thead>
+        <tbody>
+          <tr><td>情報を伝えている</td><td>その情報を文章で。図なら、図が示している結論を</td></tr>
+          <tr><td>リンクやボタンになっている</td><td>見た目ではなく<strong>押すと何が起きるか</strong></td></tr>
+          <tr><td>装飾でしかない</td><td><strong>空にする。</strong>説明を書くと、意味のないものを読み上げさせることになります</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      よくある失敗が、装飾のアイコンに丁寧な説明を付けてしまうことです。
+      読み上げでは、内容と関係のない語が延々と挟まります。
+      <strong>飾りは飾りだと明示するほうが、読みやすくなります。</strong>
+    </p>
+
+    <h2>直したあとに、もう一度通す</h2>
+    <p>
+      直したつもりで壊れていることがあるので、同じ手順をもう一度なぞります。
+      そのときに、次も見ておくと取りこぼしが減ります。
+    </p>
+    <ul>
+      <li><strong>画面を拡大してみる</strong> — 200%まで拡大しても、文字が切れたり重なったりしないか</li>
+      <li><strong>色だけで区別していないか</strong> — 赤字だけで「必須」を示していると、色の見え方が違う人には伝わりません。記号や文字を添えます</li>
+      <li><strong>動くものを止められるか</strong> — 自動で切り替わる表示は、止める手段が必要です</li>
+      <li><strong>文字と背景の差</strong> — 薄い灰色の補助テキストは、基準を下回りがちです</li>
+    </ul>
+    <div class="note">
+      完璧を目指すと動けなくなります。
+      <strong>まず「最後まで操作できる」を通すこと</strong>だけで、状況はかなり変わります。
+      細かい基準はそのあとで足していけます。
+      このサイトも、最初の一周で見つかった問題を直したところから始めました。
+    </div>
+
+    <h2>読み上げで、もう一段確かめる</h2>
+    <p>
+      キーボードの一周が終わったら、次は読み上げです。
+      <strong>専用のソフトを買う必要はありません。</strong>
+      Windows にも macOS にも標準で入っていて、キー操作ひとつで始められます。
+    </p>
+    <p>
+      全部を聞く必要はありません。<strong>最初の30秒だけ</strong>で、多くのことが分かります。
+      聞くのは次の3点です。
+    </p>
+    <ol class="steps">
+      <li>
+        <b>見出しだけを飛ばして聞く</b>
+        <span>読み上げソフトには、見出しだけをたどる機能があります。<strong>目次のように聞こえるか</strong>を確かめます。見出しが飛び飛びの階層になっていたり、見た目のために大きくしただけの文字が見出し扱いになっていたりすると、ここで分かります。</span>
+      </li>
+      <li>
+        <b>リンクだけを飛ばして聞く</b>
+        <span>同じくリンクだけをたどれます。「こちら」「詳しくはこちら」「続きを読む」が並ぶと、<strong>どれが何のリンクか分かりません</strong>。リンクの文字だけで行き先が想像できるかが基準です。</span>
+      </li>
+      <li>
+        <b>入力欄で何と読まれるか聞く</b>
+        <span>欄の横に書いた説明文が、その欄と結び付いていないことがあります。読み上げでは「編集」としか言われず、何を入れる欄か分かりません。説明と欄を対応づける書き方があるので、そこを直します。</span>
+      </li>
+    </ol>
+    <div class="note">
+      読み上げソフトの操作に慣れる必要はありません。
+      <strong>止め方だけ先に調べておけば十分</strong>です。
+      聞き取れなくても構いません。
+      「何と読まれたか」より<strong>「読まれなかったものがあるか」</strong>のほうが重要で、
+      そちらは慣れていなくても気づけます。
+    </div>
+
+    <h2>作りながら確かめる、いちばん軽い方法</h2>
+    <p>
+      毎回このやり方をするのは大変なので、日常的にはもっと軽い確認で足ります。
+    </p>
+    <ul>
+      <li><strong>検証ツールを1つ通す</strong> — ブラウザの開発者ツールに、問題を機械的に検出する機能が入っています。コントラスト不足、説明の無い画像、対応していない入力欄などが一覧で出ます</li>
+      <li><strong>ただし全部は見つからない</strong> — 機械が判定できるのは、規則に反しているかどうかまでです。<strong>説明が的外れかどうかは判定できません</strong>。空の説明と、間違った説明は、どちらも「あり」と数えられます</li>
+      <li><strong>だから最後は人が触る</strong> — 検証ツールで足切りをして、残りをキーボードと読み上げで確認する。この組み合わせが、手間と効果の釣り合いが取れていました</li>
+    </ul>
+    <p>
+      そして、<strong>直す量が少ないうちに始めるほうが楽</strong>です。
+      ページが増えてからまとめて直すのは骨が折れます。
+      作りはじめの段階で一度通しておくと、以降は同じ書き方を続けるだけで済みます。
     </p>
 
     <h2>まとめ</h2>
     <ul>
-      <li>OS に従うだけなら簡単。<strong>上書きを許すと、指定が三段構えになる</strong></li>
-      <li>「明るいを選んでいないとき」の条件を落とすと、<strong>切り替えても何も起きない</strong></li>
-      <li>描画前に選択を当てないと<strong>一瞬だけ明るい画面が見える</strong></li>
-      <li>保存領域の読み書きは<strong>失敗しても止まらないように</strong>囲う</li>
-      <li>暗い配色は反転ではなく作り直し。<strong>影が効かず、同じ色が同じ強さに見えない</strong></li>
+      <li>入口は<strong>マウスを外して最後まで操作する</strong>こと。詰まった場所が直す場所</li>
+      <li>選択中の枠を消すなら、<strong>別の見え方を必ず用意する</strong></li>
+      <li>見た目のために並び順を入れ替えると、<strong>移動順とずれる</strong></li>
+      <li>開いたものは<strong>Esc で閉じ、元の位置に選択を戻す</strong></li>
+      <li>押せるものは<strong>最初からボタンやリンクとして書く</strong>。飾りに機能を足さない</li>
+      <li>装飾の画像に説明を書かない。<strong>飾りだと明示するほうが読みやすい</strong></li>
     </ul>
 
     </div><!-- postbody:end -->
@@ -804,7 +885,7 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
     <div class="postnav">
       <div class="share">
         <span class="label">この記事を共有</span>
-        <a href="https://x.com/intent/post?text=ダークモードは色を反転するのではない — 実装して分かったこと&amp;url=https://mdf.works/blog/theme" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/intent/post?text=マウスを外して自分のサイトを触る — キーボードだけで詰まる場所&amp;url=https://mdf.works/blog/a11y" target="_blank" rel="noopener noreferrer">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.2-5.8 6.2H1.5l7.5-8.6L1 3h6.7l4.6 5.8L17.5 3zm-1.1 16.2h1.8L7.7 4.7H5.8l10.6 14.5z"/></svg>
           X で共有
         </a>
@@ -812,18 +893,18 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
       </div>
 
       <nav class="pager" aria-label="記事の移動">
-        <a class="prev" href="/blog/wifi"><span class="dir">← 前の記事</span><span class="t">公衆Wi-Fiは危険か — HTTPSが片付けたことと、残っているもの</span></a><a class="next" href="/blog/framerate"><span class="dir">次の記事 →</span><span class="t">144Hzで何が変わるのか — 遅延はどこで積まれているか</span></a>
+        <a class="prev" href="/blog/software"><span class="dir">← 前の記事</span><span class="t">無料ソフトを安全に入れる — 危ないのはソフトより入手経路</span></a>
       </nav>
 
       <h2>ほかの記事</h2>
       <div class="grid cols-2">
       <div class="card">
-        <h3><a href="/blog/a11y" style="text-decoration:none">マウスを外して自分のサイトを触る — キーボードだけで詰まる場所</a></h3>
-        <p>アクセシビリティは大きな話に聞こえますが、入口は簡単です。マウスを外して、自分のサイトを最後まで操作してみる。それだけで壊れている場所が全部出ます。どこで止…</p>
-      </div>
-      <div class="card">
         <h3><a href="/blog/webfont" style="text-decoration:none">文字が一瞬あとから出る — ウェブフォントをやめた話</a></h3>
         <p>読み込み直後に文字が消えている、あるいは別の書体で出てから入れ替わる。どちらも読み込み方の設定です。選べる4つの振る舞い、日本語で容量が桁違いになる理由、分…</p>
+      </div>
+      <div class="card">
+        <h3><a href="/blog/theme" style="text-decoration:none">ダークモードは色を反転するのではない — 実装して分かったこと</a></h3>
+        <p>このサイトにテーマ切替を付けたときの記録です。OS の設定に従うだけでは足りず、利用者の上書きを受け付けると CSS が三段構えになります。描画前の一瞬のち…</p>
       </div>
       </div>
       <div class="btnrow">
