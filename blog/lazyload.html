@@ -30,25 +30,25 @@
 <!-- Google AdSense -->
 <script async fetchpriority="low" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8613999974980382"
      crossorigin="anonymous"></script>
-<title>画像から円を検出する｜ハフ変換だけでは足りなかった話</title>
-<meta name="description" content="スクリーンショットの中の丸いアイコンをブラウザだけで見つける。ハフ変換で候補は出せても、本物かどうかの判定が本当の難所でした。合成画像で16分の1、実写で11分の0まで落ちた原因と、そこから直した4つの手当て。">
-<link rel="canonical" href="https://mdf.works/blog/circle">
+<title>画像が読み込まれると本文が飛ぶ｜遅延読み込みの副作用</title>
+<meta name="description" content="画像の遅延読み込みで本文がずれる理由と直しかたをまとめました。幅と高さを指定する意味、遅延させてはいけない画像の見分け方、広告や埋め込みで起きる同じ問題、そして測りかたまで。">
+<link rel="canonical" href="https://mdf.works/blog/lazyload">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="theme-color" content="#131720">
 <meta name="author" content="マカロン大福">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="mdf.works">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="画像から円を検出する｜ハフ変換だけでは足りなかった話">
-<meta property="og:description" content="候補を出すのは簡単でした。難しかったのは本物かどうかの判定です。">
-<meta property="og:url" content="https://mdf.works/blog/circle">
-<meta property="og:image" content="https://mdf.works/assets/og/circle.png">
+<meta property="og:title" content="画像が読み込まれると本文が飛ぶ｜遅延読み込みの副作用">
+<meta property="og:description" content="押そうとしたリンクが逃げるのは、場所を確保していないからです。">
+<meta property="og:url" content="https://mdf.works/blog/lazyload">
+<meta property="og:image" content="https://mdf.works/assets/og/lazyload.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="画像から円を検出する｜ハフ変換だけでは足りなかった話">
-<meta name="twitter:description" content="候補を出すのは簡単でした。難しかったのは本物かどうかの判定です。">
-<meta name="twitter:image" content="https://mdf.works/assets/og/circle.png">
+<meta name="twitter:title" content="画像が読み込まれると本文が飛ぶ｜遅延読み込みの副作用">
+<meta name="twitter:description" content="押そうとしたリンクが逃げるのは、場所を確保していないからです。">
+<meta name="twitter:image" content="https://mdf.works/assets/og/lazyload.png">
 <meta name="twitter:creator" content="@sugerslp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23131720'/><circle cx='11' cy='12' r='5.5' fill='%23FF8244'/><rect x='4' y='21' width='24' height='5' rx='2.5' fill='%23E7E9EE'/></svg>">
 <script type="application/ld+json">
@@ -57,30 +57,51 @@
   "@graph": [
     {
       "@type": "Article",
-      "headline": "画像から円を検出する — ハフ変換だけでは足りなかった話",
-      "description": "ブラウザだけで丸いアイコンを見つける。候補の生成より、本物かどうかの判定のほうが難しかった記録。",
-      "image": "https://mdf.works/assets/og/circle.png",
-      "datePublished": "2026-08-22",
-      "dateModified": "2026-08-22",
+      "headline": "画像が読み込まれると本文が飛ぶ — 遅延読み込みの副作用",
+      "description": "画像の遅延読み込みによるレイアウトのずれの原因と、寸法指定による対策、遅延させるべきでない画像の判断基準をまとめた記事。",
+      "image": "https://mdf.works/assets/og/lazyload.png",
+      "datePublished": "2026-10-03",
+      "dateModified": "2026-10-03",
       "inLanguage": "ja",
       "articleSection": "開発",
-      "author": { "@id": "https://mdf.works/#person" },
-      "publisher": { "@id": "https://mdf.works/#person" },
-      "mainEntityOfPage": "https://mdf.works/blog/circle"
+      "author": {
+        "@id": "https://mdf.works/#person"
+      },
+      "publisher": {
+        "@id": "https://mdf.works/#person"
+      },
+      "mainEntityOfPage": "https://mdf.works/blog/lazyload"
     },
     {
       "@type": "Person",
       "@id": "https://mdf.works/#person",
       "name": "マカロン大福",
       "url": "https://mdf.works/about",
-      "sameAs": ["https://x.com/sugerslp"]
+      "sameAs": [
+        "https://x.com/sugerslp"
+      ]
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mdf.works/" },
-        { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://mdf.works/blog/" },
-        { "@type": "ListItem", "position": 3, "name": "画像から円を検出する", "item": "https://mdf.works/blog/circle" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://mdf.works/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "ブログ",
+          "item": "https://mdf.works/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "画像が読み込まれると本文が飛ぶ",
+          "item": "https://mdf.works/blog/lazyload"
+        }
       ]
     }
   ]
@@ -623,21 +644,17 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
 <main id="main">
   <div class="wrap prose">
 
-    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>画像から円を検出する</p>
+    <p class="crumb"><a href="/">mdf.works</a><span aria-hidden="true">›</span><a href="/blog/">ブログ</a><span aria-hidden="true">›</span>画像が読み込まれると本文が飛ぶ</p>
 
     <div class="page-head">
       <p class="eyebrow">Development</p>
-      <h1>画像から円を検出する<br>ハフ変換だけでは足りなかった話</h1>
+      <h1>画像が読み込まれると本文が飛ぶ<br>遅延読み込みの副作用</h1>
       <p class="lead">
-        スクリーンショットの中の丸いアイコンを、ブラウザだけで自動的に見つける。
-        <a href="/kuroko/">Kuroko</a> の中核にある処理です。
-        教科書どおりに実装した最初の版は、合成した練習用の画像で
-        <strong>16個中1個</strong>しか見つけられませんでした。
-        候補を出すことは簡単で、<strong>本物かどうかを決めることが難しい</strong>という話をします。
+        スマートフォンで記事を読んでいて、押そうとしたリンクが直前に下へ逃げる。あれは<strong>画像が届いた瞬間に、場所を空けるためにページが押し広げられている</strong>状態です。原因も直しかたもはっきりしていて、しかも数行で済みます。
       </p>
       <div class="postmeta">
         <span class="cat">開発</span>
-        <time datetime="2026-08-22">2026年8月22日</time>
+        <time datetime="2026-10-03">2026年10月3日</time>
         <span class="read">約7分で読めます</span>
       </div>
     </div>
@@ -648,253 +665,213 @@ max-height:calc(100dvh - 110px);overflow-y:auto;
     </nav>
 
     <!-- postbody:start --><div class="postbody">
-    <h2>やりたかったこと</h2>
+    <h2>何が起きているのか</h2>
     <p>
-      チャットのスクリーンショットには、丸いアイコンが縦に並びます。
-      これを自動で見つけて隠したい。制約は2つありました。
-    </p>
-    <ul>
-      <li><strong>画像を外に出さない</strong>。処理はすべてブラウザの中で完結させる。サーバーに送らないことがこのツールの前提です。</li>
-      <li><strong>学習済みモデルを使わない</strong>。数MBのモデルを読み込むと、ページを開いた瞬間に使える手軽さが失われます。</li>
-    </ul>
-    <p>
-      つまり、<strong>古典的な画像処理だけで解く</strong>ということです。
-      幸い「円を見つける」には確立した方法があります。ハフ変換です。
-    </p>
-
-    <h2>ハフ変換：総当たりを賢くやる</h2>
-    <p>
-      素朴に考えると、円を探すには「中心の位置」と「半径」の組み合わせを
-      すべて試すことになります。画像が 1000×1000 で半径が 10〜100 なら、
-      <strong>1000 × 1000 × 90 通り</strong>。これは重すぎます。
+      ブラウザはページを上から組み立てます。
+      そのとき画像がまだ届いていないと、<strong>どれだけの場所を空ければよいか分かりません</strong>。
     </p>
     <p>
-      ハフ変換の発想は逆向きです。<strong>候補を試すのではなく、輪郭の点に投票させます。</strong>
-    </p>
-    <ol class="steps">
-      <li>
-        <b>輪郭を取り出す</b>
-        <span>隣り合うピクセルの明るさの差（勾配）が大きいところが、輪郭です。</span>
-      </li>
-      <li>
-        <b>各点が「中心はこのへんだ」と投票する</b>
-        <span>投票先を集計する配列を用意して、票を足していきます。</span>
-      </li>
-      <li>
-        <b>票が集中した場所が中心</b>
-        <span>円周上の点はすべて同じ点を指すので、そこだけ票が突出します。</span>
-      </li>
-    </ol>
-
-    <h3>勾配の向きを使うと、一気に軽くなる</h3>
-    <p>
-      素朴なハフ変換では、1つの輪郭点が「あり得る中心」すべてに投票します。
-      半径が未知なら、その点を中心とする円全体が投票先です。これでも重い。
+      寸法の指定が無い場合、ブラウザは<strong>高さ0として扱って、いったん詰めて表示します</strong>。
+      あとから画像が届くと、実際の高さぶんだけ場所を空ける必要が生じ、
+      その下にあるものが全部押し下げられます。これがずれの正体です。
     </p>
     <p>
-      ここで使えるのが、<strong>輪郭には向きがある</strong>という性質です。
-      円周上の点では、明るさの変化する方向が<strong>必ず中心を向いています</strong>。
-      だから、その線上だけに投票すればよい。
-    </p>
-    <pre><code>// 勾配（Sobel）の向きに沿って投票する
-const gx = ..., gy = ...;            // その点の勾配
-const len = Math.hypot(gx, gy);
-if (len &lt; EDGE_MIN) continue;        // 弱い輪郭は無視
-
-const ux = gx / len, uy = gy / len;  // 中心を向く単位ベクトル
-for (let r = R_MIN; r &lt;= R_MAX; r++) {
-  // 内側と外側の両方に投票する（明暗どちらの円か分からないため）
-  vote(x - ux * r, y - uy * r);
-  vote(x + ux * r, y + uy * r);
-}</code></pre>
-    <p>
-      投票先が面から線に減るので、計算量が桁で変わります。
-      さらに投票用の配列を<strong>半分の解像度</strong>で持てば、票が集まりやすくなり、
-      メモリも4分の1で済みます。
-    </p>
-    <p>
-      ここまでは順調でした。中心の候補は、実際きれいに出ます。
-    </p>
-
-    <h2>そして、16個中1個</h2>
-    <p>
-      候補が出たら、次は<strong>それぞれが本当に円か</strong>を判定します。
-      最初に書いたのは素直な方法でした。
-    </p>
-    <p>
-      <strong>円周被覆率</strong>。推定した円周上を等間隔にたどり、
-      そこに輪郭がある割合を数える。8割あれば円だろう、と。
-    </p>
-    <p>
-      練習用に作った合成画像（背景の上にアイコンを並べただけのもの）で試したところ、
-      <strong>16個のうち1個しか通りませんでした。</strong>
-      通らなかったのではなく、正確には<strong>間違ったものが大量に通った</strong>結果、
-      本物が埋もれていました。
+      遅延読み込みは、この現象を<strong>目立たせます</strong>。
+      画面に入りそうになってから取りに行く仕組みなので、
+      <strong>読んでいる最中に、ちょうど見ている場所の近くで</strong>読み込みが起きるからです。
+      最初にまとめて読み込んでいた頃は、ずれが起きるのも最初だけでした。
     </p>
     <div class="note">
-      <strong>原因はこうでした。</strong>
-      被覆率は「円周上に輪郭があるか」しか見ていません。
-      ところが文字が詰まった領域は、<strong>どこを通っても輪郭にぶつかります</strong>。
-      半径をいろいろ変えれば、そのうちどれかが高得点を出す。
-      <strong>「輪郭が多い場所」を「円」と取り違えていた</strong>わけです。
+      遅延読み込みが悪いわけではありません。
+      最初に取りに行く量が減るので、表示が始まるまでは確実に速くなります。
+      問題は<strong>遅延させたことではなく、場所を確保していないこと</strong>のほうです。
+      2つは独立していて、両方やれば速くてずれません。
     </div>
 
-    <h3>手当て1：外側が静かであることも要求する</h3>
+    <h2>直しかたは、幅と高さを書くだけ</h2>
     <p>
-      本物のアイコンには、被覆率だけでは表せない特徴があります。
-      <strong>円の外側が平坦</strong>で、しかも<strong>境界をまたぐと色が段差状に変わる</strong>ことです。
-      これを別の得点として計算し、2つを組み合わせました。
-    </p>
-    <pre><code>// 円周の被覆率と、外周の「静かさ＋段差」を別々に測り
-// <b>低いほうを採用する</b>（両方を満たすものだけが残る）
-const score = Math.min(coverage, ringScore);</code></pre>
-    <p>
-      平均ではなく <strong>min</strong> にしたのが要点です。
-      平均だと、片方が突出していればもう片方の低さを埋めてしまいます。
-      文字だらけの領域は被覆率こそ高くても、外周が静かではないので落ちる。
-      <strong>2つの独立した条件を同時に要求すると、偽物は急に通らなくなります。</strong>
+      画像に元の寸法を書きます。それだけです。
     </p>
     <p>
-      これで合成画像は 16 個すべて検出できるようになりました。
-      問題は、ここからでした。
-    </p>
-
-    <h2>実際のスクリーンショットで、11個中0個</h2>
-    <p>
-      手元の実際のスマートフォンのスクリーンショットに掛けたところ、
-      <strong>1個も見つかりませんでした</strong>。合成画像で満点なのにです。
+      「幅は画面に合わせて可変にしたいのに、数値を書いていいのか」と思うかもしれません。
+      <strong>書いて構いません。</strong>
+      いまのブラウザは、書かれた幅と高さから<strong>縦横の比率</strong>を計算し、
+      実際の表示幅に合わせて必要な高さを先に確保します。
+      数値そのものではなく、比率のために使われます。
     </p>
     <p>
-      調べていくと、原因は判定そのものではなく、
-      その手前に置いていた<strong>足切りの条件</strong>でした。
-      「候補の周囲とどれだけ差があるか」を測って、差が小さいものを先に捨てていたのです。
-    </p>
-    <p>
-      合成画像では、この値がだいたい 0.45 以上ありました。だから 0.45 を境目にした。
-      ところが実物では <strong>0.25</strong> しかありませんでした。
-      明るいアイコンが、単色に近い背景に載っていたためです。
-    </p>
-    <div class="note warn">
-      <strong>ここが今回いちばんの反省点です。</strong>
-      しきい値の 0.45 は、測って決めた「正しい値」のつもりでした。
-      実際には<strong>自分が作った練習用画像の性質を、そのまま数値にしていただけ</strong>でした。
-      合成データで調整したしきい値は、暗黙の前提ごと固定されます。
-      そして前提が外れていることは、実データを通すまで分かりません。
-    </div>
-    <p>
-      この足切りは廃止し、半径の推定は勾配の分布から求める方式に置き換えました。
-      判定は前述の <code>min(coverage, ring)</code> に一本化しています。
-    </p>
-
-    <h2>そもそも輪郭が無い場合</h2>
-    <p>
-      次に当たったのが、<strong>装飾フレーム</strong>です。
-      アイコンの周りに飾り枠を付けられる機能があり、これが付くと
-      <strong>円の輪郭そのものが存在しません</strong>。
-      探すべき形が無いので、ハフ変換には原理的に見つけられません。
-    </p>
-    <p>
-      ここで方針を変えました。<strong>輪郭を探すのをやめました。</strong>
-    </p>
-    <ol class="steps">
-      <li>
-        <b>背景色を決める</b>
-        <span>その行の帯全体で最も多く出現する色を背景とします。</span>
-      </li>
-      <li>
-        <b>列ごとに、背景でないピクセルの割合を数える</b>
-        <span>アイコンがある列は、上から下まで背景以外で埋まります。</span>
-      </li>
-      <li>
-        <b>その割合が高い列が続く範囲を、横幅とする</b>
-        <span>アイコンの左端と右端が、これで決まります。</span>
-      </li>
-      <li>
-        <b>縦方向にたどって上下端を決める</b>
-        <span>背景の行が2行続いたら、そこで終わりと判断します。</span>
-      </li>
-    </ol>
-    <p>
-      形を仮定しない代わりに、<strong>「背景ではない塊がそこにある」</strong>という
-      弱い事実だけを使います。飾り枠が付いていても、この事実は変わりません。
-    </p>
-
-    <h3>背景色の取りかたで一度壊した</h3>
-    <p>
-      この方式は背景色が命です。最初は左上あたりを参照していました。
-      ところが、そこがちょうど飾り枠の内側に入ってしまい、
-      背景を <code>[227, 240, 253]</code>、つまりほぼ白と判定していました。
-    </p>
-    <p>
-      背景が間違っていると、<strong>そこから先の処理がすべて狂います</strong>。
-      「背景でないピクセル」の定義が壊れるからです。
-      画面の端を1点だけ見るのをやめ、行の帯全体の最頻色を使うようにしました。
-      左右にパネルが分かれた画面でも、背景に濃淡があっても、これなら効きます。
-    </p>
-
-    <h2>動かなかった原因が、2ピクセルだったこと</h2>
-    <p>
-      小さいアイコンだけがどうしても見つからない、という症状が残っていました。
-      判定を緩めても改善しません。
-    </p>
-    <p>
-      原因は、投票用の配列を半分の解像度で持っていたことに対する、
-      <strong>座標の戻しかたの間違い</strong>でした。ずれは2ピクセルです。
-    </p>
-    <pre><code>// 誤り：半分の格子から元の座標に戻すときに 2px ずれていた
-const cx = xx * 2 + 3 - 2;
-
-// 正しい：格子の中心を指す
-const cx = (xx + 1) * 2 + 1;</code></pre>
-    <p>
-      大きいアイコンでは、2ピクセルのずれは判定の誤差に吸収されます。
-      半径 15 ピクセル程度のアイコンでは、吸収されません。
-      <strong>「アルゴリズムが悪い」と思って何時間も式をいじっていた対象が、
-      実際には座標の変換式だった</strong>ということです。
+      したがって、指定するのは<strong>元の画像の実寸</strong>でよく、
+      見た目の大きさと違っていても問題ありません。
+      比率さえ合っていれば、正しく場所が空きます。
     </p>
     <div class="note good">
-      <strong>教訓として残しているもの：</strong>
-      画像処理で結果がおかしいとき、疑う順番は
-      <strong>①座標の対応 ②境界の扱い ③しきい値 ④アルゴリズム</strong>。
-      この順です。実感として、上の2つが原因であることのほうが多いです。
+      <strong>これは古い書き方ではありません。</strong>
+      かつては見た目をCSSで制御するために寸法属性を書かない流儀がありましたが、
+      比率の計算に使われるようになってから、意味が変わりました。
+      いまは<strong>書くほうが正しい</strong>と考えて差し支えありません。
     </div>
 
-    <h2>最終的な結果</h2>
+    <h2>遅延させてはいけない画像</h2>
     <p>
-      同じ画像を Python に移植して、正解を数えながら詰めました。
-      ブラウザ上でログを見るより、はるかに速く回せます。
+      すべてを遅延させると、逆効果になる場所があります。
+      <strong>最初の画面に見えている画像</strong>です。
+    </p>
+    <p>
+      遅延読み込みは「画面に入りそうかどうか」を判断してから取りに行くので、
+      その判断のぶんだけ開始が遅れます。
+      最初から見えている画像にこれを付けると、
+      <strong>一番目立つ場所の表示が、わざわざ遅くなります</strong>。
     </p>
     <div class="tablewrap">
       <table>
-        <thead><tr><th scope="col">対象</th><th scope="col">最初の版</th><th scope="col">最終</th></tr></thead>
+        <thead><tr><th scope="col">画像の位置</th><th scope="col">扱い</th></tr></thead>
         <tbody>
-          <tr><td>合成画像（明・暗・JPEG・縮小の4種）</td><td>16個中1個</td><td><strong>すべて検出</strong></td></tr>
-          <tr><td>スマートフォンのスクリーンショット</td><td>11個中0個</td><td><strong>11個中11個</strong></td></tr>
-          <tr><td>返信プレビューを含む画面</td><td>—</td><td><strong>8個中8個</strong>（返信2件の判別も含む）</td></tr>
+          <tr><td>最初の画面に見えている</td><td>遅延させない。むしろ<strong>優先して取りに行かせる</strong></td></tr>
+          <tr><td>少しスクロールすれば見える</td><td>遅延させない。すぐ必要になります</td></tr>
+          <tr><td>ずっと下のほう</td><td>遅延させる。ここが本来の対象</td></tr>
         </tbody>
       </table>
     </div>
+    <p>
+      境目の判断が難しければ、<strong>最初の1枚だけ遅延から外す</strong>ところから始めれば十分です。
+      記事のトップにある図や、商品ページの主画像がそれにあたります。
+    </p>
 
-    <h2>この作業から持ち帰ったこと</h2>
+    <h2>同じことが、画像以外でも起きる</h2>
+    <p>
+      ずれの原因は画像だけではありません。<strong>あとから現れるもの全部</strong>が同じ問題を起こします。
+    </p>
     <ul>
-      <li><strong>見つけることより、確かめることのほうが難しい。</strong>候補の生成は教科書どおりで足ります。手間の大半は、偽物を落とす側に掛かりました。</li>
-      <li><strong>独立した2つの条件の min を取ると、偽物が急に落ちる。</strong>1つの指標を厳しくするより効きます。</li>
-      <li><strong>合成データで決めたしきい値は、前提ごと固定される。</strong>実データを通すまで、その前提には気づけません。</li>
-      <li><strong>探している形が無いなら、形を探すのをやめる。</strong>より弱い、しかし壊れにくい事実に乗り換えるほうが確実です。</li>
-      <li><strong>まず座標を疑う。</strong>2ピクセルで結果は変わります。</li>
+      <li><strong>広告</strong> — 読み込まれた瞬間に枠が広がります。<strong>場所をあらかじめ空けておく</strong>のが対策です。空けた場所が余っても、ずれるよりは害が小さい</li>
+      <li><strong>動画や地図の埋め込み</strong> — 外部から読み込む部品も、届くまで大きさが決まりません</li>
+      <li><strong>あとから差し込む通知やお知らせ</strong> — ページの上部に挿入すると、その下の全部が動きます。<strong>上に足すのは、いちばん影響が大きい</strong>操作です</li>
+      <li><strong>書体</strong> — 文字の入れ替わりで行数が変わると、同じようにずれます</li>
+    </ul>
+    <div class="note warn">
+      上部に何かを差し込むなら、<strong>最初から場所を確保しておくか、画面に重ねる形にしてください。</strong>
+      読んでいる途中で本文が下に動くのは、体験としてかなり悪い部類に入ります。
+      誤操作の原因にもなります。
+    </div>
+
+    <h2>測りかた</h2>
+    <p>
+      この問題は<strong>数値として現れます</strong>。表示が確定したあとに要素が動いた量が、
+      ページの品質指標のひとつとして測られています。
+    </p>
+    <ol class="steps">
+      <li>
+        <b>回線を絞って開く</b>
+        <span>手元の速い回線では、画像が一瞬で届くのでずれが見えません。開発者ツールの回線制限を使うと、実際の環境に近い動きが再現できます。</span>
+      </li>
+      <li>
+        <b>ゆっくりスクロールする</b>
+        <span>一気に下まで送ると、ずれた瞬間を見逃します。読むときと同じ速さで下げていくと、遅延読み込みの発火と、その直後のずれが見えます。</span>
+      </li>
+      <li>
+        <b>動いた要素を特定する</b>
+        <span>計測の機能を使うと、どの要素がどれだけ動いたかが分かります。原因が画像なのか広告なのか書体なのかは、ここで切り分けられます。</span>
+      </li>
+      <li>
+        <b>スマートフォンの幅で見る</b>
+        <span>画面が狭いほど、1枚の画像が占める高さの割合が大きくなります。<strong>ずれの影響も大きい</strong>ので、確認は狭い幅で行います。</span>
+      </li>
+    </ol>
+
+    <h2>ついでに効く、画像まわりの手当て</h2>
+    <p>
+      同じ場所を触るなら、まとめてやっておくと後が楽です。
+    </p>
+    <ul>
+      <li><strong>画面幅ごとに別の大きさを用意する</strong> — スマートフォンに2000ピクセルの画像を送る必要はありません。指定の書き方で、幅に応じた1枚を選ばせられます</li>
+      <li><strong>形式を選ぶ</strong> — 写真とスクリーンショットでは適した形式が違います。<a href="/blog/imageformat">画像形式の選び方</a>にまとめました</li>
+      <li><strong>装飾の画像には説明を書かない</strong> — 読み上げの妨げになります</li>
+      <li><strong>拡大しても壊れないか見る</strong> — 図の中の文字が読めるかどうかは、拡大して初めて分かります</li>
+    </ul>
+
+    <h2>優先順位を明示する</h2>
+    <p>
+      遅延させないことと、<strong>先に取りに行かせること</strong>は別の話です。
+      何も指定しなければ、ブラウザは自分の判断で順番を決めます。
+      たいていは妥当ですが、<strong>本当に大事な1枚を知っているのは作った側</strong>です。
+    </p>
+    <p>
+      そこで、優先度を指定する仕組みが用意されています。
+      記事のトップにある1枚や、商品ページの主画像に付けると、
+      他の資源より先に取得が始まります。
+    </p>
+    <div class="note warn">
+      <strong>全部に付けると意味がありません。</strong>
+      優先度とは相対的なもので、全員が最優先なら順番は変わりません。
+      むしろ、本来早く欲しかったスタイルシートやスクリプトが後回しになり、
+      <strong>付ける前より遅くなる</strong>ことすらあります。
+      付けるのは<strong>1ページに1つか2つ</strong>までと決めておくのが安全です。
+    </div>
+
+    <h2>そもそも軽くする</h2>
+    <p>
+      読み込む順番を工夫する前に、<strong>送る量を減らす</strong>ほうが効きます。
+      順番の調整は数百ミリ秒の話ですが、量の削減は桁で効くことがあります。
+    </p>
+    <ol class="steps">
+      <li>
+        <b>実際に表示される大きさに合わせる</b>
+        <span>横600ピクセルで表示する場所に、横3000ピクセルの画像を置いていることがあります。高精細な画面のために2倍程度は用意する価値がありますが、<strong>5倍は無駄</strong>です。まず、いま何ピクセルの画像を送っているかを確認します。</span>
+      </li>
+      <li>
+        <b>画面幅ごとに用意する</b>
+        <span>スマートフォンと大画面に、同じ1枚を送る必要はありません。複数の候補を並べて書いておくと、ブラウザが幅に合ったものを選びます。<strong>回線が細い環境ほど効果が大きい</strong>部分です。</span>
+      </li>
+      <li>
+        <b>形式を見直す</b>
+        <span>写真とスクリーンショットでは適した形式が違い、選び方で数倍変わります。詳しくは<a href="/blog/imageformat">画像形式の選び方</a>にまとめました。</span>
+      </li>
+      <li>
+        <b>そもそも要るかを考える</b>
+        <span>意味を持たない装飾の画像は、削るのがいちばん速い最適化です。<strong>読み込まないものは、必ず速い。</strong></span>
+      </li>
+    </ol>
+
+    <h2>効果を確かめる順番</h2>
+    <p>
+      手を入れたら、必ず前後で比べます。感覚で判断すると、
+      <strong>やった作業のぶんだけ速くなった気がします</strong>。
+    </p>
+    <ul>
+      <li><strong>同じ条件で測る</strong> — 回線の設定、端末の状態、キャッシュの有無を揃えます。1回ずつでは揺れるので、数回測って中央値を見ます</li>
+      <li><strong>2つの数字を分けて見る</strong> — 「最初に何かが表示されるまで」と「ずれた量」は別です。前者は読み込みの順番、後者は場所の確保で改善します</li>
+      <li><strong>実際の利用者の数字も見る</strong> — 手元での計測と、実際の環境での数字はずれます。回線も端末も違うからです</li>
     </ul>
     <p>
-      実際の動きは <a href="/kuroko/tool">ツール</a> で確認できます。
-      画像はブラウザから出ないので、手元のスクリーンショットでそのまま試せます。
-      うまく検出されない画像があれば、<a href="/contact">お問い合わせ</a>から教えてください。
+      このサイトでも、CSS をページに直接埋め込んだり、
+      解析の読み込みを後回しにしたりといった調整を重ねてきました。
+      <strong>どれも単体では小さな効果</strong>ですが、
+      測りながら積んでいくと、体感が変わる地点に届きます。
     </p>
+
+    <div class="note good">
+      順番として、<strong>まず場所を確保し、次に量を減らし、最後に順番を調整する</strong>のが効率的でした。
+      場所の確保は数行で終わり、効果がはっきり出ます。
+      量の削減はその次に大きく、順番の調整はいちばん細かい仕上げです。
+      逆から手を付けると、手間の割に数字が動きません。
+      そして<strong>場所の確保だけは、速度と無関係に常にやる価値があります</strong>。
+      回線がどれだけ速くても、寸法を書いていなければ一瞬はずれるからです。
+    </div>
+
+    <h2>まとめ</h2>
+    <ul>
+      <li>ずれの原因は遅延ではなく<strong>場所を確保していないこと</strong></li>
+      <li>幅と高さを書けば直る。数値は<strong>比率のために使われる</strong>ので実寸でよい</li>
+      <li><strong>最初の画面に見えている画像は遅延させない</strong>。むしろ優先させる</li>
+      <li>広告・埋め込み・上部への差し込みも<strong>同じ問題</strong>を起こす</li>
+      <li>確認は<strong>回線を絞って、狭い幅で、ゆっくり</strong>スクロールする</li>
+    </ul>
 
     </div><!-- postbody:end -->
     <!-- postnav:start -->
     <div class="postnav">
       <div class="share">
         <span class="label">この記事を共有</span>
-        <a href="https://x.com/intent/post?text=画像から円を検出する — ハフ変換だけでは足りなかった話&amp;url=https://mdf.works/blog/circle" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/intent/post?text=画像が読み込まれると本文が飛ぶ — 遅延読み込みの副作用&amp;url=https://mdf.works/blog/lazyload" target="_blank" rel="noopener noreferrer">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.2-5.8 6.2H1.5l7.5-8.6L1 3h6.7l4.6 5.8L17.5 3zm-1.1 16.2h1.8L7.7 4.7H5.8l10.6 14.5z"/></svg>
           X で共有
         </a>
@@ -902,18 +879,18 @@ const cx = (xx + 1) * 2 + 1;</code></pre>
       </div>
 
       <nav class="pager" aria-label="記事の移動">
-        <a class="prev" href="/blog/extension"><span class="dir">← 前の記事</span><span class="t">拡張機能の権限の見かた — 「すべてのサイトのデータを読み取る」とは何か</span></a><a class="next" href="/blog/qr"><span class="dir">次の記事 →</span><span class="t">QRコードは中身が見えない — 貼り替え詐欺と、読み取る前の確認</span></a>
+        <a class="prev" href="/blog/a11y"><span class="dir">← 前の記事</span><span class="t">マウスを外して自分のサイトを触る — キーボードだけで詰まる場所</span></a>
       </nav>
 
       <h2>ほかの記事</h2>
       <div class="grid cols-2">
       <div class="card">
-        <h3><a href="/blog/lazyload" style="text-decoration:none">画像が読み込まれると本文が飛ぶ — 遅延読み込みの副作用</a></h3>
-        <p>読んでいる途中で文章が下にずれる。原因は画像の遅延読み込みと、場所を確保していないことの組み合わせです。なぜずれるのか、幅と高さを書くだけで直る理由、遅延さ…</p>
-      </div>
-      <div class="card">
         <h3><a href="/blog/a11y" style="text-decoration:none">マウスを外して自分のサイトを触る — キーボードだけで詰まる場所</a></h3>
         <p>アクセシビリティは大きな話に聞こえますが、入口は簡単です。マウスを外して、自分のサイトを最後まで操作してみる。それだけで壊れている場所が全部出ます。どこで止…</p>
+      </div>
+      <div class="card">
+        <h3><a href="/blog/webfont" style="text-decoration:none">文字が一瞬あとから出る — ウェブフォントをやめた話</a></h3>
+        <p>読み込み直後に文字が消えている、あるいは別の書体で出てから入れ替わる。どちらも読み込み方の設定です。選べる4つの振る舞い、日本語で容量が桁違いになる理由、分…</p>
       </div>
       </div>
       <div class="btnrow">

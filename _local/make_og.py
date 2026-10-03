@@ -217,3 +217,7 @@ card(o("software.png"), "Basics",
 card(o("a11y.png"), "Development",
      "マウスを外して\n自分のサイトを触る",
      "詰まった場所が直すべき場所")
+
+card(o("lazyload.png"), "Development",
+     "画像が届くと\n本文が飛ぶ",
+     "場所を確保していないから")
