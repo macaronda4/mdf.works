@@ -221,3 +221,7 @@ card(o("a11y.png"), "Development",
 card(o("lazyload.png"), "Development",
      "画像が届くと\n本文が飛ぶ",
      "場所を確保していないから")
+
+card(o("ogp.png"), "Development",
+     "共有したら\n古い画像が出た",
+     "控えは相手側にもある")
