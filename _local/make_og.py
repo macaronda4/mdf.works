@@ -225,3 +225,7 @@ card(o("lazyload.png"), "Development",
 card(o("ogp.png"), "Development",
      "共有したら\n古い画像が出た",
      "控えは相手側にもある")
+
+card(o("translate.png"), "Browser",
+     "ブラウザの翻訳は\nどこで動くのか",
+     "端末の中か、外か")
