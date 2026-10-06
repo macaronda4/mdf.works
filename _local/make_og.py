@@ -229,3 +229,7 @@ card(o("ogp.png"), "Development",
 card(o("translate.png"), "Browser",
      "ブラウザの翻訳は\nどこで動くのか",
      "端末の中か、外か")
+
+card(o("sync.png"), "Browser",
+     "同期は何を\n預けているのか",
+     "便利さの内訳を見る")
