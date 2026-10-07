@@ -233,3 +233,7 @@ card(o("translate.png"), "Browser",
 card(o("sync.png"), "Browser",
      "同期は何を\n預けているのか",
      "便利さの内訳を見る")
+
+card(o("filename.png"), "Basics",
+     "ファイル名で\n困らないために",
+     "化ける・開けない・入らない")
