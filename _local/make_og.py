@@ -237,3 +237,7 @@ card(o("sync.png"), "Browser",
 card(o("filename.png"), "Basics",
      "ファイル名で\n困らないために",
      "化ける・開けない・入らない")
+
+card(o("storage.png"), "Basics",
+     "空き容量が\n足りないとき",
+     "何が食べているかを先に見る")
