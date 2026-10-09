@@ -241,3 +241,7 @@ card(o("filename.png"), "Basics",
 card(o("storage.png"), "Basics",
      "空き容量が\n足りないとき",
      "何が食べているかを先に見る")
+
+card(o("scam.png"), "Security",
+     "画面の警告は\nただのページ",
+     "感染していない、と言える理由")
