@@ -245,3 +245,7 @@ card(o("storage.png"), "Basics",
 card(o("scam.png"), "Security",
      "画面の警告は\nただのページ",
      "感染していない、と言える理由")
+
+card(o("update.png"), "Security",
+     "「あとで」を\n押し続けると",
+     "直された直後がいちばん危ない")
