@@ -249,3 +249,7 @@ card(o("scam.png"), "Security",
 card(o("update.png"), "Security",
      "「あとで」を\n押し続けると",
      "直された直後がいちばん危ない")
+
+card(o("monitor.png"), "Gadget",
+     "モニタは大きさより\n文字の細かさ",
+     "効くのは掛け算ではなく割り算")
