@@ -253,3 +253,7 @@ card(o("update.png"), "Security",
 card(o("monitor.png"), "Gadget",
      "モニタは大きさより\n文字の細かさ",
      "効くのは掛け算ではなく割り算")
+
+card(o("keyboard.png"), "Gadget",
+     "キーボードは\n配列で決まる",
+     "押し心地には慣れる")
