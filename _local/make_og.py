@@ -257,3 +257,7 @@ card(o("monitor.png"), "Gadget",
 card(o("keyboard.png"), "Gadget",
      "キーボードは\n配列で決まる",
      "押し心地には慣れる")
+
+card(o("controller.png"), "Game",
+     "コントローラーの\n反応が鈍い",
+     "接続方式とドリフト")
