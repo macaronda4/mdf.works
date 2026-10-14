@@ -261,3 +261,7 @@ card(o("keyboard.png"), "Gadget",
 card(o("controller.png"), "Game",
      "コントローラーの\n反応が鈍い",
      "接続方式とドリフト")
+
+card(o("save.png"), "Game",
+     "セーブデータは\nどこにあるのか",
+     "同期は失わない仕組みではない")
