@@ -269,3 +269,7 @@ card(o("save.png"), "Game",
 card(o("location.png"), "Privacy",
      "位置情報は\n誰に渡っているのか",
      "絞れる部分と、残る部分")
+
+card(o("voice.png"), "Privacy",
+     "常に聞いて\nいるのか",
+     "聞くことと記録することは別")
