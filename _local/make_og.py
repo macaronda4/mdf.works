@@ -273,3 +273,7 @@ card(o("location.png"), "Privacy",
 card(o("voice.png"), "Privacy",
      "常に聞いて\nいるのか",
      "聞くことと記録することは別")
+
+card(o("print.png"), "Privacy",
+     "印刷した紙から\n漏れるもの",
+     "機械の中にも残っている")
